@@ -7,6 +7,8 @@ const _ = require('lodash');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+const FacebookStrategy  =     require('passport-facebook').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const prompt = require('prompt-sync')({sigint: true});
 
@@ -55,6 +57,12 @@ const userSchema = new mongoose.Schema({
         data: Buffer,
         contentType: String
     },
+    followers: [
+      String
+    ],
+    following: [
+      String
+    ],
   questions:   [
     {
         quetion: String,
@@ -100,9 +108,32 @@ User.findById(id,function(err,user){
 });
 });
 
-app.get("/login", function(req, res){
-res.send("fail");
-});
+passport.use(new GoogleStrategy({
+    clientID: "127381979551-elbiv23larqi9m5tns5mccg8u53iksqk.apps.googleusercontent.com",
+    clientSecret: "vYul7iD6YQpKIJ_vFSdNyqsZ",
+    callbackURL: "http://localhost:3001/auth/google/quora",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // console.log(profile);
+    User.findOrCreate({ username: profile.emails[0].value,googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+
+app.get("/auth/google",
+  passport.authenticate("google",{scope : ['profile',"email"]})
+);
+
+app.get("/auth/google/quora",
+passport.authenticate("google",{failureRedirect : "login"}),
+function(req, res){
+  res.redirect('/');
+}
+);
+
 
 app.post("/login", function(req, res) {
   const newUser = new User({

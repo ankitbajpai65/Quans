@@ -23,16 +23,20 @@
                 </span>
                 <input type="email" placeholder="Enter Email" name="username" required>
                 <input type="password" placeholder="Enter Password" name="password" required>
-                <div class="col-sm">
-                  <button type="submit" name="button"><i class="fab fa-google"></i></button>
-                  <button type="submit" name="button"><i class="fab fa-facebook-f"></i></button>
-                </div>
                 <div id="btnSpan">
                     <button type="submit" formaction="/login" formmethod="post"class="formBtn">Sign In</button>
                     <button type="submit"  class="formBtn" id="signupBtn">Sign Up</button>
                 </div>
-                <a href="#" id="formText">Forget password?</a>
+                <a href="/" id="formText">Forget password?</a>
             </form>
+            <div class="col-sm">
+              <form  action="/auth/google" method="get">
+                <button type="submit"name="button"><i class="fab fa-google"></i></button>
+              </form>
+              <formaction="/auth/facebook" method="get">
+                <button type="submit" name="button"><i class="fab fa-facebook-f"></i></button>
+              </form>
+            </div>
         </div>
     </section>
     <section id="signupSec">
