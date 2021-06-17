@@ -1,0 +1,348 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Saira', sans-serif;
+}
+/* html{
+    font-size: 70%;
+} */
+#navSec{
+    /* border:2px solid red; */
+    background-color: black;
+    position:sticky;
+    top:0px;
+    z-index:2;
+}
+#navbar{
+    /* border:2px solid red; */
+    padding:1rem;
+    display: flex;
+    align-items: center;
+}
+#title{
+    /* border: 2px solid green; */
+    color: rgb(255, 212, 71);
+    font-size: 1.5rem;
+}
+#list-1{
+    /* border:2px solid rgb(148, 62, 62); */
+    width:40rem;
+    margin-left:10rem;
+}
+.item{
+    /* border: 2px solid green; */
+    display: inline-block;
+    margin:0rem 2.8rem;
+}
+.item a{
+    list-style: none;
+    text-decoration: none;
+    color:rgb(252, 252, 252);
+    font-size: 1.2rem;
+    opacity:0.8;
+}
+.item a:hover{
+    opacity:1;
+}
+#list-2{
+    /* border:2px solid red; */
+    position:absolute;
+    right:2px;
+    display: flex;
+    align-items: center;
+    width:15rem;
+}
+#searchBar{
+    width:15rem;
+    padding:0.5rem;
+    margin:0.1rem;
+    border-radius:4rem;
+    text-align: center;
+    font-size: 0.9rem;
+    outline: none;
+    display: none;
+}
+#list-2 img{
+    /* border: 2px solid rgb(45, 0, 128); */
+    filter:invert(100%);
+    height:1.6rem;
+    margin-right:2rem;
+    cursor:pointer;
+}
+.navBtn{
+    width: 10rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor:pointer;
+}
+.navBtn:hover{
+    background-color:transparent;
+    border: 2px solid white;
+    color: white;
+
+}
+
+/* Login Section  */
+
+  /* The popup form - hidden by default */
+  .form-popup {
+    /* border: 3px solid #ff3131; */
+    display: none;
+    height:fit-content;
+    position: fixed;
+    top: 8rem;
+    right: 30rem;
+    z-index: 2;
+    opacity:1;
+  }
+  .form-container {
+    /* border: 3px solid #5731ff; */
+    max-width: 28rem;
+    height: 27rem;
+    padding: 10px;
+    padding-top: 5rem;
+    border-radius: 2rem;
+    background-color: rgb(34, 32, 32);
+    /* box-shadow: 6px 6px 30px rgb(255 225 159), -6px -6px 30px rgb(255 225 159); */
+  }
+  .form-container input{
+    width: 26rem;
+    padding: 1rem;
+    margin: 5px 0 25px 0;
+    border: none;
+    background: #f1f1f1;
+    font-size: 1rem;
+  }
+  /* When the inputs get focus, do something */
+  .form-container input:focus{
+    /* background-color: #C0C0C0; */
+    outline:#38cbdf;
+    /* border:2px solid rgb(109, 214, 255); */
+  }
+  #btnSpan{
+      margin-top:2rem;
+  }
+  .form-container .formBtn {
+    background-color: #3cdf2e;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius:3rem;
+    width: 100%;
+    margin-bottom:20px;
+    opacity: 0.8;
+    font-size: 1rem;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .formBtn:hover {
+    opacity: 1;
+  }
+  .cancelPop{
+      /* border:2px solid green; */
+      display: inline-block;
+      height: 0.6rem;
+      width: 0.6rem;
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      filter:invert(100%);
+      background-image: url('close.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat: no-repeat;
+      cursor:pointer;
+  }
+  #formText{
+      /* border:2px solid red; */
+      text-decoration: none;
+      text-align: center;
+      display:block;
+      color:white;
+      margin-top: 1.5rem;
+      opacity: 0.8;
+  }
+  #formText:hover{
+    opacity: 1;
+  }
+
+/* Sign up section */
+#signupForm {
+    /* border: 2px solid rgb(218, 60, 60); */
+    background-color: black;
+    height: 29rem;
+    width: 29.5rem;
+    padding-top: 4rem;
+    display: none;
+    position: fixed;
+    top: 8rem;
+    right: 30rem;
+    z-index: 2;
+    opacity:1;
+    border-radius: 2rem;
+     /* box-shadow: 6px 6px 10px rgb(214, 211, 211), -6px -6px 10px rgb(214, 211, 211); */
+}
+#signupForm button {
+    margin-top:2rem;
+}
+
+/* Home section */
+
+#homeSec{
+    /* border: 2px solid red; */
+    height: 36rem;
+    box-shadow: 0px 15px 16px -15px rgb(197, 197, 197);  
+}
+#homeDiv{
+   /* border: 2px solid red; */
+   height: 30rem;
+   margin: 2rem 1rem;
+   padding: 2rem;
+   display:flex;
+   align-items: center;
+   background-image:url('illu3.jpg');
+    background-size:40%;
+    background-position:right;
+    background-repeat: no-repeat;
+}
+#homecontent{
+    /* border: 2px solid red; */
+    height:18rem;
+    width:50rem;
+    text-align: center;
+}
+#homecontent h1{
+    font-size:3.5rem;
+}
+#homecontent p{
+    font-size: 1.4rem;
+    margin: 1rem 0rem;
+    padding: 0rem 2rem;
+    text-align: justify;
+    line-height: 1.8rem;
+}
+.homeBtn{
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: rgb(40, 240, 40);
+    font-size: 1.2rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+}
+.homeBtn:hover{
+    /* background-color: rgb(167, 165, 165); */
+    background-color: transparent;
+    color: rgb(50, 50, 136);
+    border:2px solid rgb(50, 50, 136);
+
+}
+#homeImg{
+    border: 2px solid white;
+    height: 29rem;
+    width: 40rem;
+    margin: 1rem 3rem;
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+#aboutSec{
+    /* border: 2px solid rgb(46, 95, 241); */
+    height:62rem;
+    z-index: 1;
+}
+.aboutDiv{
+    /* border: 2px solid rgb(34, 189, 236); */
+    height: 29rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#aboutImg{
+    /* border: 2px solid rgb(255, 0, 43); */
+    height: 24rem;
+    width: 50rem;
+    margin-left: 3rem;
+    /* background-image:url('about.jpg'); */
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+#about{
+    /* border: 2px solid rgb(37, 65, 20); */
+    height: 23rem;
+    width: 60rem;
+    margin: 0rem 3rem
+}
+#about h1{
+     text-align: center;
+     font-size: 3rem;
+}
+#about p{
+     text-align: justify;
+     font-size: 1.2rem;
+     margin:2rem 0rem;
+     line-height:1.7rem;
+}
+.aboutInfo{
+    /* border: 2px solid rgb(3, 3, 3); */
+    height:20rem;
+    width:20rem;
+}
+.card{
+    /* border: 2px solid black; */
+    width:24rem;
+    height:20rem;
+    background-color: rgb(228, 222, 222);
+}
+.card:hover{
+    transform:scale(1.04);
+}
+.cardImg{
+    /* border: 2px solid black; */
+    width: 24rem;
+    height:15rem;
+    margin-bottom: 1rem;
+}
+#tech{
+    background-image: url('lamp.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+#education{
+    background-image: url('education.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+#sports{
+    background-image: url('sports.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.card-text{
+    text-align: justify;
+    margin:1rem;
+}
+#footer{
+    background-color: rgb(255, 57, 57);
+    height:4rem;
+    background-color: black;
+    font-size:1.2rem;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}

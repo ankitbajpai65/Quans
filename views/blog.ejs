@@ -1,0 +1,108 @@
+<%- include('partials/Header')%>
+    <section id="navSec">
+        <nav id="navbar">
+            <span id="title">Quora</span>
+            <ul id="list-1">
+                <li class="item"><a href=#>Home</a></li>
+                <li class="item"><a href="#aboutSec">About</a></li>
+                <li class="item"><a href=#>Queries</a></li>
+                <li class="item"><a href=#>Contact</a></li>
+            </ul>
+            <ul id="list-2">
+                <input type="text" id="searchBar" placeholder="Search here...">
+                <img src="images/search.png" id="searchBtn">
+                <li><button class="navBtn" onclick="openForm()">Sign In/Register</button></li>
+            </ul>
+        </nav>
+    </section>
+    <section id="loginSec">
+        <div class="form-popup" id="myForm">
+            <form action="/login" method="post" class="form-container">
+                <span onclick="closeForm()">
+                <img src="images/close.png" class="cancelPop" alt="pp">
+                </span>
+                <input type="email" placeholder="Enter Email" name="username" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <div class="col-sm">
+                  <button type="submit" name="button"><i class="fab fa-google"></i></button>
+                  <button type="submit" name="button"><i class="fab fa-facebook-f"></i></button>
+                </div>
+                <div id="btnSpan">
+                    <button type="submit" formaction="/login" formmethod="post"class="formBtn">Sign In</button>
+                    <button type="submit"  class="formBtn" id="signupBtn">Sign Up</button>
+                </div>
+                <a href="#" id="formText">Forget password?</a>
+            </form>
+        </div>
+    </section>
+    <section id="signupSec">
+        <form  action="/register" method="POST" id="signupForm" class="form-container">
+            <span onclick="closeForm()">
+                <img src="images/close.png" class="cancelPop" alt="pp">
+                </span>
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="email" placeholder="Email" name="username" required>
+            <input type="password" placeholder="Password" name="password1" required>
+            <input type="password" placeholder="Confirm password" name="password2" required>
+            <button type="submit" class="formBtn" >Sign Up</button>
+        </form>
+    </section>
+    <section id="homeSec">
+        <div id="homeDiv">
+            <div id="homecontent">
+                <h1>Lorem ipsum dolor sit.</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate exercitationem impedit in ut,
+                    quis laudantium Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sed?
+                </p>
+                <button class="homeBtn">Join For Free</button>
+            </div>
+            <img src="images/illu3.jpg" id="homeImg" alt="questions">
+        </div>
+    </section>
+    <section id="aboutSec">
+        <div class="aboutDiv">
+            <!-- <div id="aboutImg"></div> -->
+            <img src="images/about.jpg" id="aboutImg" alt="about">
+            <div id="about">
+                <h1>About Us</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At et eligendi aut sed, consequatur
+                    assumenda accusamus dicta aliquid expedita? Sequi autem minima repudiandae dolorum provident
+                    laudantium ad, ex rerum doloremque explicabo consequatur! Quia doloremque eligendi amet nostrum
+                    maiores a ex, dolores quasi tempore earum, explicabo magnam deserunt. Repellat, excepturi velit
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam excepturi odio deleniti pariatur est,
+                    cupiditate quaerat iusto corporis quae natus laborum ducimus quas possimus quos, officiis rerum!
+                    Impedit, nostrum laborum?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dolore
+                    qui nulla. Fuga facere earum laboriosam, dolores eos impedit nobis.</p>
+            </div>
+        </div>
+        <div class="aboutDiv">
+            <div class="card">
+                <div class="cardImg">
+                    <img src="images/lamp.jpg" class="cardImg" id="tech" alt="lamp">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardImg">
+                    <img src="images/education.jpg" class="cardImg" id="education" alt="education">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardImg">
+                    <img src="images/sports.jpg" class="cardImg" id="sports" alt="sports">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<%- include('partials/Footer')%>
