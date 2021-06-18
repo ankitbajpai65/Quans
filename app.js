@@ -115,7 +115,8 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-    // console.log(profile);
+    console.log(profile);
+    console.log("tt");
     User.findOrCreate({ username: profile.emails[0].value,googleId: profile.id }, function (err, user) {
       return cb(err, user);
     });
@@ -198,8 +199,17 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+// app.get("/",function(req,res){
+//   // res.render("blog");
+//   res.render("signed");
+// });
 app.get("/",function(req,res){
-  res.render("blog");
+  if(req.isAuthenticated()){
+    res.render("signed");
+  }
+  else{
+    res.render("blog");
+  }
 });
 
 

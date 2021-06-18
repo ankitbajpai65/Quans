@@ -11,9 +11,21 @@
             <ul id="list-2">
                 <input type="text" id="searchBar" placeholder="Search here...">
                 <img src="images/search.png" id="searchImg">
-                <li><button class="navBtn" onclick="openForm()">Sign In/Register</button></li>
+                <button id="askBtn">Ask questions</button>
+                <a href=""><img src="images/user.png" id="profileImg"></a>
             </ul>
         </nav>
+    </section>
+    <section id="quesSec">
+        <span onclick="closeOthers()">
+            <img src="images/close.png" id="remove-othersPop" alt="pp">
+        </span>
+        <div id="quesDiv">
+            <input type="text" placeholder="Type your question here...">
+            <button id="submitQues" onclick="closeOthers">Submit</button>
+        </div>
+
+        </div>
     </section>
     <section id="loginSec">
         <div class="form-popup" id="myForm">
@@ -45,7 +57,6 @@
             <button type="submit" class="formBtn">Sign Up</button>
         </form>
     </section>
-
     <section id="others">
         <span onclick="closeOthers()">
             <img src="images/close.png" id="remove-othersPop" onclick="closeOthers" alt="pp">
@@ -121,12 +132,12 @@
     <section id="contactSec">
         <div id="contactDiv">
             <h1 id="contactHeading">Get In Touch</h1>
-            <form id="contactForm">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <textarea name="" id="" cols="10" rows="5" placeholder="Message"></textarea>
-                <button id="contactForm">Submit</button>
-            </form>
+           <form id="contactForm">
+               <input type="text" placeholder="Name">
+               <input type="email" placeholder="Email">
+               <textarea name="" id="" cols="10" rows="5" placeholder="Message"></textarea>
+               <button id="contactForm">Submit</button>
+           </form>
         </div>
     </section>
     <%- include('partials/Footer')%>

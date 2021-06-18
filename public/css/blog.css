@@ -50,7 +50,7 @@
     right:2px;
     display: flex;
     align-items: center;
-    width:15rem;
+    width:16rem;
 }
 #searchBar{
     width:15rem;
@@ -62,13 +62,39 @@
     outline: none;
     display: none;
 }
-#list-2 img{
+#searchImg{
     /* border: 2px solid rgb(45, 0, 128); */
     filter:invert(100%);
     height:1.6rem;
     margin-right:2rem;
     cursor:pointer;
 }
+#profileImg{
+    /* border: 2px solid rgb(45, 0, 128); */
+    height: 2.5rem;
+    width: 2.5rem;
+    filter:invert(100%);
+    margin-left: 9rem;
+    margin-top: 0.5rem;
+}
+#askBtn{
+    width:9rem;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    right:28%;
+    top: 15%;
+    border-radius: 0.7rem;
+    font-size:1rem;
+    cursor:pointer;
+    border:none;
+}
+#askBtn:hover{
+    background-color: black;
+    color:white;
+    border:2px solid white;
+    padding: 0.43rem 1rem;
+}
+
 .navBtn{
     width: 10rem;
     padding: 0.5rem 1rem;
@@ -101,9 +127,9 @@
   .form-container {
     /* border: 3px solid #5731ff; */
     max-width: 28rem;
-    height: 27rem;
+    height: 31rem;
     padding: 10px;
-    padding-top: 5rem;
+    padding-top: 3rem;
     border-radius: 2rem;
     background-color: rgb(34, 32, 32);
     /* box-shadow: 6px 6px 30px rgb(255 225 159), -6px -6px 30px rgb(255 225 159); */
@@ -125,7 +151,7 @@
   #btnSpan{
       margin-top:2rem;
   }
-  .form-container .formBtn {
+  .formBtn{
     background-color: #3cdf2e;
     color: white;
     padding: 16px 20px;
@@ -142,7 +168,7 @@
   .form-container .formBtn:hover {
     opacity: 1;
   }
-  .cancelPop{
+  .cancelPop,#remove-othersPop{
       /* border:2px solid green; */
       display: inline-block;
       height: 0.6rem;
@@ -163,7 +189,7 @@
       text-align: center;
       display:block;
       color:white;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       opacity: 0.8;
   }
   #formText:hover{
@@ -190,17 +216,117 @@
     margin-top:2rem;
 }
 
+#others{
+    /* border:2px solid red; */
+    height: 25rem;
+    width: 29rem;
+    display: none;
+    position: fixed;
+    background-color: white;
+    box-shadow: 5px 5px 8px rgb(201, 199, 199), -5px -5px 8px rgb(201, 199, 199);
+    top: 10rem;
+    right: 30rem;
+    z-index: 2;
+    opacity:1;
+    border-radius: 2rem;
+}
+#others div{
+    /* border:2px solid red; */
+    height:23rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.other-btn{
+    background-color: white;
+    width: 25rem;
+    padding: 1rem;
+    margin: 1.5rem;
+    border-radius: 2rem;
+    font-size:1.2rem;
+    border: none;
+    box-shadow: 2px 2px 3px rgb(216, 214, 214), -2px -2px 3px grey;
+}
+#google:hover{
+    border:2px solid red;
+    color:red;
+    box-shadow: none;
+}
+#facebook:hover{
+    border:2px solid rgb(44, 118, 255);
+    color:rgb(44, 118, 255);
+    box-shadow: none;
+}
+.other-btn i{
+    margin-right:1rem;
+}
+#remove-othersPop{
+    filter:invert(0%);
+}
+
+/* Ques Section */
+#quesSec{
+     /* border:2px solid red; */
+     height: 15rem;
+     width: 35rem;
+     display: none;
+     position: fixed;
+     background-color: white;
+     box-shadow: 5px 5px 8px rgb(201, 199, 199), -5px -5px 8px rgb(201, 199, 199);
+     top: 10rem;
+     right: 30rem;
+     z-index: 2;
+     opacity:1;
+}
+#quesDiv{
+    /* border:2px solid red; */
+    height:13rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#quesDiv input{
+    padding:1rem;
+    margin:1rem;
+    width:30rem;
+    border-radius:2rem;
+    outline: none;
+    font-size:1.1rem;
+}
+#quesDiv input:focus{
+   /* background-color: rgb(231, 231, 231); */
+   background-color: rgb(194, 253, 255);
+   border:2px solid rgb(0, 195, 255);
+}
+#quesDiv button{
+    padding: 1rem;
+    margin: 1rem;
+    width: 32rem;
+    background-color: rgb(34, 216, 34);
+    border: none;
+    border-radius: 2rem;
+    font-size:1.2rem;
+    opacity:0.8;
+}
+#quesDiv button:hover{
+    opacity:1;
+}
+
 /* Home section */
 
 #homeSec{
     /* border: 2px solid red; */
-    height: 36rem;
+    height: 38.5rem;
     box-shadow: 0px 15px 16px -15px rgb(197, 197, 197);  
 }
 #homeDiv{
-   /* border: 2px solid red; */
-   height: 30rem;
-   margin: 2rem 1rem;
+   /* border: 2px solid rgb(182, 11, 11); */
+   height: 34rem;
+   margin: 0rem 1rem;
    padding: 2rem;
    display:flex;
    align-items: center;
@@ -244,21 +370,24 @@
 
 }
 #homeImg{
-    border: 2px solid white;
-    height: 29rem;
+    /* border: 2px solid rgb(45 0 128); */
+    height: 37rem;
     width: 40rem;
     margin: 1rem 3rem;
-    background-size:cover;
+    /* background-size:cover;
     background-position:center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
+
+/* about section   */
+
 #aboutSec{
     /* border: 2px solid rgb(46, 95, 241); */
     height:62rem;
     z-index: 1;
 }
 .aboutDiv{
-    /* border: 2px solid rgb(34, 189, 236); */
+    /* border: 2px solid rgb(91, 110, 116); */
     height: 29rem;
     margin: 0.5rem;
     padding: 1rem;
@@ -268,17 +397,17 @@
 }
 #aboutImg{
     /* border: 2px solid rgb(255, 0, 43); */
-    height: 24rem;
-    width: 50rem;
-    margin-left: 3rem;
+    height: 30rem;
+    width: 52rem;
+    margin-left:1rem
     /* background-image:url('about.jpg'); */
-    background-size:cover;
+    /* background-size:cover;
     background-position:center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 #about{
     /* border: 2px solid rgb(37, 65, 20); */
-    height: 23rem;
+    height: 26rem;
     width: 60rem;
     margin: 0rem 3rem
 }
@@ -312,28 +441,65 @@
     height:15rem;
     margin-bottom: 1rem;
 }
-#tech{
-    background-image: url('lamp.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat: no-repeat;
-}
-#education{
-    background-image: url('education.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat: no-repeat;
-}
-#sports{
-    background-image: url('sports.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat: no-repeat;
-}
-
 .card-text{
     text-align: justify;
     margin:1rem;
+}
+/* Section abc here */
+#contactSec{
+    /* border:2px solid rgb(161, 146, 161); */
+    background-color: #88ffef;
+    height: 44rem;
+    /* text-align: center; */
+}
+#contactDiv{
+    /* border:2px solid rgb(133, 12, 133); */
+    height: 41rem;
+    text-align: center;
+    padding-top:1rem;
+}
+#contactHeading{
+    font-size:3rem;
+    margin:1.5rem 0rem;
+}
+#contactDiv form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#contactDiv form input{
+    width: 28rem;
+    padding:1rem 2rem;
+    margin:1rem;
+    border-radius:1rem;
+    outline:none;
+    border:none;
+    font-size: 1.2rem;
+}
+#contactDiv form textarea{
+    width: 28rem;
+    padding:1rem 2rem;
+    margin:1rem;
+    border-radius:1.3rem;
+    outline:none;
+    border:none;
+    font-size: 1.2rem;
+}
+#contactDiv form button{
+    width: 32rem;
+    padding:1rem 2rem;
+    margin-top:3rem;
+    border-radius:3rem;
+    border:none;
+    background-color: #3cdf2e;
+    font-size: 1.2rem;
+}
+#contactDiv form button:hover{
+    background-color: transparent;
+    border:3px solid black;
+    color:rgb(0, 0, 0);
+    font-weight: bold;
 }
 #footer{
     background-color: rgb(255, 57, 57);
