@@ -73,12 +73,12 @@ function populateOthers() {
 
 function closeOthers() {
   document.getElementById("others").style.display = "none";
-  // document.getElementById("quesSec").style.display = "none";
   nav.style.opacity = '';
   home.style.opacity = '';
   about.style.opacity = '';
   footer.style.opacity = '';
   document.body.style.overflowY = '';
+  document.getElementById("quesSec").style.display = "none";
 }
 
 // when user signed in 
