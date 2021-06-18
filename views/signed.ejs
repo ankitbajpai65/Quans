@@ -21,8 +21,10 @@
             <img src="images/close.png" id="remove-othersPop" alt="pp">
         </span>
         <div id="quesDiv">
-            <input type="text" placeholder="Type your question here...">
-            <button id="submitQues" onclick="closeOthers">Submit</button>
+            <form  action="/askquestion" method="post">
+              <input type="text" name="question" placeholder="Type your question here...">
+              <button type="submit"id="submitQues" onclick="closeOthers">Submit</button>
+            </form>
         </div>
 
         </div>
@@ -78,7 +80,8 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate exercitationem impedit in ut,
                     quis laudantium Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sed?
                 </p>
-                <button class="homeBtn">Join For Free</button>
+                <%# <button class="homeBtn">Join For Free</button> %>
+                <h1>Welcome <%=name%></h1>
             </div>
             <img src="images/illu3.jpg" id="homeImg" alt="questions">
         </div>
@@ -140,4 +143,4 @@
            </form>
         </div>
     </section>
-    <%- include('partials/Footer')%>
+    <%- include('partials/Footer2')%>

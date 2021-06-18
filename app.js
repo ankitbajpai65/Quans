@@ -65,27 +65,22 @@ const userSchema = new mongoose.Schema({
     ],
   questions:   [
     {
-        quetion: String,
-        like: Boolean,
-        dislike: Boolean,
-        field: [
-            String
-        ],
-        answers:[
-            {
-                answer: String,
-                like: Boolean,
-                dislike: Boolean
-            }
-        ]
+      userId: String
     }
   ]
 });
+
+const questionSchema = new  mongoose.Schema({
+  ques : String,
+  userId: String
+})
+
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
 const User = mongoose.model("Quora", userSchema);
+const User_question = mongoose.model("Question", questionSchema);
 // const user = require('./models/user');
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -154,6 +149,53 @@ app.post("/login", function(req, res) {
 });
 
 
+app.post("/askquestion", function(req,res){
+  if(req.isAuthenticated()){
+    // console.log(req.isAuthenticated());
+    // console.log(req.user._id);
+    const usd = req.user._id;
+     // console.log(req.body.question);
+     const quest = req.body.question;
+     const newUser = new User_question({
+       ques: quest,
+       userId: usd
+     });
+    newUser.save(function(err){
+       if(err){
+         console.log(err);
+       }
+     });
+    // console.log(newUser);
+     const idd = newUser._id;
+     // console.log(idd);
+     User.findById(usd, function(err, user){
+       if(err){
+         console.log(err);
+       }else{
+         if(user){
+           User.updateOne({_id: usd},{$push: {questions: {userId: idd}}},function(err,success){
+             if(err){
+               console.log(err);
+             }else{
+               if(success){
+                 res.send("done");
+               }else{
+                 console.log("fail");
+               }
+             }
+           });
+         }
+       }
+     });
+  }else{
+    res.redirect("/");
+  }
+});
+
+
+
+
+
 app.post("/register", async function(requset, response){
   if(requset.body.password1 == requset.body.password2){
       await  User.findOne({ username: requset.body.username}, async function(err,foundUser){
@@ -199,13 +241,16 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-// app.get("/",function(req,res){
-//   // res.render("blog");
-//   res.render("signed");
-// });
-app.get("/",function(req,res){
+
+app.get("/", async function(req,res){
   if(req.isAuthenticated()){
-    res.render("signed");
+     await User.findById(req.user._id, function(err,user){
+      if(err){
+        console.log(err);
+      }else{
+        res.render("signed",{name: user.detail.FName});
+      }
+    });
   }
   else{
     res.render("blog");
