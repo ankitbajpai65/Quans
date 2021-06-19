@@ -193,7 +193,8 @@ app.post("/askquestion", function(req,res){
                console.log(err);
              }else{
                if(success){
-                 res.send("done");
+                 // res.send("done");
+                 res.redirect("/queries");
                }else{
                  console.log("fail");
                }
@@ -240,6 +241,26 @@ app.post("/userdisliked",function(req,res){
 });
 
 
+app.get("/queries", async function(req,res){
+    await   User_question.find({},'ques').exec(function(err,user){
+      if(err){
+     console.log(err);
+      }else{
+        res.render("profile",{user: user} );
+        // console.log(user);
+      }
+    });
+});
+
+app.get("/question/:id",function(req, res){
+User_question.findById(req.params.id,function(err,user){
+  if(err){
+console.log(err);
+  }else{
+    res.render("profile0",{user:user});
+  }
+});
+});
 
 app.post("/register", async function(requset, response){
   if(requset.body.password1 == requset.body.password2){
@@ -269,7 +290,6 @@ app.post("/register", async function(requset, response){
                 response.send('done');
             }
         })
-        // console.log(result);
     }
   });
         }
