@@ -1,0 +1,38 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Saira', sans-serif;
+}
+#querySec{
+    /* border:2px solid rgba(25, 92, 86, 0.726); */
+    min-height:79.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#queryDiv{
+    /* border:2px solid rgba(255, 50, 50, 0.726); */
+    margin-top: 1rem;
+}
+.quesDiv{
+    /* border:2px solid rgb(97, 42, 97); */
+    height: 3rem;
+    width: 50rem;
+    margin: 0rem;
+    padding: 1rem;
+}
+.quesDiv:hover{
+    box-shadow:3px 3px 6px rgb(226, 225, 225),-3px -3px 6px rgb(226, 225, 225);
+    border-radius:0.5rem;
+}
+.quesDiv a{
+    color:#195FAA;
+    text-decoration: none;
+}
+/* .quesDiv a:hover{
+    text-decoration: underline;
+} */
+/* footer{
+   position: fixed;
+    bottom: 0px;
+} */

@@ -5,7 +5,7 @@
             <ul id="list-1">
                 <li class="item"><a href=#>Home</a></li>
                 <li class="item"><a href="#aboutSec">About</a></li>
-                <li class="item"><a href="/queries">Queries</a></li>
+                <li class="item"><a href=#>Queries</a></li>
                 <li class="item"><a href="#contactSec">Contact</a></li>
             </ul>
             <ul id="list-2">
@@ -22,7 +22,7 @@
         </span>
         <div id="quesDiv">
             <form  action="/askquestion" method="post">
-              <input type="text" name="question" placeholder="Type your question here...">
+              <input type="text" name="question" placeholder="Type your question here..." required>
               <button type="submit"id="submitQues" onclick="closeOthers">Submit</button>
             </form>
         </div>
@@ -81,7 +81,7 @@
                     quis laudantium Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sed?
                 </p>
                 <%# <button class="homeBtn">Join For Free</button> %>
-                <h1>Welcome <%=name%></h1>
+                <span>Welcome <%=name%></span>
             </div>
             <img src="images/illu3.jpg" id="homeImg" alt="questions">
         </div>
@@ -135,11 +135,11 @@
     <section id="contactSec">
         <div id="contactDiv">
             <h1 id="contactHeading">Get In Touch</h1>
-           <form action="/mailing" method="post"id="contactForm">
-               <input type="text" name="user" placeholder="Name">
-               <input type="email" name="mail" placeholder="Email">
-               <textarea name="content" cols="10" rows="5"  placeholder="Message"></textarea>
-               <button type="submit"id="contactForm">Submit</button>
+           <form id="contactForm">
+               <input type="text" placeholder="Name">
+               <input type="email" placeholder="Email">
+               <textarea name="" id="" cols="10" rows="5" placeholder="Message"></textarea>
+               <button id="contactForm">Submit</button>
            </form>
         </div>
     </section>

@@ -15,7 +15,7 @@
 }
 #navbar{
     /* border:2px solid red; */
-    padding:1rem;
+    padding:0.8rem;
     display: flex;
     align-items: center;
 }
@@ -79,7 +79,7 @@
 }
 #askBtn{
     width:9rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     position: absolute;
     right:28%;
     top: 15%;
@@ -320,7 +320,7 @@
 
 #homeSec{
     /* border: 2px solid red; */
-    height: 38.5rem;
+    height: 37rem;
     box-shadow: 0px 15px 16px -15px rgb(197, 197, 197);  
 }
 #homeDiv{
@@ -337,12 +337,20 @@
 }
 #homecontent{
     /* border: 2px solid red; */
-    height:18rem;
+    height:20rem;
     width:50rem;
     text-align: center;
 }
 #homecontent h1{
     font-size:3.5rem;
+}
+#homecontent span{
+    font-size:2.5rem;
+    color:rgb(255, 172, 49);
+    border:2px solid rgb(255, 172, 49);
+    border-radius: 1.5rem;
+    padding: 0.8rem;
+    /* margin-top: 2rem; */
 }
 #homecontent p{
     font-size: 1.4rem;
@@ -371,9 +379,9 @@
 }
 #homeImg{
     /* border: 2px solid rgb(45 0 128); */
-    height: 37rem;
+    height: 34rem;
     width: 40rem;
-    margin: 1rem 3rem;
+    margin: 1rem;
     /* background-size:cover;
     background-position:center;
     background-repeat: no-repeat; */
@@ -510,5 +518,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
