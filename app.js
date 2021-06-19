@@ -235,7 +235,8 @@ app.post("/mailing",function(req,res){
       pass: process.env.PASSWORD
     }
   });
- var maker = "Name: "+req.body.user.toString()+"\n";
+ var maker = "Email: "+ req.body.mail.toString()+"\n";
+ maker+="Name: "+req.body.user.toString()+"\n";
  maker+=req.body.content.toString();
  // console.log(maker);
  console.log(req.body.mail.toString());
