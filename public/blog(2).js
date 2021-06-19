@@ -52,9 +52,6 @@ function populateSignup() {
   document.body.style.overflowY = 'hidden';
 }
 
-// let homeBtn = document.querySelector('.homeBtn');
-// homeBtn.addEventListener('click', populateSignup);
-
 // Others button functioning
 
 let other = document.querySelector('#otherBtn');

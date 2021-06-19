@@ -166,7 +166,6 @@ app.post("/login", function(req, res) {
   });
 });
 
-
 app.post("/askquestion", function(req,res){
   if(req.isAuthenticated()){
     // console.log(req.isAuthenticated());
@@ -230,10 +229,7 @@ app.post("/userliked",function(req,res){
 app.post("/mailing",function(req,res){
   const mail = req.body.mail.toString();
   var transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    requireTLS: true,
+    service: 'Gmail',
     auth: {
       user: process.env.MAIL,
       pass: process.env.PASSWORD
@@ -241,9 +237,10 @@ app.post("/mailing",function(req,res){
   });
  var maker = "Name: "+req.body.user.toString()+"\n";
  maker+=req.body.content.toString();
- console.log(maker);
+ // console.log(maker);
+ console.log(req.body.mail.toString());
   var mailOptions = {
-    from: req.body.mail,
+    from: req.body.mail.toString(),
     to: process.env.MAIL,
     subject: "complain",
     text: maker
@@ -253,7 +250,7 @@ app.post("/mailing",function(req,res){
     if (error) {
       console.log(error);
     } else {
-      res.send("done");
+      res.send("success");
     }
   });
 
@@ -283,7 +280,6 @@ app.get("/queries", async function(req,res){
      console.log(err);
       }else{
         res.render("profile",{user: user} );
-        // console.log(user);
       }
     });
 });
@@ -299,22 +295,21 @@ console.log(err);
 });
 
 app.post("/register", async function(requset, response){
-  if(requset.body.password1 == requset.body.password2){
       await  User.findOne({ username: requset.body.username}, async function(err,foundUser){
     if(err){
       console.log(err);
     }else if(foundUser){
-          response.send("user is already found");
+        response.redirect("/true");
     }else{
       await User.register({
         username: requset.body.username,
         active: false
-      }, requset.body.password1, function(err, user) {
+      }, requset.body.password, function(err, user) {
         if (err) {
           console.log(err);
         } else {
           var authenticate = User.authenticate();
-  authenticate(requset.body.username, requset.body.password1, function(err, result) {
+   authenticate(requset.body.username, requset.body.password, function(err, result) {
     if (err) {
         console.log("no");
     }else{
@@ -323,43 +318,76 @@ app.post("/register", async function(requset, response){
             if(errs){
                 console.log(errs);
             }else{
-                response.send('done');
+              console.log("success");
+              const newUser = new User({
+                username: requset.body.username,
+                password: requset.body.password
+              });
+
+              requset.login(newUser, function(err) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  passport.authenticate("local")(requset, response, function() {
+                    response.redirect("/");
+                  });
+                }
+              });
             }
-        })
+        });
     }
   });
         }
       });
     }
   });
-  }else{
-      response.redirect("/register");
-  }
 });
+
+
 
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
 
-
-app.get("/", async function(req,res){
+app.get("/",  function(req, res){
   if(req.isAuthenticated()){
-     await User.findById(req.user._id, function(err,user){
+     User.findById(req.user._id, function(err,user){
       if(err){
         console.log(err);
       }else{
-        // console.log()
         res.render("signed",{name: user.detail.FName});
       }
     });
   }
   else{
-    res.render("blog");
+    res.redirect("/false");
+  }
+});
+
+app.get("/:id", async function(req,res){
+  // console.log(req.isAuthenticated());
+  if(req.isAuthenticated()){
+     await User.findById(req.user._id, function(err,user){
+      if(err){
+        console.log(err);
+      }else{
+
+        res.render("signed",{name: user.detail.FName});
+      }
+    });
+  }
+  else{
+    if(req.params.id=='true'){
+      res.render("blog",{access: true});
+    }else{
+      res.render("blog",{access: false});
+    }
   }
 });
 
 
 app.listen(3001, function(req, res){
 console.log("up and running");
+// res.redirect("/false");
 });

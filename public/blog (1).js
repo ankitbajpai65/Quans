@@ -1,5 +1,10 @@
 console.log("js file included");
 
+let ele = document.getElementById('getit');
+if(ele){
+  alert("user has already found");
+}
+
 let search = document.getElementById('searchImg');
 search.addEventListener('click', populateSearch);
 var exr = 0;
@@ -14,7 +19,7 @@ function populateSearch() {
   exr++;
 }
 
-// Sign in button 
+// Sign in button
 
 let nav = document.getElementById('navSec');
 let home = document.getElementById('homeSec');
@@ -81,7 +86,7 @@ function closeOthers() {
   document.getElementById("quesSec").style.display = "none";
 }
 
-// when user signed in 
+// when user signed in
 let signin = document.getElementById('signinBtn');
 signin.addEventListener('submit', formLogin);
 function formLogin() {
@@ -89,8 +94,8 @@ function formLogin() {
 }
 
 // Asking question
-let ask = document.getElementById('askBtn');
-ask.addEventListener('click', populateQues);
+// let ask = document.getElementById('askBtn');
+// ask.addEventListener('click', populateQues);
 
 function populateQues() {
   console.log('hehehe');
@@ -98,8 +103,8 @@ function populateQues() {
   document.body.style.overflowY = 'hidden';
 }
 
+
 // document.getElementById('signinBtn').addEventListener('submit',changeBody);
 // function changeBody(){
 //   console.log("submitted");
 //}
-

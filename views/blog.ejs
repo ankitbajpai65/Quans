@@ -1,4 +1,7 @@
 <%- include('partials/Header')%>
+<%if(access===true){%>
+<input type="hidden" value="<%=access%>" id="getit">
+<%}%>
     <section id="navSec">
         <nav id="navbar">
             <span id="title">Quora</span>
@@ -40,7 +43,7 @@
             </span>
             <input type="text" placeholder="Name" name="name" required>
             <input type="email" placeholder="Email" name="username" required>
-            <input type="password" placeholder="Password" name="password1" required>
+            <input type="password" placeholder="Password" name="password" required>
             <input type="password" placeholder="Confirm password" name="password2" required>
             <button type="submit" class="formBtn">Sign Up</button>
         </form>
