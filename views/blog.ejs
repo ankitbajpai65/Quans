@@ -121,11 +121,11 @@
     <section id="contactSec">
         <div id="contactDiv">
             <h1 id="contactHeading">Get In Touch</h1>
-            <form id="contactForm">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <textarea name="" id="" cols="10" rows="5" placeholder="Message"></textarea>
-                <button id="contactForm">Submit</button>
+            <form action="/mailing" method="post"id="contactForm">
+                <input type="text" name="user" placeholder="Name">
+                <input type="email" name="mail" placeholder="Email">
+                <textarea name="content" id="" cols="10" rows="5"  placeholder="Message"></textarea>
+                <button type="submit"id="contactForm">Submit</button>
             </form>
         </div>
     </section>

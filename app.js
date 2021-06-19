@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
@@ -11,6 +12,8 @@ const FacebookStrategy  =     require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const prompt = require('prompt-sync')({sigint: true});
+var nodemailer = require('nodemailer');
+
 
 
 
@@ -223,6 +226,39 @@ app.post("/userliked",function(req,res){
     }
   });
 });
+
+app.post("/mailing",function(req,res){
+  const mail = req.body.mail.toString();
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
+    auth: {
+      user: process.env.MAIL,
+      pass: process.env.PASSWORD
+    }
+  });
+ var maker = "Name: "+req.body.user.toString()+"\n";
+ maker+=req.body.content.toString();
+ console.log(maker);
+  var mailOptions = {
+    from: req.body.mail,
+    to: process.env.MAIL,
+    subject: "complain",
+    text: maker
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      res.send("done");
+    }
+  });
+
+});
+
 
 
 
