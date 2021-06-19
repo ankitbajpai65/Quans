@@ -63,6 +63,12 @@ const userSchema = new mongoose.Schema({
     following: [
       String
     ],
+    liked: [
+        String
+    ],
+    disliked: [
+       String
+    ],
   questions:   [
     {
       userId: String
@@ -72,8 +78,10 @@ const userSchema = new mongoose.Schema({
 
 const questionSchema = new  mongoose.Schema({
   ques : String,
+  liked: Number,
+  disliked: Number,
   userId: String
-})
+});
 
 
 userSchema.plugin(passportLocalMongoose);
@@ -110,9 +118,16 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(profile);
-    console.log("tt");
+    // console.log(profile);
+    // console.log("tt");
     User.findOrCreate({ username: profile.emails[0].value,googleId: profile.id }, function (err, user) {
+      user.detail.FName= profile.name.givenName;
+       user.detail.LName= profile.name.familyName;
+       user.save(function (err){
+         if(err){
+           console.log(err);
+         }
+       });
       return cb(err, user);
     });
   }
@@ -193,6 +208,36 @@ app.post("/askquestion", function(req,res){
 });
 
 
+app.post("/userliked",function(req,res){
+  // User
+  User.updateOne({_id: req.user._id},{$push: {liked: req.body.user}},function(err,success){
+    if(err){
+      console.log(err);
+    }else{
+      if(success){
+        res.send("done");
+      }else{
+        console.log("fail");
+      }
+    }
+  });
+});
+
+
+
+app.post("/userdisliked",function(req,res){
+  User.updateOne({_id: req.user._id},{$push: {disliked: req.body.user}},function(err,success){
+    if(err){
+      console.log(err);
+    }else{
+      if(success){
+        res.send("done");
+      }else{
+        console.log("fail");
+      }
+    }
+  });
+});
 
 
 
@@ -248,6 +293,7 @@ app.get("/", async function(req,res){
       if(err){
         console.log(err);
       }else{
+        // console.log()
         res.render("signed",{name: user.detail.FName});
       }
     });
