@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
@@ -12,7 +12,7 @@ const FacebookStrategy  =     require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const prompt = require('prompt-sync')({sigint: true});
-var nodemailer = require('nodemailer');
+// var nodemailer = require('nodemailer');
 
 
 
@@ -87,11 +87,17 @@ const questionSchema = new  mongoose.Schema({
 });
 
 
+const complainSchema = new mongoose.Schema({
+  complain: String,
+  user: String
+});
+
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
 const User = mongoose.model("Quora", userSchema);
 const User_question = mongoose.model("Question", questionSchema);
+const userComplain = mongoose.model("complain", complainSchema);
 // const user = require('./models/user');
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -227,34 +233,21 @@ app.post("/userliked",function(req,res){
 });
 
 app.post("/mailing",function(req,res){
-  const mail = req.body.mail.toString();
-  var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: process.env.MAIL,
-      pass: process.env.PASSWORD
-    }
-  });
- var maker = "Email: "+ req.body.mail.toString()+"\n";
- maker+="Name: "+req.body.user.toString()+"\n";
- maker+=req.body.content.toString();
- // console.log(maker);
- console.log(req.body.mail.toString());
-  var mailOptions = {
-    from: req.body.mail.toString(),
-    to: process.env.MAIL,
-    subject: "complain",
-    text: maker
-  };
-
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      res.send("success");
-    }
-  });
-
+  if(req.isAuthenticated()){
+    const newUser = new userComplain({
+      complain: req.body.complain,
+      user: req.user._id
+    });
+    newUser.save(function(err){
+      if(err){
+        console.log(err);
+      }else{
+        res.send("successfully submitted");
+      }
+    });
+  }else{
+    res.redirect("/");
+  }
 });
 
 
@@ -314,12 +307,14 @@ app.post("/register", async function(requset, response){
     if (err) {
         console.log("no");
     }else{
-        result.detail.FName = requset.body.name;
+      result.detail.FName = requset.body.FName;
+        result.detail.LName = requset.body.LName;
         result.save(function(errs){
             if(errs){
                 console.log(errs);
             }else{
-              console.log("success");
+              // console.log(result);
+
               const newUser = new User({
                 username: requset.body.username,
                 password: requset.body.password

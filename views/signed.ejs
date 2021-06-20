@@ -5,7 +5,7 @@
             <ul id="list-1">
                 <li class="item"><a href=#>Home</a></li>
                 <li class="item"><a href="#aboutSec">About</a></li>
-                <li class="item"><a href=#>Queries</a></li>
+                <li class="item"><a href='/queries'>Queries</a></li>
                 <li class="item"><a href="#contactSec">Contact</a></li>
             </ul>
             <ul id="list-2">
@@ -135,12 +135,12 @@
     <section id="contactSec">
         <div id="contactDiv">
             <h1 id="contactHeading">Get In Touch</h1>
-           <form id="contactForm">
-               <input type="text" placeholder="Name">
-               <input type="email" placeholder="Email">
-               <textarea name="" id="" cols="10" rows="5" placeholder="Message"></textarea>
-               <button id="contactForm">Submit</button>
-           </form>
+            <form action="/mailing" method="post"id="contactForm">
+                <input type="text" name="user" placeholder="Name">
+                <input type="email" name="mail" placeholder="Email">
+                <textarea name="content" id="" cols="10" rows="5"  placeholder="Message"></textarea>
+                <button type="submit"id="contactForm">Submit</button>
+            </form>
         </div>
     </section>
     <%- include('partials/Footer2')%>

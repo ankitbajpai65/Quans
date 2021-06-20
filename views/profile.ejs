@@ -19,9 +19,9 @@
     <nav id="navbar">
       <span id="title">Quora</span>
       <ul id="list-1">
-        <li class="item"><a href=#>Home</a></li>
+        <li class="item"><a href="/">Home</a></li>
         <li class="item"><a href="#aboutSec">About</a></li>
-        <li class="item"><a href=#>Queries</a></li>
+        <li class="item"><a href="/queries">Queries</a></li>
         <li class="item"><a href="#contactSec">Contact</a></li>
       </ul>
       <ul id="list-2">
@@ -34,11 +34,13 @@
   </section>
   <section id="querySec">
     <div id="queryDiv">
-      <div class="quesDiv">
-        <a href=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum incidunt debitis atque ducimus laboriosam
-          molestias!</p></a>
-      </div>
-      <div class="quesDiv">
+      <% user.forEach(function(se){%>
+        <div class="quesDiv">
+        <a href="/question/<%=se._id%>"><p>Q. <%=se.ques%></p></a>
+        </div>
+        <br>
+      <%});%>
+      <%# <div class="quesDiv">
         <a href=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum incidunt debitis atque ducimus laboriosam
           molestias!</p></a>
       </div>
@@ -53,7 +55,7 @@
       <div class="quesDiv">
         <a href=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum incidunt debitis atque ducimus laboriosam
           molestias!</p></a>
-      </div>
+      </div> %>
     </div>
   </section>
 
