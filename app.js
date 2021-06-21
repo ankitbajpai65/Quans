@@ -51,7 +51,8 @@ const userSchema = new mongoose.Schema({
   password: String,
   detail: {
    FName: String,
-   LName: String
+   LName: String,
+   FullName: String
 },
   googleId: String,
   facebookId: String,
@@ -131,7 +132,8 @@ passport.use(new GoogleStrategy({
     // console.log("tt");
     User.findOrCreate({ username: profile.emails[0].value,googleId: profile.id }, function (err, user) {
       user.detail.FName= profile.name.givenName;
-       user.detail.LName= profile.name.familyName;
+      user.detail.LName= profile.name.familyName;
+       user.detail.FullName= profile.name.givenName.toString()+" "+profile.name.familyName.toString();
        user.save(function (err){
          if(err){
            console.log(err);
@@ -153,6 +155,20 @@ function(req, res){
   res.redirect('/');
 }
 );
+
+
+app.post("/searching",function(req,res){
+  const make = "/"+req.body.search+"/i";
+  // console.log(make);
+  User.find({"detail.FullName": {  "$regex": req.body.search, "$options": "i" }},'_id detail',function(err,user){
+    if(err){
+      console.log(err);
+    }else
+    // console.log(user);
+    res.render("searcheduser",{user: user});
+  });
+});
+
 
 
 app.post("/login", function(req, res) {
@@ -233,9 +249,10 @@ app.post("/userliked",function(req,res){
 });
 
 app.post("/mailing",function(req,res){
+  // console.log(req.body.content);
   if(req.isAuthenticated()){
     const newUser = new userComplain({
-      complain: req.body.complain,
+      complain: req.body.content,
       user: req.user._id
     });
     newUser.save(function(err){
@@ -309,6 +326,7 @@ app.post("/register", async function(requset, response){
     }else{
       result.detail.FName = requset.body.FName;
         result.detail.LName = requset.body.LName;
+        result.detail.FullName = requset.body.FName.toString()+" "+requset.body.LName.toString();
         result.save(function(errs){
             if(errs){
                 console.log(errs);
@@ -362,7 +380,6 @@ app.get("/",  function(req, res){
 });
 
 app.get("/:id", async function(req,res){
-  // console.log(req.isAuthenticated());
   if(req.isAuthenticated()){
      await User.findById(req.user._id, function(err,user){
       if(err){
@@ -385,5 +402,4 @@ app.get("/:id", async function(req,res){
 
 app.listen(3001, function(req, res){
 console.log("up and running");
-// res.redirect("/false");
 });

@@ -1,0 +1,41 @@
+<%-include("partials/Header2");%>
+<section id="navSec">
+    <nav id="navbar">
+        <span id="title">Quora</span>
+        <ul id="list-1">
+            <li class="item"><a href=#>Home</a></li>
+            <li class="item"><a href="#aboutSec">About</a></li>
+            <li class="item"><a href='/queries'>Queries</a></li>
+            <li class="item"><a href="#contactSec">Contact</a></li>
+        </ul>
+        <ul id="list-2">
+          <form  action="/searching" method="post">
+            <input name="search"type="text" id="searchBar" placeholder="Search here...">
+          </form>
+            <img src="images/search.png" id="searchImg">
+            <button id="askBtn">Ask questions</button>
+            <a href=""><img src="images/user.png" id="profileImg"></a>
+        </ul>
+    </nav>
+</section>
+<%if(user.length===0){%>
+  <section id="querySec">
+    <div id="queryDiv">
+    <div class="quesDiv">
+  <h1>No User Found</h1>
+    </div>
+    </div>
+  </section>
+<%}else{%>
+  <section id="querySec">
+    <div id="queryDiv">
+      <% user.forEach(function(se){%>
+        <div class="quesDiv">
+        <a href="/profile/<%=se._id%>"><h1><%=se.detail.FullName%></h1></a>
+        </div>
+        <br>
+      <%});%>
+    </div>
+  </section>
+<%}%>
+<%-include("partials/Footer");%>
