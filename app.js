@@ -290,7 +290,7 @@ app.get("/queries", async function(req,res){
       if(err){
      console.log(err);
       }else{
-        res.render("profile",{user: user} );
+        res.render("questions",{user: user} );
       }
     });
 });
@@ -300,7 +300,7 @@ User_question.findById(req.params.id,function(err,user){
   if(err){
 console.log(err);
   }else{
-    res.render("profile0",{user:user});
+    res.render("pageforquesans",{user:user});
   }
 });
 });
