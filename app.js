@@ -311,6 +311,7 @@ app.get("/queries", async function(req,res){
 });
 
 app.get("/question/:id",function(req, res){
+  
 User_question.findById(req.params.id,function(err,user){
   if(err){
 console.log(err);
@@ -318,7 +319,7 @@ console.log(err);
    if(req.isAuthenticated()){
      res.render("pageforquesanswithsigned",{user:user});
    }else{
-     res.render("pageforquesquestionwithoutsigned",{user: user});
+     res.render("pageforquesanswithoutsigned",{user: user});
    }
   }
 });

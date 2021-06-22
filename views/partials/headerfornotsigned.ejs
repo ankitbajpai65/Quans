@@ -21,7 +21,7 @@
       <nav id="navbar">
           <span id="title">Quora</span>
           <ul id="list-1">
-              <li class="item"><a href=#>Home</a></li>
+              <li class="item"><a href="/">Home</a></li>
               <li class="item"><a href="#aboutSec">About</a></li>
               <li class="item"><a href="/queries">Queries</a></li>
               <li class="item"><a href="#contactSec">Contact</a></li>
@@ -34,4 +34,48 @@
               <li><button class="navBtn" onclick="openForm()">Sign In/Register</button></li>
           </ul>
       </nav>
+  </section>
+  <section id="loginSec">
+      <div class="form-popup" id="myForm">
+          <form action="/login" method="post" class="form-container">
+              <span onclick="closeForm()">
+                  <img src="images/close.png" class="cancelPop" alt="pp">
+              </span>
+              <input type="email" placeholder="Enter Email" name="username" required>
+              <input type="password" placeholder="Enter Password" name="password" required>
+              <div id="btnSpan">
+                  <button type="submit" formaction="/login" formmethod="post" class="formBtn" id="signinBtn">Sign
+                      In</button>
+                  <button type="submit" class="formBtn" id="signupBtn">Sign Up</button>
+                  <button type="submit" class="formBtn" id="otherBtn">Others</button>
+              </div>
+              <a href="/" id="formText">Forget password?</a>
+          </form>
+      </div>
+  </section>
+  <section id="signupSec">
+      <form action="/register" method="POST" id="signupForm" class="form-container">
+          <span onclick="closeForm()">
+              <img src="images/close.png" class="cancelPop" alt="pp">
+          </span>
+          <input type="text"  placeholder="First Name" name="FName" required>
+          <input type="text" placeholder="Last Name" name="LName" required>
+          <input type="email" placeholder="Email" name="username" required>
+          <input type="password" placeholder="Password" name="password" required>
+          <button type="submit" class="formBtn">Sign Up</button>
+      </form>
+  </section>
+
+  <section id="others">
+      <span onclick="closeOthers()">
+          <img src="images/close.png" id="remove-othersPop" onclick="closeOthers" alt="pp">
+      </span>
+      <div class="col-sm" id="othersDiv">
+          <form action="/auth/google" method="get">
+              <button type="submit" id="google" class="other-btn" name="button"><i class="fab fa-google"></i>Sign In With Google</button>
+          </form>
+          <form action=" /auth/facebook" method="POST">
+              <button type="submit" id="facebook" class="other-btn" name="button"><i class="fab fa-facebook"></i>Sign In With Facebook</button>
+          </form>
+      </div>
   </section>

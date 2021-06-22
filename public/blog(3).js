@@ -53,7 +53,7 @@ function populateSignup() {
 }
 
 let homeBtn = document.querySelector('.homeBtn');
-if(homeBtn)
+
 homeBtn.addEventListener('click', populateSignup);
 
 // Others button functioning
