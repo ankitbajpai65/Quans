@@ -1,0 +1,46 @@
+<%- include('partials/headerfornotsigned')%>
+<h1>Users:</h1>
+<br>
+<%if(user.length===0){%>
+  <section id="querySec">
+    <div id="queryDiv">
+    <div class="quesDiv">
+  <h1>No User Found</h1>
+    </div>
+    </div>
+  </section>
+<%}else{%>
+  <section id="querySec">
+    <div id="queryDiv">
+      <% user.forEach(function(se){%>
+        <div class="quesDiv">
+        <a href="/profile/<%=se._id%>"><h1><%=se.detail.FullName%></h1></a>
+        </div>
+        <br>
+      <%});%>
+    </div>
+  </section>
+<%}%>
+<h1 >Questions:</h1>
+<br>
+<%if(questions.length===0){%>
+  <section id="querySec">
+    <div id="queryDiv">
+    <div class="quesDiv">
+  <h1>No Questions Found</h1>
+    </div>
+    </div>
+  </section>
+<%}else{%>
+  <section id="querySec">
+    <div id="queryDiv">
+      <% questions.forEach(function(se){%>
+        <div class="quesDiv">
+        <a href="/question/ <%=se._id%>"><h1><%=se.ques%></h1></a>
+        </div>
+        <br>
+      <%});%>
+    </div>
+  </section>
+<%}%>
+    <%- include('partials/Footerfornotsigned')%>

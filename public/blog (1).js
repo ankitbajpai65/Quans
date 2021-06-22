@@ -1,10 +1,5 @@
 console.log("js file included");
 
-let ele = document.getElementById('getit');
-if(ele){
-  alert("user has already found");
-}
-
 let search = document.getElementById('searchImg');
 search.addEventListener('click', populateSearch);
 var exr = 0;

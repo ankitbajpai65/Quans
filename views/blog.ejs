@@ -1,25 +1,4 @@
-<%- include('partials/Header')%>
-<%if(access===true){%>
-<input type="hidden" value="<%=access%>" id="getit">
-<%}%>
-    <section id="navSec">
-        <nav id="navbar">
-            <span id="title">Quora</span>
-            <ul id="list-1">
-                <li class="item"><a href=#>Home</a></li>
-                <li class="item"><a href="#aboutSec">About</a></li>
-                <li class="item"><a href="/queries">Queries</a></li>
-                <li class="item"><a href="#contactSec">Contact</a></li>
-            </ul>
-            <ul id="list-2">
-<form  action="/searching" method="post">
-  <input name="search"type="text" id="searchBar" placeholder="Search here...">
-</form>
-                <img src="images/search.png" id="searchImg">
-                <li><button class="navBtn" onclick="openForm()">Sign In/Register</button></li>
-            </ul>
-        </nav>
-    </section>
+<%- include('partials/headerfornotsigned')%>
     <section id="loginSec">
         <div class="form-popup" id="myForm">
             <form action="/login" method="post" class="form-container">
@@ -43,7 +22,7 @@
             <span onclick="closeForm()">
                 <img src="images/close.png" class="cancelPop" alt="pp">
             </span>
-            <input type="text" placeholder="First Name" name="FName" required>
+            <input type="text"  placeholder="First Name" name="FName" required>
             <input type="text" placeholder="Last Name" name="LName" required>
             <input type="email" placeholder="Email" name="username" required>
             <input type="password" placeholder="Password" name="password" required>
@@ -130,8 +109,8 @@
                 <input type="text" name="user" placeholder="Name">
                 <input type="email" name="mail" placeholder="Email">
                 <textarea name="content" id="" cols="10" rows="5"  placeholder="Message"></textarea>
-                <button type="submit"id="contactForm">Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </section>
-    <%- include('partials/Footer')%>
+    <%- include('partials/Footerfornotsigned')%>

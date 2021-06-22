@@ -1,23 +1,5 @@
-<%- include('partials/Header')%>
-    <section id="navSec">
-        <nav id="navbar">
-            <span id="title">Quora</span>
-            <ul id="list-1">
-                <li class="item"><a href=#>Home</a></li>
-                <li class="item"><a href="#aboutSec">About</a></li>
-                <li class="item"><a href='/queries'>Queries</a></li>
-                <li class="item"><a href="#contactSec">Contact</a></li>
-            </ul>
-            <ul id="list-2">
-              <form  action="/searching" method="post">
-                <input name="search"type="text" id="searchBar" placeholder="Search here...">
-              </form>
-                <img src="images/search.png" id="searchImg">
-                <button id="askBtn">Ask questions</button>
-                <a href=""><img src="images/user.png" id="profileImg"></a>
-            </ul>
-        </nav>
-    </section>
+<%- include('partials/Headerforsigned')%>
+
     <section id="quesSec">
         <span onclick="closeOthers()">
             <img src="images/close.png" id="remove-othersPop" alt="pp">
@@ -145,4 +127,4 @@
             </form>
         </div>
     </section>
-    <%- include('partials/Footer2')%>
+    <%- include('partials/Footerforsigned')%>

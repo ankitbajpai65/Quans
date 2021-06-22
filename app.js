@@ -158,16 +158,28 @@ function(req, res){
 
 
 app.post("/searching",function(req,res){
-  const make = "/"+req.body.search+"/i";
-  // console.log(make);
+  const make =req.body.search;
+  var foundusers=[];
+  var question=[];
   User.find({"detail.FullName": {  "$regex": req.body.search, "$options": "i" }},'_id detail',function(err,user){
     if(err){
       console.log(err);
-    }else
-    // console.log(user);
-    res.render("searcheduser",{user: user});
+    }else{
+      User_question.find({"ques": {  "$regex": req.body.search, "$options": "i" }},'_id ques',function(err,questions){
+        if(err){
+          console.log(err);
+        }else{
+        if(req.isAuthenticated()){
+          res.render("searcheduserwithsigned",{user: user, questions: questions});
+        }else{
+          res.render("searcheduserwithoutsigned",{user: user, questions: questions});
+        }
+        }
+      });
+}
   });
 });
+
 
 
 
@@ -263,7 +275,7 @@ app.post("/mailing",function(req,res){
       }
     });
   }else{
-    res.redirect("/");
+    res.render("forallfailures",{heading: "You are not logged in", message: "Kindly login or signup"});
   }
 });
 
@@ -284,13 +296,16 @@ app.post("/userdisliked",function(req,res){
   });
 });
 
-
 app.get("/queries", async function(req,res){
     await   User_question.find({},'ques').exec(function(err,user){
       if(err){
      console.log(err);
       }else{
-        res.render("questions",{user: user} );
+        if(req.isAuthenticated()){
+          res.render("questionswithsigned",{user: user} );
+        }else{
+          res.render("questionswithoutsigned",{user: user} );
+        }
       }
     });
 });
@@ -300,7 +315,11 @@ User_question.findById(req.params.id,function(err,user){
   if(err){
 console.log(err);
   }else{
-    res.render("pageforquesans",{user:user});
+   if(req.isAuthenticated()){
+     res.render("pageforquesanswithsigned",{user:user});
+   }else{
+     res.render("pageforquesquestionwithoutsigned",{user: user});
+   }
   }
 });
 });
@@ -310,7 +329,7 @@ app.post("/register", async function(requset, response){
     if(err){
       console.log(err);
     }else if(foundUser){
-        response.redirect("/true");
+        response.render("forallfailures",{heading: "Email Already Exists!", message: "Try using different Email or login"});
     }else{
       await User.register({
         username: requset.body.username,
@@ -375,29 +394,10 @@ app.get("/",  function(req, res){
     });
   }
   else{
-    res.redirect("/false");
+    res.render("blog");
   }
 });
 
-app.get("/:id", async function(req,res){
-  if(req.isAuthenticated()){
-     await User.findById(req.user._id, function(err,user){
-      if(err){
-        console.log(err);
-      }else{
-
-        res.render("signed",{name: user.detail.FName});
-      }
-    });
-  }
-  else{
-    if(req.params.id=='true'){
-      res.render("blog",{access: true});
-    }else{
-      res.render("blog",{access: false});
-    }
-  }
-});
 
 
 app.listen(3001, function(req, res){
