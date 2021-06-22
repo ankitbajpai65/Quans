@@ -1,5 +1,6 @@
-<%- include('partials/headerfornotsigned')%>
-<div class="jumbotron text-center">
+<%- include('partials/HeaderforquesAns') %>
+
+  <!-- <div class="jumbotron text-center">
   <div class="container">
     <%# <i class="fas fa-key fa-6x"></i> %>
     <%# <h1 class="display-3">ALL The secrets that you have shared up untill now!</h1> %>
@@ -8,15 +9,63 @@
       <h1><%=user.ques%></h1>
       </div>
     </section>
+
     <hr>
   </div>
-</div>
-<footer id="footer">
-    <p>Copyright@Ankit Bajpai 2021</p>
-</footer>
+</div> -->
+  <section id="navSec">
+    <ul>
+      <li>Quora</li>
+      <input type="text" placeholder="Search">
+      <button>Sign In</button>
+    </ul>
+  </section>
 
-
-<%# <script src="blog (1).js"></script> %>
-</body>
-
-</html>
+  </section>
+  <section id="quesAnsSec">
+    <div id="quesAnsDiv">
+      <div id="questioner">
+        <div class="profile">
+          <img src="../images/user.png" alt="" class="dp">
+          <h3>Ankit Bajpai</h3>
+        </div>
+        <h1 id="ques">This is the question asked by the user?</h1>
+        <div id="quesIcons">
+          <img src="../images/like.png" alt="like" class="quesIcon">
+          <img src="../images/dislike.png" alt="like" class="quesIcon">
+          <img src="../images/comment.png" alt="like" id="allAnswer">
+        </div>
+      </div>
+      <div class="answerer">
+        <div class="profile">
+          <img src="../images/user.png" alt="" class="dp">
+          <h4>Ankit Bajpai</h4>
+        </div>
+        <p id="ans">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, dolor officiis id facere ut dolores
+          fugit, ipsam enim nihil, molestias autem aliquam nemo eos quisquam amet exercitationem dicta minus incidunt?
+          Eos impedit suscipit inventore iure, est dolorum, incidunt ullam eius sit fugit molestiae, saepe nobis aperiam
+          quidem tenetur corporis dolor! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam animi
+          accusantium, soluta dolorum voluptas omnis voluptatem ex nihil aperiam provident cumque repudiandae quis
+          voluptates molestias doloremque a suscipit iure accusamus!</p>
+        <img src="../images/like.png" alt="like" class="ansIcons">
+        <img src="../images/dislike.png" alt="like" class="ansIcons">
+        <hr />
+      </div>
+      <div class="answerer">
+        <div class="profile">
+          <img src="../images/user.png" alt="" class="dp">
+          <h4>Ankit Bajpai</h4>
+        </div>
+        <p id="ans">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, dolor officiis id facere ut dolores
+          fugit, ipsam enim nihil, molestias autem aliquam nemo eos quisquam amet exercitationem dicta minus incidunt?
+          Eos impedit suscipit inventore iure, est dolorum, incidunt ullam eius sit fugit molestiae, saepe nobis aperiam
+          quidem tenetur corporis dolor! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam animi
+          accusantium, soluta dolorum voluptas omnis voluptatem ex nihil aperiam provident cumque repudiandae quis
+          voluptates molestias doloremque a suscipit iure accusamus!</p>
+        <img src="../images/like.png" alt="like" class="ansIcons">
+        <img src="../images/dislike.png" alt="like" class="ansIcons">
+        <hr />
+      </div>
+    </div>
+  </section>
+  <%- include('partials/FooterforquesAns')%>

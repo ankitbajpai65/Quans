@@ -1,11 +1,13 @@
 <%- include('partials/HeaderForFailure')%>
-<div class="p-5 mb-4 bg-light rounded-3">
-  <div class="container-fluid py-5">
+<div class="p-5 mb-4 rounded-3">
+  <div class="container-fluid py-5 bgImg">
+    <div id="info">
     <h1 class="display-5 fw-bold"><%=heading%></h1>
     <p class="col-md-8 fs-4"><%=message%></p>
     <form action="/" method="get">
-      <button class="btn btn-primary btn-lg" type="submit">Home</button>
+      <button class="btn btn-primary btn-lg mt-4" type="submit">Go to home</button>
     </form>
+  </div>
   </div>
 </div>
 <%- include('partials/FooterForFailure')%>

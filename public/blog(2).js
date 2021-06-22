@@ -44,6 +44,7 @@ let register = document.getElementById('signupBtn');
 register.addEventListener('click', populateSignup);
 function populateSignup() {
   // console.log('signup presses')
+  closeForm();
   document.getElementById("signupForm").style.display = "block";
   nav.style.opacity = "0.1";
   home.style.opacity = '0.1';

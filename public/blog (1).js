@@ -21,6 +21,7 @@ let home = document.getElementById('homeSec');
 let about = document.getElementById('aboutSec');
 let footer = document.getElementById('footer');
 function openForm() {
+  closeForm();
   document.getElementById("myForm").style.display = "block";
   nav.style.opacity = "0.1";
   home.style.opacity = '0.1';
@@ -44,6 +45,7 @@ let register = document.getElementById('signupBtn');
 register.addEventListener('click', populateSignup);
 function populateSignup() {
   // console.log('signup presses')
+  closeForm();
   document.getElementById("signupForm").style.display = "block";
   nav.style.opacity = "0.1";
   home.style.opacity = '0.1';
@@ -53,8 +55,8 @@ function populateSignup() {
 }
 
 let homeBtn = document.querySelector('.homeBtn');
-if(homeBtn)
-homeBtn.addEventListener('click', populateSignup);
+if (homeBtn)
+  homeBtn.addEventListener('click', populateSignup);
 
 // Others button functioning
 
