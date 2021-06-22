@@ -8,12 +8,16 @@ document.getElementById('allAnswer').onclick = () => {
     }
 }
 
-let quesIcon = document.getElementsByClassName('quesIcon');
-quesIcon[0].onclick = () => {
-    console.log('clicked');
-    quesIcon.classList.toggle("clickedIcon");
+let quesIcons = document.getElementsByClassName('quesIcons');
+
+for (let i = 0; i < quesIcons.length; i++) {
+    quesIcons[i].onclick = () => {
+        quesIcons[i].classList.toggle("clickedIcon");
+    }
 }
 let ansIcons = document.getElementsByClassName('ansIcons');
+let like = document.getElementsByClassName('like');
+let dislike = document.getElementsByClassName('dislike');
 
 for (let i = 0; i < ansIcons.length; i++) {
     ansIcons[i].onclick = () => {

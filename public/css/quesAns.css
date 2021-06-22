@@ -40,7 +40,7 @@
 #navSec ul button:hover{
     border:2px solid white;
     background-color: transparent;
-    padding: 0.25rem 1.6rem;
+    /* padding: 0.4rem 1.6rem; */
     color:white;
 }
 
@@ -82,7 +82,14 @@
     display: flex;
     align-items: center;
 }
-.dp{
+#questioner .dp{
+    /* border:2px solid rgb(17, 11, 11); */
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%; 
+    filter:invert(30%);
+} 
+.answerer .dp{
     /* border:2px solid rgb(17, 11, 11); */
     height: 2.5rem;
     width: 2.5rem;
@@ -104,6 +111,7 @@
     margin:3rem 0rem;
     display: flex;
     justify-content: space-around;
+    cursor: pointer;
 }
 .profile h4{
     font-size:1.1rem;
@@ -119,7 +127,5 @@
     height: 1.5rem;
     width: 1.5rem;
     margin:0rem 1rem 1rem 2rem;
-    /* margin-left: 2rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem; */
+    cursor: pointer;
 }
