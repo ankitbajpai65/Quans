@@ -1,6 +1,15 @@
-console.log("js file included");
-
+// console.log("js file included");
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted ||
+                         ( typeof window.performance != "undefined" &&
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
 let search = document.getElementById('searchImg');
+if(search)
 search.addEventListener('click', populateSearch);
 var exr = 0;
 function populateSearch() {
@@ -24,8 +33,11 @@ function openForm() {
   closeForm();
   document.getElementById("myForm").style.display = "block";
   nav.style.opacity = "0.1";
+  if(home)
   home.style.opacity = '0.1';
+ if(about)
   about.style.opacity = '0.1';
+ if(footer)
   footer.style.opacity = '0.1';
   document.body.style.overflowY = 'hidden';
 }
@@ -33,8 +45,11 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("signupForm").style.display = "none";
   nav.style.opacity = '';
+  if(home)
   home.style.opacity = '';
+  if(about)
   about.style.opacity = '';
+  if(footer)
   footer.style.opacity = '';
   document.body.style.overflowY = '';
 }
@@ -42,6 +57,7 @@ function closeForm() {
 // Sign up button
 
 let register = document.getElementById('signupBtn');
+if(register)
 register.addEventListener('click', populateSignup);
 function populateSignup() {
   // console.log('signup presses')
@@ -61,6 +77,7 @@ if (homeBtn)
 // Others button functioning
 
 let other = document.querySelector('#otherBtn');
+if(other)
 otherBtn.addEventListener('click', populateOthers)
 
 function populateOthers() {
@@ -86,6 +103,7 @@ function closeOthers() {
 
 // when user signed in
 let signin = document.getElementById('signinBtn');
+if(signin)
 signin.addEventListener('submit', formLogin);
 function formLogin() {
   console.log('form submitted');

@@ -1,5 +1,13 @@
-console.log("js file included");
-
+// console.log("js file included");
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted ||
+                         ( typeof window.performance != "undefined" &&
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
 let search = document.getElementById('searchImg');
 search.addEventListener('click', populateSearch);
 var exr = 0;
@@ -95,6 +103,7 @@ function formLogin() {
 
 function populateQues() {
   console.log('hehehe');
+  console.log("tushar");
   document.getElementById("quesSec").style.display = "block";
   document.body.style.overflowY = 'hidden';
 }

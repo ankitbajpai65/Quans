@@ -284,7 +284,9 @@ app.post("/userliked",function(req,res){
          }
      });
   }else{
-    res.render("forallfailures",{heading:"You are not logged in", message: "Please logged in"});
+    // console.log("req");
+    // res.render("forallfailures",{heading:"You are not logged in", message: "Please logged in"});
+    res.json({ok: false});
   }
 });
 
@@ -320,6 +322,8 @@ app.post("/answer",function(req,res){
           }
       });
     });
+  }else{
+    res.render("forallfailures",{heading: "You are not logged in", message: "Kindly login or signup"});
   }
 });
 
@@ -400,7 +404,9 @@ app.get("/question/:id",function(req, res){
      }
      });
     }else{
-      res.render("pageforquesanswithoutsigned",{user: question, like:"false", dislike: "false"});
+      User.findById(question.userId,function(err, foundUser){
+        res.render("pageforquesanswithoutsigned",{user: question,iddd: question._id,likedarray:[], dislikedarray:[],name: foundUser.detail.FullName});
+      });
     }
   }
   });

@@ -1,18 +1,4 @@
 <%- include('partials/Headerforsigned')%>
-
-    <section id="quesSec">
-        <span onclick="closeOthers()">
-            <img src="images/close.png" id="remove-othersPop" alt="pp">
-        </span>
-        <div id="quesDiv">
-            <form  action="/askquestion" method="post">
-              <input type="text" name="question" placeholder="Type your question here..." required>
-              <button type="submit"id="submitQues" onclick="closeOthers">Submit</button>
-            </form>
-        </div>
-
-        </div>
-    </section>
     <section id="loginSec">
         <div class="form-popup" id="myForm">
             <form action="/login" method="post" class="form-container">
@@ -123,7 +109,7 @@
                 <input type="text" name="user" placeholder="Name">
                 <input type="email" name="mail" placeholder="Email">
                 <textarea name="content" id="" cols="10" rows="5"  placeholder="Message"></textarea>
-                <button type="submit"id="contactForm">Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </section>
