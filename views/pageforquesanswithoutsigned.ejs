@@ -1,18 +1,4 @@
 <%- include('partials/HeaderforquesAns') %>
-
-  <!-- <div class="jumbotron text-center">
-  <div class="container">
-    <%# <i class="fas fa-key fa-6x"></i> %>
-    <%# <h1 class="display-3">ALL The secrets that you have shared up untill now!</h1> %>
-    <section id="pricing">
-      <div class="row row-flat">
-      <h1><%=user.ques%></h1>
-      </div>
-    </section>
-
-    <hr>
-  </div>
-</div> -->
   <section id="navSec">
     <ul>
       <li>Quora</li>
@@ -29,10 +15,10 @@
           <img src="../images/user.png" alt="" class="dp">
           <h3>Ankit Bajpai</h3>
         </div>
-        <h1 id="ques">This is the question asked by the user?</h1>
+        <h1 id="ques"><%=user.ques%></h1>
         <div id="quesIcons">
-          <img src="../images/like.png" alt="like" class="quesIcons like">
-          <img src="../images/dislike.png" alt="like" class="quesIcons dislike">
+          <img src="../images/like.png" id="queslike" alt="like" class="quesIcons like">
+          <img src="../images/dislike.png" id="quesdislike" alt="dislike" class="quesIcons dislike">
           <img src="../images/comment.png" alt="like" id="allAnswer">
         </div>
       </div>
@@ -47,8 +33,8 @@
           quidem tenetur corporis dolor! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam animi
           accusantium, soluta dolorum voluptas omnis voluptatem ex nihil aperiam provident cumque repudiandae quis
           voluptates molestias doloremque a suscipit iure accusamus!</p>
-        <img src="../images/like.png" alt="like" class="ansIcons like">
-        <img src="../images/dislike.png" alt="like" class="ansIcons dislike">
+        <img src="../images/like.png" id="619" alt="liked" class="ansIcons ansIconslike like">
+        <img src="../images/dislike.png" id="719" alt="disliked" class="ansIcons ansIconsdislike dislike">
         <hr />
       </div>
       <div class="answerer">
@@ -62,8 +48,8 @@
           quidem tenetur corporis dolor! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam animi
           accusantium, soluta dolorum voluptas omnis voluptatem ex nihil aperiam provident cumque repudiandae quis
           voluptates molestias doloremque a suscipit iure accusamus!</p>
-        <img src="../images/like.png" alt="like" class="ansIcons like">
-        <img src="../images/dislike.png" alt="like" class="ansIcons dislike">
+        <img src="../images/like.png" alt="like" class=" ansIcons ansIconslike like">
+        <img src="../images/dislike.png" alt="like" class="ansIconsdislike ansIcons dislike">
         <hr />
       </div>
       <div class="answerer">
@@ -77,8 +63,8 @@
           quidem tenetur corporis dolor! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam animi
           accusantium, soluta dolorum voluptas omnis voluptatem ex nihil aperiam provident cumque repudiandae quis
           voluptates molestias doloremque a suscipit iure accusamus!</p>
-        <img src="../images/like.png" alt="like" class="ansIcons like">
-        <img src="../images/dislike.png" alt="like" class="ansIcons dislike">
+        <img src="../images/like.png" alt="like" class="ansIcons ansIconslike like">
+        <img src="../images/dislike.png" alt="like" class="ansIcons ansIconsdislike dislike">
         <hr />
       </div>
     </div>

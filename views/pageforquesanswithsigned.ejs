@@ -1,23 +1,98 @@
-<%- include('partials/Headerfornotsigned') %>
+<%- include('partials/HeaderforquesAns') %>
+  <section id="navSec">
+    <ul>
+      <li>Quora</li>
+      <input type="text" placeholder="Search">
+      <button>Sign In</button>
+    </ul>
+  </section>
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <%# <i class="fas fa-key fa-6x"></i> %>
-    <%# <h1 class="display-3">ALL The secrets that you have shared up untill now!</h1> %>
-    <section id="pricing">
-      <div class="row row-flat">
-      <h1><%=user.ques%></h1>
-      </div>
-    </section>
-    <hr>
-  </div>
-</div>
-<footer id="footer">
-    <p>Copyright@Ankit Bajpai 2021</p>
-</footer>
-
-
-<%# <script src="blog (1).js"></script> %>
-</body>
-
-</html>
+  </section>
+  <section id="quesAnsSec">
+      <div id="quesAnsDiv">
+        <div id="questioner">
+          <div class="profile">
+            <img src="../images/user.png" alt="" class="dp">
+            <h3><%=name%></h3>
+          </div>
+          <h1 id="ques"><%=user.ques%></h1>
+          <%var like=false, dislike=false%>
+          <%likedarray.forEach(function(se){%>
+            <%if(se == iddd){%>
+              <%like = true;%>
+            <%}%>
+          <%});%>
+          <%dislikedarray.forEach(function(se){%>
+            <%if(se == iddd){%>
+              <%dislike = true;%>
+            <%}%>
+          <%});%>
+          <div id="quesIcons">
+            <%if(like){%>
+                <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like clickedIcon">
+                <%if(dislike){%>
+                  <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike clickedIcon">
+                  <%}else{%>
+                    <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike">
+                    <%}%>
+              <%}else{%>
+                  <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like">
+                  <%if(dislike){%>
+                    <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike clickedIcon">
+                    <%}else{%>
+                      <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike">
+                      <%}%>
+                    <%}%>
+                    <img src="../images/comment.png" alt="like" id="allAnswer">
+                  </div>
+          </div>
+      <%user.answer.forEach(function(test){%>
+      <%var like=false, dislike=false%>
+      <%likedarray.forEach(function(se){%>
+        <%if(se == test._id){%>
+          <%like = true;%>
+        <%}%>
+      <%});%>
+      <%dislikedarray.forEach(function(se){%>
+        <%if(se == test._id){%>
+          <%dislike = true;%>
+        <%}%>
+      <%});%>
+      <div class="answerer">
+      <%if(like){%>
+          <div class="profile">
+            <img src="../images/user.png" alt="" class="dp">
+            <h4><%=test.FullName%></h4>
+          </div>
+          <p id="ans"><%=test.ans%></p>
+          <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>"class=" ansIcons ansIconslike like clickedIcon">
+          <%if(dislike){%>
+            <img src="../images/dislike.png"   id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons ansIconsdislike dislike clickedIcon">
+            <%}else{%>
+              <img src="../images/dislike.png"   id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons ansIconsdislike dislike">
+              <%}%>
+          <hr />
+        <%}else{%>
+            <div class="profile">
+              <img src="../images/user.png" alt="" class="dp">
+              <h4><%=test.FullName%></h4>
+            </div>
+            <p id="ans"><%=test.ans%></p>
+          <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>" class=" ansIcons ansIconslike like">
+            <%if(dislike){%>
+              <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons ansIconsdislike dislike clickedIcon">
+              <%}else{%>
+                <img src="../images/dislike.png"   id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons ansIconsdislike dislike">
+                <%}%>
+            <hr />
+              <%}%>
+              </div>
+      <%});%>
+      <form class="" action="/answer" method="post">
+        <input type="hidden" name="question" value="<%=iddd%>">
+        <input type="text" name="answer">
+        <button type="submit" name="button"></button>
+      </form>
+    </div>
+  </section>
+  <%- include('partials/FooterforquesAns')%>
