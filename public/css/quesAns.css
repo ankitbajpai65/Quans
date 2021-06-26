@@ -97,12 +97,17 @@
     filter:invert(65%);
 } 
 .profile h3{
-    font-size:1.4rem;
+    /* border:2px solid green; */
+    display: block;
     margin-left: 1rem;
+}
+.profile h5{
+    margin-top:0.2rem;
+    margin-left:0.3rem;
 }
 #ques{
     /* border:2px solid rgb(17, 11, 11); */
-    margin: 1rem 0rem;
+    margin: 1rem 0rem 0rem 0rem;
     padding-left: 3rem;
 }
 #quesIcons{

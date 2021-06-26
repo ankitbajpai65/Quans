@@ -14,9 +14,6 @@ const findOrCreate = require('mongoose-findorcreate');
 const prompt = require('prompt-sync')({sigint: true});
 // var nodemailer = require('nodemailer');
 
-
-
-
 const app = express();
 
 app.set("view engine", "ejs");
@@ -464,6 +461,9 @@ app.post("/register", async function(requset, response){
   });
 });
 
+app.get("/profile", (req, res) => {
+  res.render("myprofile");
+})
 
 
 app.get('/logout', function(req, res){

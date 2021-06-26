@@ -1,0 +1,161 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Saira', sans-serif;
+}
+html, body{
+    height: 100%;
+  }
+.sidebar {
+    height: 100%;
+    background-color: #ffaf7a;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  #close{
+    display:none;
+    position: absolute;
+    top:0;
+    left:0;
+    cursor:pointer;
+  }
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  #info{
+      /* border:2px solid black; */
+      height:12rem;
+      margin:2rem 0rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  #info img{
+    height: 5rem;
+    width: 5rem;
+    margin-bottom: 1rem;
+  }
+  #info h4{
+    margin-bottom: 1rem;
+  }
+  #links{
+    /* border:2px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #links a {
+    color:rgb(58, 29, 126);
+    display: block;
+    text-decoration: none;
+    font-size:1.2rem;
+    font-weight:500;
+    padding:0.5rem;
+  }
+  #links a:hover {
+    text-decoration: underline;
+    color:rgb(136, 134, 134);
+  }
+  div.content {
+    /* border:2px solid black; */
+    margin-left: 15rem;
+    margin-top: -2.8rem;
+    height: 100%;
+    width: 47rem;
+    transition: 0.5s;
+  }
+  .content form{
+    /* border:2px solid rgb(73, 44, 44); */
+    height: 22rem;
+    width: 46rem;
+  }
+  .content table{
+    /* border:2px solid rgb(73, 44, 44); */
+    height:15rem;
+    width:100%;
+  }
+  .firstLabel{
+      margin-right:14.2rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+  }
+  .secLabel{
+      margin-right:10.5rem;
+      margin-bottom:3rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+  }
+  .content input,select{
+    width: 25rem;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+  }
+  .content button{
+    height: 3rem;
+    width: 10rem;
+    margin: 1.2rem 0rem;
+    margin-right:4rem;
+    background-color: rgb(37, 178, 221);
+    border:none;
+    border-radius: 0.7rem;
+    font-size: 1rem;
+    color: white;
+    cursor:pointer;
+  }
+
+  .table-2 {
+    display: none;
+    border-collapse: collapse;
+}
+/* #pinChange{
+  display: block;
+} */
+.table-2 td {
+    padding-top: 1em;
+    padding-bottom: 1.3em;
+}
+.clickedPinChangeBtn{
+    display:block; 
+}
+/* #moreInfo{
+  border:2px solid red;
+  position:absolute;
+  top:0;
+  right:0;
+} */
+#moreInfo h1{
+    color:rgb(219, 57, 57);
+    margin-top:1rem;
+}
+#moreInfoTable{
+    height:20rem;
+}
+
+  /* Media queries  */
+
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
