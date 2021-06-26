@@ -31,16 +31,16 @@ pin.onclick = () => {
     console.log('btn clicked');
     table.classList.toggle("clickedPinChangeBtn");
 
-    if (table.classList.contains("clickedPinChangeBtn")){
+    if (table.classList.contains("clickedPinChangeBtn")) {
         pin.style.backgroundColor = 'black';
-        pin.innerHTML='Add more';
-        document.getElementById('moreInfo').style.display='none';
+        pin.innerHTML = 'Add more';
+        document.getElementById('moreInfo').style.display = 'none';
         // document.querySelector('.content').style.marginTop='1rem';
     }
-    else{
-        pin.innerHTML='Change Password';
+    else {
+        pin.innerHTML = 'Change Password';
         pin.style.backgroundColor = '';
-        document.getElementById('moreInfo').style.display='';
+        document.getElementById('moreInfo').style.display = '';
         // document.querySelector('.content').style.marginTop='';
     }
 }
@@ -56,4 +56,24 @@ function editInfo() {
 
     }
     else edit.innerHTML = "Edit";
+}
+
+let ques = document.getElementById("ques");
+ques.addEventListener('click', populateQues);
+function populateQues() {
+    console.log("ques shown");
+    let myQues = document.getElementById("myQues");
+    console.log(myQues);
+    myQues.classList.toggle("showQues");
+
+    if (myQues.classList.contains("showQues")) {
+        document.querySelector('.content').style.marginLeft='8rem';
+        document.getElementById('myQues').style.display='block';
+    }
+    else{
+        document.querySelector('.content').style.marginLeft='';
+        document.getElementById('myQues').style.display='';
+    }
+
+    
 }
