@@ -125,7 +125,7 @@ const timeSchema = new mongoose.Schema({
     minute: Number,
     second: Number
   }
-})
+});
 
 const questionSchema = new  mongoose.Schema({
   ques : String,
@@ -136,7 +136,9 @@ const questionSchema = new  mongoose.Schema({
         ans:   String,
         postedUser: String,
         FullName:  String,
-        time: String
+        time: String,
+        liked: Number,
+        disliked: Number
        }
   ],
   userId: String,
@@ -330,26 +332,26 @@ app.post("/login", function(req, res) {
 });
 
 app.post("/askquestion", function(req,res){
-  var d = new Date();
-  const time = new usertime({
-       day : d.getDay(),
-       totaltime: {
-         date : d.getDate(),
-          month : d.getMonth(),
-         year : d.getFullYear()
-      },
-       entertime: {
-           hour : d.getHours(),
-           minute : d.getMinutes(),
-           second : d.getHours()
-      }
-  });
-  time.save(function(err){
-    if(err){
-      console.log(err);
-    }
-  });
   if(req.isAuthenticated()){
+    var d = new Date();
+    const time = new usertime({
+         day : d.getDay(),
+         totaltime: {
+           date : d.getDate(),
+            month : d.getMonth(),
+           year : d.getFullYear()
+        },
+         entertime: {
+             hour : d.getHours(),
+             minute : d.getMinutes(),
+             second : d.getHours()
+        }
+    });
+    time.save(function(err){
+      if(err){
+        console.log(err);
+      }
+    });
     const usd = req.user._id;
      const quest = req.body.question;
      const newUser = new User_question({
@@ -492,26 +494,26 @@ app.post("/addmoredetails", function(req, res){
 app.post("/mailing",function(req,res){
   // console.log(req.body.data);
   const data = JSON.parse(req.body.data);
-  var d = new Date();
-  const time = new usertime({
-       day : d.getDay(),
-       totaltime: {
-         date : d.getDate(),
-          month : d.getMonth(),
-         year : d.getFullYear()
-      },
-       entertime: {
-           hour : d.getHours(),
-           minute : d.getMinutes(),
-           second : d.getHours()
-      }
-  });
-  time.save(function(err){
-    if(err){
-      console.log(err);
-    }
-  });
   if(req.isAuthenticated()){
+    var d = new Date();
+    const time = new usertime({
+         day : d.getDay(),
+         totaltime: {
+           date : d.getDate(),
+            month : d.getMonth(),
+           year : d.getFullYear()
+        },
+         entertime: {
+             hour : d.getHours(),
+             minute : d.getMinutes(),
+             second : d.getHours()
+        }
+    });
+    time.save(function(err){
+      if(err){
+        console.log(err);
+      }
+    });
     const newUser = new userComplain({
       complain: data.content,
       user: req.user._id,
@@ -532,26 +534,26 @@ app.post("/mailing",function(req,res){
 
 
 app.post("/answer",function(req,res){
-  var d = new Date();
-  const time = new usertime({
-       day : d.getDay(),
-       totaltime: {
-         date : d.getDate(),
-          month : d.getMonth(),
-         year : d.getFullYear()
-      },
-       entertime: {
-           hour : d.getHours(),
-           minute : d.getMinutes(),
-           second : d.getHours()
-      }
-  });
-  time.save(function(err){
-    if(err){
-      console.log(err);
-    }
-  });
   if(req.isAuthenticated()){
+    var d = new Date();
+    const time = new usertime({
+         day : d.getDay(),
+         totaltime: {
+           date : d.getDate(),
+            month : d.getMonth(),
+           year : d.getFullYear()
+        },
+         entertime: {
+             hour : d.getHours(),
+             minute : d.getMinutes(),
+             second : d.getHours()
+        }
+    });
+    time.save(function(err){
+      if(err){
+        console.log(err);
+      }
+    });
     User.findById(req.user._id,function(err,user){
       User_question.updateOne({_id: mongoose.Types.ObjectId(req.body.question)},{$push: {answer: {ans: req.body.answer, postedUser: req.user._id, FullName:user.detail.FullName, time:time._id  }}},function(err,success){
           if(err){

@@ -6,7 +6,11 @@
         <input type="text" name = "search" placeholder="Search">
       </form>
       <form class="" action="/" method="get">
+<<<<<<< HEAD
         <a href="/profile/<%=properuser%>"><img src="../images/user.png" id="profileImg"></a>
+=======
+        <a href="/profile"><img src="../images/user.png" id="profileImg"></a>
+>>>>>>> 7526210670f4a5fe948a0745082018f676106436
       </form>
     </ul>
   </section>
@@ -16,8 +20,14 @@
       <div id="quesAnsDiv">
         <div id="questioner">
           <div class="profile">
+<<<<<<< HEAD
             <a href="/image/<%=user.userId%>"><img src="/image/<%=user.userId%>" alt="" class="dp"></a>
  <a href="/profile/<%=user.userId%>"> <h3><%=name%></h3></a>
+=======
+            <img src="../images/user.png" alt="" class="dp">
+            <h3><%=name%></h3>
+            <h5> ,Date and time...</h5>
+>>>>>>> 7526210670f4a5fe948a0745082018f676106436
           </div>
           <h1 id="ques"><%=user.ques%></h1>
           <%var like=false, dislike=false%>
@@ -65,9 +75,15 @@
       <div class="answerer">
       <%if(like){%>
           <div class="profile">
+<<<<<<< HEAD
           <%console.log(test.postedUser);%>
             <img src="/image/<%=test.postedUser%>" alt="profile photo" class="dp">
             <h4><%=test.FullName%></h4>
+=======
+            <img src="../images/user.png" alt="" class="dp">
+            <h4><%=test.FullName%></h4>
+            <h5> ,Date and time...</h5>
+>>>>>>> 7526210670f4a5fe948a0745082018f676106436
           </div>
           <p id="ans"><%=test.ans%></p>
           <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>"class=" ansIcons ansIconslike like clickedIcon">
@@ -79,8 +95,14 @@
           <hr />
         <%}else{%>
             <div class="profile">
+<<<<<<< HEAD
               <a href="/image/<%=test.postedUser%>"><img src="/image/<%=test.postedUser%>" alt="profile photo" class="dp"></a>
               <a href="/profile/<%=test.postedUser%>"><h4><%=test.FullName%></h4></a>
+=======
+              <img src="../images/user.png" alt="" class="dp">
+              <h4><%=test.FullName%></h4>
+              <h5> ,Date and time...</h5>
+>>>>>>> 7526210670f4a5fe948a0745082018f676106436
             </div>
             <p id="ans"><%=test.ans%></p>
           <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>" class=" ansIcons ansIconslike like">

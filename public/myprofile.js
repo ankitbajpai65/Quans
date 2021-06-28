@@ -31,6 +31,7 @@ pin.onclick = () => {
     console.log('btn clicked');
     table.classList.toggle("clickedPinChangeBtn");
 
+<<<<<<< HEAD
     if (table.classList.contains("clickedPinChangeBtn")){
         pin.style.backgroundColor = 'black';
         pin.innerHTML='Add more';
@@ -41,10 +42,11 @@ pin.onclick = () => {
         pin.innerHTML='Change Password';
         pin.style.backgroundColor = '';
         document.getElementById('moreInfo').style.display='';
+
         // document.querySelector('.content').style.marginTop='';
     }
 }
-
+<<<<<<< HEAD
 // let edit = document.getElementById('editBtn');
 // edit.addEventListener('click', editInfo);
 
@@ -90,4 +92,6 @@ function savedetail(){
   data = JSON.stringify(data);
   $.post('/addmoredetails', { data: data });
   // console.log(data);
+}
+ console.log(data);
 }
