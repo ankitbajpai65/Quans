@@ -1,6 +1,15 @@
-console.log("js file included");
-
+// console.log("js file included");
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted ||
+                         ( typeof window.performance != "undefined" &&
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
 let search = document.getElementById('searchImg');
+if(search)
 search.addEventListener('click', populateSearch);
 var exr = 0;
 function populateSearch() {
@@ -21,10 +30,14 @@ let home = document.getElementById('homeSec');
 let about = document.getElementById('aboutSec');
 let footer = document.getElementById('footer');
 function openForm() {
+  closeForm();
   document.getElementById("myForm").style.display = "block";
   nav.style.opacity = "0.1";
+  if(home)
   home.style.opacity = '0.1';
+ if(about)
   about.style.opacity = '0.1';
+ if(footer)
   footer.style.opacity = '0.1';
   document.body.style.overflowY = 'hidden';
 }
@@ -32,8 +45,11 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("signupForm").style.display = "none";
   nav.style.opacity = '';
+  if(home)
   home.style.opacity = '';
+  if(about)
   about.style.opacity = '';
+  if(footer)
   footer.style.opacity = '';
   document.body.style.overflowY = '';
 }
@@ -41,9 +57,11 @@ function closeForm() {
 // Sign up button
 
 let register = document.getElementById('signupBtn');
+if(register)
 register.addEventListener('click', populateSignup);
 function populateSignup() {
   // console.log('signup presses')
+  closeForm();
   document.getElementById("signupForm").style.display = "block";
   nav.style.opacity = "0.1";
   home.style.opacity = '0.1';
@@ -53,12 +71,13 @@ function populateSignup() {
 }
 
 let homeBtn = document.querySelector('.homeBtn');
-if(homeBtn)
-homeBtn.addEventListener('click', populateSignup);
+if (homeBtn)
+  homeBtn.addEventListener('click', populateSignup);
 
 // Others button functioning
 
 let other = document.querySelector('#otherBtn');
+if(other)
 otherBtn.addEventListener('click', populateOthers)
 
 function populateOthers() {
@@ -84,6 +103,7 @@ function closeOthers() {
 
 // when user signed in
 let signin = document.getElementById('signinBtn');
+if(signin)
 signin.addEventListener('submit', formLogin);
 function formLogin() {
   console.log('form submitted');
@@ -99,6 +119,28 @@ function populateQues() {
   document.body.style.overflowY = 'hidden';
 }
 
+
+function dothis(){
+    let fun = document.getElementById('contactForm');
+    let name = $('#name').val()
+    let email = $('#email').val();
+    let message = $('#messages').val();
+    // console.log(message);
+    let data = {
+      name: name,
+      email: email,
+      message: message
+    }
+    data = JSON.stringify(data);
+    $.post('/mailing', { data: data }).done(function (data) {
+        console.log(data);
+        if(!data.ok){
+          alert("you are not logged in");
+        }else{
+          alert("successfully submitted");
+        }
+    });
+}
 
 // document.getElementById('signinBtn').addEventListener('submit',changeBody);
 // function changeBody(){

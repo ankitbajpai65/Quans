@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <title></title>
+  </head>
+  <body>
+      <button type="submit" name="data" id="follow" value="<%=user%>">follow</button>
+  </body>
+  <script>
+  let follow = document.getElementById('follow');
+  follow.onclick = () => {
+    console.log("djf");
+    saveDetailLike($(follow).attr("value"));
+  }
+    function saveDetailLike(data){
+        var id = data;
+        var tt = true;
+         $.post('/follow', { data: id });
+    }
+  </script>
+</html>

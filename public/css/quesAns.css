@@ -1,0 +1,134 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Saira', sans-serif;
+}
+#navSec{
+    background-color: rgb(199, 199, 199);
+    height: 4rem;
+    margin-top:0rem;
+    /* box-shadow: 3px 10px 10px -14px #111; */
+}
+#navSec ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 0.8rem;
+    list-style: none;
+}
+#navSec ul li{
+    font-size:1.5rem;
+    color:#F7CD40;
+}
+#navSec ul input{
+    width: 25rem;
+    padding: 0.3rem 2rem;
+    outline: none;
+    border: 1px solid rgb(184, 184, 184);
+    font-size: 1rem;
+}
+#navSec ul button{
+    padding: 0.4rem 2rem;
+    border-radius: 0.5rem;
+    background-color: rgb(247, 247, 247);
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size:1rem;
+    cursor: pointer;
+}
+#navSec ul button:hover{
+    border:2px solid white;
+    background-color: transparent;
+    /* padding: 0.4rem 1.6rem; */
+    color:white;
+}
+
+#quesAnsSec{
+    /* border:2px solid red; */
+    height:auto;
+}
+#quesAnsDiv{
+    /* border:2px solid rgb(17, 11, 11); */
+    height:70rem;
+    margin:1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#questioner{
+    /* border:2px solid rgb(17, 11, 11); */
+    height: auto;
+    width: 60rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background-color: rgb(219, 238, 255);
+    /* background-color: rgb(241, 241, 241); */
+    box-shadow: 0px 15px 10px -15px rgb(173, 169, 169);
+}
+.answerer{
+    /* border:2px solid rgb(17, 11, 11); */
+    display: none;
+    height: auto;
+    width: 60rem;
+    margin-top: 0rem;
+    padding: 0.8rem;
+}
+.showAns{
+    display: block;
+}
+.profile{
+    /* border:2px solid rgb(182, 35, 35); */
+    display: flex;
+    align-items: center;
+}
+#questioner .dp{
+    /* border:2px solid rgb(17, 11, 11); */
+    height: 2.5rem;
+    width: 2.5rem;
+    opacity: 1;
+    filter: brightness(100%);
+    border-radius: 50%;
+    /* filter:invert(30%); */
+}
+.answerer .dp{
+    /* border:2px solid rgb(17, 11, 11); */
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    filter: brightness(100%);
+    /* filter:invert(65%); */
+}
+.profile h3{
+    font-size:1.4rem;
+    margin-left: 1rem;
+}
+#ques{
+    /* border:2px solid rgb(17, 11, 11); */
+    margin: 1rem 0rem;
+    padding-left: 3rem;
+}
+#quesIcons{
+    /* background-color: aqua; */
+    height:1.8rem;
+    margin:3rem 0rem;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+.profile h4{
+    font-size:1.1rem;
+    margin-left: 1rem;
+}
+.clickedIcon{
+    background-color:rgb(60, 163, 247);
+}
+#ans{
+    margin:1rem;
+}
+.ansIcons{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin:0rem 1rem 1rem 2rem;
+    cursor: pointer;
+}

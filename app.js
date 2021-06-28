@@ -1,6 +1,12 @@
 // require('dotenv').config();
 const express = require('express');
 const ejs = require('ejs');
+const path = require('path');
+const crypto = require('crypto');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid  = require('gridfs-stream');
+const methodOverride = require('method-override')
 const mongoose = require('mongoose');
 const encrypt = require('mongoose-encryption');
 const bodyParser = require('body-parser');
@@ -12,16 +18,15 @@ const FacebookStrategy  =     require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const prompt = require('prompt-sync')({sigint: true});
-// var nodemailer = require('nodemailer');
-
-
-
 
 const app = express();
+// app.use('/', routes);
 
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+
+app.use(methodOverride('_method'));
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -46,21 +51,48 @@ const client = mongoose.connect("mongodb://localhost:27017/quora", {
   useCreateIndex: true
 });
 
+const conn = mongoose.connection;
+let gfs;
+
+conn.once('open', () => {
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('uploads');
+});
+var storage = new GridFsStorage.GridFsStorage({
+  db: client,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads'
+        };
+        resolve(fileInfo);
+      });
+    });
+  }
+});
+const upload = multer({ storage });
+
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
   detail: {
    FName: String,
    LName: String,
-   FullName: String
+   FullName: String,
+   Description: String,
+   Education: String,
+   State: String,
+   City : String
 },
   googleId: String,
   facebookId: String,
-  img:
-    {
-        data: Buffer,
-        contentType: String
-    },
+  img: String,
     followers: [
       String
     ],
@@ -68,7 +100,7 @@ const userSchema = new mongoose.Schema({
       String
     ],
     liked: [
-        String
+      String
     ],
     disliked: [
        String
@@ -77,20 +109,45 @@ const userSchema = new mongoose.Schema({
     {
       userId: String
     }
-  ]
+  ],
+  time : String
 });
+
+const timeSchema = new mongoose.Schema({
+  day: String,
+  totaltime: {
+    date: Number,
+    month: Number,
+    year: Number
+  },
+  entertime: {
+    hour: Number,
+    minute: Number,
+    second: Number
+  }
+})
 
 const questionSchema = new  mongoose.Schema({
   ques : String,
   liked: Number,
   disliked: Number,
-  userId: String
+  answer: [
+       {
+        ans:   String,
+        postedUser: String,
+        FullName:  String,
+        time: String
+       }
+  ],
+  userId: String,
+  time: String
 });
 
 
 const complainSchema = new mongoose.Schema({
   complain: String,
-  user: String
+  user: String,
+  time: String
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -99,6 +156,7 @@ userSchema.plugin(findOrCreate);
 const User = mongoose.model("Quora", userSchema);
 const User_question = mongoose.model("Question", questionSchema);
 const userComplain = mongoose.model("complain", complainSchema);
+const usertime = mongoose.model("time", timeSchema);
 // const user = require('./models/user');
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -128,12 +186,34 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-    // console.log(profile);
-    // console.log("tt");
     User.findOrCreate({ username: profile.emails[0].value,googleId: profile.id }, function (err, user) {
       user.detail.FName= profile.name.givenName;
       user.detail.LName= profile.name.familyName;
        user.detail.FullName= profile.name.givenName.toString()+" "+profile.name.familyName.toString();
+       var d = new Date();
+       if(!user.time){
+         var d = new Date();
+         const time = new usertime({
+              day : d.getDay(),
+              totaltime: {
+                date : d.getDate(),
+                 month : d.getMonth(),
+                year : d.getFullYear()
+             },
+              entertime: {
+                  hour : d.getHours(),
+                  minute : d.getMinutes(),
+                  second : d.getHours()
+             }
+         });
+         time.save(function(err){
+           if(err){
+             console.log(err);
+           }
+         });
+         user.time = time._id;
+       }
+       // console.log(d.getMonth());
        user.save(function (err){
          if(err){
            console.log(err);
@@ -156,6 +236,28 @@ function(req, res){
 }
 );
 
+app.post('/upload', upload.single('file'), (req,res) =>{
+// console.log(req.file);
+  if(req.isAuthenticated()){
+    User.findById(req.user._id, (err, user)=>{
+      if(err){
+        console.log(err)
+      }else{
+        user.img = req.file.filename;
+        user.save(function(err){
+          if(err){
+            console.log(err);
+          }else{
+            const url  = "/profile/"+req.user._id;
+            res.redirect(url);
+            // res.json({ok: true});
+          }
+        });
+      }
+    });
+  }
+  // res.redirect('/');
+});
 
 app.post("/searching",function(req,res){
   const make =req.body.search;
@@ -170,7 +272,7 @@ app.post("/searching",function(req,res){
           console.log(err);
         }else{
         if(req.isAuthenticated()){
-          res.render("searcheduserwithsigned",{user: user, questions: questions});
+          res.render("searcheduserwithsigned",{user: user, questions: questions,properuser: req.user._id});
         }else{
           res.render("searcheduserwithoutsigned",{user: user, questions: questions});
         }
@@ -180,7 +282,34 @@ app.post("/searching",function(req,res){
   });
 });
 
-
+// app.post("/editdetails", function(req,res){
+//   if(req.isAuthenticated()){
+//
+//   }
+// });
+app.get('/image/:filename', (req, res) => {
+  User.findById(req.params.filename, function (err, user){
+    if(err){
+      console.log(err);
+    }else{
+      gfs.files.findOne({filename: user.img}, (err, file) => {
+        if(!file || file.length == 0){
+          return res.status(404).json({
+          err: 'No file exist'
+          });
+        }
+        if(file.contentType === 'image/jpeg' || file.contentType === 'image/png'){
+          const readstream = gfs.createReadStream(file.filename);
+          readstream.pipe(res);
+        }else{
+          res.status(404).json({
+            err: 'Not an image'
+          });
+        }
+      });
+    }
+  });
+});
 
 
 app.post("/login", function(req, res) {
@@ -201,24 +330,39 @@ app.post("/login", function(req, res) {
 });
 
 app.post("/askquestion", function(req,res){
+  var d = new Date();
+  const time = new usertime({
+       day : d.getDay(),
+       totaltime: {
+         date : d.getDate(),
+          month : d.getMonth(),
+         year : d.getFullYear()
+      },
+       entertime: {
+           hour : d.getHours(),
+           minute : d.getMinutes(),
+           second : d.getHours()
+      }
+  });
+  time.save(function(err){
+    if(err){
+      console.log(err);
+    }
+  });
   if(req.isAuthenticated()){
-    // console.log(req.isAuthenticated());
-    // console.log(req.user._id);
     const usd = req.user._id;
-     // console.log(req.body.question);
      const quest = req.body.question;
      const newUser = new User_question({
        ques: quest,
-       userId: usd
+       userId: usd,
+       time: time._id
      });
     newUser.save(function(err){
        if(err){
          console.log(err);
        }
      });
-    // console.log(newUser);
      const idd = newUser._id;
-     // console.log(idd);
      User.findById(usd, function(err, user){
        if(err){
          console.log(err);
@@ -246,33 +390,177 @@ app.post("/askquestion", function(req,res){
 
 
 app.post("/userliked",function(req,res){
-  // User
-  User.updateOne({_id: req.user._id},{$push: {liked: req.body.user}},function(err,success){
-    if(err){
-      console.log(err);
+  const data = req.body.data;
+  if(req.isAuthenticated()){
+    const usd = mongoose.Types.ObjectId(data);
+     User.findById(req.user._id,function(err, user){
+         var tt = false;
+       for(let i=0; i<user.liked.length; i++){
+           // console.log(usd);
+           // console.log(user.liked[i]);
+         if(usd == user.liked[i]){
+           tt=true;
+           break;
+         }
+       }
+         if(tt){
+           User.updateOne({_id: req.user._id},{$pull: {liked: usd}},function(err,success){
+             if(err){
+               console.log(err);
+             }else{
+               res.json({ok: true});
+             }
+           });
+         }else{
+           User.updateOne({_id: req.user._id},{$push: {liked: usd}},function(err,success){
+             if(err){
+               console.log(err);
+             }else{
+               User.updateOne({_id: req.user._id},{$pull: {disliked: usd}},function(err,success){
+                 if(err){
+                   console.log(err);
+                 }else{
+                   console.log("success");
+                 }
+               });
+             }
+           });
+         }
+     });
+  }else{
+    res.json({ok: false});
+  }
+});
+
+
+app.post("/changePassword", function(req, res){
+  User.findById(req.user._id,function(err, user){
+    if(user.googleId){
+      res.render("forallfailures",{heading: "This account is linked with google", message: "Can't change the password"});
     }else{
-      if(success){
-        res.send("done");
-      }else{
-        console.log("fail");
-      }
+      user.changePassword(req.body.oldpassword, req.body.newpassword, function(err,success){
+        if(err){
+          console.log(err)
+        }else{
+          const url = "/profile/"+user._id;
+          res.redirect(url);
+          // console.log("success");
+        }
+      });
     }
   });
 });
 
+
+
+app.post("/addmoredetails", function(req, res){
+  let data  = JSON.parse(req.body.data);
+    User.findById(req.user._id, function(err, user){
+      if(data.FName){
+        user.detail.FName = data.FName;
+        user.detail.FullName = data.FName +" "+ user.detail.LName;
+      }
+      if(data.LName){
+       user.detail.LName = data.LName;
+         user.detail.FullName = user.detail.FName +" "+ data.LName;
+      }
+      if(data.LName && data.FName){
+        user.detail.FullName = data.FName +" "+ data.LName;
+      }
+      if(data.Description){
+        user.detail.Description = data.Description;
+      }
+      if(data.Education){
+        user.detail.Education = data.Education;
+      }
+      if(data.City){
+        user.detail.City = data.City;
+      }
+      if(data.State){
+        user.detail.State = data.State;
+      }
+      user.save(function(err){
+        if(err){
+          console.log(err);
+        }
+      });
+      res.json({ok: 1});
+    });
+});
+
+
 app.post("/mailing",function(req,res){
-  // console.log(req.body.content);
+  // console.log(req.body.data);
+  const data = JSON.parse(req.body.data);
+  var d = new Date();
+  const time = new usertime({
+       day : d.getDay(),
+       totaltime: {
+         date : d.getDate(),
+          month : d.getMonth(),
+         year : d.getFullYear()
+      },
+       entertime: {
+           hour : d.getHours(),
+           minute : d.getMinutes(),
+           second : d.getHours()
+      }
+  });
+  time.save(function(err){
+    if(err){
+      console.log(err);
+    }
+  });
   if(req.isAuthenticated()){
     const newUser = new userComplain({
-      complain: req.body.content,
-      user: req.user._id
+      complain: data.content,
+      user: req.user._id,
+      time : time._id
     });
     newUser.save(function(err){
       if(err){
         console.log(err);
       }else{
-        res.send("successfully submitted");
+        res.json({ok: true});
       }
+    });
+  }else{
+    res.json({ok: false});
+    // res.render("forallfailures",{heading: "You are not logged in", message: "Kindly login or signup"});
+  }
+});
+
+
+app.post("/answer",function(req,res){
+  var d = new Date();
+  const time = new usertime({
+       day : d.getDay(),
+       totaltime: {
+         date : d.getDate(),
+          month : d.getMonth(),
+         year : d.getFullYear()
+      },
+       entertime: {
+           hour : d.getHours(),
+           minute : d.getMinutes(),
+           second : d.getHours()
+      }
+  });
+  time.save(function(err){
+    if(err){
+      console.log(err);
+    }
+  });
+  if(req.isAuthenticated()){
+    User.findById(req.user._id,function(err,user){
+      User_question.updateOne({_id: mongoose.Types.ObjectId(req.body.question)},{$push: {answer: {ans: req.body.answer, postedUser: req.user._id, FullName:user.detail.FullName, time:time._id  }}},function(err,success){
+          if(err){
+            console.log(err);
+          }else{
+            const url = "/question/"+mongoose.Types.ObjectId(req.body.question);
+            res.redirect(url);
+          }
+      });
     });
   }else{
     res.render("forallfailures",{heading: "You are not logged in", message: "Kindly login or signup"});
@@ -283,17 +571,47 @@ app.post("/mailing",function(req,res){
 
 
 app.post("/userdisliked",function(req,res){
-  User.updateOne({_id: req.user._id},{$push: {disliked: req.body.user}},function(err,success){
-    if(err){
-      console.log(err);
-    }else{
-      if(success){
-        res.send("done");
-      }else{
-        console.log("fail");
-      }
-    }
-  });
+  const data = req.body.data;
+  if(req.isAuthenticated()){
+    const usd = mongoose.Types.ObjectId(data);
+    // console.log(usd);
+     User.findById(req.user._id,function(err, user){
+       var tt = false;
+     for(let i=0; i<user.disliked.length; i++){
+         // console.log(usd);
+         // console.log(user.liked[i]);
+       if(usd == user.disliked[i]){
+         tt=true;
+         break;
+       }
+     }
+         if(tt){
+           User.updateOne({_id: req.user._id},{$pull: {disliked: usd}},function(err,success){
+             if(err){
+               console.log(err);
+             }else{
+               res.json({ok: true});
+             }
+           });
+         }else{
+           User.updateOne({_id: req.user._id},{$push: {disliked: usd}},function(err,success){
+             if(err){
+               console.log(err);
+             }else{
+               User.updateOne({_id: req.user._id},{$pull: {liked: usd}},function(err,success){
+                 if(err){
+                   console.log(err);
+                 }else{
+                  res.json({ok: true});
+                 }
+               });
+             }
+           });
+         }
+     });
+  }else{
+    res.render("forallfailures",{heading:"You are not logged in", message: "Please logged in"});
+  }
 });
 
 app.get("/queries", async function(req,res){
@@ -301,29 +619,132 @@ app.get("/queries", async function(req,res){
       if(err){
      console.log(err);
       }else{
+        var arr = [];
+        for(let i=user.length-1; i>=0; i--){
+          arr.push(user[i]);
+        }
         if(req.isAuthenticated()){
-          res.render("questionswithsigned",{user: user} );
+          res.render("questionswithsigned",{user: arr, properuser: req.user._id} );
         }else{
-          res.render("questionswithoutsigned",{user: user} );
+          res.render("questionswithoutsigned",{user: arr});
         }
       }
     });
 });
 
 app.get("/question/:id",function(req, res){
-  
-User_question.findById(req.params.id,function(err,user){
-  if(err){
-console.log(err);
+  User_question.findById(mongoose.Types.ObjectId(req.params.id),function(err,question){
+    if(err){
+  console.log(err);
+    }else{
+      if(req.isAuthenticated()){
+     User.findById({_id: req.user._id},function(err,user){
+       if(err){
+         console.log(err);
+       }else{
+         User.findById(question.userId,function(err, foundUser){
+             res.render("pageforquesanswithsigned",{user: question,iddd: question._id, likedarray: user.liked, dislikedarray: user.disliked,name: foundUser.detail.FullName, properuser: req.user._id});
+         });
+     }
+     });
+    }else{
+      User.findById(question.userId,function(err, foundUser){
+        res.render("pageforquesanswithoutsigned",{user: question,iddd: question._id,likedarray:[], dislikedarray:[],name: foundUser.detail.FullName});
+      });
+    }
+  }
+  });
+});
+
+app.get("/profile/:id", function(req,res){
+  if(req.isAuthenticated()){
+     if(req.params.id == req.user._id){
+       User.findById(req.user._id, (err, result) => {
+         if(err){
+           console.log(err);
+         }else{
+           if(result.img)
+           res.render("myprofile",{user: result});
+           else{
+             res.render("myprofile",{user: result});
+           }
+         }
+       });
+     }else{
+      res.render("otherprofile",{user: req.params.id});
+      // res.send("ko");
+     }
   }else{
-   if(req.isAuthenticated()){
-     res.render("pageforquesanswithsigned",{user:user});
-   }else{
-     res.render("pageforquesanswithoutsigned",{user: user});
-   }
+    // res.send("ko");
+    res.render("otherprofile",{user: req.params.id});
+    // res.send("no user");
   }
 });
+
+
+
+app.post("/follow",function(req,res){
+  let data = req.body.data;
+  if(req.isAuthenticated()){
+    // console.log(data);
+    let usd = mongoose.Types.ObjectId(data);
+     User.findById(req.user._id,function(err, user){
+         var tt = false;
+       for(let i=0; i<user.following.length; i++){
+         if(usd == user.following[i]){
+           tt=true;
+           break;
+         }
+       }
+         if(tt){
+           User.updateOne({_id: req.user._id},{$pull: {following: usd}},function(err,success){
+             if(err){
+               console.log(err);
+             }
+           });
+         }else{
+           User.updateOne({_id: req.user._id},{$push: {following: usd}},function(err,success){
+             if(err){
+               console.log(err);
+             }
+           });
+         }
+     });
+      usd = mongoose.Types.ObjectId(data);
+      User.findById(usd,function(err, user){
+          var tt = false;
+        for(let i=0; i<user.followers.length; i++){
+          if(req.user._id == user.followers[i]){
+            tt=true;
+            break;
+          }
+        }
+          if(tt){
+            User.updateOne({_id: usd},{$pull: {followers: req.user._id}},function(err,success){
+              if(err){
+                console.log(err);
+              }else{
+                res.json({ok: true});
+              }
+            });
+          }else{
+            User.updateOne({_id: usd},{$push: {followers: req.user._id}},function(err,success){
+              if(err){
+                console.log(err);
+              }else{
+                res.json({ok: true});
+              }
+            });
+          }
+      });
+  }else{
+    res.json({ok: false});
+  }
 });
+
+
+
+
 
 app.post("/register", async function(requset, response){
       await  User.findOne({ username: requset.body.username}, async function(err,foundUser){
@@ -390,7 +811,7 @@ app.get("/",  function(req, res){
       if(err){
         console.log(err);
       }else{
-        res.render("signed",{name: user.detail.FName});
+        res.render("signed",{name: user.detail.FName, properuser: user._id});
       }
     });
   }
@@ -398,6 +819,8 @@ app.get("/",  function(req, res){
     res.render("blog");
   }
 });
+
+
 
 
 
