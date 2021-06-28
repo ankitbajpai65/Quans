@@ -6,49 +6,11 @@
       <input type="text" name = "search" placeholder="Search">
     </form>
     <form class="" action="/" method="get">
-<<<<<<< HEAD
      <button type="submit" name="button">sign in</button>
     </form>
   </ul>
 </section>
 
-</section>
-<div>
-  <section id="quesAnsSec">
-    <div id="quesAnsDiv">
-      <div id="questioner">
-        <div class="profile">
-          <img src="../images/user.png" alt="" class="dp">
-<a href="/profile/<%=user.userId%>"> <h3><%=name%></h3></a>
-        </div>
-        <h1 id="ques"><%=user.ques%></h1>
-        <%var like=false, dislike=false%>
-        <%likedarray.forEach(function(se){%>
-          <%if(se == iddd){%>
-            <%like = true;%>
-          <%}%>
-        <%});%>
-        <%dislikedarray.forEach(function(se){%>
-          <%if(se == iddd){%>
-            <%dislike = true;%>
-          <%}%>
-        <%});%>
-        <div id="quesIcons">
-          <%if(like){%>
-              <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like clickedIcon">
-              <%if(dislike){%>
-                <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike clickedIcon">
-                <%}else{%>
-                  <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike">
-                  <%}%>
-            <%}else{%>
-                <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like">
-=======
-      <button>Sign In</button>
-    </form>
-  </ul>
-</section>
-  </section>
   <section id="quesAnsSec">
       <div id="quesAnsDiv">
         <div id="questioner">
@@ -71,13 +33,11 @@
           <div id="quesIcons">
             <%if(like){%>
                 <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like clickedIcon">
->>>>>>> 7526210670f4a5fe948a0745082018f676106436
                 <%if(dislike){%>
                   <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike clickedIcon">
                   <%}else{%>
                     <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconsdislike dislike">
                     <%}%>
-<<<<<<< HEAD
                   <%}%>
                   <img src="../images/comment.png" alt="like" id="allAnswer">
                 </div>
@@ -117,7 +77,6 @@
         <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>" class=" ansIcons ansIconslike like">
           <%if(dislike){%>
             <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons ansIconsdislike dislike clickedIcon">
-=======
               <%}else{%>
                   <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like">
                   <%if(dislike){%>
@@ -152,12 +111,10 @@
           <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>"class=" ansIcons ansIconslike like clickedIcon">
           <%if(dislike){%>
             <img src="../images/dislike.png"   id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons ansIconsdislike dislike clickedIcon">
->>>>>>> 7526210670f4a5fe948a0745082018f676106436
             <%}else{%>
               <img src="../images/dislike.png"   id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons ansIconsdislike dislike">
               <%}%>
           <hr />
-<<<<<<< HEAD
             <%}%>
             </div>
     <%});%>
@@ -206,7 +163,6 @@
       ansIconsdislike[i].onclick = () => {
         alert("you are not logged in");
 
-=======
         <%}else{%>
             <div class="profile">
               <img src="../images/user.png" alt="" class="dp">
@@ -266,8 +222,6 @@
   for (let i = 0; i < ansIconsdislike.length; i++) {
       ansIconsdislike[i].onclick = () => {
         alert("you are not logged in");
-
->>>>>>> 7526210670f4a5fe948a0745082018f676106436
       }
   }
   </script>

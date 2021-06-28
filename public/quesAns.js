@@ -64,10 +64,7 @@ for (let i = 0; i < ansIconsdislike.length; i++) {
 }
 function saveDetailLike(data){
     var id = data;
-<<<<<<< HEAD
-=======
     var tt = true;
->>>>>>> 7526210670f4a5fe948a0745082018f676106436
      $.post('/userliked', { data: id });
 }
 function saveDetailDislike(data){
