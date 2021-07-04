@@ -5,9 +5,21 @@
             <span style="font-size:28px;" id="close" onclick="closeNav()">&#9776;</span>
             <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
             <%if(user.img){%>
-                <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp"></a>
+                <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic"></img></a>
+                <label for="file">
+                    <i class="fas fa-camera fa-sm text-decoration-none text-white" id="camera"></i>
+                    <input type="file" id="file" style="display: none" name="image"
+                        accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
+                        data-original-title="upload photos">
+                </label>
                 <%}else{%>
-                    <img src="../images/user.png" alt="dp">
+                    <img src="../images/user.png" alt="dp" class="pic"><i class="fas fa-camera fa-sm"></i>
+                    <label for="file">
+                        <i class="fas fa-camera fa-sm text-decoration-none text-white" id="camera"></i>
+                        <input type="file" id="file" style="display: none" name="image"
+                            accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
+                            data-original-title="upload photos">
+                    </label>
                     <%}%>
                         <h4 id="name">
                             <%=user.detail.FullName%>
@@ -26,10 +38,10 @@
             <a class="active w-100 text-center p-3" href="/">Home</a>
             <a href="/#contactSec" class="w-100 text-center p-3">Contact</a>
             <a href="/logout" class="w-100 text-center p-3">Log out</a>
-            <!-- <form   style="text-align: center;"action="/upload" method="post" enctype="multipart/form-data">
-                  <input type="file" name="file" id="file">
+            <!-- <form style="text-align: center;" action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="file">
                 <input type="submit" value="submit">
-              </form> -->
+            </form> -->
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,7 +49,8 @@
             <h3 class="navbar-brand mt-1" id="title">Quora</h3>
             <div class="collapse navbar-collapse navItem">
                 <form class="d-flex">
-                    <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search"
+                        aria-label="Search">
                     <img src="../images/user.png" id="profilePic" alt="dp">
                 </form>
             </div>
@@ -171,13 +184,65 @@
         </form> -->
     </div>
     <div class="container p-4 text-center" id="profileNav">
+        <hr />
         <div class="row">
-            <div class="col"><a href="#" class="text-decoration-none">Questions</a></div>
-            <div class="col"><a href="#" class="text-decoration-none">Answers</a></div>
-            <div class="col"><a href="#" class="text-decoration-none">Followers</a></div>
-            <div class="col"><a href="#" class="text-decoration-none">Following</a></div>
-            <div class="col"><a href="#" class="text-decoration-none">Shares</a></div>
+            <div class="col"><a href="#" class="text-decoration-none">0 Questions</a></div>
+            <div class="col"><a href="#" class="text-decoration-none">0 Answers</a></div>
+            <div class="col"><button id="followerBtn" class="mb-3">0 Followers</button>
+                <div class="follower col">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Ankit
+                </div>
+                <div class="follower col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Abhi Sharma
+                </div>
+                <div class="follower col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+                <div class="follower col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+                <div class="follower col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+                <div class="follower col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+            </div>
+            <div class="col"><button id="followingBtn" class="mb-3">0 Following</button>
+                <div class="following col">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Ankit
+                </div>
+                <div class="following col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Abhi Sharma
+                </div>
+                <div class="following col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+                <div class="following col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+                <div class="following col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+                <div class="following col pb-2">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    Virat Kohli
+                </div>
+            </div>
+            <div class="col"><a href="#" class="text-decoration-none">0 Shares</a></div>
         </div>
+        <hr />
     </div>
     <script src="../myprofile.js"></script>
 

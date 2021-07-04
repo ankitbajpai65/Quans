@@ -20,6 +20,13 @@ html, body{
     overflow-x: hidden;
     /* transition: 0.5s; */
   }
+  #camera{
+    /* display: none; */
+    position: absolute;
+    top: 11%;
+    left: 47%;
+    z-index:3;
+  }
   #close{
     display:none;
     position: absolute;
@@ -188,9 +195,22 @@ html, body{
 
 /* profileNav */
 #profileNav{
-    width: 52rem;
-    margin-left: 20rem;
-    background-color: rgb(230, 231, 231);
+  width: 56rem;
+  margin-left: 18rem;
+    /* background-color: rgb(230, 231, 231); */
+}
+.follower,.following{
+   display: none;
+   text-align: left;
+   padding:1rem 0rem;
+   padding-left:0.6rem;
+   background-color: rgb(243, 243, 243);
+   /* box-shadow: 2px 2px 9px -3px #888888; */
+}
+#followerBtn,#followingBtn{
+  border:none;
+  color:#5B6EFD;
+  background-color: transparent;
 }
 
   /* Media queries  */
