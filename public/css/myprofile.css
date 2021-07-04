@@ -8,15 +8,17 @@ html, body{
     height: 100%;
   }
 .sidebar {
-    height: 100%;
-    background-color: #ffaf7a;
-    width: 0;
+  /* border:2px solid rgb(248, 58, 58); */
+    /* height: 100%; */
+    background-color: #070707;
+    /* width: 0; */
+    width: 13rem;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.5s;
+    /* transition: 0.5s; */
   }
   #close{
     display:none;
@@ -33,9 +35,10 @@ html, body{
     margin-left: 50px;
   }
   #info{
-      /* border:2px solid black; */
-      height:12rem;
-      margin:2rem 0rem;
+      /* border:2px solid rgb(55, 40, 255); */
+      background-color: rgb(255, 139, 7);
+      /* height:12rem;
+      padding:2rem 0rem; */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -46,33 +49,81 @@ html, body{
     margin-bottom: 1rem;
   }
   #info h4{
-    margin-bottom: 1rem;
+    color:rgb(238, 238, 238);
   }
-  #links{
-    /* border:2px solid black; */
+  #info h5{
+    margin-bottom: 1rem;
+    color:rgb(238, 238, 238);
+  }
+  /* #links{
+    border:2px solid rgb(255, 85, 85);
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  } */
   #links a {
-    color:rgb(58, 29, 126);
+    /* border:2px solid white; */
+    color:rgb(238, 238, 238);
     display: block;
     text-decoration: none;
-    font-size:1.2rem;
+    font-size:1.1rem;
     font-weight:500;
     padding:0.5rem;
   }
   #links a:hover {
-    text-decoration: underline;
-    color:rgb(136, 134, 134);
+    background-color:rgb(44, 43, 43);
   }
+  .navbar{
+    margin-left:13rem;
+  }
+  .container-fluid h3{
+    text-align: center;
+  }
+  .navItem{
+    position: absolute;
+    right:1rem;
+  }
+  #title{
+    display: block;
+    margin: auto;
+  }
+  .searchBar{
+    height:2rem;
+  }
+  #profilePic{
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+    filter: invert(100%);
+  }
+  #profilePic:hover{
+    transition: all 300ms;
+    transform:scale(0.9);
+  }
+  #editSpan{
+    text-align: center;
+    float:right;
+    height: 3rem;
+    width: 3rem;
+    padding-top: 0.4rem;
+    background-color: rgb(255, 139, 7); 
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  /* .editIcon{
+    height:2.5rem;
+    width:2.5rem;
+  } */
   div.content {
     /* border:2px solid black; */
-    margin-left: 15rem;
-    margin-top: -2.8rem;
-    height: 100%;
-    width: 47rem;
-    transition: 0.5s;
+    margin-left: 20rem;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    height: 16.5rem;
+    width: 52rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 9px -3px #888888;
+    /* transition: 0.5s; */
   }
   .content form{
     /* border:2px solid rgb(73, 44, 44); */
@@ -127,12 +178,6 @@ html, body{
 .clickedPinChangeBtn{
     display:block;
 }
-/* #moreInfo{
-  border:2px solid red;
-  position:absolute;
-  top:0;
-  right:0;
-} */
 #moreInfo h1{
     color:rgb(219, 57, 57);
     margin-top:1rem;
@@ -141,9 +186,16 @@ html, body{
     height:20rem;
 }
 
+/* profileNav */
+#profileNav{
+    width: 52rem;
+    margin-left: 20rem;
+    background-color: rgb(230, 231, 231);
+}
+
   /* Media queries  */
 
-  @media screen and (max-width: 700px) {
+  /* @media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
       height: auto;
@@ -158,20 +210,5 @@ html, body{
       text-align: center;
       float: none;
     }
-  }
+  } */
 
-.cp{
-  position: relative;
-}
-div.cp a{
-  display:none;
-}
-div.cp:hover a{
-  position: absolute;
-top: 0;
-left: 0;
-right: 0;
-text-align: center;
-bottom: 0;
-display: block !important;
-}

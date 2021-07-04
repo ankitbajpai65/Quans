@@ -10,7 +10,8 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/blog.css">
     <link rel="stylesheet" href="../css/media.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/queries.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Saira&display=swap" rel="stylesheet">
@@ -18,35 +19,45 @@
 </head>
 
 <body>
-  <section id="navSec">
-      <nav id="navbar">
-          <span id="title">Quora</span>
-          <ul id="list-1">
-              <li class="item"><a href='/'>Home</a></li>
-              <li class="item"><a href="/#aboutSec">About</a></li>
-              <li class="item"><a href='/queries'>Queries</a></li>
-              <li class="item"><a href="/#contactSec">Contact</a></li>
-          </ul>
-          <ul id="list-2">
-            <form  action="/searching" method="post">
-              <input name="search"type="text" id="searchBar" placeholder="Search here...">
+    <section id="navSec">
+        <nav id="navbar">
+            <span id="title">Quora</span>
+            <ul id="list-1">
+                <li class="item"><a href='/'>Home</a></li>
+                <li class="item"><a href="/#aboutSec">About</a></li>
+                <li class="item"><a href='/queries'>Queries</a></li>
+                <li class="item"><a href="/#contactSec">Contact</a></li>
+            </ul>
+            <ul id="list-2">
+                <form action="/searching" method="post">
+                    <input name="search" type="text" id="searchBar" placeholder="Search here...">
+                </form>
+                <img src="images/search.png" id="searchImg">
+                <button id="askBtn">Ask questions</button>
+                <!-- <a href="/profile/<%=properuser%>"><img src="/image/<%=properuser%>" id="profileImg"></a> -->
+                <a href="/profile/<%=properuser%>"><img src="images/user.png" id="profileImg"></a>
+            </ul>
+        </nav>
+    </section>
+    <section id="infoSec">
+        <div id="infoDiv">
+            <ul id="infoList">
+                <li><img src="images/profile.png" alt=""><a href="#">My Profile</a></li>
+                <li><img src="images/pencil.png" alt=""><a href="#">Edit Profile</a></li>
+                <li><img src="images/logout.png" alt=""><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="quesSec">
+        <span onclick="closeOthers()">
+            <img src="images/close.png" id="remove-othersPop" alt="pp">
+        </span>
+        <div id="quesDiv">
+            <form action="/askquestion" method="post">
+                <input type="text" name="question" placeholder="Type your question here..." required>
+                <button type="submit" id="submitQues" onclick="closeOthers">Submit</button>
             </form>
-              <img src="images/search.png" id="searchImg">
-              <button id="askBtn">Ask questions</button>
-              <a href="/profile/<%=properuser%>"><img src="/image/<%=properuser%>" id="profileImg"></a>
-          </ul>
-      </nav>
-  </section>
-  <section id="quesSec">
-      <span onclick="closeOthers()">
-          <img src="images/close.png" id="remove-othersPop" alt="pp">
-      </span>
-      <div id="quesDiv">
-          <form  action="/askquestion" method="post">
-            <input type="text" name="question" placeholder="Type your question here..." required>
-            <button type="submit"id="submitQues" onclick="closeOthers">Submit</button>
-          </form>
-      </div>
+        </div>
 
-      </div>
-  </section>
+        </div>
+    </section>

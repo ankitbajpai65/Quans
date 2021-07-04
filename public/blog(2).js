@@ -141,7 +141,15 @@ function dothis(){
         }
     });
 }
-// document.getElementById('signinBtn').addEventListener('submit',changeBody);
-// function changeBody(){
-//   console.log("submitted");
-//}
+
+// Profile image function
+
+document.getElementById('profileImg').onmouseenter=()=>{
+  document.getElementById('infoSec').style.display="block";
+}
+document.body.onclick=()=>{
+  document.getElementById('infoSec').style.display="";
+}
+document.body.onscroll=()=>{
+  document.getElementById('infoSec').style.display="";
+}

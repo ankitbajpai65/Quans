@@ -1,57 +1,74 @@
 <%- include('partials/Headerformyprofile')%>
-    <span style="font-size:28px; cursor:pointer;" id="open" onclick="openNav()">&#9776;</span>
-    <div class="sidebar">
-        <div id="info">
+    <!-- <span style="font-size:28px; cursor:pointer;" id="open" onclick="openNav()">&#9776;</span> -->
+    <div class="sidebar h-100">
+        <div id="info" class="h-8 pt-3 pb-2 mb-3">
             <span style="font-size:28px;" id="close" onclick="closeNav()">&#9776;</span>
             <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-<%if(user.img){%>
-<a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp"></a>
-<%}else{%>
-  <img src="../images/user.png" alt="dp">
-<%}%>
-            <h2 id="name"><%=user.detail.FullName%></h2>
-            <%if(user.detail.Description){%>
-              <h4><%=user.detail.Description%></h4>
-              <%}else{%>
-                <h4>Description</h4>
-              <%}%>
-            <h5 id="name">Followers : <%=user.followers.length%></h5>
-            <h5 id="name">Following : <%=user.following.length%></h5>
+            <%if(user.img){%>
+                <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp"></a>
+                <%}else{%>
+                    <img src="../images/user.png" alt="dp">
+                    <%}%>
+                        <h4 id="name">
+                            <%=user.detail.FullName%>
+                        </h4>
+                        <%if(user.detail.Description){%>
+                            <h5>
+                                <%=user.detail.Description%>
+                            </h5>
+                            <%}else{%>
+                                <h5>Description</h5>
+                                <%}%>
+                                    <!-- <h5 id="name">Followers : <%=user.followers.length%></h5>
+            <h5 id="name">Following : <%=user.following.length%></h5> -->
         </div>
-        <div id="links">
-            <a class="active" href="/">Home</a>
-            <a href="/#contactSec">Contact</a>
-            <a href="/logout">Log out</a>
-              <form   style="text-align: center;"action="/upload" method="post" enctype="multipart/form-data">
+        <div id="links" class="mt-5">
+            <a class="active w-100 text-center p-3" href="/">Home</a>
+            <a href="/#contactSec" class="w-100 text-center p-3">Contact</a>
+            <a href="/logout" class="w-100 text-center p-3">Log out</a>
+            <!-- <form   style="text-align: center;"action="/upload" method="post" enctype="multipart/form-data">
                   <input type="file" name="file" id="file">
                 <input type="submit" value="submit">
-              </form>
+              </form> -->
         </div>
     </div>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h3 class="navbar-brand mt-1" id="title">Quora</h3>
+            <div class="collapse navbar-collapse navItem">
+                <form class="d-flex">
+                    <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search" aria-label="Search">
+                    <img src="../images/user.png" id="profilePic" alt="dp">
+                </form>
+            </div>
+        </div>
+    </nav>
     <div class="content">
+        <a href="#" class="text-reset"><span id="editSpan"><i class="fas fa-pen fa-2x fa-center"></i></span></a>
         <form>
             <table>
                 <tr>
                     <td><label class="firstLabel">First name</label></td>
-                    <td><input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput"  readonly="readonly"></td>
+                    <td><input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput"
+                            readonly="readonly"></td>
                 </tr>
                 <tr>
                     <td><label class="firstLabel">Last name</label></td>
-                    <td><input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>" readonly="readonly"></td>
+                    <td><input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>"
+                            readonly="readonly"></td>
                 </tr>
                 <tr>
                     <td><label class="firstLabel">Email</label></td>
-                    <td><input type="email" id="mail" class="myInput" value="<%=user.username%>" readonly="readonly"></td>
+                    <td><input type="email" id="mail" class="myInput" value="<%=user.username%>" readonly="readonly">
+                    </td>
                 </tr>
             </table>
-            <button id="editBtn" type="button" onclick="saveedit()">Edit</button>
-            <button id="pinChange" type="button">Change Password</button>
-          </form>
+            <!-- <button id="editBtn" type="button" onclick="saveedit()">Edit</button>
+            <button id="pinChange" type="button">Change Password</button>  -->
+            <!-- </form>
             <div class="table-2">
               <form  action="/changePassword" method="post">
-
-                <!-- <h1>Change Password</h1> -->
+                
                 <table>
                     <tr>
                         <td><label class="secLabel">Old Password</label></td>
@@ -67,7 +84,7 @@
 
             </div>
             <form>
-            <div id="moreInfo">
+         <div id="moreInfo">
                 <h1>Add More Details</h1>
                 <table id="moreInfoTable">
                     <tr>
@@ -150,12 +167,21 @@
                     </tr>
                 </table>
                 <button type="button" onclick="savedetail()">Save</button>
-            </div>
-        </form>
-
+            </div> 
+        </form> -->
+    </div>
+    <div class="container p-4 text-center" id="profileNav">
+        <div class="row">
+            <div class="col"><a href="#" class="text-decoration-none">Questions</a></div>
+            <div class="col"><a href="#" class="text-decoration-none">Answers</a></div>
+            <div class="col"><a href="#" class="text-decoration-none">Followers</a></div>
+            <div class="col"><a href="#" class="text-decoration-none">Following</a></div>
+            <div class="col"><a href="#" class="text-decoration-none">Shares</a></div>
+        </div>
     </div>
     <script src="../myprofile.js"></script>
 
-</body>
+    </body>
 
-</html>
+
+    </html>
