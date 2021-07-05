@@ -45,41 +45,81 @@ function closeNav() {
 //         // document.querySelector('.content').style.marginTop='';
 //     }
 // }
+
+// FOLLOWERS AND FOLLOWING
+
 // let edit = document.getElementById('editBtn');
 // edit.addEventListener('click', editInfo);
 
-document.querySelector('#followerBtn').onclick = () => {
-  let follower = document.querySelectorAll('.follower');
-  // console.log('foll click');
-  for (let i = 0; i < follower.length; i++) {
-    follower[i].classList.toggle('followers');
-    if (follower[i].classList.contains('followers')) {
-      // console.log('present');
-      follower[i].style.display = 'block';
-      document.querySelector('#followerBtn').style.textDecoration='underline';
-    }
-    else {
-      //  console.log('absent');
-      follower[i].style.display = '';
-      document.querySelector('#followerBtn').style.textDecoration='';
-    }
+// document.querySelector('#followerBtn').onclick = () => {
+//   let follower = document.querySelectorAll('.follower');
+//   // console.log('foll click');
+//   for (let i = 0; i < follower.length; i++) {
+//     follower[i].classList.toggle('followers');
+//     if (follower[i].classList.contains('followers')) {
+//       // console.log('present');
+//       follower[i].style.display = 'block';
+//       document.querySelector('#followerBtn').style.textDecoration='underline';
+//     }
+//     else {
+//       //  console.log('absent');
+//       follower[i].style.display = '';
+//       document.querySelector('#followerBtn').style.textDecoration='';
+//     }
+//   }
+// }
+// document.querySelector('#followingBtn').onclick = () => {
+//   let following = document.querySelectorAll('.following');
+//   // console.log('foll click');
+//   for (let i = 0; i < following.length; i++) {
+//     following[i].classList.toggle('followings');
+//     if (following[i].classList.contains('followings')) {
+//       // console.log('present');
+//       following[i].style.display = 'block';
+//       document.querySelector('#followingBtn').style.textDecoration='underline';
+//     }
+//     else {
+//       //  console.log('absent');
+//       following[i].style.display = '';
+//       document.querySelector('#followingBtn').style.textDecoration='';
+//     }
+//   }
+// }
+
+// QUESTION PART HERE
+
+let answerBtn = document.getElementsByClassName('answerBtn');
+for (let i = 0; i < answerBtn.length; i++) {
+  answerBtn[i].onclick = () => {
+    // console.log('ans click');
+    let answerDiv = document.getElementsByClassName('answerDiv');
+    answerDiv[i].style.display = 'block';
   }
 }
-document.querySelector('#followingBtn').onclick = () => {
-  let following = document.querySelectorAll('.following');
-  // console.log('foll click');
-  for (let i = 0; i < following.length; i++) {
-    following[i].classList.toggle('followings');
-    if (following[i].classList.contains('followings')) {
-      // console.log('present');
-      following[i].style.display = 'block';
-      document.querySelector('#followingBtn').style.textDecoration='underline';
-    }
-    else {
-      //  console.log('absent');
-      following[i].style.display = '';
-      document.querySelector('#followingBtn').style.textDecoration='';
-    }
+let bold = document.getElementById('bold')
+bold.onclick = () => {
+  console.log('bold click');
+  bold.classList.toggle('boldActive');
+  if (bold.classList.contains('boldActive')) {
+    bold.style.color = 'rgb(3, 110, 250)';
+    document.getElementById('answerBlock').style.fontWeight = 'bold';
+  }
+  else {
+    bold.style.color = '';
+    document.getElementById('answerBlock').style.fontWeight = '';
+  }
+}
+let italic = document.getElementById('italic')
+italic.onclick = () => {
+  console.log('italic click');
+  italic.classList.toggle('italicActive');
+  if (italic.classList.contains('italicActive')) {
+    italic.style.color = 'rgb(3, 110, 250)';
+    document.getElementById('answerBlock').style.fontStyle = 'italic';
+  }
+  else {
+    italic.style.color = '';
+    document.getElementById('answerBlock').style.fontStyle = '';
   }
 }
 

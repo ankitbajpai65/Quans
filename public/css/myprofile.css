@@ -121,9 +121,13 @@ html, body{
     height:2.5rem;
     width:2.5rem;
   } */
+  #myContent{
+    margin-left: 23rem;
+    width: 52rem;
+  }
   div.content {
     /* border:2px solid black; */
-    margin-left: 20rem;
+    /* margin-left: 20rem; */
     margin-top: 1.5rem;
     margin-bottom: 3rem;
     height: 16.5rem;
@@ -195,40 +199,119 @@ html, body{
 
 /* profileNav */
 #profileNav{
-  width: 56rem;
-  margin-left: 18rem;
-    /* background-color: rgb(230, 231, 231); */
+  width: 52rem;
+  margin-bottom: 1rem;
+  /* position:sticky;
+   top:0; */
+  z-index:2;
 }
-.follower,.following{
-   display: none;
-   text-align: left;
-   padding:1rem 0rem;
-   padding-left:0.6rem;
-   background-color: rgb(243, 243, 243);
-   /* box-shadow: 2px 2px 9px -3px #888888; */
+
+/* ANSWER PART HERE */
+.questionDiv{
+  margin:0;
+  z-index:1;
 }
-#followerBtn,#followingBtn{
-  border:none;
-  color:#5B6EFD;
+/* .questionDiv:hover{
+  background-color: #f1f0f0;
+} */
+
+/* QUESTION PART HERE */
+.answerDiv{
+  
+  border: 1px solid rgb(194, 194, 194);
+  display: none;
+}
+#writerDiv{
+  background-color: #eeeeee;
+  border-bottom: 1px solid rgb(194, 194, 194);
+}
+#writer{
+  margin-left: 0.5rem;
+}
+#answerBox,#textDec{
+  border-bottom: 1px solid rgb(194, 194, 194);
+}
+#postbtnDiv{
+  background-color: #eeeeee;
+}
+.answerBtn{
   background-color: transparent;
+  border: none;
+  color:#5B6EFD;
+}
+#answerBlock{
+    border: none;
+    height:6rem;
+}
+.postBtn{
+  width:5rem;
+  font-size: 0.9rem;
 }
 
-  /* Media queries  */
+/* ANSWER PART HERE */
+.answerer{
+  /* border:2px solid rgb(17, 11, 11); */
+  height: auto;
+  margin-top: 0rem;
+  z-index:1;
+}
+.profile{
+  /* border:2px solid rgb(182, 35, 35); */
+  display: flex;
+  align-items: center;
+}
+.answerer .dp{
+  /* border:2px solid rgb(17, 11, 11); */
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  filter: brightness(100%);
+  margin-right:0.5rem;
+  /* filter:invert(65%); */
+}
+.profile h5{
+  margin-top:0.2rem;
+  margin-left:0.3rem;
+}
+.clickedIcon{
+  background-color:rgb(60, 163, 247);
+}
+#ans{
+  margin:1rem;
+}
+.ansIcons{
+  height: 1.5rem;
+  width: 1.5rem;
+  margin:0rem 1rem 1rem 2rem;
+  cursor: pointer;
+}
 
-  /* @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-  }
+/* FOLLOWING ANS FOLLOWER PART HERE */
 
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  } */
+.follSec{
+  /* border: 2px solid green; */
+  width: 52rem;
+  height: auto;
+  /* margin-left: 21rem; */
+  position: relative;
+  z-index:1;
+}
+#following{
+  padding:3rem;
+}
+.dpIcon{
+  margin-right: 0.7rem;
+}
+.followBtn{
+  align-content: flex-end;
+  position: absolute;
+  right: 1.5rem;
+  padding: 0.5rem 1.8rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04rem;
+  background-color: rgb(107, 190, 245);
+  border: none;
+  /* color:rgb(3, 110, 250); */
+}
 
