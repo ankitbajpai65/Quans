@@ -124,6 +124,7 @@ html, body{
   #myContent{
     margin-left: 23rem;
     width: 52rem;
+    display: block;
   }
   div.content {
     /* border:2px solid black; */
@@ -217,7 +218,6 @@ html, body{
 
 /* QUESTION PART HERE */
 .answerDiv{
-  
   border: 1px solid rgb(194, 194, 194);
   display: none;
 }
@@ -315,3 +315,8 @@ html, body{
   /* color:rgb(3, 110, 250); */
 }
 
+/* EDIT PART HERE */
+#editSec{
+  display: none;
+  margin-top:10rem;
+}

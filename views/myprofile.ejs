@@ -47,7 +47,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <h3 class="navbar-brand mt-1" id="title">Quora</h3>
+            <h3 class="navbar-brand mt-1 text-warning fs-4" id="title">Quora</h3>
             <div class="collapse navbar-collapse navItem">
                 <form class="d-flex">
                     <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search"
@@ -57,7 +57,7 @@
             </div>
         </div>
     </nav>
-    <section id="myContent" class="border-primary d-flex flex-column align-items-start">
+    <section id="myContent">
         <div class="content">
             <a href="#" class="text-reset"><span id="editSpan"><i class="fas fa-pen fa-2x fa-center"></i></span></a>
             <form>
@@ -207,7 +207,6 @@
                     elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
             </div>
             <p class="text-decoration-none fs-6">0 Answers</p>
-            <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
             <div class="answerDiv mt-4 w-75">
                 <div class="col p-3 d-flex align-items-center" id="writerDiv">
                     <i class="fas fa-user-circle fa-2x"></i>
@@ -233,7 +232,6 @@
                     elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
             </div>
             <p class="text-decoration-none fs-6">0 Answers</p>
-            <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
             <div class="answerDiv mt-4 w-75">
                 <div class="col p-3 d-flex align-items-center" id="writerDiv">
                     <i class="fas fa-user-circle fa-2x"></i>
@@ -259,7 +257,6 @@
                     elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
             </div>
             <p class="text-decoration-none fs-6">0 Answers</p>
-            <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
             <div class="answerDiv mt-4 w-75">
                 <div class="col p-3 d-flex align-items-center" id="writerDiv">
                     <i class="fas fa-user-circle fa-2x"></i>
@@ -310,7 +307,7 @@
             <hr />
         </div>
 
-        <!-- FOLLOWERS AND FOLLOWING PART HERE -->
+        <!-- FOLLOWERS PART HERE -->
 
         <div class="p-2 follSec">
             <hr />
@@ -357,6 +354,9 @@
             </div>
             <hr />
         </div>
+
+        <!-- FOLLOWING PART HERE -->
+
         <div class="p-2 follSec">
             <hr />
             <div class="following col d-flex align-items-center">
@@ -403,6 +403,11 @@
             <hr />
         </div>
     </section>
+
+    <!-- EDIT PROFILE PART -->
+
+    <section id="editSec">This is edit part</section>
+
     <script src="../myprofile.js"></script>
 
     </body>

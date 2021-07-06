@@ -11,7 +11,11 @@ document.getElementById('allAnswer').onclick = () => {
     let ans = document.getElementsByClassName('answerer');
     for (let i = 0; i < ans.length; i++) {
         ans[i].classList.toggle("showAns");
+        if(ans[i].classList.contains('showAns')){
+          scrollTo(0,500);
+        }
     }
+
 }
 
 let quesIconslike = document.getElementsByClassName('quesIconslike');

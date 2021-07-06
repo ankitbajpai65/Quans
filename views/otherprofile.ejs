@@ -1,24 +1,315 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<html lang="en">
 
-    <title></title>
-  </head>
-  <body>
-      <button type="submit" name="data" id="follow" value="<%=user%>">follow</button>
-  </body>
-  <script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="pop.html"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/myprofile.css">
+  <!-- <link rel="stylesheet" href="../css/quesAns.css"> -->
+  <!-- <link rel="stylesheet" href="../css/blog.css"> -->
+  <!-- <link rel="stylesheet" href="../css/media.css"> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Saira&display=swap" rel="stylesheet"> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Saira&display=swap" rel="stylesheet">
+  <title>My blog website</title>
+</head>
+
+<body>
+  <!-- <button type="submit" name="data" id="follow" value="<%=user%>">follow</button> -->
+
+  <div class="sidebar h-100">
+    <div id="info" class="h-8 pt-4 pb-2 mb-3">
+      <span><i class="dpIcon fas fa-user-circle fa-4x"></i></span>
+      <h4 id="name" class="fs-4">xyz</h4>
+      <h5 class="fs-6">Description</h5>
+      <button class="btn btn-secondary rounded-pill mb-1">Follow</button>
+    </div>
+    <div id="links" class="mt-5">
+      <a class="active w-100 text-center p-3" href="/">Home</a>
+      <a href="/#contactSec" class="w-100 text-center p-3">Contact</a>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <h3 class="navbar-brand mt-1 text-warning" id="title">Quora</h3>
+      <div class="collapse navbar-collapse navItem">
+        <form class="d-flex">
+          <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search" aria-label="Search">
+          <img src="../images/user.png" id="profilePic" alt="dp">
+        </form>
+      </div>
+    </div>
+  </nav>
+  <section id="myContent">
+    <div class="content">
+      <form>
+        <table>
+          <tr>
+            <td><label class="firstLabel">First name</label></td>
+            <td><input type="text" id="FName" value="xyz" class="myInput" readonly="readonly"></td>
+          </tr>
+          <tr>
+            <td><label class="firstLabel">Last name</label></td>
+            <td><input type="text" id="LName" class="myInput" value="abc" readonly="readonly"></td>
+          </tr>
+          <tr>
+            <td><label class="firstLabel">Email</label></td>
+            <td><input type="email" id="mail" class="myInput" value="abc@gmail.com" readonly="readonly">
+            </td>
+          </tr>
+        </table>
+
+      </form>
+    </div>
+    <div class="text-center" id="profileNav">
+      <hr />
+      <div class="row">
+        <div class="col"><a href="#" class="text-decoration-none">0 Questions</a></div>
+        <div class="col"><a href="#" class="text-decoration-none">0 Answers</a></div>
+        <div class="col"><a href="#" class="text-decoration-none">0 Followers</a></div>
+        <div class="col"><a href="#" class="text-decoration-none">0 Following</a></div>
+        <div class="col"><a href="#" class="text-decoration-none">0 Shares</a></div>
+      </div>
+      <hr />
+    </div>
+
+    <!-- QUESTIONS PART HERE -->
+
+    <div class="questionDiv">
+      <hr />
+      <div>
+        <a href="#" class="text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
+      </div>
+      <p class="text-decoration-none fs-6">0 Answers</p>
+      <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
+      <div class="answerDiv mt-4 w-75">
+        <div class="col p-3 d-flex align-items-center" id="writerDiv">
+          <i class="fas fa-user-circle fa-2x"></i>
+          <span class="fs-6" id="writer">Ankit Bajpai</span>
+        </div>
+        <div class="p-1" id="textDec">
+          <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
+          <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
+        </div>
+        <div class="input-group p-2" id="answerBox">
+          <textarea class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
+        </div>
+        <div class="p-3" id="postbtnDiv">
+          <button class="postBtn btn btn-primary rounded-pill">Post</button>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <div class="questionDiv">
+      <hr />
+      <div>
+        <a href="#" class="text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
+      </div>
+      <p class="text-decoration-none fs-6">0 Answers</p>
+      <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
+      <div class="answerDiv mt-4 w-75">
+        <div class="col p-3 d-flex align-items-center" id="writerDiv">
+          <i class="fas fa-user-circle fa-2x"></i>
+          <span class="fs-6" id="writer">Ankit Bajpai</span>
+        </div>
+        <div class="p-1" id="textDec">
+          <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
+          <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
+        </div>
+        <div class="input-group p-2" id="answerBox">
+          <textarea class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
+        </div>
+        <div class="p-3" id="postbtnDiv">
+          <button class="postBtn btn btn-primary rounded-pill">Post</button>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <div class="questionDiv">
+      <hr />
+      <div>
+        <a href="#" class="text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
+      </div>
+      <p class="text-decoration-none fs-6">0 Answers</p>
+      <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
+      <div class="answerDiv mt-4 w-75">
+        <div class="col p-3 d-flex align-items-center" id="writerDiv">
+          <i class="fas fa-user-circle fa-2x"></i>
+          <span class="fs-6" id="writer">Ankit Bajpai</span>
+        </div>
+        <div class="p-1" id="textDec">
+          <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
+          <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
+        </div>
+        <div class="input-group p-2" id="answerBox">
+          <textarea class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
+        </div>
+        <div class="p-3" id="postbtnDiv">
+          <button class="postBtn btn btn-primary rounded-pill">Post</button>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+    <!-- ANSWERS PART HERE -->
+
+    <div class="answerer">
+      <div class="profile">
+        <img src="../images/user.png" alt="profile photo" class="dp">
+        <h5 class="fw-bold">Ankit Bajpai</h5>
+        <h5> ,Date and time...</h5>
+      </div>
+      <p id="ans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta, harum voluptatum quo eaque
+        veritatis. Recusandae nihil praesentium illum tempore. Deserunt quod unde aut fugiat officiis fuga
+        similique est veritatis, perferendis quos saepe! Id vel labore voluptatum a aut provident! Alias
+        reprehenderit dicta qui iste aut labore sunt temporibus hic.</p>
+      <img src="../images/like.png" class="ansIcons ansIconslike like clickedIcon">
+      <img src="../images/dislike.png" class="ansIcons ansIconsdislike dislike clickedIcon">
+      <hr />
+    </div>
+    <div class="answerer">
+      <div class="profile">
+        <img src="../images/user.png" alt="profile photo" class="dp">
+        <h5 class="fw-bold">Ankit Bajpai</h5>
+        <h5> ,Date and time...</h5>
+      </div>
+      <p id="ans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta, harum voluptatum quo eaque
+        veritatis. Recusandae nihil praesentium illum tempore. Deserunt quod unde aut fugiat officiis fuga
+        similique est veritatis, perferendis quos saepe! Id vel labore voluptatum a aut provident! Alias
+        reprehenderit dicta qui iste aut labore sunt temporibus hic.</p>
+      <img src="../images/like.png" class="ansIcons ansIconslike like clickedIcon">
+      <img src="../images/dislike.png" class="ansIcons ansIconsdislike dislike clickedIcon">
+      <hr />
+    </div>
+
+    <!-- FOLLOWERS PART HERE -->
+
+    <div class="p-2 follSec">
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+    </div>
+
+    <!-- FOLLOWING PART HERE -->
+
+    <div class="p-2 follSec">
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+      <div class="following col d-flex align-items-center">
+        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+        <h6 class="fw-bold">Virat Kohli</h6>
+        <h6> , Description</h6>
+        <button class="followBtn">Follow</button>
+      </div>
+      <hr />
+    </div>
+  </section>
+
+  <script src="../otherProfile.js"></script>
+
+</body>
+
+</html>
+</body>
+
+<script>
   let follow = document.getElementById('follow');
   follow.onclick = () => {
     console.log("djf");
     saveDetailLike($(follow).attr("value"));
   }
-    function saveDetailLike(data){
-        var id = data;
-        var tt = true;
-         $.post('/follow', { data: id });
-    }
-  </script>
+  function saveDetailLike(data) {
+    var id = data;
+    var tt = true;
+    $.post('/follow', { data: id });
+  }
+</script>
+
 </html>
