@@ -106,9 +106,7 @@ const userSchema = new mongoose.Schema({
        String
     ],
   questions:   [
-    {
-      userId: String
-    }
+       String
   ],
   time : String
 });
@@ -227,6 +225,8 @@ passport.use(new GoogleStrategy({
 ));
 
 
+
+
 app.get("/auth/google",
   passport.authenticate("google",{scope : ['profile',"email"]})
 );
@@ -290,7 +290,7 @@ app.post("/searching",function(req,res){
 //   }
 // });
 app.get('/image/:filename', (req, res) => {
-  User.findById(req.params.filename, function (err, user){
+  User.findById(mongoose.Types.ObjectId(req.params.filename), function (err, user){
     if(err){
       console.log(err);
     }else{
@@ -370,7 +370,7 @@ app.post("/askquestion", function(req,res){
          console.log(err);
        }else{
          if(user){
-           User.updateOne({_id: usd},{$push: {questions: {userId: idd}}},function(err,success){
+           User.updateOne({_id: usd},{$push: {questions: idd}},function(err,success){
              if(err){
                console.log(err);
              }else{
@@ -434,6 +434,20 @@ app.post("/userliked",function(req,res){
   }
 });
 
+
+app.post("/getname",(req,res) => {
+  User.findById(req.body.data,function(err,result){
+    if(err){
+      console.log(err);
+    }else{
+      if(result){
+        res.json({ok: result.detail.FullName});
+      }else{
+        res.json({ok: false});
+      }
+    }
+  })
+});
 
 app.post("/changePassword", function(req, res){
   User.findById(req.user._id,function(err, user){
@@ -658,29 +672,63 @@ app.get("/question/:id",function(req, res){
   });
 });
 
+app.post("/gettime",(req, res) => {
+  usertime.findById( mongoose.Types.ObjectId(req.body.data),(err, result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      if(result){
+        res.json({ok:result});
+      }else{
+        res.json({ok: false});
+      }
+    }
+  });
+});
+
+
 app.get("/profile/:id", function(req,res){
-  if(req.isAuthenticated()){
-     if(req.params.id == req.user._id){
-       User.findById(req.user._id, (err, result) => {
-         if(err){
-           console.log(err);
-         }else{
-           if(result.img)
-           res.render("myprofile",{user: result});
-           else{
-             res.render("myprofile",{user: result});
-           }
-         }
-       });
-     }else{
-      res.render("otherprofile",{user: req.params.id});
-      // res.send("ko");
-     }
-  }else{
-    // res.send("ko");
-    res.render("otherprofile",{user: req.params.id});
-    // res.send("no user");
-  }
+  User.findById(req.params.id, (err, result) => {
+    if(err){
+      console.log(err);
+    }else{
+      User_question.find({'_id': {$in:result.questions}},(err, results) => {
+        if(err){
+          console.log(err);
+        }else{
+          User_question.find({'answer.postedUser':req.params.id}).populate('answer').exec((err,answer)=>{
+            if(err){
+              console.log(err);
+            }else{
+              User.find({'_id': {$in:result.followers}}).select('detail.FullName  time').exec((err, followers)=>{
+                if(err){
+                  console.log(err);
+                }else{
+                  User.find({'_id': {$in:result.following}}).select('detail.FullName time').exec((err, following)=>{
+                    if(err){
+                      console.log(err);
+                    }else{
+                      if(req.isAuthenticated()){
+                         if(req.params.id == req.user._id){
+                           res.render("myprofile",{user: result, question: results, answer: answer, followers: followers, following: following});
+
+                         }else{
+                           res.render("otherprofile",{user: result, question: results, answer: answer, followers: followers, following: following});
+                         }
+                      }else{
+                        res.render("otherprofile",{user: result, question: results, answer: answer, followers: followers, following: following});
+                      }
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+
 });
 
 
@@ -734,7 +782,13 @@ app.post("/follow",function(req,res){
               if(err){
                 console.log(err);
               }else{
-                res.json({ok: true});
+                User.findById(usd).select('detail.FullName').exec(function(err,success){
+                  if(err){
+                    console.log(err);
+                  }else{
+                    res.json({ok: success});
+                  }
+                });
               }
             });
           }
@@ -746,6 +800,28 @@ app.post("/follow",function(req,res){
 
 
 
+app.post('/upload', upload.single('file'), (req,res) =>{
+    console.log(req.file);
+  if(req.isAuthenticated()){
+    User.findById(req.user._id, (err, user)=>{
+      if(err){
+        console.log(err)
+      }else{
+        user.img = req.file.filename;
+        user.save(function(err){
+          if(err){
+            console.log(err);
+          }else{
+            const url  = "/profile/"+req.user._id;
+            res.redirect(url);
+            // res.json({ok: true});
+          }
+        });
+      }
+    });
+  }
+  // res.redirect('/');
+});
 
 
 app.post("/register", async function(requset, response){

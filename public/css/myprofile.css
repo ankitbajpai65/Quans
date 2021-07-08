@@ -77,6 +77,11 @@ html, body{
     font-weight:500;
     padding:0.5rem;
   }
+
+  .text-decoration-none{
+    color: red;
+  }
+
   #links a:hover {
     background-color:rgb(44, 43, 43);
   }
@@ -101,7 +106,7 @@ html, body{
     height: 2.5rem;
     width: 2.5rem;
     cursor: pointer;
-    filter: invert(100%);
+    /* filter: invert(40%); */
   }
   #profilePic:hover{
     transition: all 300ms;
@@ -113,7 +118,7 @@ html, body{
     height: 3rem;
     width: 3rem;
     padding-top: 0.4rem;
-    background-color: rgb(255, 139, 7); 
+    background-color: rgb(255, 139, 7);
     border-radius: 50%;
     cursor: pointer;
   }
@@ -211,6 +216,7 @@ html, body{
 .questionDiv{
   margin:0;
   z-index:1;
+  /* display: none; */
 }
 /* .questionDiv:hover{
   background-color: #f1f0f0;
@@ -219,6 +225,8 @@ html, body{
 /* QUESTION PART HERE */
 .answerDiv{
   border: 1px solid rgb(194, 194, 194);
+}
+.t-hide{
   display: none;
 }
 #writerDiv{
@@ -254,6 +262,7 @@ html, body{
   height: auto;
   margin-top: 0rem;
   z-index:1;
+
 }
 .profile{
   /* border:2px solid rgb(182, 35, 35); */

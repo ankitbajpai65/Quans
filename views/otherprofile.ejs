@@ -29,9 +29,9 @@
   <div class="sidebar h-100">
     <div id="info" class="h-8 pt-4 pb-2 mb-3">
       <span><i class="dpIcon fas fa-user-circle fa-4x"></i></span>
-      <h4 id="name" class="fs-4">xyz</h4>
-      <h5 class="fs-6">Description</h5>
-      <button class="btn btn-secondary rounded-pill mb-1">Follow</button>
+      <h4 id="name" class="fs-4"><%=user.detail.FullName%></h4>
+      <h5 class="fs-6"><%=user.detail.Description%></h5>
+      <button type="submit" name="data" id="follow" value="<%=user._id%>"class="btn btn-secondary rounded-pill mb-1">Follow</button>
     </div>
     <div id="links" class="mt-5">
       <a class="active w-100 text-center p-3" href="/">Home</a>
@@ -45,7 +45,7 @@
       <div class="collapse navbar-collapse navItem">
         <form class="d-flex">
           <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search" aria-label="Search">
-          <img src="../images/user.png" id="profilePic" alt="dp">
+          <img src="/image/<%=user._id%>" id="profilePic" alt="dp">
         </form>
       </div>
     </div>
@@ -56,15 +56,15 @@
         <table>
           <tr>
             <td><label class="firstLabel">First name</label></td>
-            <td><input type="text" id="FName" value="xyz" class="myInput" readonly="readonly"></td>
+            <td><input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput" readonly="readonly"></td>
           </tr>
           <tr>
             <td><label class="firstLabel">Last name</label></td>
-            <td><input type="text" id="LName" class="myInput" value="abc" readonly="readonly"></td>
+            <td><input type="text" id="LName" class="myInput" value="<%=user.detail.FName%>" readonly="readonly"></td>
           </tr>
           <tr>
             <td><label class="firstLabel">Email</label></td>
-            <td><input type="email" id="mail" class="myInput" value="abc@gmail.com" readonly="readonly">
+            <td><input type="email" id="mail" class="myInput" value="<%=user.username%>" readonly="readonly">
             </td>
           </tr>
         </table>
@@ -72,222 +72,74 @@
       </form>
     </div>
     <div class="text-center" id="profileNav">
-      <hr />
-      <div class="row">
-        <div class="col"><a href="#" class="text-decoration-none">0 Questions</a></div>
-        <div class="col"><a href="#" class="text-decoration-none">0 Answers</a></div>
-        <div class="col"><a href="#" class="text-decoration-none">0 Followers</a></div>
-        <div class="col"><a href="#" class="text-decoration-none">0 Following</a></div>
-        <div class="col"><a href="#" class="text-decoration-none">0 Shares</a></div>
-      </div>
-      <hr />
+        <hr />
+        <div class="row list-tab">
+          <div class="col"><button id="QuestionList" class="text-decoration-none btn"><%=question.length%> Questions</button></div>
+          <div class="col"><button id="AnswerList" class="text-decoration-none btn"><%=answer.length%> Answers</button></div>
+          <div class="col"><button id="FollowersList" class="text-decoration-none btn"><%=followers.length%> Followers</button></div>
+          <div class="col"><button id="FollowingList" class="text-decoration-none btn"><%=following.length%> Following</button></div>
+          <!--  <div class="col"><button id="Shares" class="text-decoration-none btn">0 Shares</button></div>-->
+        </div>
+        <hr />
     </div>
-
     <!-- QUESTIONS PART HERE -->
 
-    <div class="questionDiv">
-      <hr />
-      <div>
-        <a href="#" class="text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
-      </div>
-      <p class="text-decoration-none fs-6">0 Answers</p>
-      <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
-      <div class="answerDiv mt-4 w-75">
-        <div class="col p-3 d-flex align-items-center" id="writerDiv">
-          <i class="fas fa-user-circle fa-2x"></i>
-          <span class="fs-6" id="writer">Ankit Bajpai</span>
-        </div>
-        <div class="p-1" id="textDec">
-          <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
-          <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
-        </div>
-        <div class="input-group p-2" id="answerBox">
-          <textarea class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
-        </div>
-        <div class="p-3" id="postbtnDiv">
-          <button class="postBtn btn btn-primary rounded-pill">Post</button>
-        </div>
-      </div>
-      <hr />
+<div class="QuestionList t-hide list-hide">
+<%question.forEach(function(se){%>
+<div class="questionDiv">
+  <hr />
+  <div>
+      <a href="/question/<%=se._id%>" class="text-decoration-none"><%=se.ques%></a>
+  </div>
+  <p class="text-decoration-none fs-6"><%=se.answer.length%> Answers</p>
+  <hr />
+</div>
+<%});%>
     </div>
-    <div class="questionDiv">
-      <hr />
-      <div>
-        <a href="#" class="text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
-      </div>
-      <p class="text-decoration-none fs-6">0 Answers</p>
-      <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
-      <div class="answerDiv mt-4 w-75">
-        <div class="col p-3 d-flex align-items-center" id="writerDiv">
-          <i class="fas fa-user-circle fa-2x"></i>
-          <span class="fs-6" id="writer">Ankit Bajpai</span>
-        </div>
-        <div class="p-1" id="textDec">
-          <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
-          <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
-        </div>
-        <div class="input-group p-2" id="answerBox">
-          <textarea class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
-        </div>
-        <div class="p-3" id="postbtnDiv">
-          <button class="postBtn btn btn-primary rounded-pill">Post</button>
-        </div>
-      </div>
-      <hr />
-    </div>
-    <div class="questionDiv">
-      <hr />
-      <div>
-        <a href="#" class="text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Voluptatum quod id tempore, nesciunt mollitia dolores?</a>
-      </div>
-      <p class="text-decoration-none fs-6">0 Answers</p>
-      <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
-      <div class="answerDiv mt-4 w-75">
-        <div class="col p-3 d-flex align-items-center" id="writerDiv">
-          <i class="fas fa-user-circle fa-2x"></i>
-          <span class="fs-6" id="writer">Ankit Bajpai</span>
-        </div>
-        <div class="p-1" id="textDec">
-          <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
-          <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
-        </div>
-        <div class="input-group p-2" id="answerBox">
-          <textarea class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
-        </div>
-        <div class="p-3" id="postbtnDiv">
-          <button class="postBtn btn btn-primary rounded-pill">Post</button>
-        </div>
-      </div>
-      <hr />
-    </div>
-
     <!-- ANSWERS PART HERE -->
-
-    <div class="answerer">
-      <div class="profile">
-        <img src="../images/user.png" alt="profile photo" class="dp">
-        <h5 class="fw-bold">Ankit Bajpai</h5>
-        <h5> ,Date and time...</h5>
-      </div>
-      <p id="ans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta, harum voluptatum quo eaque
-        veritatis. Recusandae nihil praesentium illum tempore. Deserunt quod unde aut fugiat officiis fuga
-        similique est veritatis, perferendis quos saepe! Id vel labore voluptatum a aut provident! Alias
-        reprehenderit dicta qui iste aut labore sunt temporibus hic.</p>
-      <img src="../images/like.png" class="ansIcons ansIconslike like clickedIcon">
-      <img src="../images/dislike.png" class="ansIcons ansIconsdislike dislike clickedIcon">
-      <hr />
+<%answer.forEach(function(se){%>
+<div class="AnswerList t-hide list-hide">
+<div class="answerer">
+    <div class="profile">
+        <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
+        <h5 class="fw-bold getname" name="<%=se.userId%>">undefine</h5>
+        <h5 class="gettime" name="<%=se.time%>">undefine</h5>
     </div>
-    <div class="answerer">
-      <div class="profile">
-        <img src="../images/user.png" alt="profile photo" class="dp">
-        <h5 class="fw-bold">Ankit Bajpai</h5>
-        <h5> ,Date and time...</h5>
-      </div>
-      <p id="ans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta, harum voluptatum quo eaque
-        veritatis. Recusandae nihil praesentium illum tempore. Deserunt quod unde aut fugiat officiis fuga
-        similique est veritatis, perferendis quos saepe! Id vel labore voluptatum a aut provident! Alias
-        reprehenderit dicta qui iste aut labore sunt temporibus hic.</p>
-      <img src="../images/like.png" class="ansIcons ansIconslike like clickedIcon">
-      <img src="../images/dislike.png" class="ansIcons ansIconsdislike dislike clickedIcon">
-      <hr />
+    <p id="ques"><%=se.ques%></p>
+    <%se.answer.forEach(function(tt){%>
+      <h5><%=tt.ans%></h5>
+    <%});%>
+    <hr />
+</div>
+<%});%>
+
     </div>
 
     <!-- FOLLOWERS PART HERE -->
 
-    <div class="p-2 follSec">
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
+    <div class="p-2 follSec t-hide FollowersList list-hide">
+        <%followers.forEach(function(se){%>
+          <hr />
+          <div class="following col d-flex align-items-center">
+              <i class="dpIcon fas fa-user-circle fa-2x"></i>
+              <h6 class="fw-bold"><%=se.detail.FullName%></h6>
+              <button class="followBtn">Follow</button>
+          </div>
+        <%})%>
+        <hr />
     </div>
 
     <!-- FOLLOWING PART HERE -->
 
-    <div class="p-2 follSec">
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
-      <hr />
-      <div class="following col d-flex align-items-center">
-        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-        <h6 class="fw-bold">Virat Kohli</h6>
-        <h6> , Description</h6>
-        <button class="followBtn">Follow</button>
-      </div>
+    <div class="p-2 follSec t-hide FollowingList list-hide">
+      <%following.forEach(function(se){%>
+        <hr />
+        <div class="following col d-flex align-items-center">
+            <i class="dpIcon fas fa-user-circle fa-2x"></i>
+            <h6 class="fw-bold"><%=se.detail.FullName%></h6>
+            <button class="followBtn">Follow</button>
+        </div>
+      <%})%>
       <hr />
     </div>
   </section>
