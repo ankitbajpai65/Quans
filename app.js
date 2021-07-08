@@ -296,17 +296,16 @@ app.get('/image/:filename', (req, res) => {
     }else{
       gfs.files.findOne({filename: user.img}, (err, file) => {
         if(!file || file.length == 0){
-          return res.status(404).json({
-          err: 'No file exist'
-          });
-        }
-        if(file.contentType === 'image/jpeg' || file.contentType === 'image/png'){
-          const readstream = gfs.createReadStream(file.filename);
-          readstream.pipe(res);
-        }else{
-          res.status(404).json({
-            err: 'Not an image'
-          });
+          res.sendFile(__dirname+'/public/images/user.png');
+        }else {
+          if(file.contentType === 'image/jpeg' || file.contentType === 'image/png'){
+            const readstream = gfs.createReadStream(file.filename);
+            readstream.pipe(res);
+          }else{
+            res.status(404).json({
+              err: 'Not an image'
+            });
+          }
         }
       });
     }
@@ -659,7 +658,7 @@ app.get("/question/:id",function(req, res){
          console.log(err);
        }else{
          User.findById(question.userId,function(err, foundUser){
-             res.render("pageforquesanswithsigned",{user: question,iddd: question._id, likedarray: user.liked, dislikedarray: user.disliked,name: foundUser.detail.FullName, properuser: req.user._id});
+             res.render("pageforquesanswithsigned",{user: question,iddd: question._id, likedarray: user.liked, dislikedarray: user.disliked,name: foundUser.detail.FullName, properuser: req.user._id, username: user.detail.FullName});
          });
      }
      });
@@ -713,7 +712,15 @@ app.get("/profile/:id", function(req,res){
                            res.render("myprofile",{user: result, question: results, answer: answer, followers: followers, following: following});
 
                          }else{
-                           res.render("otherprofile",{user: result, question: results, answer: answer, followers: followers, following: following});
+                           User.findById(req.user._id,function(err,myUser){
+                             if(err){
+                               console.log(err);
+                             }else if(result){
+                               res.render("otherprofile",{user: result, question: results, answer: answer, followers: followers, following: following, myUser: myUser});
+                             }else{
+                               console.log("NO");
+                             }
+                           });
                          }
                       }else{
                         res.render("otherprofile",{user: result, question: results, answer: answer, followers: followers, following: following});
@@ -735,66 +742,70 @@ app.get("/profile/:id", function(req,res){
 
 app.post("/follow",function(req,res){
   let data = req.body.data;
-  if(req.isAuthenticated()){
-    // console.log(data);
-    let usd = mongoose.Types.ObjectId(data);
-     User.findById(req.user._id,function(err, user){
-         var tt = false;
-       for(let i=0; i<user.following.length; i++){
-         if(usd == user.following[i]){
-           tt=true;
-           break;
-         }
-       }
-         if(tt){
-           User.updateOne({_id: req.user._id},{$pull: {following: usd}},function(err,success){
-             if(err){
-               console.log(err);
-             }
-           });
-         }else{
-           User.updateOne({_id: req.user._id},{$push: {following: usd}},function(err,success){
-             if(err){
-               console.log(err);
-             }
-           });
-         }
-     });
-      usd = mongoose.Types.ObjectId(data);
-      User.findById(usd,function(err, user){
-          var tt = false;
-        for(let i=0; i<user.followers.length; i++){
-          if(req.user._id == user.followers[i]){
-            tt=true;
-            break;
-          }
-        }
-          if(tt){
-            User.updateOne({_id: usd},{$pull: {followers: req.user._id}},function(err,success){
-              if(err){
-                console.log(err);
-              }else{
-                res.json({ok: true});
-              }
-            });
-          }else{
-            User.updateOne({_id: usd},{$push: {followers: req.user._id}},function(err,success){
-              if(err){
-                console.log(err);
-              }else{
-                User.findById(usd).select('detail.FullName').exec(function(err,success){
-                  if(err){
-                    console.log(err);
-                  }else{
-                    res.json({ok: success});
-                  }
-                });
-              }
-            });
-          }
-      });
+  if(data == req.user._id){
+    res.json({ok: true});
   }else{
-    res.json({ok: false});
+    if(req.isAuthenticated()){
+      // console.log(data);
+      let usd = mongoose.Types.ObjectId(data);
+       User.findById(req.user._id,function(err, user){
+           var tt = false;
+         for(let i=0; i<user.following.length; i++){
+           if(usd == user.following[i]){
+             tt=true;
+             break;
+           }
+         }
+           if(tt){
+             User.updateOne({_id: req.user._id},{$pull: {following: usd}},function(err,success){
+               if(err){
+                 console.log(err);
+               }
+             });
+           }else{
+             User.updateOne({_id: req.user._id},{$push: {following: usd}},function(err,success){
+               if(err){
+                 console.log(err);
+               }
+             });
+           }
+       });
+        usd = mongoose.Types.ObjectId(data);
+        User.findById(usd,function(err, user){
+            var tt = false;
+          for(let i=0; i<user.followers.length; i++){
+            if(req.user._id == user.followers[i]){
+              tt=true;
+              break;
+            }
+          }
+            if(tt){
+              User.updateOne({_id: usd},{$pull: {followers: req.user._id}},function(err,success){
+                if(err){
+                  console.log(err);
+                }else{
+                  res.json({ok: true});
+                }
+              });
+            }else{
+              User.updateOne({_id: usd},{$push: {followers: req.user._id}},function(err,success){
+                if(err){
+                  console.log(err);
+                }else{
+                  User.findById(usd).select('detail.FullName').exec(function(err,success){
+                    if(err){
+                      console.log(err);
+                    }else{
+                      res.json({ok: success});
+                    }
+                  });
+                }
+              });
+            }
+        });
+    }else{
+      res.json({ok: false});
+    }  
   }
 });
 

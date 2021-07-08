@@ -4,29 +4,14 @@
         <div id="info" class="h-8 pt-3 pb-2 mb-3">
             <span style="font-size:28px;" id="close" onclick="closeNav()">&#9776;</span>
             <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-            <%if(user.img){%>
-                <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic"></img></a>
-                <label for="file">
-                    <i class="fas fa-camera fa-sm text-decoration-none text-white" id="camera"></i>
-                    <form  id="profilephoto" style="text-align: center;"action="/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" id="file" style="display: none" name="file"
-                        accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
-                        data-original-title="upload photos">
-                        </form>
-                </label>
-                <%}else{%>
-                    <img src="../images/user.png" alt="dp" class="pic"><i class="fas fa-camera fa-sm"></i>
-                    <label for="file">
-                        <i class="fas fa-camera fa-sm text-decoration-none text-white" id="camera"></i>
-                        <form  id="profilephoto" style="text-align: center;"action="/upload" method="post" enctype="multipart/form-data">
-                        <input type="file" id="file" style="display: none" name="file"
-                            accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
-                            data-original-title="upload photos">
-                            </form>
-
-
-                    </label>
-                    <%}%>
+            <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic"></img></a>
+            <label for="file">
+                <i class="fas fa-camera fa-sm text-decoration-none text-white" id="camera"></i>
+                <form  id="profilephoto" style="text-align: center;"action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" id="file" style="display: none" name="file"
+                    accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
+                    data-original-title="upload photos">
+                    </form>
                         <h4 id="name">
                             <%=user.detail.FullName%>
                         </h4>
@@ -59,11 +44,7 @@
                     <input name="search" class="form-control me-4 mt-1 searchBar" type="text" placeholder="Search"
                         aria-label="Search">
                       </form>
-                      <%  if(user.img){%>
-                          <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" id="profilePic" alt="dp"></a>
-                        <%}else{%>
-                          <img src="../image/user.png" id="profilePic" alt="dp">
-                          <%}%>
+                      <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" id="profilePic" alt="dp"></a>
             </div>
         </div>
     </nav>
@@ -266,20 +247,21 @@
                      <button class="followBtn followed <%=se._id%>" name="<%=se._id%>">Follow</button>
                    <%}%>
               </div>
+              <hr />
             <%})%>
-            <hr />
         </div>
 
         <!-- FOLLOWING PART HERE -->
 
         <div class="p-2 follSec t-hide FollowingList list-hide">
           <%following.forEach(function(se){%>
+            <hr class="hr <%=se._id%>"/>
             <div class="following col d-flex align-items-center ttfollow <%=se._id%>">
-            <hr />
                 <i class="dpIcon fas fa-user-circle fa-2x"></i>
                 <h6 class="fw-bold"><%=se.detail.FullName%></h6>
                 <button class="followBtn befollowed <%=se._id%>" name="<%=se._id%>">UnFollow</button>
             </div>
+            <hr class="hr <%=se._id%>"/>
           <%})%>
           <hr />
         </div>

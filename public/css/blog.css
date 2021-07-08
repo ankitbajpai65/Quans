@@ -75,7 +75,7 @@
     /* border: 2px solid rgb(45, 0, 128); */
     height: 2.5rem;
     width: 2.5rem;
-    filter:invert(100%);
+    /* filter:invert(100%); */
     margin-left: 9rem;
     margin-top: 0.5rem;
     opacity:1;

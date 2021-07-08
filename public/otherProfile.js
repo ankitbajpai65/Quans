@@ -78,3 +78,16 @@ if(time){
 function handledatatime(data){
   $(time[q]).html(data.ok.totaltime.date+"/"+data.ok.totaltime.month+"/"+data.ok.totaltime.year);
 };
+
+
+
+$('.followBtn').on('click',function(){
+  let tt = $(this).html();
+  let xt  = $(this).attr('name');
+  $.post("/follow",{data:xt});
+  if(tt=="UnFollow"){
+    $('button.followBtn'+'.'+xt).html('Follow');
+  }else{
+    $('button.followBtn'+'.'+xt).html('UnFollow');
+  }
+});

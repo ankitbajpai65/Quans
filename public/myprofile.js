@@ -247,14 +247,14 @@ $(".FollowersList").on("click",'.followed', function(){
 });
 
 function control(xt){
-  $('.befollowed.'+xt).remove();
+  // $('.befollowed.'+xt).remove();
   let inou = $('#FollowingList').html();
   inou  = parseInt(inou[0]);
   inou--;
   $('#FollowingList').html(inou+" Following");
 }
 function control2(xt){
-  $('.befollowed.'+xt).remove();
+  // $('.befollowed.'+xt).remove();
   let inou = $('#FollowingList').html();
   inou  = parseInt(inou[0]);
   inou++;
@@ -263,7 +263,7 @@ function control2(xt){
 
 
 function puttingvalue(data){
-  var e  = $('<div class="following col d-flex align-items-center ttfollow '+data._id+'"><hr /><i class="dpIcon fas fa-user-circle fa-2x"></i><h6 class="fw-bold">'+data.detail.FullName+'</h6><button class="followBtn befollowed '+data._id+'" name="'+data._id+'">UnFollow</button></div>');
+  var e  = $('<hr class="hr '+data._id+'"/><div class="following col d-flex align-items-center ttfollow '+data._id+'"><i class="dpIcon fas fa-user-circle fa-2x"></i><h6 class="fw-bold">'+data.detail.FullName+'</h6><button class="followBtn befollowed '+data._id+'" name="'+data._id+'">UnFollow</button></div><hr class="hr '+data._id+'"/>');
   // console.log(e);
   $('.FollowingList').append(e);
 }
@@ -277,7 +277,8 @@ $(".FollowingList").on("click",'.befollowed',function(){
       $.post('/follow', {data: data}, function(data){
         // console.log(data);
       });
-      let tt  = $('div.following.ttfollow.'+xt).remove();
+     $('div.following.ttfollow.'+xt).remove();
+     $('hr.hr.'+xt).remove();
       control(xt);
       $('.followed.'+xt).html('Follow');
 });

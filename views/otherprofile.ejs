@@ -28,7 +28,7 @@
 
   <div class="sidebar h-100">
     <div id="info" class="h-8 pt-4 pb-2 mb-3">
-      <span><i class="dpIcon fas fa-user-circle fa-4x"></i></span>
+      <span><img src="/image/<%=user._id%>" id="profilePic" alt="dp"></i></span>
       <h4 id="name" class="fs-4"><%=user.detail.FullName%></h4>
       <h5 class="fs-6"><%=user.detail.Description%></h5>
       <button type="submit" name="data" id="follow" value="<%=user._id%>"class="btn btn-secondary rounded-pill mb-1">Follow</button>
@@ -60,7 +60,7 @@
           </tr>
           <tr>
             <td><label class="firstLabel">Last name</label></td>
-            <td><input type="text" id="LName" class="myInput" value="<%=user.detail.FName%>" readonly="readonly"></td>
+            <td><input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>" readonly="readonly"></td>
           </tr>
           <tr>
             <td><label class="firstLabel">Email</label></td>
@@ -119,11 +119,21 @@
 
     <div class="p-2 follSec t-hide FollowersList list-hide">
         <%followers.forEach(function(se){%>
-          <hr />
+          <%let x  = false%>
+          <%myUser.following.forEach(function(te){%>
+            <%if(se._id.toString() == te.toString() || se.id.toString() == myUser._id){%>
+              <%x=true%>
+            <%}%>
+          <%});%>
+
           <div class="following col d-flex align-items-center">
               <i class="dpIcon fas fa-user-circle fa-2x"></i>
               <h6 class="fw-bold"><%=se.detail.FullName%></h6>
-              <button class="followBtn">Follow</button>
+               <%if(x){%>
+                 <button class="followBtn <%=se._id%>" name="<%=se._id%>">UnFollow</button>
+               <%}else{%>
+                 <button class="followBtn <%=se._id%>" name="<%=se._id%>">Follow</button>
+               <%}%>
           </div>
         <%})%>
         <hr />
@@ -133,11 +143,20 @@
 
     <div class="p-2 follSec t-hide FollowingList list-hide">
       <%following.forEach(function(se){%>
-        <hr />
+        <%let x  = false%>
+        <%myUser.following.forEach(function(te){%>
+          <%if(se._id.toString() == te.toString() || se.id.toString() == myUser._id){%>
+            <%x=true%>
+          <%}%>
+        <%});%>
         <div class="following col d-flex align-items-center">
             <i class="dpIcon fas fa-user-circle fa-2x"></i>
             <h6 class="fw-bold"><%=se.detail.FullName%></h6>
-            <button class="followBtn">Follow</button>
+             <%if(x){%>
+               <button class="followBtn <%=se._id%>" name="<%=se._id%>">UnFollow</button>
+             <%}else{%>
+               <button class="followBtn <%=se._id%>" name="<%=se._id%>">Follow</button>
+             <%}%>
         </div>
       <%})%>
       <hr />
@@ -154,7 +173,6 @@
 <script>
   let follow = document.getElementById('follow');
   follow.onclick = () => {
-    console.log("djf");
     saveDetailLike($(follow).attr("value"));
   }
   function saveDetailLike(data) {
