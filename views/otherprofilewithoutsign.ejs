@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="pop.html"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/myprofile.css">
+  <!-- <link rel="stylesheet" href="../css/quesAns.css"> -->
+  <!-- <link rel="stylesheet" href="../css/blog.css"> -->
+  <!-- <link rel="stylesheet" href="../css/media.css"> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Saira&display=swap" rel="stylesheet"> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Saira&display=swap" rel="stylesheet">
+  <title>My blog website</title>
+</head>
+
+<body>
+  <!-- <button type="submit" name="data" id="follow" value="<%=user%>">follow</button> -->
+
+  <div class="sidebar h-100">
+    <div id="info" class="h-8 pt-4 pb-2 mb-3">
+      <span><img src="/image/<%=user._id%>" id="profilePic" class="dp" alt="dp"></i></span>
+      <h4 id="name" class="fs-4"><%=user.detail.FullName%></h4>
+      <h5 class="fs-6"><%=user.detail.Description%></h5>
+    </div>
+    <div id="links" class="mt-5">
+      <a class="active w-100 text-center p-3" href="/">Home</a>
+      <a href="/#contactSec" class="w-100 text-center p-3">Contact</a>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <h3 class="navbar-brand mt-1 text-warning" id="title">Quora</h3>
+      <div class="collapse navbar-collapse navItem">
+        <form class="d-flex">
+          <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search" aria-label="Search">
+          <img src="/image/<%=user._id%>" id="profilePic" alt="dp">
+        </form>
+      </div>
+    </div>
+  </nav>
+  <section id="myContent">
+    <div class="content">
+      <form>
+        <table>
+          <tr>
+            <td><label class="firstLabel">First name</label></td>
+            <td><input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput" readonly="readonly"></td>
+          </tr>
+          <tr>
+            <td><label class="firstLabel">Last name</label></td>
+            <td><input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>" readonly="readonly"></td>
+          </tr>
+          <tr>
+            <td><label class="firstLabel">Email</label></td>
+            <td><input type="email" id="mail" class="myInput" value="<%=user.username%>" readonly="readonly">
+            </td>
+          </tr>
+        </table>
+
+      </form>
+    </div>
+    <div class="text-center" id="profileNav">
+        <hr />
+        <div class="row list-tab">
+          <div class="col"><button id="QuestionList" class="text-decoration-none btn"><%=question.length%> Questions</button></div>
+          <div class="col"><button id="AnswerList" class="text-decoration-none btn"><%=answer.length%> Answers</button></div>
+          <div class="col"><button id="FollowersList" class="text-decoration-none btn"><%=followers.length%> Followers</button></div>
+          <div class="col"><button id="FollowingList" class="text-decoration-none btn"><%=following.length%> Following</button></div>
+          <!--  <div class="col"><button id="Shares" class="text-decoration-none btn">0 Shares</button></div>-->
+        </div>
+        <hr />
+    </div>
+    <!-- QUESTIONS PART HERE -->
+
+<div class="QuestionList t-hide list-hide">
+<%question.forEach(function(se){%>
+<div class="questionDiv">
+  <hr />
+  <div>
+      <a href="/question/<%=se._id%>" class="text-decoration-none"><%=se.ques%></a>
+  </div>
+  <p class="text-decoration-none fs-6"><%=se.answer.length%> Answers</p>
+  <hr />
+</div>
+<%});%>
+    </div>
+    <!-- ANSWERS PART HERE -->
+<%answer.forEach(function(se){%>
+<div class="AnswerList t-hide list-hide">
+<div class="answerer">
+    <div class="profile">
+        <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
+        <h5 class="fw-bold getname" name="<%=se.userId%>">undefine</h5>
+        <h5 class="gettime" name="<%=se.time%>">undefine</h5>
+    </div>
+    <p id="ques"><%=se.ques%></p>
+    <%se.answer.forEach(function(tt){%>
+      <h5><%=tt.ans%></h5>
+    <%});%>
+    <hr />
+</div>
+<%});%>
+
+    </div>
+
+    <!-- FOLLOWERS PART HERE -->
+
+    <div class="p-2 follSec t-hide FollowersList list-hide">
+        <%followers.forEach(function(se){%>
+          <div class="following col d-flex align-items-center">
+              <i class="dpIcon fas fa-user-circle fa-2x"></i>
+              <h6 class="fw-bold"><%=se.detail.FullName%></h6>
+          </div>
+        <%})%>
+        <hr />
+    </div>
+
+    <!-- FOLLOWING PART HERE -->
+
+    <div class="p-2 follSec t-hide FollowingList list-hide">
+      <%following.forEach(function(se){%>
+        <div class="following col d-flex align-items-center">
+            <i class="dpIcon fas fa-user-circle fa-2x"></i>
+            <h6 class="fw-bold"><%=se.detail.FullName%></h6>
+        </div>
+      <%});%>
+      <hr />
+    </div>
+  </section>
+
+  <script src="../otherProfilett.js"></script>
+
+</body>
+
+</html>

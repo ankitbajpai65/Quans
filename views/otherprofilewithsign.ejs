@@ -28,10 +28,20 @@
 
   <div class="sidebar h-100">
     <div id="info" class="h-8 pt-4 pb-2 mb-3">
-      <span><img src="/image/<%=user._id%>" id="profilePic" alt="dp"></i></span>
+      <span><img src="/image/<%=user._id%>" id="profilePic" class="dp" alt="dp"></i></span>
       <h4 id="name" class="fs-4"><%=user.detail.FullName%></h4>
       <h5 class="fs-6"><%=user.detail.Description%></h5>
-      <button type="submit" name="data" id="follow" value="<%=user._id%>"class="btn btn-secondary rounded-pill mb-1">Follow</button>
+      <%let x  = false%>
+      <%myUser.following.forEach(function(te){%>
+        <%if(te.toString() ==  user._id){%>
+          <%x=true%>
+        <%}%>
+        <%});%>
+        <%if(x){%>
+          <button name="<%=user._id%>" id="follow" value="<%=user._id%>"class="btn followBtn <%=user._id%> btn-secondary rounded-pill mb-1 " style="position: static;">UnFollow</button>
+        <%}else{%>
+          <button name="<%=user._id%>" id="follow" value="<%=user._id%>"class="btn followBtn <%=user._id%> btn-secondary rounded-pill mb-1 " style="position: static;">Follow</button>
+        <%}%>
     </div>
     <div id="links" class="mt-5">
       <a class="active w-100 text-center p-3" href="/">Home</a>
@@ -166,20 +176,5 @@
   <script src="../otherProfile.js"></script>
 
 </body>
-
-</html>
-</body>
-
-<script>
-  let follow = document.getElementById('follow');
-  follow.onclick = () => {
-    saveDetailLike($(follow).attr("value"));
-  }
-  function saveDetailLike(data) {
-    var id = data;
-    var tt = true;
-    $.post('/follow', { data: id });
-  }
-</script>
 
 </html>

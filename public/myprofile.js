@@ -231,7 +231,6 @@ $(".FollowersList").on("click",'.followed', function(){
     var xt = $(this).attr('name');
     if(current == "UnFollow"){
       $(this).html("Follow");
-      $(this).html("Follow");
       var data = xt;
       $.post('/follow', {data: data}, function(data){
         // console.log(data);
@@ -247,7 +246,8 @@ $(".FollowersList").on("click",'.followed', function(){
 });
 
 function control(xt){
-  // $('.befollowed.'+xt).remove();
+  $('.following.ttfollow.'+xt).remove();
+  $('hr.hr.'+xt).remove();
   let inou = $('#FollowingList').html();
   inou  = parseInt(inou[0]);
   inou--;
@@ -264,7 +264,6 @@ function control2(xt){
 
 function puttingvalue(data){
   var e  = $('<hr class="hr '+data._id+'"/><div class="following col d-flex align-items-center ttfollow '+data._id+'"><i class="dpIcon fas fa-user-circle fa-2x"></i><h6 class="fw-bold">'+data.detail.FullName+'</h6><button class="followBtn befollowed '+data._id+'" name="'+data._id+'">UnFollow</button></div><hr class="hr '+data._id+'"/>');
-  // console.log(e);
   $('.FollowingList').append(e);
 }
 

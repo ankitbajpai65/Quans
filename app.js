@@ -716,14 +716,14 @@ app.get("/profile/:id", function(req,res){
                              if(err){
                                console.log(err);
                              }else if(result){
-                               res.render("otherprofile",{user: result, question: results, answer: answer, followers: followers, following: following, myUser: myUser});
+                               res.render("otherprofilewithsign",{user: result, question: results, answer: answer, followers: followers, following: following, myUser: myUser});
                              }else{
                                console.log("NO");
                              }
                            });
                          }
                       }else{
-                        res.render("otherprofile",{user: result, question: results, answer: answer, followers: followers, following: following});
+                        res.render("otherprofilewithoutsign",{user: result, question: results, answer: answer, followers: followers, following: following});
                       }
                     }
                   });
@@ -743,10 +743,15 @@ app.get("/profile/:id", function(req,res){
 app.post("/follow",function(req,res){
   let data = req.body.data;
   if(data == req.user._id){
-    res.json({ok: true});
+    User.findById(usd).select('detail.FullName').exec(function(err,success){
+      if(err){
+        console.log(err);
+      }else{
+        res.json({ok: success});
+      }
+    });
   }else{
     if(req.isAuthenticated()){
-      // console.log(data);
       let usd = mongoose.Types.ObjectId(data);
        User.findById(req.user._id,function(err, user){
            var tt = false;
@@ -784,7 +789,13 @@ app.post("/follow",function(req,res){
                 if(err){
                   console.log(err);
                 }else{
-                  res.json({ok: true});
+                  User.findById(usd).select('detail.FullName').exec(function(err,success){
+                    if(err){
+                      console.log(err);
+                    }else{
+                      res.json({ok: success});
+                    }
+                  });
                 }
               });
             }else{
@@ -805,7 +816,7 @@ app.post("/follow",function(req,res){
         });
     }else{
       res.json({ok: false});
-    }  
+    }
   }
 });
 
