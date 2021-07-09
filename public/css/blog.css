@@ -48,6 +48,7 @@
     /* border:2px solid red; */
     position:absolute;
     right:2px;
+    list-style-type: none;    margin-right: 30px;
     display: flex;
     align-items: center;
     width:16rem;
@@ -69,15 +70,18 @@
     filter:invert(100%);
     height:1.6rem;
     margin-right:2rem;
+    margin-top: 10px;
     cursor:pointer;
 }
 #profileImg{
     /* border: 2px solid rgb(45, 0, 128); */
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-top: 10px;
     /* filter:invert(100%); */
-    margin-left: 9rem;
-    margin-top: 0.5rem;
+    margin-left: 1rem;
+    /* margin-top: 0.5rem; */
     opacity:1;
     z-index: 5;
 }
@@ -88,7 +92,6 @@
 #askBtn{
     width:9rem;
     padding: 0.5rem;
-    position: absolute;
     right:28%;
     top: 15%;
     border-radius: 0.7rem;
@@ -142,8 +145,8 @@
     font-size: 1rem;
 }
 #infoList img{
-    height:1.4rem;
-    width:1.4rem;
+    height:1.2rem;
+    width:1.1rem;
     margin-right:1rem;
 }
 
@@ -552,5 +555,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
 }

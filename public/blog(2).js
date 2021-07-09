@@ -17,8 +17,11 @@ function populateSearch() {
     document.getElementById('list-2').style.width = '';
     document.getElementById('searchBar').style.display = '';
   } else {
-    document.getElementById('list-2').style.width = '31rem';
+    document.getElementById('list-2').style.width = '32rem';
     document.getElementById('searchBar').style.display = 'block';
+    document.getElementById('profileImg').style.display = 'block';
+    $('#profileImg').css('margin-right','10px');
+    $('#profileImg').css('margin-bottom','10px');
   }
   exr++;
 }
@@ -143,10 +146,16 @@ function dothis(){
 }
 
 // Profile image function
+//
+$(document).on('mouseover',function(e){
+let qt = e.target.id;
+  if(qt == 'profileImg' ||qt == 'profileImgs' || qt == 'total'|| qt =='infoList'){
+    document.getElementById('infoSec').style.display = "block";
+  }else{
+    document.getElementById('infoSec').style.display = "none";
+  }
+});
 
-document.getElementById('profileImg').onmouseenter=()=>{
-  document.getElementById('infoSec').style.display="block";
-}
 document.body.onclick=()=>{
   document.getElementById('infoSec').style.display="";
 }

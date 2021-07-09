@@ -16,11 +16,11 @@
                             <%=user.detail.FullName%>
                         </h4>
                         <%if(user.detail.Description){%>
-                            <h5>
+                            <h5 style="text-align: center;">
                                 <%=user.detail.Description%>
                             </h5>
                             <%}else{%>
-                                <h5>Description</h5>
+                                <h5 style="text-align: center;">Description</h5>
                                 <%}%>
                                     <!-- <h5 id="name">Followers : <%=user.followers.length%></h5>
             <h5 id="name">Following : <%=user.following.length%></h5> -->
@@ -44,7 +44,7 @@
                     <input name="search" class="form-control me-4 mt-1 searchBar" type="text" placeholder="Search"
                         aria-label="Search">
                       </form>
-                      <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" id="profilePic" alt="dp"></a>
+                      <a href="/image/<%=user._id%>" style="padding-left: 30px;"><img src="/image/<%=user._id%>" id="profilePic" alt="dp"></a>
             </div>
         </div>
     </nav>
