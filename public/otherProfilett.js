@@ -5,7 +5,6 @@ console.log('otherProfile.js included');
 let answerBtn = document.getElementsByClassName('answerBtn');
 for (let i = 0; i < answerBtn.length; i++) {
   answerBtn[i].onclick = () => {
-    // console.log('ans click');
     let answerDiv = document.getElementsByClassName('answerDiv');
     answerDiv[i].style.display = 'block';
   }
@@ -46,17 +45,16 @@ if(italic){
 $(document).ready(function(){
   $(".list-tab button").on("click", function(){
     $(".list-hide").css("display", "none");
-    tab = $(this).attr("id");
+    let tab = $(this).attr("id");
+    console.log(tab);
     $("."+tab).css("display", "block");
   });
 });
 let name = document.getElementsByClassName('getname');
-var q;
+let q=0;
 if(name){
-  for(var i=0; i<name.length; i++){
-    q=i;
-    console.log('name');
-      var namexd = $(name[i]).attr('name');
+  for( i=0; i<name.length; i++){
+      let namexd = $(name[i]).attr('name');
       $.post('/getname', { data: namexd },function(data){
         handledata(data);
       });
@@ -64,17 +62,19 @@ if(name){
 }
 function handledata(data){
   $(name[q]).html(data.ok);
+  q++;
 };
 let time = document.getElementsByClassName('gettime');
+let t=0;
 if(time){
   for(var i=0; i<time.length; i++){
-    q=i;
-      var namexd = $(time[i]).attr('name');
+      let namexd = $(time[i]).attr('name');
       $.post('/gettime', { data: namexd },function(data){
         handledatatime(data);
       });
   }
 }
 function handledatatime(data){
-  $(time[q]).html(data.ok.totaltime.date+"/"+data.ok.totaltime.month+"/"+data.ok.totaltime.year);
+  $(time[t]).html(data.ok.totaltime.date+"/"+data.ok.totaltime.month+"/"+data.ok.totaltime.year);
+  t++;
 };

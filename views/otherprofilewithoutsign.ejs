@@ -24,7 +24,6 @@
 </head>
 
 <body>
-  <!-- <button type="submit" name="data" id="follow" value="<%=user%>">follow</button> -->
 
   <div class="sidebar h-100">
     <div id="info" class="h-8 pt-4 pb-2 mb-3">
@@ -96,8 +95,8 @@
 <%});%>
     </div>
     <!-- ANSWERS PART HERE -->
+    <div class="AnswerList t-hide list-hide">
 <%answer.forEach(function(se){%>
-<div class="AnswerList t-hide list-hide">
 <div class="answerer">
     <div class="profile">
         <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
@@ -111,36 +110,37 @@
     <hr />
 </div>
 <%});%>
-
     </div>
 
     <!-- FOLLOWERS PART HERE -->
 
     <div class="p-2 follSec t-hide FollowersList list-hide">
         <%followers.forEach(function(se){%>
+          <hr />
           <div class="following col d-flex align-items-center">
               <i class="dpIcon fas fa-user-circle fa-2x"></i>
               <h6 class="fw-bold"><%=se.detail.FullName%></h6>
           </div>
+          <hr />
         <%})%>
-        <hr />
     </div>
 
     <!-- FOLLOWING PART HERE -->
 
     <div class="p-2 follSec t-hide FollowingList list-hide">
       <%following.forEach(function(se){%>
+        <hr />
         <div class="following col d-flex align-items-center">
             <i class="dpIcon fas fa-user-circle fa-2x"></i>
             <h6 class="fw-bold"><%=se.detail.FullName%></h6>
+            <hr />
         </div>
       <%});%>
-      <hr />
     </div>
   </section>
 
-  <script src="../otherProfilett.js"></script>
 
 </body>
+<script src="../otherProfilett.js"></script>
 
 </html>

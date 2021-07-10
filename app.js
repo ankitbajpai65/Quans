@@ -741,8 +741,8 @@ app.get("/profile/:id", function(req,res){
 
 
 app.post("/follow",function(req,res){
-  let data = req.body.data;
-  if(data == req.user._id){
+  let usd = mongoose.Types.ObjectId(req.body.data);
+  if(usd == req.user._id){
     User.findById(usd).select('detail.FullName').exec(function(err,success){
       if(err){
         console.log(err);
@@ -752,7 +752,6 @@ app.post("/follow",function(req,res){
     });
   }else{
     if(req.isAuthenticated()){
-      let usd = mongoose.Types.ObjectId(data);
        User.findById(req.user._id,function(err, user){
            var tt = false;
          for(let i=0; i<user.following.length; i++){
@@ -775,7 +774,6 @@ app.post("/follow",function(req,res){
              });
            }
        });
-        usd = mongoose.Types.ObjectId(data);
         User.findById(usd,function(err, user){
             var tt = false;
           for(let i=0; i<user.followers.length; i++){
