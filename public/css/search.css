@@ -1,0 +1,59 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Saira', sans-serif;
+}
+#searchNav{
+    background-color: rgb(238, 238, 238);
+    display: block;
+    margin: auto;
+    height: 2rem;
+    width:9rem;
+    padding:0.6rem;
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+#searchNav ul{
+    display: flex;
+}
+#searchNav ul li{
+    list-style: none;
+}
+#userBtn,#quesBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color:blue;
+}
+
+#userDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* display: block;
+    margin:auto; */
+}
+#user{
+    border-top:2px solid rgb(226, 226, 226);
+    border-bottom:2px solid rgb(226, 226, 226);
+    width:47rem;
+    padding: 0.7rem 1rem;
+    display: flex;
+    position:relative;
+    align-items: center;
+}
+#user:hover{
+    background-color: rgb(240, 240, 240);
+ }
+#user h3{
+    margin-left: 0.7rem;
+}
+#flwBtn{
+    position:absolute;
+    right:1rem;
+    background-color: #6BBEF5;
+    border-radius: 2rem;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+}
