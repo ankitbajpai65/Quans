@@ -33,11 +33,12 @@ function closeNav() {
 //     $('.AnswerList').css('display','block');
 // });
 
-$(document).ready(function(){
-  $(".list-tab button").on("click", function(){
+$(document).ready(function () {
+  $(".list-tab button").on("click", function () {
     $(".list-hide").css("display", "none");
-      var    tab = $(this).attr("id");
-    $("."+tab).css("display", "block");
+    var tab = $(this).attr("id");
+    $("." + tab).css("display", "block");
+    // $(".list-tab button").css("color", "red");
   });
 });
 
@@ -107,7 +108,7 @@ $(document).ready(function(){
 
 // EDIT PART HERE
 
-document.getElementById('editSpan').onclick=()=>{
+document.getElementById('editSpan').onclick = () => {
   console.log('edit click');
   // document.getElementById('editSec').style.display='block';
   // document.getElementById('myContent').style.display='none';
@@ -115,14 +116,14 @@ document.getElementById('editSpan').onclick=()=>{
   if (document.getElementById('myContent')) {
 
     if (document.getElementById('myContent').style.display == 'none') {
-        document.getElementById('myContent').style.display = 'block';
-        document.getElementById('editSec').style.display = 'none';
+      document.getElementById('myContent').style.display = 'block';
+      document.getElementById('editSec').style.display = 'none';
     }
     else {
-        document.getElementById('myContent').style.display = 'none';
-        document.getElementById('editSec').style.display = 'block';
+      document.getElementById('myContent').style.display = 'none';
+      document.getElementById('editSec').style.display = 'block';
     }
-}
+  }
 
   console.log('edit end');
 }
@@ -158,30 +159,30 @@ function saveedit() {
   i++;
 }
 
-$(document).ready(function() {
-       // console.log("h");
-       $("#file").on("change", function(){
-         $( "#profilephoto" ).submit();
-         // console.log("HI");
-       });
+$(document).ready(function () {
+  // console.log("h");
+  $("#file").on("change", function () {
+    $("#profilephoto").submit();
+    // console.log("HI");
+  });
 
-    //  $('#profilephoto').submit(function() {
-    //    console.log("i");
-    //     // $("#status").empty().text("File is uploading...");
-    //     $(this).ajaxSubmit({
-    //
-    //         error: function(xhr) {
-    //     status('Error: ' + xhr.status);
-    //         },
-    //
-    //         success: function(response) {
-    //     // $("#status").empty().text(response);
-    //             console.log(response);
-    //         }
-    // });
-    //     //Very important line, it disable the page refresh.
-    // return false;
-    // });
+  //  $('#profilephoto').submit(function() {
+  //    console.log("i");
+  //     // $("#status").empty().text("File is uploading...");
+  //     $(this).ajaxSubmit({
+  //
+  //         error: function(xhr) {
+  //     status('Error: ' + xhr.status);
+  //         },
+  //
+  //         success: function(response) {
+  //     // $("#status").empty().text(response);
+  //             console.log(response);
+  //         }
+  // });
+  //     //Very important line, it disable the page refresh.
+  // return false;
+  // });
 });
 
 function savedetail() {
@@ -197,89 +198,89 @@ function savedetail() {
   // console.log(data);
 }
 let name = document.getElementsByClassName('getname');
-var q=0;
-if(name){
-  for( i=0; i<name.length; i++){
-      var namexd = $(name[i]).attr('name');
-      $.post('/getname', { data: namexd },function(data){
-        handledata(data);
-      });
+var q = 0;
+if (name) {
+  for (i = 0; i < name.length; i++) {
+    var namexd = $(name[i]).attr('name');
+    $.post('/getname', { data: namexd }, function (data) {
+      handledata(data);
+    });
   }
 }
-function handledata(data){
+function handledata(data) {
   $(name[q]).html(data.ok);
   q++;
 };
 let time = document.getElementsByClassName('gettime');
-var t=0;
-if(time){
-  for(var i=0; i<time.length; i++){
-      var namexd = $(time[i]).attr('name');
-      $.post('/gettime', { data: namexd },function(data){
-        handledatatime(data);
-      });
+var t = 0;
+if (time) {
+  for (var i = 0; i < time.length; i++) {
+    var namexd = $(time[i]).attr('name');
+    $.post('/gettime', { data: namexd }, function (data) {
+      handledatatime(data);
+    });
   }
 }
-function handledatatime(data){
-  $(time[t]).html(data.ok.totaltime.date+"/"+data.ok.totaltime.month+"/"+data.ok.totaltime.year);
+function handledatatime(data) {
+  $(time[t]).html(data.ok.totaltime.date + "/" + data.ok.totaltime.month + "/" + data.ok.totaltime.year);
   t++;
 };
 
 //handles the followers follow UnFollow all_button
-$(".FollowersList").on("click",'.followed', function(){
-    var current = $(this).html();
-    var xt = $(this).attr('name');
-    if(current == "UnFollow"){
-      $(this).html("Follow");
-      var data = xt;
-      $.post('/follow', {data: data}, function(data){
-        // console.log(data);
-      });
-      control(xt);
-    }else if (current == "Follow") {
-      $.post('/follow',{data: xt},function(result){
-        puttingvalue(result.ok);
-      });
-      $(this).html("UnFollow");
-      control2(xt);
-    }
+$(".FollowersList").on("click", '.followed', function () {
+  var current = $(this).html();
+  var xt = $(this).attr('name');
+  if (current == "UnFollow") {
+    $(this).html("Follow");
+    var data = xt;
+    $.post('/follow', { data: data }, function (data) {
+      // console.log(data);
+    });
+    control(xt);
+  } else if (current == "Follow") {
+    $.post('/follow', { data: xt }, function (result) {
+      puttingvalue(result.ok);
+    });
+    $(this).html("UnFollow");
+    control2(xt);
+  }
 });
 
-function control(xt){
-  $('.following.ttfollow.'+xt).remove();
-  $('hr.hr.'+xt).remove();
+function control(xt) {
+  $('.following.ttfollow.' + xt).remove();
+  $('hr.hr.' + xt).remove();
   let inou = $('#FollowingList').html();
-  inou  = parseInt(inou[0]);
+  inou = parseInt(inou[0]);
   inou--;
-  $('#FollowingList').html(inou+" Following");
+  $('#FollowingList').html(inou + " Following");
 }
-function control2(xt){
+function control2(xt) {
   // $('.befollowed.'+xt).remove();
   let inou = $('#FollowingList').html();
-  inou  = parseInt(inou[0]);
+  inou = parseInt(inou[0]);
   inou++;
-  $('#FollowingList').html(inou+" Following");
+  $('#FollowingList').html(inou + " Following");
 }
 
 
-function puttingvalue(data){
-  var e  = $('<hr class="hr '+data._id+'"/><div class="following col d-flex align-items-center ttfollow '+data._id+'"><i class="dpIcon fas fa-user-circle fa-2x"></i><h6 class="fw-bold">'+data.detail.FullName+'</h6><button class="followBtn befollowed '+data._id+'" name="'+data._id+'">UnFollow</button></div><hr class="hr '+data._id+'"/>');
+function puttingvalue(data) {
+  var e = $('<hr class="hr ' + data._id + '"/><div class="following col d-flex align-items-center ttfollow ' + data._id + '"><i class="dpIcon fas fa-user-circle fa-2x"></i><h6 class="fw-bold">' + data.detail.FullName + '</h6><button class="followBtn befollowed ' + data._id + '" name="' + data._id + '">UnFollow</button></div><hr class="hr ' + data._id + '"/>');
   $('.FollowingList').append(e);
 }
 
 
 
-$(".FollowingList").on("click",'.befollowed',function(){
-    let current = $(this).html();
-    let xt = $(this).attr('name');
-      let data = xt;
-      $.post('/follow', {data: data}, function(data){
-        // console.log(data);
-      });
-     $('div.following.ttfollow.'+xt).remove();
-     $('hr.hr.'+xt).remove();
-      control(xt);
-      $('.followed.'+xt).html('Follow');
+$(".FollowingList").on("click", '.befollowed', function () {
+  let current = $(this).html();
+  let xt = $(this).attr('name');
+  let data = xt;
+  $.post('/follow', { data: data }, function (data) {
+    // console.log(data);
+  });
+  $('div.following.ttfollow.' + xt).remove();
+  $('hr.hr.' + xt).remove();
+  control(xt);
+  $('.followed.' + xt).html('Follow');
 });
  // console.log(data);
 // }

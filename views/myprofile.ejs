@@ -7,22 +7,23 @@
             <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic"></img></a>
             <label for="file">
                 <i class="fas fa-camera fa-sm text-decoration-none text-white" id="camera"></i>
-                <form  id="profilephoto" style="text-align: center;"action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" id="file" style="display: none" name="file"
-                    accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
-                    data-original-title="upload photos">
-                    </form>
-                        <h4 id="name">
-                            <%=user.detail.FullName%>
-                        </h4>
-                        <%if(user.detail.Description){%>
-                            <h5 style="text-align: center;">
-                                <%=user.detail.Description%>
-                            </h5>
-                            <%}else{%>
-                                <h5 style="text-align: center;">Description</h5>
-                                <%}%>
-                                    <!-- <h5 id="name">Followers : <%=user.followers.length%></h5>
+                <form id="profilephoto" style="text-align: center;" action="/upload" method="post"
+                    enctype="multipart/form-data">
+                    <input type="file" id="file" style="display: none" name="file"
+                        accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
+                        data-original-title="upload photos">
+                </form>
+                <h4 id="name">
+                    <%=user.detail.FullName%>
+                </h4>
+                <%if(user.detail.Description){%>
+                    <h5 style="text-align: center;">
+                        <%=user.detail.Description%>
+                    </h5>
+                    <%}else{%>
+                        <h5 style="text-align: center;">Description</h5>
+                        <%}%>
+                            <!-- <h5 id="name">Followers : <%=user.followers.length%></h5>
             <h5 id="name">Following : <%=user.following.length%></h5> -->
         </div>
         <div id="links" class="mt-5">
@@ -40,11 +41,12 @@
         <div class="container-fluid">
             <h3 class="navbar-brand mt-1 text-warning fs-4" id="title">Quora</h3>
             <div class="collapse navbar-collapse navItem">
-                  <form action="/searching" method="post">
+                <form action="/searching" method="post">
                     <input name="search" class="form-control me-4 mt-1 searchBar" type="text" placeholder="Search"
                         aria-label="Search">
-                      </form>
-                      <a href="/image/<%=user._id%>" style="padding-left: 30px;"><img src="/image/<%=user._id%>" id="profilePic" alt="dp"></a>
+                </form>
+                <a href="/image/<%=user._id%>" style="padding-left: 30px;"><img src="/image/<%=user._id%>"
+                        id="profilePic" alt="dp"></a>
             </div>
         </div>
     </nav>
@@ -180,90 +182,115 @@
         <div class="text-center" id="profileNav">
             <hr />
             <div class="row list-tab">
-                <div class="col"><button id="QuestionList" class="text-decoration-none btn"><%=question.length%> Questions</button></div>
-<%var d=0%>
-                <%answer.forEach(function(se){%>
+                <div class="col"><button id="QuestionList" class="text-decoration-none btn">
+                        <%=question.length%> Questions
+                    </button></div>
+                <%var d=0%>
+                    <%answer.forEach(function(se){%>
                         <%se.answer.forEach(function(tt){%>
-                          <%d++%>
-                        <%});%>
-                        <%});%>
-                <div class="col"><button id="AnswerList" class="text-decoration-none btn"><%=d%> Answers</button></div>
-                <div class="col"><button id="FollowersList" class="text-decoration-none btn"><%=followers.length%> Followers</button></div>
-                <div class="col"><button id="FollowingList" class="text-decoration-none btn" name="<%=following.length%>"><%=following.length%> Following</button></div>
-              <!--  <div class="col"><button id="Shares" class="text-decoration-none btn">0 Shares</button></div>-->
+                            <%d++%>
+                                <%});%>
+                                    <%});%>
+                                        <div class="col"><button id="AnswerList" class="text-decoration-none btn">
+                                                <%=d%> Answers
+                                            </button></div>
+                                        <div class="col"><button id="FollowersList" class="text-decoration-none btn">
+                                                <%=followers.length%> Followers
+                                            </button></div>
+                                        <div class="col"><button id="FollowingList" class="text-decoration-none btn"
+                                                name="<%=following.length%>">
+                                                <%=following.length%> Following
+                                            </button></div>
+                                        <!--  <div class="col"><button id="Shares" class="text-decoration-none btn">0 Shares</button></div>-->
             </div>
             <hr />
         </div>
+
         <!-- QUESTIONS PART HERE -->
 
-  <div class="QuestionList t-hide list-hide">
-<%question.forEach(function(se){%>
-  <div class="questionDiv">
-      <hr />
-      <div>
-          <a href="/question/<%=se._id%>" class="text-decoration-none"><%=se.ques%></a>
-      </div>
-      <p class="text-decoration-none fs-6"><%=se.answer.length%> Answers</p>
-      <hr />
-  </div>
-<%});%>
+        <div class="QuestionList t-hide list-hide">
+            <%question.forEach(function(se){%>
+                <div class="questionDiv">
+                    <!-- <hr /> -->
+                    <div>
+                        <a href="/question/<%=se._id%>" class="text-decoration-none">
+                            <%=se.ques%>
+                        </a>
+                    </div>
+                    <p class="text-decoration-none fs-6">
+                        <%=se.answer.length%> Answers
+                    </p>
+                    <!-- <hr /> -->
+                </div>
+                <%});%>
         </div>
+        
         <!-- ANSWERS PART HERE -->
         <div class="AnswerList t-hide list-hide">
-<%answer.forEach(function(se){%>
-    <div class="answerer">
-        <div class="profile">
-            <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
-            <h5 class="fw-bold getname" name="<%=se.userId%>"></h5>
-            <h5 class="gettime" name="<%=se.time%>"></h5>
-        </div>
-        <p id="ques"><%=se.ques%></p>
-        <%se.answer.forEach(function(tt){%>
-          <h5><%=tt.ans%></h5>
-        <%});%>
-        <hr />
-    </div>
-<%});%>
+            <%answer.forEach(function(se){%>
+                <div class="answerer">
+                    <div class="profile">
+                        <!-- <img src="/image/<%=se.userId%>" alt="profile photo" class="dp"> -->
+                        <i class="dpIcon fas fa-user-circle fa-2x"></i>
+                        <h5 class="fw-bold getname" name="<%=se.userId%>"></h5>
+                        <h5 class="gettime" name="<%=se.time%>"></h5>
+                    </div>
+                    <p id="ques">
+                        <%=se.ques%>
+                    </p>
+                    <%se.answer.forEach(function(tt){%>
+                        <h5>
+                            <%=tt.ans%>
+                        </h5>
+                        <%});%>
+                            <hr />
+                </div>
+                <%});%>
 
         </div>
 
         <!-- FOLLOWERS PART HERE -->
         <div class="p-2 follSec t-hide FollowersList list-hide">
             <%followers.forEach(function(se){%>
-              <hr />
-              <%var x = false%>
-              <%following.forEach(function(te){%>
-                <%if(se._id.toString() == te._id.toString()){%>
-                  <%x=true%>
-                <%}%>
-              <%});%>
+                <hr />
+                <%var x=false%>
+                    <%following.forEach(function(te){%>
+                        <%if(se._id.toString()==te._id.toString()){%>
+                            <%x=true%>
+                                <%}%>
+                                    <%});%>
 
-              <div class="following col d-flex align-items-center ttfollowed <%=se._id%>">
-                  <i class="dpIcon fas fa-user-circle fa-2x"></i>
-                  <h6 class="fw-bold"><%=se.detail.FullName%></h6>
-                   <%if(x){%>
-                     <button class="followBtn followed <%=se._id%>" name="<%=se._id%>">UnFollow</button>
-                   <%}else{%>
-                     <button class="followBtn followed <%=se._id%>" name="<%=se._id%>">Follow</button>
-                   <%}%>
-              </div>
-              <hr />
-            <%})%>
+                                        <div class="following col d-flex align-items-center ttfollowed <%=se._id%>">
+                                            <i class="dpIcon fas fa-user-circle fa-2x"></i>
+                                            <h6 class="fw-bold">
+                                                <%=se.detail.FullName%>
+                                            </h6>
+                                            <%if(x){%>
+                                                <button class="followBtn followed <%=se._id%>"
+                                                    name="<%=se._id%>">UnFollow</button>
+                                                <%}else{%>
+                                                    <button class="followBtn followed <%=se._id%>"
+                                                        name="<%=se._id%>">Follow</button>
+                                                    <%}%>
+                                        </div>
+                                        <hr />
+                                        <%})%>
         </div>
 
         <!-- FOLLOWING PART HERE -->
 
         <div class="p-2 follSec t-hide FollowingList list-hide">
-          <%following.forEach(function(se){%>
-            <hr class="hr <%=se._id%>"/>
-            <div class="following col d-flex align-items-center ttfollow <%=se._id%>">
-                <i class="dpIcon fas fa-user-circle fa-2x"></i>
-                <h6 class="fw-bold"><%=se.detail.FullName%></h6>
-                <button class="followBtn befollowed <%=se._id%>" name="<%=se._id%>">UnFollow</button>
-            </div>
-            <hr class="hr <%=se._id%>"/>
-          <%})%>
-          <hr />
+            <%following.forEach(function(se){%>
+                <hr class="hr <%=se._id%>" />
+                <div class="following col d-flex align-items-center ttfollow <%=se._id%>">
+                    <i class="dpIcon fas fa-user-circle fa-2x"></i>
+                    <h6 class="fw-bold">
+                        <%=se.detail.FullName%>
+                    </h6>
+                    <button class="followBtn befollowed <%=se._id%>" name="<%=se._id%>">UnFollow</button>
+                </div>
+                <hr class="hr <%=se._id%>" />
+                <%})%>
         </div>
     </section>
 

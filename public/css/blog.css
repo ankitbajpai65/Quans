@@ -222,6 +222,9 @@ body{
       background-repeat: no-repeat;
       cursor:pointer;
   }
+  /* .cancelPop:hover{
+    transform: rotate(270deg);
+  } */
   #formText{
       /* border:2px solid red; */
       text-decoration: none;
@@ -386,10 +389,9 @@ body{
 #homecontent span{
     font-size:2.5rem;
     color:rgb(255, 172, 49);
-    border:2px solid rgb(255, 172, 49);
+    /* border:2px solid rgb(255, 172, 49); */
     border-radius: 1.5rem;
     padding: 0.8rem;
-    /* margin-top: 2rem; */
 }
 #homecontent p{
     font-size: 1.4rem;

@@ -78,9 +78,9 @@ html, body{
     padding:0.5rem;
   }
 
-  .text-decoration-none{
-    color: red;
-  }
+  /* .text-decoration-none{
+    color: blue;
+  } */
 
   #links a:hover {
     background-color:rgb(44, 43, 43);
@@ -216,11 +216,23 @@ html, body{
 .questionDiv{
   margin:0;
   z-index:1;
-  /* display: none; */
+  border-top:2px solid rgb(202, 202, 202);
+  border-bottom:2px solid rgb(202, 202, 202);
+  margin-bottom:1.5rem;
+  padding:0.7rem 1rem 0rem 1rem;
 }
-/* .questionDiv:hover{
-  background-color: #f1f0f0;
-} */
+.questionDiv:hover{
+  background-color: #ececec;
+}
+.splDivForOtherProfile{
+  border-top:2px solid rgb(202, 202, 202);
+  border-bottom:2px solid rgb(202, 202, 202);
+  padding:0.5rem 1rem;
+  margin-top:1.5rem;
+}
+.splDivForOtherProfile:hover{
+  background-color: #ececec;
+}
 
 /* QUESTION PART HERE */
 .answerDiv{
@@ -254,6 +266,9 @@ html, body{
 .postBtn{
   width:5rem;
   font-size: 0.9rem;
+}
+.answerDiv{
+  display: none;
 }
 
 /* ANSWER PART HERE */
@@ -304,9 +319,6 @@ html, body{
   /* margin-left: 21rem; */
   position: relative;
   z-index:1;
-}
-#following{
-  padding:3rem;
 }
 .dpIcon{
   margin-right: 0.7rem;
