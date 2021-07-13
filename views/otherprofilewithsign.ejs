@@ -148,7 +148,8 @@
       <%answer.forEach(function(se){%>
         <div class="answerer">
           <div class="profile">
-            <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
+            <!-- <img src="/image/<%=se.userId%>" alt="profile photo" class="dp"> -->
+            <i class="dpIcon fas fa-user-circle fa-2x"></i>
             <h5 class="fw-bold getname" name="<%=se.userId%>">undefine</h5>
             <h5 class="gettime" name="<%=se.time%>">undefine</h5>
           </div>
@@ -180,6 +181,7 @@
                     <div class="following col d-flex align-items-center <%=se._id%>">
                       <img src="/image/<%=se._id%>" alt="profile photo" class="dp"
                         style="border-radius: 50%; height: 40px; width: 40px">
+                        <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
                       <h6 class="fw-bold">
                         <%=se.detail.FullName%>
                       </h6>
@@ -207,6 +209,7 @@
                     <div class="following col d-flex align-items-center">
                       <img src="/image/<%=se._id%>" alt="profile photo" class="dp"
                         style="border-radius: 50%; height: 40px; width: 40px">
+                        <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
                       <h6 class="fw-bold">
                         <%=se.detail.FullName%>
                       </h6>

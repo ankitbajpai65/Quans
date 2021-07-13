@@ -22,13 +22,14 @@
               </h3>
             </a>
           </div>
-          <h1 id="ques"><%=user.ques%></h1>
+          <h3 id="ques"><%=user.ques%></h3>
           <div id="quesIcons">
                 <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like ">
                 <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconslike dislike ">
                 <img src="../images/comment.png" alt="like" id="allAnswer">
                 </div>
         </div>
+        <h3 class="fw-bold mt-4">Log in to answer the question🙂</h3>
     <%user.answer.forEach(function(test){%>
       <hr />
     <div  class="answerer">
@@ -46,7 +47,6 @@
           <hr />
       </div>
           <%});%>
-  <h3>Log in to answer the question</h3>
   </div>
 </section>
 </div>

@@ -392,6 +392,7 @@ body{
     /* border:2px solid rgb(255, 172, 49); */
     border-radius: 1.5rem;
     padding: 0.8rem;
+    /* margin-top: 2rem; */
 }
 #homecontent p{
     font-size: 1.4rem;
@@ -541,6 +542,7 @@ body{
     border:none;
     background-color: #3cdf2e;
     font-size: 1.2rem;
+    cursor:pointer;
 }
 #contactDiv form button:hover{
     background-color: transparent;
