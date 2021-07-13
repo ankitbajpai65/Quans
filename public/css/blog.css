@@ -150,6 +150,14 @@ body{
     margin-right:1rem;
 }
 
+/* alert box */
+#alertBox{
+    /* display: none; */
+    height:2rem;
+    padding:0.8rem 0rem 0.8rem 2rem;
+    background-color: rgb(153, 216, 27);
+}
+
 /* Login Section  */
 
   /* The popup form - hidden by default */
@@ -317,7 +325,7 @@ body{
      position: fixed;
      background-color: white;
      box-shadow: 5px 5px 8px rgb(201, 199, 199), -5px -5px 8px rgb(201, 199, 199);
-     top: 10rem;
+     top: 14rem;
      right: 30rem;
      z-index: 2;
      opacity:1;

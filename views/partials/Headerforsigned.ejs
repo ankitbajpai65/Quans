@@ -31,23 +31,33 @@
                 <li class="item"><a href="/#contactSec">Contact</a></li>
             </ul>
             <ul id="list-2">
-                <li><form action="/searching" method="post">
-                    <input name="search" type="text" id="searchBar" placeholder="Search here...">
-                </form></li>
+                <li>
+                    <form action="/searching" method="post">
+                        <input name="search" type="text" id="searchBar" placeholder="Search here...">
+                    </form>
+                </li>
                 <li><img src="images/search.png" id="searchImg"></li>
                 <li><button id="askBtn">Ask questions</button></li>
                 <!-- <a href="/profile/<%=properuser%>"><img src="/image/<%=properuser%>" id="profileImg"></a> -->
 
-<li id="total"><img src="/image/<%=properuser%>" id="profileImg" class="pic"></li>
+                <li id="total"><img src="/image/<%=properuser%>" id="profileImg" class="pic"></li>
             </ul>
         </nav>
+    </section>
+    <section id="alertBox">
+        <div class="alert alert-success" role="alert">
+            Your question has submitted!   🙎‍♂️
+        </div>
     </section>
     <section id="infoSec">
         <div id="infoDiv">
             <ul id="infoList">
-                <li id="profileImgs"><img src="images/profile.png" id="profileImgs"alt=""><a href="/profile/<%=properuser%>" id="profileImgs">My Profile</a></li>
-                <li id="profileImgs"><img src="images/pencil.png" id="profileImgs"alt=""><a href="/profile/<%=properuser%>/#Edit" id="profileImgs">Edit Profile</a></li>
-                <li id="profileImgs"><img src="images/logout.png" id="profileImgs"alt=""><a href="/logout" id="profileImgs">Logout</a></li>
+                <li id="profileImgs"><img src="images/profile.png" id="profileImgs" alt=""><a
+                        href="/profile/<%=properuser%>" id="profileImgs">My Profile</a></li>
+                <li id="profileImgs"><img src="images/pencil.png" id="profileImgs" alt=""><a
+                        href="/profile/<%=properuser%>/#Edit" id="profileImgs">Edit Profile</a></li>
+                <li id="profileImgs"><img src="images/logout.png" id="profileImgs" alt=""><a href="/logout"
+                        id="profileImgs">Logout</a></li>
             </ul>
         </div>
     </section>

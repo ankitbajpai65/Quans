@@ -64,7 +64,7 @@
     border-radius: 2rem;
     box-shadow: 0px 15px 10px -15px rgb(173, 169, 169);
 }
-#questioner h6{
+#questioner h6,.answerer h6{
     margin-left: 3.5rem;
 }
 .answerer{

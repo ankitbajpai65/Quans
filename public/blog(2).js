@@ -145,6 +145,14 @@ function dothis() {
   });
 }
 
+// Alert Box
+
+document.getElementById('submitQues').onclick=()=>{
+  setTimeout(function(){
+      document.getElementById('alertBox').style.display='block';
+  },3000);
+}
+
 // Profile image function
 //
 $(document).on('mouseover', function (e) {
