@@ -119,9 +119,7 @@
               <%=se.ques%>
             </a>
           </div>
-          <p class="text-decoration-none fs-6">
-            <%=se.answer.length%> Answers
-          </p>
+          <p class="text-decoration-none fs-6  <%=se._id%>"><%=se.answer.length%> Answers</p>
           <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
           <div class="answerDiv mt-4 w-75">
             <div class="col p-3 d-flex align-items-center" id="writerDiv">
@@ -133,10 +131,10 @@
               <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
             </div>
             <div class="input-group p-2" id="answerBox">
-              <textarea class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
+              <textarea class="form-control outline-none <%=se._id%>" name="<%=se._id%>" id="answerBlock" placeholder="Write here..."></textarea>
             </div>
             <div class="p-3" id="postbtnDiv">
-              <button class="postBtn btn btn-primary rounded-pill">Post</button>
+              <button class="postBtn btn btn-primary rounded-pill" name="<%=se._id%>">Post</button>
             </div>
           </div>
           <!-- <hr /> -->

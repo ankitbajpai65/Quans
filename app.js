@@ -274,7 +274,13 @@ app.post("/searching",function(req,res){
           console.log(err);
         }else{
         if(req.isAuthenticated()){
-          res.render("searcheduserwithsigned",{user: user, questions: questions,properuser: req.user._id});
+          User.findById(req.user._id,function(err,result){
+            if(err){
+              console.log(err);
+            }else{
+              res.render("searcheduserwithsigned",{user: user, questions: questions,properuser: req.user._id, me: result});
+            }
+          });
         }else{
           res.render("searcheduserwithoutsigned",{user: user, questions: questions});
         }
@@ -580,7 +586,45 @@ app.post("/answer",function(req,res){
     res.render("forallfailures",{heading: "You are not logged in", message: "Kindly login or signup"});
   }
 });
-
+app.post("/answered",function(req,res){
+// console.log(req.body.data);
+const data = JSON.parse(req.body.data);
+console.log(data);
+  if(req.isAuthenticated()){
+    var d = new Date();
+    const time = new usertime({
+         day : d.getDay(),
+         totaltime: {
+           date : d.getDate(),
+            month : d.getMonth(),
+           year : d.getFullYear()
+        },
+         entertime: {
+             hour : d.getHours(),
+             minute : d.getMinutes(),
+             second : d.getHours()
+        }
+    });
+    time.save(function(err){
+      if(err){
+        console.log(err);
+      }
+    });
+    User.findById(req.user._id,function(err,user){
+      User_question.updateOne({_id: mongoose.Types.ObjectId(data.question)},{$push: {answer: {ans: data.answer, postedUser: req.user._id, FullName:user.detail.FullName, time:time._id  }}},function(err,success){
+          if(err){
+            console.log(err);
+          }else{
+            // const url = "/question/"+mongoose.Types.ObjectId(req.body.question);
+            res.json({ok: true});
+          }
+      });
+    });
+  }else{
+    res.json({ok:false});
+    // res.render("forallfailures",{heading: "You are not logged in", message: "Kindly login or signup"});
+  }
+});
 
 
 

@@ -1,14 +1,36 @@
 console.log('otherProfile.js included');
-
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted ||
+                         ( typeof window.performance != "undefined" &&
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
 // QUESTION PART HERE
-
+//
 let answerBtn = document.getElementsByClassName('answerBtn');
 for (let i = 0; i < answerBtn.length; i++) {
   answerBtn[i].onclick = () => {
     let answerDiv = document.getElementsByClassName('answerDiv');
     answerDiv[i].style.display = 'block';
+    console.log(answerDiv[i]);
   }
 }
+
+$('.postBtn').on('click',function(){
+let data = {
+  question: $(this).attr('name'),
+  answer: $('textarea.'+$(this).attr('name')).val()
+};
+data  = JSON.stringify(data);
+// console.log(data);
+$.post('/answered',{data: data});
+let dtu = $('p.fs-6.'+$(this).attr('name')).html();
+$('p.fs-6.'+$(this).attr('name')).html(parseInt(dtu[0])+1+' Answers');
+});
+
 let bold = document.getElementById('bold');
 if(bold){
   bold.onclick = () => {
@@ -63,21 +85,6 @@ function handledata(data){
   $(name[q]).html(data.ok);
   q++;
 };
-let time = document.getElementsByClassName('gettime');
-let t=0;
-if(time){
-  for(var i=0; i<time.length; i++){
-      let namexd = $(time[i]).attr('name');
-      $.post('/gettime', { data: namexd },function(data){
-        handledatatime(data);
-      });
-  }
-}
-function handledatatime(data){
-  $(time[t]).html(data.ok.totaltime.date+"/"+data.ok.totaltime.month+"/"+data.ok.totaltime.year);
-  t++;
-};
-
 
 $('.followBtn').on('click',function(){
   let tt = $(this).html();

@@ -178,13 +178,33 @@ document.body.onscroll = () => {
 }
 
 let i = 0;
-let text = document.getElementById('fname').innerText;
-$('#fname').html('');
-function typing() {
-  if (i < text.length) {
-    document.getElementById("fname").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 80);
+let textu = document.getElementById('fname');
+if(textu){
+  let text = textu.innerText;
+  $('#fname').html('');
+  function typing() {
+    if (i < text.length) {
+      document.getElementById("fname").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 80);
+    }
   }
+  typing();
 }
-typing();
+
+$('.newt').on('click',function(){
+  $('.xt').css('display', 'none');
+  let uve = $(this).attr('id');
+  $('.' +uve).css('display', 'block');
+});
+
+$('button#flwBtn').on('click',function(){
+  let nam  = $(this).html();
+  let xd  = $(this).attr('name');
+  $.post('/follow', {data: xd});
+  if(nam=='UnFollow'){
+    $(this).html('Follow');
+  }else if(nam=='Follow'){
+    $(this).html('UnFollow');
+  }
+});
