@@ -374,8 +374,7 @@ app.post("/askquestion", function(req,res){
                console.log(err);
              }else{
                if(success){
-                 // res.send("done");
-                 res.redirect("/queries");
+                 res.send({ok: true});
                }else{
                  console.log("fail");
                }

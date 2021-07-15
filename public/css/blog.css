@@ -152,7 +152,7 @@ body{
 
 /* alert box */
 #alertBox{
-    /* display: none; */
+    display: none;
     height:2rem;
     padding:0.8rem 0rem 0.8rem 2rem;
     background-color: rgb(153, 216, 27);

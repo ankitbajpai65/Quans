@@ -1,5 +1,11 @@
 console.log('added');
 
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+
+
 function openNav() {
   document.querySelector(".sidebar").style.width = "250px";
   document.querySelector("#close").style.display = "block";
@@ -222,7 +228,7 @@ if (time) {
   }
 }
 function handledatatime(data) {
-  $(time[t]).html(data.ok.totaltime.date + "/" + data.ok.totaltime.month + "/" + data.ok.totaltime.year);
+  $(time[t]).html(data.ok.totaltime.date + "/" + monthNames[data.ok.totaltime.month] + "/" + data.ok.totaltime.year);
   t++;
 };
 

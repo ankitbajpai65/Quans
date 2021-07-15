@@ -21,7 +21,7 @@
                 <%=name%>
               </h3>
             </a>
-          </div>
+          </div>  <h6 class="gettime" name="<%=user.time%>">Date and time...</h6>
           <h3 id="ques"><%=user.ques%></h3>
           <div id="quesIcons">
                 <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like ">
@@ -41,6 +41,7 @@
             </h3>
           </a>
         </div>
+        <h6 class="gettime" name="<%=test.time%>">Date and time...</h6>
         <p id="ans"><%=test.ans%></p>
         <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>"class=" ansIcons quesIconslike like">
           <img src="../images/dislike.png"   id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons quesIconslike dislike">
@@ -58,4 +59,22 @@
     alert("you are not logged in");
 
   });
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  let time = document.getElementsByClassName('gettime');
+  var t = 0;
+  if (time) {
+    for (var i = 0; i < time.length; i++) {
+      var namexd = $(time[i]).attr('name');
+      $.post('/gettime', { data: namexd }, function (data) {
+        handledatatime(data);
+      });
+    }
+  }
+  function handledatatime(data) {
+    $(time[t]).html(data.ok.totaltime.date + "/" + monthNames[data.ok.totaltime.month] + "/" + data.ok.totaltime.year);
+    t++;
+  };
 </script>

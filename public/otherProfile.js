@@ -109,7 +109,24 @@ $('.followBtn').on('click',function(){
     }
   }
 });
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
+let time = document.getElementsByClassName('gettime');
+var t = 0;
+if (time) {
+  for (var i = 0; i < time.length; i++) {
+    var namexd = $(time[i]).attr('name');
+    $.post('/gettime', { data: namexd }, function (data) {
+      handledatatime(data);
+    });
+  }
+}
+function handledatatime(data) {
+  $(time[t]).html(data.ok.totaltime.date + "/" + monthNames[data.ok.totaltime.month] + "/" + data.ok.totaltime.year);
+  t++;
+};
 
 function handledata(data){
   console.log(data);

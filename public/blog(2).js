@@ -145,13 +145,19 @@ function dothis() {
   });
 }
 
-// Alert Box
 
-document.getElementById('submitQues').onclick=()=>{
-  setTimeout(function(){
-      document.getElementById('alertBox').style.display='block';
-  },3000);
+
+$('#submitQues').on('click',function(){
+  const data = $('#askq').val();
+  $.post('/askquestion',{question: data});
+  $('#quesSec').css('display','none');
+$('#alertBox').css('display','block');
+window.setTimeout("closeHelpDiv();", 2000);
+});
+function closeHelpDiv(){
+$('#alertBox').css('display','none');
 }
+
 
 // Profile image function
 //
@@ -173,8 +179,7 @@ document.body.onscroll = () => {
 
 let i = 0;
 let text = document.getElementById('fname').innerText;
-//  let text = $('#fname').innerHTML();
-console.log(text);
+$('#fname').html('');
 function typing() {
   if (i < text.length) {
     document.getElementById("fname").innerHTML += text.charAt(i);
@@ -183,6 +188,3 @@ function typing() {
   }
 }
 typing();
-
-
-

@@ -64,17 +64,21 @@ function handledata(data){
   $(name[q]).html(data.ok);
   q++;
 };
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
 let time = document.getElementsByClassName('gettime');
-let t=0;
-if(time){
-  for(var i=0; i<time.length; i++){
-      let namexd = $(time[i]).attr('name');
-      $.post('/gettime', { data: namexd },function(data){
-        handledatatime(data);
-      });
+var t = 0;
+if (time) {
+  for (var i = 0; i < time.length; i++) {
+    var namexd = $(time[i]).attr('name');
+    $.post('/gettime', { data: namexd }, function (data) {
+      handledatatime(data);
+    });
   }
 }
-function handledatatime(data){
-  $(time[t]).html(data.ok.totaltime.date+"/"+data.ok.totaltime.month+"/"+data.ok.totaltime.year);
+function handledatatime(data) {
+  $(time[t]).html(data.ok.totaltime.date + "/" + monthNames[data.ok.totaltime.month] + "/" + data.ok.totaltime.year);
   t++;
 };
