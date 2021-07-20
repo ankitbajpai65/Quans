@@ -1,6 +1,220 @@
 /* Media queries */
 
-@media only screen and (min-width: 768px) and (max-width: 1149px) {
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-width: 450px) {
+    html{
+        font-size:50%;
+    }
+    #list-1{
+        display: none;
+    }
+    #openSpan{
+       display: block;
+       font-size: 2rem;
+       color:white;
+       position: absolute;
+       left:1.5rem;
+     }
+     #title{
+         display: block;
+         margin: auto;
+     }
+     #homecontent{
+         display: block;
+         margin: auto;
+     }
+     #homeImg{
+       display: none;
+     }
+     #aboutSec{
+        /* height:127rem; */
+        height:auto;
+        margin-bottom: 2rem;
+    }
+     .aboutDiv{
+        display: block;
+        padding:0.5rem;
+        margin:0rem;
+    }
+    #aboutHead{
+        display: block;
+        margin-top: 2rem;
+    }
+    #about{
+        text-align: justify;
+        width:90%;
+    }
+    #about p{
+        line-height: 1.9rem;
+        font-size: 1.4rem;
+    }
+    #about h1{
+        display: none;
+    }
+    #aboutImg{
+        float: left;
+        height: 23rem;
+        width: 30rem;
+        margin-left: 0;
+    }
+    .aboutCard{
+        /* height:93rem; */
+        flex-direction: column;
+        justify-content: center;
+    }
+    .card{
+        margin-top:2rem;
+        width: 35rem;
+        height: 24rem;
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .cardImg{
+        width: 35rem;
+        height: 18rem;
+        margin-bottom: 0;
+    }
+    .card-text{
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 700px) {
+     html{
+         font-size:60%;
+     }
+     #list-1{
+         display: none;
+     }
+     #openSpan{
+        display: block;
+        font-size: 2rem;
+        color:white;
+        position: absolute;
+        left:1.5rem;
+      }
+      #title{
+          display: block;
+          margin: auto;
+      }
+      #homecontent{
+          display: block;
+          margin: auto;
+      }
+      #homeImg{
+        display: none;
+      }
+      #aboutSec{
+        /* height:127rem; */
+        margin-bottom: 3rem;
+    }
+    .aboutDiv{
+        display: block;
+        padding:0.5rem;
+        margin:0rem;
+    }
+    #aboutHead{
+        display: block;
+        margin-top: 2rem;
+    }
+    #about{
+        text-align: justify;
+        width:90%;
+    }
+    #about p{
+        line-height: 2rem;
+        font-size: 1.4rem;
+    }
+    #about h1{
+        display: none;
+    }
+    #aboutImg{
+        float: left;
+        height: 23rem;
+        width: 30rem;
+        margin-left: 0;
+    }
+    .aboutCard{
+        /* height:90rem; */
+        flex-direction: column;
+        justify-content: center;
+    }
+    .card{
+        margin-top:2rem;
+        width: 40rem;
+        height: 26rem;
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .cardImg{
+        width: 40rem;
+        height: 20rem;
+        margin-bottom: 0;
+    }
+    .card-text{
+        font-size: 1.4rem;
+        line-height: 2rem;
+    }
+}
+@media only screen and (min-width: 700px) and (max-width: 770px) {
+     html{
+         font-size:60%;
+     }
+     #aboutSec{
+         /* height:130rem; */
+         height:auto;
+         margin-bottom: 2rem;
+     }
+     .aboutDiv{
+         height:auto;
+     }
+     .aboutCard{
+         /* height:102rem; */
+         height:auto;
+         flex-direction: column;
+         justify-content: center;
+     }
+     #about p{
+        font-size: 1.5rem;
+        line-height: 2rem;
+     }
+     .card{
+         margin-top:2rem;
+         width: 40rem;
+         height: 30rem;
+         display: flex;
+         flex-direction: column;
+        
+     }
+     .cardImg{
+        width: 40rem;
+        height: 23rem;
+        margin-bottom: 0;
+     }
+     .card-text{
+         font-size:1.3rem;
+     }
+}
+@media only screen and (min-width: 770px) and (max-width: 830px) {
+     html{
+         font-size:65%;
+     }
+}
+@media only screen and (min-width: 830px) and (max-width: 970px) {
+     html{
+         font-size:70%;
+     }
+     #list-2{
+         margin-left:3rem;
+     }
+     #searchBar{
+         width:9rem;
+     }
+}
+@media only screen and (min-width: 970px) and (max-width: 1149px) {
     html{
         font-size:80%;
     }
@@ -9,4 +223,28 @@
      html{
          font-size:90%;
      }
+} 
+
+/* USING ONLY 5 */
+
+/* @media only screen and (min-width: 300px) and (max-width: 600px) {...} */
+
+/* @media only screen and (min-width: 600px) and (min-width: 768px) {...} */
+
+/* @media only screen and (min-width: 768px) and (max-width: 992px) {
+    html{
+        font-size:70%;
+    }
 }
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    html{
+        font-size:80%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    html{
+        font-size:92%;
+    }
+} */

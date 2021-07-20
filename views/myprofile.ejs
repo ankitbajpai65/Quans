@@ -235,13 +235,13 @@
                         <h5 class="fw-bold getname" name="<%=se.userId%>"></h5>&nbsp;&nbsp;
                         <h6 class="gettime mt-2" name="<%=se.time%>"></h6>
                     </div>
-                    <p id="ques">
+                    <h6 id="ques">
                         <%=se.ques%>
-                    </p>
+                    </h6>
                     <%se.answer.forEach(function(tt){%>
-                        <h5>
+                        <p>
                             <%=tt.ans%>
-                        </h5>
+                        </p>
                         <%});%>
                             <hr />
                 </div>

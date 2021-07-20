@@ -121,7 +121,9 @@ function populateQues() {
   // const(anst);
   if (anst)
     anst.style.display = "block";
+  scrollTo(0, -500);
   document.body.style.overflowY = 'hidden';
+
 }
 function dothis() {
   let fun = document.getElementById('contactForm');
@@ -147,15 +149,15 @@ function dothis() {
 
 
 
-$('#submitQues').on('click',function(){
+$('#submitQues').on('click', function () {
   const data = $('#askq').val();
-  $.post('/askquestion',{question: data});
-  $('#quesSec').css('display','none');
-$('#alertBox').css('display','block');
-window.setTimeout("closeHelpDiv();", 2000);
+  $.post('/askquestion', { question: data });
+  $('#quesSec').css('display', 'none');
+  $('#alertBox').css('display', 'block');
+  window.setTimeout("closeHelpDiv();", 2000);
 });
-function closeHelpDiv(){
-$('#alertBox').css('display','none');
+function closeHelpDiv() {
+  $('#alertBox').css('display', 'none');
 }
 
 
@@ -179,7 +181,7 @@ document.body.onscroll = () => {
 
 let i = 0;
 let textu = document.getElementById('fname');
-if(textu){
+if (textu) {
   let text = textu.innerText;
   $('#fname').html('');
   function typing() {
@@ -192,19 +194,19 @@ if(textu){
   typing();
 }
 
-$('.newt').on('click',function(){
+$('.newt').on('click', function () {
   $('.xt').css('display', 'none');
   let uve = $(this).attr('id');
-  $('.' +uve).css('display', 'block');
+  $('.' + uve).css('display', 'block');
 });
 
-$('button#flwBtn').on('click',function(){
-  let nam  = $(this).html();
-  let xd  = $(this).attr('name');
-  $.post('/follow', {data: xd});
-  if(nam=='UnFollow'){
+$('button#flwBtn').on('click', function () {
+  let nam = $(this).html();
+  let xd = $(this).attr('name');
+  $.post('/follow', { data: xd });
+  if (nam == 'UnFollow') {
     $(this).html('Follow');
-  }else if(nam=='Follow'){
+  } else if (nam == 'Follow') {
     $(this).html('UnFollow');
   }
 });

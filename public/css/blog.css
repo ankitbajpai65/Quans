@@ -8,6 +8,7 @@ body{
 }
 #navSec{
     /* border:2px solid red; */
+    width: 100%;
     background-color: black;
     position:sticky;
     top:0px;
@@ -18,7 +19,69 @@ body{
     padding:0.8rem;
     display: flex;
     align-items: center;
+    /* justify-content: space-between; */
 }
+.overlay-content,.closeBtn,#openSpan{
+    display: none;
+}
+#mobileSec{
+    display: none;
+    /* height: 15rem; */
+    /* height:100%; */
+    /* width:auto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    z-index: 3;
+    height:100%;
+    background-color: black;
+    background-color: rgba(0,0,0, 0.9); 
+    /* transition: all 2s;  */
+    animation: navMenu 0.2s ease-in;
+}
+@keyframes navMenu{
+    0%{height:0;}
+    100%{height:100%;}
+}
+#mobileDiv{
+    /* height:100%; */
+    margin-top:10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* position: relative;
+    top: 25%; 
+    width: 100%;  */
+}
+.closebtn {
+    /* display: none; */
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+    font-size: 3rem;
+    text-decoration: none;
+    color: white;
+    /* border:0.5px solid rgb(231, 231, 231); */
+ }
+#mobile li{
+    list-style: none;
+}
+.mobLink a{
+    /* color:white; */
+    text-decoration: none;
+    font-size: 2rem;
+    color: #818181;
+    transition: 0.3s;
+}
+.mobLink a:hover {
+    color: white;
+  }
+.mobLink{
+    padding:0.5rem;
+}
+    
 #title{
     /* border: 2px solid green; */
     color: rgb(255, 212, 71);
@@ -47,8 +110,8 @@ body{
 #list-2{
     /* border:2px solid red; */
     position:absolute;
-    right:2px;
-    list-style-type: none;    margin-right: 30px;
+    right:0;
+    list-style-type: none; 
     display: flex;
     align-items: center;
     width:16rem;
@@ -155,7 +218,7 @@ body{
     display: none;
     height:2rem;
     padding:0.8rem 0rem 0.8rem 2rem;
-    background-color: rgb(153, 216, 27);
+    background-color: rgb(153, 247, 130);
 }
 
 /* Login Section  */
@@ -371,11 +434,13 @@ body{
 #homeSec{
     /* border: 2px solid red; */
     height: 37rem;
+    /* height: auto; */
     box-shadow: 0px 15px 16px -15px rgb(197, 197, 197);
 }
 #homeDiv{
    /* border: 2px solid rgb(182, 11, 11); */
    height: 34rem;
+   /* height: auto; */
    margin: 0rem 1rem;
    padding: 2rem;
    display:flex;
@@ -388,6 +453,7 @@ body{
 #homecontent{
     /* border: 2px solid red; */
     height:20rem;
+    /* height:auto; */
     width:50rem;
     text-align: center;
 }
@@ -439,12 +505,14 @@ body{
 
 #aboutSec{
     /* border: 2px solid rgb(46, 95, 241); */
-    height:62rem;
+    /* height:62rem; */
+    height:auto;
     z-index: 1;
 }
-.aboutDiv{
+.aboutDiv,.aboutCard{
     /* border: 2px solid rgb(91, 110, 116); */
-    height: 29rem;
+    /* height: 29rem; */
+    height:auto;
     margin: 0.5rem;
     padding: 1rem;
     display: flex;
@@ -463,13 +531,19 @@ body{
 }
 #about{
     /* border: 2px solid rgb(37, 65, 20); */
-    height: 26rem;
+    /* height: 26rem; */
+    height:auto;
     width: 60rem;
-    margin: 0rem 3rem
+    margin: 0rem 3rem;
 }
 #about h1{
      text-align: center;
      font-size: 3rem;
+}
+#aboutHead{
+    display: none;
+    text-align: center;
+    font-size: 3rem;
 }
 #about p{
      text-align: justify;
@@ -504,7 +578,8 @@ body{
 /* Section abc here */
 #contactSec{
     /* border:2px solid rgb(161, 146, 161); */
-    background-color: #88ffef;
+    /* background-color: #88ffef; */
+    background-color: grey;
     height: 44rem;
     /* text-align: center; */
 }
@@ -551,12 +626,12 @@ body{
     background-color: #3cdf2e;
     font-size: 1.2rem;
     cursor:pointer;
+    opacity:0.8;
+    z-index:1;
 }
-#contactDiv form button:hover{
-    background-color: transparent;
-    border:3px solid black;
-    color:rgb(0, 0, 0);
-    font-weight: bold;
+#contactDiv form button:hover{  
+    opacity:1;
+    background-color: #3cdf2e;
 }
 #footer{
     background-color: rgb(255, 57, 57);
@@ -569,4 +644,5 @@ body{
     justify-content: center;
     position: sticky;
     top:100%;
+    /* bottom:0; */
 }

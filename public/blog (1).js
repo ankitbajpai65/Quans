@@ -1,23 +1,26 @@
 // console.log("js file included");
-window.addEventListener( "pageshow", function ( event ) {
+window.addEventListener("pageshow", function (event) {
   var historyTraversal = event.persisted ||
-                         ( typeof window.performance != "undefined" &&
-                              window.performance.navigation.type === 2 );
-  if ( historyTraversal ) {
+    (typeof window.performance != "undefined" &&
+      window.performance.navigation.type === 2);
+  if (historyTraversal) {
     // Handle page restore.
     window.location.reload();
   }
 });
 let search = document.getElementById('searchImg');
-if(search)
-search.addEventListener('click', populateSearch);
+if (search)
+  search.addEventListener('click', populateSearch);
 var exr = 0;
 function populateSearch() {
   if (exr % 2 == 0) {
     document.getElementById('list-2').style.width = '';
     document.getElementById('searchBar').style.display = '';
   } else {
-    document.getElementById('list-2').style.width = '31rem';
+    // if (screen.width >= '1200px')
+      document.getElementById('list-2').style.width = '31rem';
+    // else if (screen.width >= '992px' && screen.width <= '1200px')
+    //   document.getElementById('list-2').style.width = '25rem';
     document.getElementById('searchBar').style.display = 'block';
   }
   exr++;
@@ -33,32 +36,32 @@ function openForm() {
   closeForm();
   document.getElementById("myForm").style.display = "block";
   nav.style.opacity = "0.1";
-  if(home)
-  home.style.opacity = '0.1';
- if(about)
-  about.style.opacity = '0.1';
- if(footer)
-  footer.style.opacity = '0.1';
+  if (home)
+    home.style.opacity = '0.1';
+  if (about)
+    about.style.opacity = '0.1';
+  if (footer)
+    footer.style.opacity = '0.1';
   document.body.style.overflowY = 'hidden';
 }
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("signupForm").style.display = "none";
   nav.style.opacity = '';
-  if(home)
-  home.style.opacity = '';
-  if(about)
-  about.style.opacity = '';
-  if(footer)
-  footer.style.opacity = '';
+  if (home)
+    home.style.opacity = '';
+  if (about)
+    about.style.opacity = '';
+  if (footer)
+    footer.style.opacity = '';
   document.body.style.overflowY = '';
 }
 
 // Sign up button
 
 let register = document.getElementById('signupBtn');
-if(register)
-register.addEventListener('click', populateSignup);
+if (register)
+  register.addEventListener('click', populateSignup);
 function populateSignup() {
   // console.log('signup presses')
   closeForm();
@@ -77,8 +80,8 @@ if (homeBtn)
 // Others button functioning
 
 let other = document.querySelector('#otherBtn');
-if(other)
-otherBtn.addEventListener('click', populateOthers)
+if (other)
+  otherBtn.addEventListener('click', populateOthers)
 
 function populateOthers() {
   console.log('others pressed');
@@ -103,8 +106,8 @@ function closeOthers() {
 
 // when user signed in
 let signin = document.getElementById('signinBtn');
-if(signin)
-signin.addEventListener('submit', formLogin);
+if (signin)
+  signin.addEventListener('submit', formLogin);
 function formLogin() {
   console.log('form submitted');
 }
@@ -119,30 +122,54 @@ function populateQues() {
   document.body.style.overflowY = 'hidden';
 }
 
-
-function dothis(){
-    let fun = document.getElementById('contactForm');
-    let name = $('#name').val()
-    let email = $('#email').val();
-    let message = $('#messages').val();
-    // console.log(message);
-    let data = {
-      name: name,
-      email: email,
-      message: message
-    }
-    data = JSON.stringify(data);
-    $.post('/mailing', { data: data }).done(function (data) {
-        console.log(data);
-        if(!data.ok){
-          alert("you are not logged in");
-        }else{
-          alert("successfully submitted");
-        }
-    });
+function navEdit() {
+  console.log("sumittedddddddd")
+  document.getElementById("list-2").style.marginRight = '2rem';
 }
 
-// document.getElementById('signinBtn').addEventListener('submit',changeBody);
-// function changeBody(){
-//   console.log("submitted");
-//}
+
+function dothis() {
+  let fun = document.getElementById('contactForm');
+  let name = $('#name').val()
+  let email = $('#email').val();
+  let message = $('#messages').val();
+  // console.log(message);
+  let data = {
+    name: name,
+    email: email,
+    message: message
+  }
+  data = JSON.stringify(data);
+  $.post('/mailing', { data: data }).done(function (data) {
+    console.log(data);
+    if (!data.ok) {
+      alert("you are not logged in");
+    } else {
+      alert("successfully submitted");
+    }
+  });
+}
+
+// JS FOR SEARCHEDUSERWITHOUTSIGNED
+
+$('.newt').on('click', function () {
+  $('.xt').css('display', 'none');
+  let uve = $(this).attr('id');
+  $('.' + uve).css('display', 'block');
+});
+
+// FOR MOBILE NAVIGATION
+
+/* Open */
+function openNav() {
+  console.log('bar click');
+  document.getElementById("mobileSec").style.display = "block";
+  // document.getElementById("mobileSec").style.transition = "2s";
+  // document.getElementById("mobileSec").style.height = "100%";
+}
+
+/* Close */
+function closeNav() {
+  document.getElementById("mobileSec").style.display = "";
+  // document.getElementById("mobileSec").style.height = "0%";
+}

@@ -1,64 +1,65 @@
 <%- include('partials/headerfornotsigned')%>
   <nav id="searchNav">
     <ul>
-      <li><button id="userBtn">Users</button></li>
+      <li><button class="newt" id="userBtn">Users</button></li>
       <li>&nbsp; / &nbsp; </li>
-      <li><button id="quesBtn">Questions</button></li>
+      <li><button class="newt" id="quesBtn">Questions</button></li>
     </ul>
   </nav>
 
-  <!-- <h1>Users:</h1>
-<br> -->
-
-  <%if(user.length===0){%>
-    <section>
-      <div id="userDiv">
-        <div>
-          <h1>No User Found! 😞</h1>
-        </div>
-      </div>
-    </section>
-    <%}else{%>
+  <div class="userBtn xt" style="display: none">
+    <%if(user.length===0){%>
       <section>
         <div id="userDiv">
-          <% user.forEach(function(se){%>
-            <div id="user">
-              <i class="fas fa-user-circle fa-2x"></i>
-              <a href="/profile/<%=se._id%>">
-                <h1>
-                  <%=se.detail.FullName%>
-                </h1>
-              </a>
-            </div>
-            <br>
-            <%});%>
+          <div>
+            <h1>No User Found! 😞</h1>
+          </div>
         </div>
       </section>
-      <%}%>
-        <!-- <h1>Questions:</h1>
-        <br> -->
-        <%if(questions.length===0){%>
-          <section id="querySec">
-            <div id="queryDiv">
-              <div>
-                <h1>No Questions Found! 😞</h1>
+      <%}else{%>
+        <section>
+          <div id="userDiv">
+            <% user.forEach(function(se){%>
+              <div id="user">
+                <i class="fas fa-user-circle fa-2x"></i>
+                <a href="/profile/<%=se._id%>">
+                  <h1>
+                    <%=se.detail.FullName%>
+                  </h1>
+                </a>
               </div>
-            </div>
-          </section>
-          <%}else{%>
-            <section id="querySec">
-              <div id="queryDiv">
-                <% questions.forEach(function(se){%>
-                  <div class="quesDiv">
-                    <a href="/question/<%=se._id%>">
-                      <h1>
-                        <%=se.ques%>
-                      </h1>
-                    </a>
-                  </div>
-                  <br>
-                  <%});%>
+              <br>
+              <%});%>
+          </div>
+        </section>
+        <%}%>
+  </div>
+
+
+  <div class="quesBtn xt" style="display: none">
+    <%if(questions.length===0){%>
+      <section id="querySec">
+        <div id="queryDiv">
+          <div>
+            <h1>No Questions Found! 😞</h1>
+          </div>
+        </div>
+      </section>
+      <%}else{%>
+        <section id="querySec">
+          <div id="queryDiv">
+            <% questions.forEach(function(se){%>
+              <div class="quesDiv">
+                <a href="/question/<%=se._id%>">
+                  <h1>
+                    <%=se.ques%>
+                  </h1>
+                </a>
               </div>
-            </section>
-            <%}%>
-              <%- include('partials/Footerfornotsigned')%>
+              <br>
+              <%});%>
+          </div>
+        </section>
+        <%}%>
+  </div>
+  <%- include('partials/Footerfornotsigned')%>

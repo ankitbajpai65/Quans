@@ -9,10 +9,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: rgb(178, 214, 178); */
 }
 #queryDiv{
     /* border:2px solid rgba(255, 50, 50, 0.726); */
-    margin-top: 1rem;
+    margin-top: 1rem;  
 }
 .quesDiv{
     /* border:2px solid rgb(97, 42, 97); */
@@ -22,9 +23,10 @@
     margin-bottom: -1.6rem;
 }
 .quesDiv:hover{
-    box-shadow:3px 3px 6px rgb(226, 225, 225),-3px -3px 6px rgb(226, 225, 225);
+    /* box-shadow:3px 3px 6px rgb(226, 225, 225),-3px -3px 6px rgb(226, 225, 225); */
     border-radius:0.5rem;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    background-color: rgb(231, 231, 231);
 }
 .quesDiv a{
     color:#195FAA;
