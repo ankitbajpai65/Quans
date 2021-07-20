@@ -210,3 +210,19 @@ $('button#flwBtn').on('click', function () {
     $(this).html('UnFollow');
   }
 });
+
+// FOR MOBILE NAVIGATION
+
+/* Open */
+function openNav() {
+  console.log('bar click');
+  document.getElementById("mobileSec").style.display = "block";
+  // document.getElementById("mobileSec").style.transition = "2s";
+  // document.getElementById("mobileSec").style.height = "100%";
+}
+
+/* Close */
+function closeNav() {
+  document.getElementById("mobileSec").style.display = "";
+  // document.getElementById("mobileSec").style.height = "0%";
+}
