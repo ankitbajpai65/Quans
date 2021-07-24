@@ -39,8 +39,10 @@
                             <%});%>
                               <div id="quesIcons">
                                 <%if(like){%>
-                                  <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>"
-                                    class="quesIcons quesIconslike like clickedIcon">
+                                  <i class="far fa-thumbs-up fs-3 text-primary" id="likeIcon"></i>
+                                  <i class="fas fa-thumbs-up fs-3 text-primary" id="clickedLike"></i>
+                                  <!-- <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>"
+                                    class="quesIcons quesIconslike like clickedIcon"> -->
                                   <%if(dislike){%>
                                     <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>"
                                       class="quesIcons quesIconsdislike dislike clickedIcon">
@@ -49,8 +51,12 @@
                                         class="quesIcons quesIconsdislike dislike">
                                       <%}%>
                                         <%}else{%>
-                                          <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>"
-                                            class="quesIcons quesIconslike like">
+                                
+                                              <i class="far fa-thumbs-up fs-3 text-primary" id="likeIcon"></i>
+                                              <i class="fas fa-thumbs-up fs-3 text-primary" id="clickedLike"></i>
+        
+                                          <!-- <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>"
+                                            class="quesIcons quesIconslike like"> -->
                                           <%if(dislike){%>
                                             <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>"
                                               class="quesIcons quesIconsdislike dislike clickedIcon">

@@ -1,9 +1,9 @@
 console.log('added');
-window.addEventListener( "pageshow", function ( event ) {
+window.addEventListener("pageshow", function (event) {
   var historyTraversal = event.persisted ||
-                         ( typeof window.performance != "undefined" &&
-                              window.performance.navigation.type === 2 );
-  if ( historyTraversal ) {
+    (typeof window.performance != "undefined" &&
+      window.performance.navigation.type === 2);
+  if (historyTraversal) {
     // Handle page restore.
     window.location.reload();
   }
@@ -12,32 +12,28 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+// FOR MOBILE NAVIGATION MENU
 
-
-function openNav() {
-  document.querySelector(".sidebar").style.width = "250px";
-  document.querySelector("#close").style.display = "block";
-
-  document.querySelector(".content").style.marginLeft = "24rem";
-  // document.querySelector("#moreInfo").style.position = 'static';
-
-  // document.querySelector('.table-2').style.display = 'none'
-  // document.getElementById('pinChange').style.display = 'inline-block';
+let openSide=document.getElementById('openSide');
+let sidebar=document.querySelector('.sidebar');
+openSide.onclick=()=>{
+  // sidebar.classList.toggle('openSidebar');
+  sidebar.style.width='28%';
 }
-function closeNav() {
-  document.querySelector(".sidebar").style.width = "0";
-  document.querySelector(".content").style.marginLeft = "";
-  // document.querySelector("#moreInfo").style.position = '';
-
-  // document.querySelector('.table-2').style.display = 'block'
-  // document.getElementById('pinChange').style.display = 'none';
-  //   if(document.querySelector("#moreInfo").style.position == 'absolute'){
-  //     document.querySelector(".secLable").style.marginRight = '3rem';
-  //   }
-  //   else{
-  //     document.querySelector(".secLable").style.marginRight = '';
-  //   }
+document.getElementById('myContent').onclick=()=>{
+  sidebar.style.width='';
 }
+
+
+
+// function openNav() {
+//   document.querySelector(".sidebar").style.width = "18rem";
+//   document.querySelector("#close").style.display = "block";
+// }
+// function closeNav() {
+//   document.querySelector(".sidebar").style.width = "0";
+// }
+
 // document.getElementById('Question').addEventListener('click', function(){
 //     console.log("hi");
 //     $('.QuestionList').css('display','block');
@@ -119,6 +115,26 @@ $(document).ready(function () {
 //     }
 //   }
 // }
+
+// PROFILENAV
+
+let btn = document.querySelectorAll('.btn');
+let slide = document.querySelector('.slide');
+btn.forEach((ele, index) => {
+  ele.addEventListener("click", () => {
+    slide.style.display = 'block';
+    slide.style.left = 100 / btn.length * index + "%";
+
+    // for (let i = 0; i < btn.length; i++) {
+    //   btn[i].onclick = () => {
+    //     btn[i].style.color = 'red';
+    //   }
+    //   btn[i].onmouseout = () => {
+    //     btn[i].style.color = '';
+    //   }
+    // }
+  });
+});
 
 // EDIT PART HERE
 

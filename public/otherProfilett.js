@@ -8,6 +8,39 @@ window.addEventListener( "pageshow", function ( event ) {
     window.location.reload();
   }
 });
+
+// FOR MOBILE NAVIGATION MENU
+
+let openSide=document.getElementById('openSide');
+let sidebar=document.querySelector('.sidebar');
+openSide.onclick=()=>{
+  // sidebar.classList.toggle('openSidebar');
+  sidebar.style.width='28%';
+}
+document.getElementById('myContent').onclick=()=>{
+  sidebar.style.width='';
+}
+
+// PROFILENAV
+
+let btn = document.querySelectorAll('.btn');
+let slide = document.querySelector('.slide');
+btn.forEach((ele, index) => {
+  ele.addEventListener("click", () => {
+    slide.style.display = 'block';
+    slide.style.left = 100 / btn.length * index + "%";
+
+    // for (let i = 0; i < btn.length; i++) {
+    //   btn[i].onclick = () => {
+    //     btn[i].style.color = 'red';
+    //   }
+    //   btn[i].onmouseout = () => {
+    //     btn[i].style.color = '';
+    //   }
+    // }
+  });
+});
+
 // QUESTION PART HERE
 
 let answerBtn = document.getElementsByClassName('answerBtn');

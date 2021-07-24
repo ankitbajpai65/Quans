@@ -2,7 +2,7 @@
     <!-- <span style="font-size:28px; cursor:pointer;" id="open" onclick="openNav()">&#9776;</span> -->
     <div class="sidebar h-100">
         <div id="info" class="h-8 pt-3 pb-2 mb-3">
-            <span style="font-size:28px;" id="close" onclick="closeNav()">&#9776;</span>
+            <!-- <span style="font-size:28px;" id="close" onclick="closeNav()">&#9776;</span> -->
             <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
             <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic"></img></a>
             <label for="file">
@@ -39,6 +39,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
+            <span id="openSide" onclick="openNav()">&#9776;</span>
             <h3 class="navbar-brand mt-1 text-warning fs-4" id="title">Quora</h3>
             <div class="collapse navbar-collapse navItem">
                 <form action="/searching" method="post">
@@ -50,7 +51,23 @@
             </div>
         </div>
     </nav>
-    <section id="myContent">
+    <!-- <nav class="mobileNav bg-dark p-3">
+        <span id="openSide" onclick="openNav()">&#9776;</span>
+        <h1 class="d-inline text-warning fs-3">Quora</h1>
+    </nav> -->
+    <section id="myContent" onclick="closeNav()">
+        <!-- <div class="container col" id="mobContent">
+            <div id="mobDiv">
+                <label class="firstLabel justify-content-center">First name</label>
+                <input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput" readonly="readonly">
+                <br>
+                <label class="firstLabel">Last name</label>
+                <input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>" readonly="readonly">
+                <br>
+                <label class="firstLabel">Email</label>
+                <input type="email" id="mail" class="myInput" value="<%=user.username%>" readonly="readonly">
+            </div>
+        </div> -->
         <div class="content">
             <a href="#" class="text-reset"><span id="editSpan"><i class="fas fa-pen fa-2x fa-center"></i></span></a>
             <form>
@@ -182,7 +199,7 @@
         <div class="text-center" id="profileNav">
             <hr />
             <div class="row list-tab">
-                <div class="col"><button id="QuestionList" class="text-decoration-none btn">
+                <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn">
                         <%=question.length%> Questions
                     </button></div>
                 <%var d=0%>
@@ -191,19 +208,24 @@
                             <%d++%>
                                 <%});%>
                                     <%});%>
-                                        <div class="col"><button id="AnswerList" class="text-decoration-none btn">
+                                        <div class="col"><button id="AnswerList"
+                                                class="text-decoration-none shadow-none btn">
                                                 <%=d%> Answers
                                             </button></div>
-                                        <div class="col"><button id="FollowersList" class="text-decoration-none btn">
+                                        <div class="col"><button id="FollowersList"
+                                                class="text-decoration-none shadow-none btn">
                                                 <%=followers.length%> Followers
                                             </button></div>
-                                        <div class="col"><button id="FollowingList" class="text-decoration-none btn"
+                                        <div class="col"><button id="FollowingList"
+                                                class="text-decoration-none shadow-none btn"
                                                 name="<%=following.length%>">
                                                 <%=following.length%> Following
                                             </button></div>
                                         <!--  <div class="col"><button id="Shares" class="text-decoration-none btn">0 Shares</button></div>-->
+
             </div>
             <hr />
+            <span class="slide"></span>
         </div>
 
         <!-- QUESTIONS PART HERE -->
@@ -224,7 +246,7 @@
                 </div>
                 <%});%>
         </div>
-        
+
         <!-- ANSWERS PART HERE -->
         <div class="AnswerList t-hide list-hide">
             <%answer.forEach(function(se){%>

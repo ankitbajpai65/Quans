@@ -110,7 +110,7 @@ body{
 #list-2{
     /* border:2px solid red; */
     position:absolute;
-    right:0;
+    right:2rem;
     list-style-type: none; 
     display: flex;
     align-items: center;

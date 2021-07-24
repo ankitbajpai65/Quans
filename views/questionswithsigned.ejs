@@ -2,29 +2,30 @@
   <%if(user.length===0){%>
     <section id="querySec">
       <div id="queryDiv">
-      <div class="quesDiv">
-    <h1>No Questions are currently available</h1>
-      </div>
+        <div class="quesDiv">
+          <h1>No Questions are currently available</h1>
+        </div>
       </div>
     </section>
-  <%}else{%>
-    <section id="querySec">
-      <div id="queryDiv">
+
+    <%}else{%>
       <section id="querySec">
-        <div id="queryDiv">
-          <% user.forEach(function(se){%>
-            <div class="quesDiv">
-            <a href="/question/<%=se._id%>"><p>Q. <%=se.ques%></p></a>
+              <% user.forEach(function(se){%>
+                <div class="quesDiv">
+                  <a href="/question/<%=se._id%>">
+                    <p>Q. <%=se.ques%>
+                    </p>
+                  </a>
+                </div>
+                <br>
+                <%});%>
             </div>
-            <br>
-          <%});%>
+          </section>
         </div>
       </section>
-      </div>
-    </section>
-  <%}%>
+      <%}%>
 
 
 
 
-  <%- include('partials/Footerforsigned') %>
+        <%- include('partials/Footerforsigned') %>

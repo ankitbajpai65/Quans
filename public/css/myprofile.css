@@ -14,11 +14,11 @@ html, body{
     /* width: 0; */
     width: 13rem;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    /* transition: 0.5s; */
+    transition: 0.3s;
   }
   #camera{
     /* display: none; */
@@ -87,6 +87,21 @@ html, body{
   }
   .navbar{
     margin-left:13rem;
+    display: flex;
+  }
+  .mobileNav{
+    display: none;
+    text-align: center;
+  }
+  .mobileNav span{
+    display: inline;
+    position: absolute;
+    left:1rem;
+  }
+  #openSide{
+    display: none;
+    color:white;
+    font-size: 2rem;
   }
   .container-fluid h3{
     text-align: center;
@@ -128,16 +143,36 @@ html, body{
   } */
   #myContent{
     margin-left: 23rem;
-    width: 52rem;
+    /* width: 52rem; */
+    width: auto;
     display: block;
+  }
+  #mobContent{
+    display: none;
+    height: 16.5rem;
+    /* max-width: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 0.5rem; */
+    /* margin: auto; */
+    box-shadow: 2px 2px 9px -3px #888888;
+  }
+  #mobDiv{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
   div.content {
     /* border:2px solid black; */
     /* margin-left: 20rem; */
     margin-top: 1.5rem;
     margin-bottom: 3rem;
+    /* margin-right: 3rem; */
     height: 16.5rem;
-    width: 52rem;
+    /* height: auto; */
+    max-width: 52rem;
+    /* min-width: max-content; */
     padding: 0.5rem;
     box-shadow: 2px 2px 9px -3px #888888;
     /* transition: 0.5s; */
@@ -145,11 +180,14 @@ html, body{
   .content form{
     /* border:2px solid rgb(73, 44, 44); */
     height: 22rem;
+    /* height: auto; */
     width: 46rem;
+    /* width: auto; */
   }
   .content table{
     /* border:2px solid rgb(73, 44, 44); */
     height:15rem;
+    /* height:auto; */
     width:100%;
   }
   .firstLabel{
@@ -196,7 +234,7 @@ html, body{
     display:block;
 }
 #moreInfo h1{
-    color:rgb(219, 57, 57);
+    color:rgb(92, 39, 39);
     margin-top:1rem;
 }
 #moreInfoTable{
@@ -209,11 +247,26 @@ html, body{
   margin-bottom: 1rem;
   /* position:sticky;
    top:0; */
+   position: relative;
   z-index:2;
 }
+.slide{
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width:9rem;
+  margin-left: 2rem;
+  /* width:calc(410px/4); */
+  height:0.3rem;
+  background:red;
+  transition: .1s ;
+}
+
 
 /* ANSWER PART HERE */
 .questionDiv{
+  width: 52rem;
   margin:0;
   z-index:1;
   border-top:2px solid rgb(202, 202, 202);
@@ -237,6 +290,7 @@ html, body{
 /* QUESTION PART HERE */
 .answerDiv{
   border: 1px solid rgb(194, 194, 194);
+  width:75%;
 }
 .t-hide{
   display: none;
@@ -247,6 +301,7 @@ html, body{
 }
 #writer{
   margin-left: 0.5rem;
+  font-size: 1rem;
 }
 #answerBox,#textDec{
   border-bottom: 1px solid rgb(194, 194, 194);
@@ -262,6 +317,7 @@ html, body{
 #answerBlock{
     border: none;
     height:6rem;
+    font-size: 1rem;
 }
 .postBtn{
   width:5rem;
@@ -274,7 +330,8 @@ html, body{
 /* ANSWER PART HERE */
 .answerer{
   /* border:2px solid rgb(17, 11, 11); */
-  height: auto;
+  /* height: auto; */
+  width: 52rem;
   margin-top: 0rem;
   z-index:1;
 
@@ -341,3 +398,473 @@ html, body{
   display: none;
   margin-top:10rem;
 }
+
+/* MEDIA QUERY */
+/* @media only screen and (max-width: 360px) {
+  html{
+    font-size:50%;
+  }
+  .content{
+    display: none;
+  }
+  #myContent{
+    margin-left:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+     width: auto;
+  } 
+  #mobContent{
+    display: block;
+    width: 26rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+    padding: 2.5rem;
+    box-shadow: 2px 2px 9px -3px #888888;
+  }
+  #profileNav{
+    width:26rem;
+  } 
+  .follSec{
+    width:26rem;
+  }
+  .answerer{
+    width:26rem;
+    padding:0.5rem;
+  }
+} */
+ @media only screen and (max-width: 450px) {
+  html{
+    font-size:60%;
+  }
+  .sidebar{
+    width:0;
+    transition: 0.5s;
+  }
+  .sidebar button{
+    font-size:1rem;
+  }
+  .navbar{
+    /* display: none; */
+    width:100%;
+    margin-left:0;
+    display: flex;
+    flex-direction: row;
+  }
+  #openSide{
+    display: block;
+  }
+   #myContent{
+    margin-left:0;
+    /* margin-top:6rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    /* width:20rem; */
+     width: auto;
+    margin:0.8rem;
+  } 
+  div.content{
+    /* height:auto; */
+    /* height:40rem; */
+    width:auto;
+    margin: auto;
+    height: max-content;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  #editSpan{
+    display: none;
+  }
+  /* .content table{ */
+    /* height:auto; */
+    /* height:40rem; */
+  /* } */
+  .content form{
+    padding:1rem;
+    /* height:auto; */
+    /* height:40rem; */
+    width:35rem;
+    /* margin:auto; */
+    height:fit-content;
+    margin-bottom: 1rem;
+  }
+   #profileNav{
+    width:35rem;
+  } 
+  .slide{
+    bottom:8px;
+    width:8rem;
+    margin-left: 1rem;
+  }
+  .follSec{
+    width:36rem;
+  }
+  .questionDiv{
+    width:36rem;
+    padding:0.5rem 1rem;
+    font-size:1.5rem;
+  }
+  .answerDiv{
+    width:34rem;
+    /* height:34rem; */
+    font-size:1.8rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.4rem;
+  }
+  .answerer{
+    width:36rem;
+    padding:0.5rem;
+  }
+  .firstLabel{
+    margin: auto;
+    display: block;
+    margin-bottom:0.5rem;
+  }
+  .content table tr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:1rem;
+  }
+  .content table label,.content table input {
+    font-size:1.3rem;
+  }
+  #profileNav button{
+    font-size:1.3rem;
+    margin:0 -2rem;
+  }
+  .followBtn{
+    font-size:1.1rem;
+  }
+  .answerer h5,h6,p{
+    font-size:1.4rem;
+    text-align: justify;
+  }
+}  
+ @media only screen and (min-width: 450px) and (max-width: 605px) {
+  html{
+    font-size:70%;
+  }
+  .sidebar{
+    width:0;
+    transition: 0.5s;
+  }
+  .sidebar button{
+    font-size:1rem;
+  }
+  .navbar{
+    width:100%;
+    margin-left:0;
+    display: flex;
+    flex-direction: row;
+  }
+  #openSide{
+    display: block;
+  } 
+   #myContent{
+    margin-left:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    /* width:20rem; */
+     width: auto;
+    /* margin: auto; */
+  } 
+  /* #profileNav{
+    width: 35rem;
+    margin:auto;
+  } */
+   #editSpan{
+    display: none;
+  }
+  div.content{
+    /* min-width: max-content; */
+    /* width: 44rem; */
+    margin:auto;
+    /* height: auto; */
+    height: 40rem;
+    height: fit-content;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .content table tr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .content form{
+    padding:1rem;
+    height:auto;
+    /* height:40rem; */
+    width:35rem;
+    /* margin:auto; */
+    height: max-content;
+    margin-bottom: 1rem;
+  }
+   #profileNav{
+    width:35rem;
+  } 
+  .slide{
+    bottom:10px;
+    width:5rem;
+  }
+  .answerer,.follSec{
+    width:36rem;
+  }
+  .questionDiv{
+    width:35rem;
+    padding:0.5rem;
+    font-size:1.5rem;
+  }
+  .answerDiv{
+    width:34rem;
+    /* height:34rem; */
+    font-size:1.8rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.4rem;
+  }
+  .followBtn{
+    right:1rem;
+  }
+  .firstLabel{
+    margin-right: 0;
+  }
+  
+  .content form table tr td{
+    padding: 0.5rem 0.2rem;
+    font-size: 1rem;
+  }
+  .content input{
+    width:28rem;
+  }
+  .content input,.content label{
+    font-size: 1.2rem;
+  }
+  #profileNav button{
+    font-size:1.2rem;
+    margin: 0 -1rem;
+  }
+  .followBtn{
+    font-size:1.1rem;
+  }
+  .answerer h5,h6,p{
+    font-size:1.4rem;
+    text-align: justify;
+  }
+}  
+@media only screen and (min-width: 605px) and (max-width: 768px) {
+  html{
+    font-size:70%;
+  }
+  .sidebar{
+    width:0;
+  }
+  .sidebar button{
+    font-size:1rem;
+  }
+  #openSide{
+    display: block;
+  }
+  .navbar{
+    width:100%;
+    margin-left:0;
+    display: flex;
+    flex-direction: row;
+  }
+  #myContent{
+    margin-left:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding:2rem; */
+    /* width:63rem; */
+    width: auto;
+  }
+  div.content{
+     /*width:25rem; */
+     margin:auto;
+     height:auto;
+     /* margin-left:0; */
+     margin-top: 2rem;
+     margin-bottom: 2rem;
+  }
+  .content form{
+     /* width:25rem; */
+     height: max-content;
+     margin-bottom: 2rem;
+  }
+  .content table{
+     height:13.5rem;
+  }
+  #profileNav,.questionDiv{
+    width:48rem;
+    font-size:1.5rem;
+    /* width:auto; */
+  }
+  .answerDiv{
+    width:46rem;
+    /* height:34rem; */
+    font-size:1.8rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.4rem;
+  }
+  .slide{
+    bottom:10px;
+    z-index:1;
+  }
+  .firstLabel{
+    margin-left: 2rem;
+    margin-right: 4rem;
+  }
+  .content table label,.content table input {
+    font-size:1.3rem;
+  }
+  #profileNav button{
+    font-size:1.3rem;
+  }
+  .followBtn,.questionDiv p{
+    font-size:1.2rem;
+  }
+  .answerer h5,h6,p{
+    font-size:1.4rem;
+    text-align: justify;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 865px) {
+  html{
+    font-size:65%;
+  }
+  .sidebar button{
+    font-size:1rem;
+  }
+  #myContent{
+    margin-left:19rem;
+  }
+  .questionDiv {
+    width:auto;
+    font-size:1.5rem;
+  }
+  .content table label,.content table input,#profileNav button {
+    font-size:1.3rem;
+  }
+  .followBtn{
+    font-size:1.2rem;
+  }
+  .answerDiv{
+    width:50rem;
+    font-size:1.8rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.4rem;
+  }
+  .answerer h5,h6,p{
+    font-size:1.4rem;
+    text-align: justify;
+  }
+}
+@media only screen and (min-width: 865px) and (max-width: 992px) {
+  html{
+    font-size:70%;
+  }
+  .sidebar button{
+    font-size:1rem;
+  }
+  div.content{
+    margin-top: 3rem;
+  }
+  .content form{
+    height: max-content;
+  }
+  .content table label,.content table input,#profileNav button {
+    font-size:1.3rem;
+  }
+  .questionDiv{
+    font-size:1.4rem;
+  }
+  .answerDiv{
+    width:auto;
+    font-size:1.8rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.4rem;
+  }
+  .answerer h5,h6,p{
+    font-size:1.4rem;
+    text-align: justify;
+  }
+  .followBtn{
+    font-size:1.2rem;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1035px) {
+  html{
+    font-size:72%;
+  }
+  #myContent{
+    margin-left:23rem;
+  }
+  #profileNav button{
+    font-size:1.3rem;
+  }
+  .questionDiv{
+    font-size:1.4rem;
+  }
+  .answerDiv{
+    width:auto;
+    font-size:1.8rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.4rem;
+  }
+  .answerer h5,h6,p{
+    font-size:1.3rem;
+    text-align: justify;
+  }
+  .followBtn{
+    font-size:1.1rem;
+  }
+}
+@media only screen and (min-width: 1035px) and (max-width: 1110px) {
+  html{
+    font-size:85%;
+  }
+  #myContent{
+    margin-left:19rem;
+  }
+  .answerDiv{
+    /* width:auto; */
+    font-size:1.1rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.1rem;
+  }
+  .answerer p{
+    text-align: justify;
+  }
+}
+@media only screen and (min-width: 1110px) and (max-width: 1210px) {
+  html{
+    font-size:90%;
+  }
+  .answerDiv{
+    width:80%;
+    font-size:1.1rem;
+  }
+  #writer,#answerBlock,.answerDiv button{
+    font-size: 1.1rem;
+  }
+  .answerer p{
+    text-align: justify;
+  }
+}
+@media only screen and (min-width: 1210px) {
+  .answerer p{
+    text-align: justify;
+  }
+}
+ 
+ 

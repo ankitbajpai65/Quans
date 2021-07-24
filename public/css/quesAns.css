@@ -134,6 +134,15 @@
     justify-content: space-around;
     cursor: pointer;
 }
+/* .clickedLike{
+    background: rgb(100, 189, 253);
+    width:1rem;
+    height:1rem;
+    border-radius: 50%;
+} */
+#clickedLike{
+    display: none;
+}
 .profile h4{
     font-size:1.1rem;
     margin-left: 1rem;
