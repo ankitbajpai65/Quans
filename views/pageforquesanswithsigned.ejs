@@ -5,7 +5,7 @@
       <form action="/Searching" method="post">
         <input type="text" name="search" placeholder="Search">
       </form>
-       <a href="/profile/<%=properuser%>"><img src="/image/<%=properuser%>" id="profileImg" class="dp"></a>
+      <a href="/profile/<%=properuser%>"><img src="/image/<%=properuser%>" id="profileImg" class="dp"></a>
     </ul>
   </section>
 
@@ -17,15 +17,15 @@
           <!-- <a href="/image/<%=user.userId%>"><img src="/image/<%=user.userId%>" alt="" class="dp"></a> -->
           <a href="/image/<%=user.userId%>"><img src="/image/<%=user.userId%>" alt="" class="dp"></a>
           <a href="/profile/<%=user.userId%>" class="text-decoration-none text-dark">
-            <h3 class="fw-bolder fs-5">
+            <h3 class="fw-bolder">
               <%=name%>
             </h3>
           </a>
         </div>
         <h6 class="gettime" name="<%=user.time%>">Date and time...</h6>
-        <h3 id="ques">
+        <h2 id="ques" class="fw-bolder">
           <%=user.ques%>
-        </h3>
+        </h2>
         <%var like=false, dislike=false%>
           <%likedarray.forEach(function(se){%>
             <%if(se==iddd){%>
@@ -51,10 +51,10 @@
                                         class="quesIcons quesIconsdislike dislike">
                                       <%}%>
                                         <%}else{%>
-                                
-                                              <i class="far fa-thumbs-up fs-3 text-primary" id="likeIcon"></i>
-                                              <i class="fas fa-thumbs-up fs-3 text-primary" id="clickedLike"></i>
-        
+
+                                          <i class="far fa-thumbs-up fs-3 text-primary" id="likeIcon"></i>
+                                          <i class="fas fa-thumbs-up fs-3 text-primary" id="clickedLike"></i>
+
                                           <!-- <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>"
                                             class="quesIcons quesIconslike like"> -->
                                           <%if(dislike){%>
@@ -71,7 +71,9 @@
       <div class="answerDiv mt-4">
         <div class="col p-3 d-flex align-items-center" id="writerDiv">
           <img src="/image/<%=properuser%>" alt="" class="dp">
-          <span class="fs-6" id="writer"><%=username%></span>
+          <span id="writer">
+            <%=username%>
+          </span>
         </div>
         <div class="p-1" id="textDec">
           <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
@@ -80,7 +82,8 @@
         <form action="/answer" method="post">
           <input type="hidden" name="question" value="<%=iddd%>">
           <div class="input-group p-2" id="answerBox">
-            <textarea name="answer" class="form-control outline-none" id="answerBlock" placeholder="Write here..."></textarea>
+            <textarea name="answer" class="form-control outline-none shadow-none" id="answerBlock"
+              placeholder="Write here..."></textarea>
           </div>
           <div class="p-3" id="postbtnDiv">
             <button type="submit" class="postBtn btn btn-primary rounded-pill">Post</button>
@@ -103,12 +106,12 @@
                               <div class="answerer">
                                 <%if(like){%>
                                   <div class="profile d-flex align-items-center">
-                                      <img src="/image/<%=test.postedUser%>" alt="profile photo" class="dp">
-                                      <a href="/profile/<%=test.postedUser%>" class="text-decoration-none text-dark">
-                                        <h3 class="fw-bolder fs-5">
-                                          <%=test.FullName%>
-                                        </h3>
-                                      </a>
+                                    <img src="/image/<%=test.postedUser%>" alt="profile photo" class="dp">
+                                    <a href="/profile/<%=test.postedUser%>" class="text-decoration-none text-dark">
+                                      <h3 class="fw-bolder">
+                                        <%=test.FullName%>
+                                      </h3>
+                                    </a>
                                   </div>
                                   <h6 class="gettime" name="<%=test.time%>">Date and time...</h6>
                                   <p id="ans">
@@ -128,10 +131,11 @@
                                           <div class="profile d-flex align-items-center">
                                             <a href="/image/<%=test.postedUser%>"><img src="/image/<%=test.postedUser%>"
                                                 alt="profile photo" class="dp"></a>
-                                            <a href="/profile/<%=test.postedUser%>" class="text-decoration-none text-dark">
-                                              <h4 class="fw-bolder fs-5">
+                                            <a href="/profile/<%=test.postedUser%>"
+                                              class="text-decoration-none text-dark">
+                                              <h3 class="fw-bolder">
                                                 <%=test.FullName%>
-                                              </h4>
+                                              </h3>
                                             </a>
                                           </div>
                                           <h6 class="gettime" name="<%=test.time%>">Date and time..</h6>
@@ -151,11 +155,6 @@
                                                 <%}%>
                               </div>
                               <%});%>
-                                <!-- <form class="" action="/answer" method="post">
-        <input type="hidden" name="question" value="<%=iddd%>">
-        <input type="text" name="answer">
-        <button type="submit" name="button"></button>
-      </form> -->
 
     </div>
   </section>

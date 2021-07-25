@@ -46,7 +46,7 @@
 #quesAnsSec{
     /* border:2px solid red; */
     height:100rem;
-    background-color:rgb(178, 214, 178)
+    /* background-color:rgb(178, 214, 178) */
 }
 #quesAnsDiv{
     /* border:2px solid rgb(17, 11, 11); */
@@ -72,9 +72,11 @@
     /* border:2px solid rgb(17, 11, 11); */
     display: none;
     height: auto;
-    width: 60rem;
+    width:60rem;
+    /* width:auto; */
     margin-top: 0rem;
     padding: 0.8rem;
+    text-align: justify;
 }
 .showAns{
     display: block;
@@ -164,6 +166,7 @@
 .answerDiv{
     border: 1px solid rgb(194, 194, 194);
     width:60rem;
+    /* width:auto; */
     /* display: none; */
     background-color: white;
   }
@@ -173,6 +176,7 @@
   }
   #writer{
     margin-left: 0.5rem;
+    font-size: 1.3rem;
   }
   #answerBox,#textDec{
     border-bottom: 1px solid rgb(194, 194, 194);
@@ -198,3 +202,52 @@
   #editPart{
       display: none;
   }
+
+  /* MEDIA QUERY */
+
+  /* @media only screen and (max-width: 330px) {
+    html{
+        font-size:50%;
+    }  
+    #questioner,.answerDiv{
+        width:32rem;
+    } */
+  @media only screen and (min-width: 330px) and (max-width: 450px) {
+    /* html{
+        font-size:60%;
+    }   */
+    #questioner,.answerDiv,.answerer{
+        max-width:40rem;
+    }
+    .dp{
+        height:5rem;
+        width: 5rem;
+    }
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.6rem;
+    }
+    #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
+        font-size: 1.5rem;
+    }
+    #answerBox{
+        height: 12rem;
+    }
+}
+  /* @media only screen and (min-width: 450px) and (max-width: 650px) {
+    #questioner,.answerDiv,.answerer{
+        width:44rem;
+    }
+    .dp{
+        height:5rem;
+        width: 5rem;
+    }
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.4rem;
+    }
+    #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
+        font-size: 1.3rem;
+    }
+    #answerBox{
+        height: 10rem;
+    }
+} */

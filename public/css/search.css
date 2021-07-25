@@ -7,11 +7,13 @@
     background-color: rgb(238, 238, 238);
     display: block;
     margin: auto;
-    height: 2rem;
-    width:9rem;
+    /* height: 2rem; */
+    height: max-content;
+    /* width:9rem; */
     padding:0.6rem;
     margin-top:2rem;
     margin-bottom:2rem;
+    width: max-content;
 }
 #searchNav ul{
     display: flex;
@@ -51,10 +53,35 @@
 #flwBtn{
     position:absolute;
     right:1rem;
-    background-color: #6BBEF5;
+    color:#2E69FF;
+    /* background-color: #6BBEF5; */
+    background-color: #c7e8fd;
     border-radius: 2rem;
     border: none;
     padding: 0.5rem;
     width: 6rem;
     cursor:pointer;
 }
+#flwBtn:hover{
+    background-color: #b1e0ff;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 400px) {
+    html{
+        font-size: 40%;
+    }
+    /* #searchNav li,#searchNav button{
+        font-size: 1.6rem;
+    } */
+    #user{
+        /* font-size: 1.5rem;
+        padding:1rem 0rem; */
+        width:39rem;
+    }
+    #user button{
+        font-size: 1.6rem;
+        width: 8rem;
+    }
+ }

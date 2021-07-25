@@ -2,27 +2,25 @@
     <!-- <span style="font-size:28px; cursor:pointer;" id="open" onclick="openNav()">&#9776;</span> -->
     <div class="sidebar h-100">
         <div id="info" class="h-8 pt-3 pb-2 mb-3">
-            <!-- <span style="font-size:28px;" id="close" onclick="closeNav()">&#9776;</span> -->
-            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
             <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic"></img></a>
             <label for="file">
-                <i class="fas fa-camera fa-sm text-decoration-none text-white" id="camera"></i>
+                <i class="fas fa-camera fa-xs text-decoration-none text-white" id="camera"></i>
                 <form id="profilephoto" style="text-align: center;" action="/upload" method="post"
                     enctype="multipart/form-data">
                     <input type="file" id="file" style="display: none" name="file"
                         accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
                         data-original-title="upload photos">
                 </form>
-                <h4 id="name">
+                <h5 id="name">
                     <%=user.detail.FullName%>
-                </h4>
-                <%if(user.detail.Description){%>
+                </h5>
+                <!-- <%if(user.detail.Description){%>
                     <h5 style="text-align: center;">
                         <%=user.detail.Description%>
                     </h5>
                     <%}else{%>
                         <h5 style="text-align: center;">Description</h5>
-                        <%}%>
+                        <%}%> -->
                             <!-- <h5 id="name">Followers : <%=user.followers.length%></h5>
             <h5 id="name">Following : <%=user.following.length%></h5> -->
         </div>
@@ -254,8 +252,8 @@
                     <div class="profile">
                         <!-- <img src="/image/<%=se.userId%>" alt="profile photo" class="dp"> -->
                         <i class="dpIcon fas fa-user-circle fa-2x"></i>
-                        <h5 class="fw-bold getname" name="<%=se.userId%>"></h5>&nbsp;&nbsp;
-                        <h6 class="gettime mt-2" name="<%=se.time%>"></h6>
+                        <h6 class="fw-bold getname" name="<%=se.userId%>"></h6>&nbsp;&nbsp;
+                        <p class="gettime mt-2" name="<%=se.time%>"></p>
                     </div>
                     <h6 id="ques">
                         <%=se.ques%>
@@ -315,10 +313,6 @@
                 <%})%>
         </div>
     </section>
-
-    <!-- EDIT PROFILE PART -->
-
-    <section id="editSec">This is edit part</section>
 
     <script src="../myprofile.js"></script>
 

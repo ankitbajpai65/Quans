@@ -10,18 +10,21 @@
 
     <%}else{%>
       <section id="querySec">
-              <% user.forEach(function(se){%>
-                <div class="quesDiv">
-                  <a href="/question/<%=se._id%>">
-                    <p>Q. <%=se.ques%>
-                    </p>
-                  </a>
-                </div>
-                <br>
-                <%});%>
+        <% user.forEach(function(se){%>
+          <div class="quesDiv">
+            <!-- <i class="fas fa-question-circle" id="quesIcon"></i> -->
+            <i class="far fa-question-circle" id="quesIcon"></i>
+            <a href="/question/<%=se._id%>">
+              <p>
+                <%=se.ques%>
+              </p>
+            </a>
+          </div>
+          <br>
+          <%});%>
             </div>
-          </section>
-        </div>
+      </section>
+      </div>
       </section>
       <%}%>
 

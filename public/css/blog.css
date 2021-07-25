@@ -101,7 +101,7 @@ body{
     list-style: none;
     text-decoration: none;
     color:rgb(252, 252, 252);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     opacity:0.8;
 }
 .item a:hover{
@@ -131,7 +131,7 @@ body{
 #searchImg{
     /* border: 2px solid rgb(45, 0, 128); */
     filter:invert(100%);
-    height:1.6rem;
+    height:1.2rem;
     margin-right:2rem;
     margin-top: 10px;
     cursor:pointer;
@@ -158,7 +158,7 @@ body{
     right:28%;
     top: 15%;
     border-radius: 0.7rem;
-    font-size:1rem;
+    font-size:0.9rem;
     cursor:pointer;
     border:none;
 }
@@ -461,9 +461,10 @@ body{
     font-size:3.5rem;
 }
 #homecontent span{
-    font-size:2.5rem;
+    font-size:2rem;
     color:rgb(255, 172, 49);
     /* border:2px solid rgb(255, 172, 49); */
+    background-color: #f1f1f1;
     border-radius: 1.5rem;
     padding: 0.8rem;
     /* margin-top: 2rem; */
@@ -538,7 +539,7 @@ body{
 }
 #about h1{
      text-align: center;
-     font-size: 3rem;
+     font-size: 2.4rem;
 }
 #aboutHead{
     display: none;
@@ -547,7 +548,7 @@ body{
 }
 #about p{
      text-align: justify;
-     font-size: 1.2rem;
+     font-size: 1.1rem;
      margin:2rem 0rem;
      line-height:1.7rem;
 }
@@ -558,8 +559,8 @@ body{
 }
 .card{
     /* border: 2px solid black; */
-    width:24rem;
-    height:20rem;
+    width:22rem;
+    height:17rem;
     background-color: rgb(228, 222, 222);
 }
 .card:hover{
@@ -567,13 +568,14 @@ body{
 }
 .cardImg{
     /* border: 2px solid black; */
-    width: 24rem;
-    height:15rem;
+    width: 22rem;
+    height:12rem;
     margin-bottom: 1rem;
 }
 .card-text{
     text-align: justify;
-    margin:1rem;
+    margin:0.9rem;
+    font-size: 0.9rem;
 }
 /* Section abc here */
 #contactSec{
@@ -588,9 +590,10 @@ body{
     height: 41rem;
     text-align: center;
     padding-top:1rem;
+    margin-top:2rem;
 }
 #contactHeading{
-    font-size:3rem;
+    font-size:2.4rem;
     margin:1.5rem 0rem;
 }
 #contactDiv form{
@@ -606,7 +609,7 @@ body{
     border-radius:1rem;
     outline:none;
     border:none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 #contactDiv form textarea{
     width: 28rem;
@@ -615,7 +618,7 @@ body{
     border-radius:1.3rem;
     outline:none;
     border:none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 #contactDiv form button{
     width: 32rem;
@@ -624,7 +627,7 @@ body{
     border-radius:3rem;
     border:none;
     background-color: #3cdf2e;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor:pointer;
     opacity:0.8;
     z-index:1;
@@ -637,7 +640,7 @@ body{
     background-color: rgb(255, 57, 57);
     height:4rem;
     background-color: black;
-    font-size:1.2rem;
+    font-size:1rem;
     color:white;
     display: flex;
     align-items: center;

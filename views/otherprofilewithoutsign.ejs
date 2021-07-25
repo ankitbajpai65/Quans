@@ -28,12 +28,12 @@
   <div class="sidebar h-100">
     <div id="info" class="h-8 pt-4 pb-2 mb-3">
       <span><img src="/image/<%=user._id%>" id="profilePic" class="dp rounded-circle" alt="dp"></i></span>
-      <h4 id="name" class="fs-4">
+      <h5 id="name">
         <%=user.detail.FullName%>
-      </h4>
-      <h5 class="fs-6">
-        <%=user.detail.Description%>
       </h5>
+      <!-- <h5 class="fs-6">
+        <%=user.detail.Description%>
+      </h5> -->
     </div>
     <div id="links" class="mt-5">
       <a class="active w-100 text-center p-3" href="/">Home</a>
@@ -117,8 +117,8 @@
         <div class="answerer">
           <div class="profile">
             <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
-            <h5 class="fw-bold getname" name="<%=se.userId%>">undefine</h5>
-            <h5 class="gettime" name="<%=se.time%>">undefine</h5>
+            <h6 class="fw-bold getname" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
+            <p class="gettime mt-2" name="<%=se.time%>">undefine</p>
           </div>
           <p id="ques">
             <%=se.ques%>

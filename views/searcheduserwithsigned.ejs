@@ -6,7 +6,7 @@
       <li><button class="newt" id="quesBtn">Questions</button></li>
     </ul>
   </nav>
-  
+
   <div class="userBtn xt" style="display: none">
     <%if(user.length===0){%>
       <section>
@@ -16,6 +16,7 @@
           </div>
         </div>
       </section>
+
       <%}else{%>
         <section>
           <div id="userDiv">
@@ -66,9 +67,8 @@
             <% questions.forEach(function(se){%>
               <div class="quesDiv">
                 <a href="/question/<%=se._id%>">
-                  <h1>
-                    <%=se.ques%>
-                  </h1>
+                  <p>Q. <%=se.ques%>
+                  </p>
                 </a>
               </div>
               <br>

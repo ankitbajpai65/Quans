@@ -1,13 +1,30 @@
 /* Media queries */
 
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-width: 450px) {
     html{
         font-size:50%;
     }
+    #navSec{
+        height:6rem;
+    }
     #list-1{
         display: none;
     }
+    .navBtn{
+        font-size: 1.3rem;
+        width: 12rem;
+    }
+    #searchImg{
+        height:2rem;
+    }
+    #profileImg{
+        height: 3.4rem;
+        width: 3.4rem;
+    }
+    /* .pic {
+        height: 3rem;
+        width: 3rem;
+    } */
     #openSpan{
        display: block;
        font-size: 2rem;
@@ -18,10 +35,15 @@
      #title{
          display: block;
          margin: auto;
+         font-size: 2.7rem;
      }
      #homecontent{
          display: block;
          margin: auto;
+     }
+     #homecontent p,#about p,.homeBtn{
+         font-size: 2rem;
+         line-height: 2.7rem;
      }
      #homeImg{
        display: none;
@@ -44,10 +66,6 @@
         text-align: justify;
         width:90%;
     }
-    #about p{
-        line-height: 1.9rem;
-        font-size: 1.4rem;
-    }
     #about h1{
         display: none;
     }
@@ -64,20 +82,70 @@
     }
     .card{
         margin-top:2rem;
-        width: 35rem;
-        height: 24rem;
+        width: 37rem;
+        height: 31rem;
         display: flex;
         flex-direction: column;
-       
     }
     .cardImg{
-        width: 35rem;
-        height: 18rem;
+        width: 37rem;
+        height: 21rem;
         margin-bottom: 0;
     }
     .card-text{
-        font-size: 1.3rem;
-        line-height: 1.9rem;
+        font-size: 1.8rem;
+       line-height: 2.5rem;
+    }
+    #contactSec{
+        height:53rem;
+    }
+    #contactHeading{
+        font-size: 3rem;
+    }
+    #contactDiv form input,#contactDiv form textarea, #contactDiv form button{
+        font-size: 2rem;
+    }
+    #footer{
+       height:6rem;
+       font-size: 1.8rem;
+    }
+    /* searchuser page */
+   #searchNav li,#searchNav button{
+        font-size: 1.8rem;
+    }
+    #user{
+        font-size: 1.6rem;
+        padding:1rem 0rem;
+    }
+    #user button{
+        font-size: 1.5rem;
+        width: 10rem;
+    }
+
+    /* quesAns page */
+    #navSec ul li{
+        font-size: 2rem;
+    }
+    #navSec ul input{
+        font-size: 1.5rem;
+        width:18rem;
+        border-radius: 2rem;
+    }
+    #questioner,.answerDiv,.answerer{
+        max-width:40rem;
+    }
+    .dp{
+        height:5rem;
+        width: 5rem;
+    }
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.6rem;
+    }
+    #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
+        font-size: 1.5rem;
+    }
+    #answerBox{
+        height: 12rem;
     }
 }
 
@@ -98,10 +166,22 @@
       #title{
           display: block;
           margin: auto;
+          font-size: 2rem;
       }
+      #searchImg{
+          height:2rem;
+      }
+      #profileImg{
+        height:3.4rem;
+        width: 3.4rem;
+    }
       #homecontent{
           display: block;
           margin: auto;
+      }
+      #homecontent p,.homeBtn{
+        font-size: 1.8rem;
+        line-height: 2.5rem;
       }
       #homeImg{
         display: none;
@@ -123,9 +203,9 @@
         text-align: justify;
         width:90%;
     }
-    #about p{
-        line-height: 2rem;
-        font-size: 1.4rem;
+    #about p,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
+        line-height: 2.2rem;
+        font-size: 1.6rem;
     }
     #about h1{
         display: none;
@@ -158,11 +238,82 @@
         font-size: 1.4rem;
         line-height: 2rem;
     }
+    #contactHeading{
+        font-size: 2.7rem;
+    }
+    #footer{
+        height:6rem;
+        font-size: 1.6rem;
+     }
+
+    /* for query page */
+    .quesDiv{
+        font-size: 1.6rem;
+        padding: 2rem 1rem;
+       }
+
+    /* searchuser page */
+    #searchNav li,#searchNav button{
+        font-size: 1.5rem;
+    }
+    #user{
+        font-size: 1.4rem;
+        padding:1rem 0rem;
+    }
+    #user button{
+        font-size: 1.3rem;
+        width: 9rem;
+    }
+
+    /* quesAns page */
+    #navSec ul li{
+        font-size: 2rem;
+    }
+    #navSec ul input{
+        font-size: 1.3rem;
+        width: 15rem;
+        border-radius: 2rem;
+    }
+    #questioner,.answerDiv,.answerer{
+        width:44rem;
+    }
+    .dp{
+        height:4rem;
+        width: 4rem;
+    }
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.4rem;
+    }
+    #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
+        font-size: 1.3rem;
+    }
+    #answerBox{
+        height: 10rem;
+    }
 }
 @media only screen and (min-width: 700px) and (max-width: 770px) {
      html{
          font-size:60%;
      }
+     .item{
+         margin:0rem 2.1rem;
+     }
+     .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
+         font-size: 1.6rem;
+     }
+     #title {
+        font-size: 1.9rem;
+     }
+     #searchImg{
+        height:1.6rem;
+    }
+    #profileImg{
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    #homecontent h1{
+        font-size: 3rem;
+    }
      #aboutSec{
          /* height:130rem; */
          height:auto;
@@ -197,15 +348,174 @@
      .card-text{
          font-size:1.3rem;
      }
+     #contactSec{
+         height:48rem;
+     }
+     #footer{
+        height:6rem;
+        font-size: 1.6rem;
+     }
+     .quesDiv{
+        font-size: 1.6rem;
+        padding: 2rem 1rem;
+       }
+
+       /* searchuser page */
+    #searchNav li,#searchNav button{
+        font-size: 1.5rem;
+    }
+    #user{
+        font-size: 1.4rem;
+        padding:1rem 0rem;
+    }
+    #user button{
+        font-size: 1.3rem;
+        width: 9rem;
+    }
+
+     /* quesAns page */
+     #navSec ul li{
+        font-size: 2rem;
+    }
+    #navSec ul input{
+        font-size: 1.3rem;
+        width: 24rem;
+        border-radius: 2rem;
+    }
+     #questioner,.answerDiv,.answerer{
+        max-width:56rem;
+    }
+    .dp{
+        height:5rem;
+        width: 5rem;
+    }
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.6rem;
+    }
+    #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
+        font-size: 1.5rem;
+    }
+    #answerBox{
+        height: 12rem;
+    }
+    .postBtn{
+        width:8rem;
+    }
 }
 @media only screen and (min-width: 770px) and (max-width: 830px) {
      html{
          font-size:65%;
      }
+     .item{
+        margin:0rem 2.1rem;
+    }
+    .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
+        font-size: 1.4rem;
+    }
+    #title {
+       font-size: 1.9rem;
+    }
+    #searchImg{
+       height:1.6rem;
+   }
+   #profileImg{
+    height: 3.5rem;
+    width: 3.5rem;
+}
+   #homecontent h1{
+       font-size: 3rem;
+   }
+    #about p{
+        font-size: 1.4rem;
+        line-height: 2rem;
+    }
+    /* .card-text {
+        font-size: 1.2rem;
+    } */
+    #footer{
+        height: 5rem;
+        font-size: 1.5rem;
+     }
+    .quesDiv{
+        font-size: 1.6rem;
+        padding: 2rem 1rem;
+       }
+
+     /* searchuser page */
+    #searchNav li,#searchNav button{
+        font-size: 1.5rem;
+    }
+    #user{
+        font-size: 1.4rem;
+        padding:1rem 0rem;
+    }
+    #user button{
+        font-size: 1.1rem;
+        width: 8rem;
+    }
+
+    /* quesAns page */
+    #navSec ul li{
+        font-size: 2rem;
+    }
+    #navSec ul input{
+        font-size: 1.3rem;
+        width: 24rem;
+        border-radius: 2rem;
+    }
+    #questioner,.answerDiv,.answerer{
+        max-width:56rem;
+    }
+    .dp{
+        height:5rem;
+        width: 5rem;
+    }
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.6rem;
+    }
+    #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
+        font-size: 1.5rem;
+    }
+    #answerBox{
+        height: 12rem;
+    }
+    .postBtn{
+        width:8rem;
+    }
 }
 @media only screen and (min-width: 830px) and (max-width: 970px) {
      html{
          font-size:70%;
+     }
+     .item{
+        margin:0rem 2.1rem;
+    }
+    .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
+        font-size: 1.4rem;
+    }
+    #title {
+       font-size: 1.9rem;
+    }
+    #searchImg{
+       height:1.6rem;
+   }
+   #profileImg{
+    height: 3.6rem;
+    width: 3.6rem;
+}
+   #homecontent h1{
+       font-size: 3rem;
+   }
+    #about p{
+        font-size: 1.4rem;
+        line-height: 2rem;
+    }
+    /* .card-text {
+        font-size: 1.2rem;
+    } */
+    #footer{
+        height: 5rem;
+        font-size: 1.5rem;
      }
      #list-2{
          margin-left:3rem;
@@ -213,38 +523,197 @@
      #searchBar{
          width:9rem;
      }
+     .quesDiv{
+        font-size: 1.5rem;
+        padding: 1.8rem 1rem;
+       }
+
+    /* searchuser page */
+    #searchNav li,#searchNav button{
+        font-size: 1.5rem;
+    }
+    #user{
+        font-size: 1.4rem;
+        padding:1rem 0rem;
+    }
+    #user button{
+        font-size: 1.2rem;
+        width: 8rem;
+    }
+
+    /* quesAns page */
+    #navSec ul li{
+        font-size: 2rem;
+    }
+    #navSec ul input{
+        font-size: 1.3rem;
+        width: 24rem;
+        border-radius: 2rem;
+    }
+    #questioner,.answerDiv,.answerer{
+        max-width:56rem;
+    }
+    .dp{
+        height:5rem;
+        width: 5rem;
+    }
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.4rem;
+    }
+    #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
+        font-size: 1.3rem;
+    }
+    #answerBox{
+        height: 12rem;
+    }
+    .postBtn{
+        width:8rem;
+    }
 }
 @media only screen and (min-width: 970px) and (max-width: 1149px) {
     html{
         font-size:80%;
+    }
+    .item{
+        margin:0rem 2.7rem;
+    }
+    .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
+        font-size: 1.4rem;
+    }
+    #title {
+       font-size: 1.9rem;
+    }
+    #searchImg{
+       height:1.6rem;
+   }
+   #homecontent h1{
+       font-size: 3rem;
+   }
+    #about p{
+        font-size: 1.4rem;
+        line-height: 2rem;
+    }
+    .card-text {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    #footer{
+        height: 5rem;
+        font-size: 1.5rem;
+     }
+    .quesDiv{
+        font-size: 1.4rem;
+        padding: 1.4rem 1rem;
+       }
+     /* searchuser page */
+    #searchNav li,#searchNav button{
+        font-size: 1.3rem;
+    }
+    #user{
+        font-size: 1.2rem;
+    }
+    #user button{
+        font-size: 1.1rem;
+        width: 7rem;
+    }
+
+    /* quesAns page */
+    #navSec ul li{
+        font-size: 1.7rem;
+    }
+    #navSec ul input{
+        font-size: 1.1rem;
+        width: 24rem;
+        border-radius: 2rem;
+    }
+    #questioner,.answerDiv,.answerer{
+        max-width:56rem;
+    }
+    .dp{
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .answerer p{
+        font-size: 1.3rem;
+    }
+    .answerDiv textarea,.postBtn{
+        font-size: 1.2rem;
+    }
+    #answerBox{
+        height: 10rem;
+    }
+    .postBtn{
+        width:8rem;
     }
 }
 @media only screen and (min-width: 1150px) and (max-width: 1280px) {
      html{
          font-size:90%;
      }
+     .item{
+        margin:0rem 2rem;
+    }
+    .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
+        font-size: 1.2rem;
+    }
+    #title {
+       font-size: 1.5rem;
+    }
+    #searchImg{
+       height:1.6rem;
+   }
+    #about p{
+        font-size: 1.2rem;
+        line-height: 1.9rem;
+    }
+    .card-text {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+    #footer{
+        height: 5rem;
+        font-size: 1.3rem;
+     }
+     .quesDiv{
+        font-size: 1.2rem;
+        padding: 1.2rem 1rem;
+       }
+
+       /* quesAns page */
+    #ques{
+        font-size: 1.5rem;
+    }
+    .dp{
+        height:3rem;
+        width: 3rem;
+    }
+    .answerer p,#questioner h3,.answerer h3{
+        font-size: 1.1rem;
+    }
+    .answerDiv textarea,.postBtn{
+        font-size: 1.1rem;
+    }
+    #answerBox{
+        height: 10rem;
+    }
+    .postBtn{
+        width:7rem;
+    }
 } 
+@media only screen and (min-width: 1280px) {
+     html{
+         font-size:100%;
+     }
+     /* quesAns page */
 
-/* USING ONLY 5 */
-
-/* @media only screen and (min-width: 300px) and (max-width: 600px) {...} */
-
-/* @media only screen and (min-width: 600px) and (min-width: 768px) {...} */
-
-/* @media only screen and (min-width: 768px) and (max-width: 992px) {
-    html{
-        font-size:70%;
+     .dp{
+        height:3rem;
+        width: 3rem;
     }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
-    html{
-        font-size:80%;
+    #ques{
+        font-size: 1.5rem;
     }
-}
-
-@media only screen and (min-width: 1200px) {
-    html{
-        font-size:92%;
+    #questioner h3,#writer,.answerer h3, .answerer p{
+        font-size: 1.1rem;
     }
-} */
+} 

@@ -16,17 +16,20 @@
           </div>
         </div>
       </section>
+
       <%}else{%>
         <section>
           <div id="userDiv">
             <% user.forEach(function(se){%>
               <div id="user">
+                <hr />
                 <i class="fas fa-user-circle fa-2x"></i>
                 <a href="/profile/<%=se._id%>">
-                  <h1>
+                  <h3>
                     <%=se.detail.FullName%>
-                  </h1>
+                  </h3>
                 </a>
+                <hr />
               </div>
               <br>
               <%});%>
@@ -51,9 +54,8 @@
             <% questions.forEach(function(se){%>
               <div class="quesDiv">
                 <a href="/question/<%=se._id%>">
-                  <h1>
-                    <%=se.ques%>
-                  </h1>
+                  <p>Q. <%=se.ques%>
+                  </p>
                 </a>
               </div>
               <br>

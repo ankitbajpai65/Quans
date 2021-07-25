@@ -35,10 +35,12 @@
         </span>
         <div class="col-sm" id="othersDiv">
             <form action="/auth/google" method="get">
-                <button type="submit" id="google" class="other-btn" name="button"><i class="fab fa-google"></i>Sign In With Google</button>
+                <button type="submit" id="google" class="other-btn" name="button"><i class="fab fa-google"></i>Sign In
+                    With Google</button>
             </form>
             <form action=" /auth/facebook" method="POST">
-                <button type="submit" id="facebook" class="other-btn" name="button"><i class="fab fa-facebook"></i>Sign In With Facebook</button>
+                <button type="submit" id="facebook" class="other-btn" name="button"><i class="fab fa-facebook"></i>Sign
+                    In With Facebook</button>
             </form>
         </div>
     </section>
@@ -51,7 +53,7 @@
                     quis laudantium Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sed?
                 </p>
                 <%# <button class="homeBtn">Join For Free</button> %>
-                <span id="fname">Welcome <%=name%></span>
+                        <span id="fname">Welcome <%=name%></span>
             </div>
             <img src="images/illu3.jpg" id="homeImg" alt="questions">
         </div>
@@ -106,10 +108,10 @@
     <section id="contactSec">
         <div id="contactDiv">
             <h1 id="contactHeading">Get In Touch</h1>
-            <form action="/mailing" method="post"id="contactForm">
+            <form action="/mailing" method="post" id="contactForm">
                 <input type="text" name="user" placeholder="Name" id="name" required>
                 <input type="email" name="mail" placeholder="Email" id="email" required>
-                <textarea name="textarea" cols="10" rows="5"  placeholder="Message" id="messages" required></textarea>
+                <textarea name="textarea" cols="10" rows="5" placeholder="Message" id="messages" required></textarea>
                 <button type="button" onclick="dothis()">Submit</button>
         </div>
     </section>
