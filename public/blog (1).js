@@ -18,7 +18,7 @@ function populateSearch() {
     document.getElementById('searchBar').style.display = '';
   } else {
     // if (screen.width >= '1200px')
-      document.getElementById('list-2').style.width = '31rem';
+    document.getElementById('list-2').style.width = '31rem';
     // else if (screen.width >= '992px' && screen.width <= '1200px')
     //   document.getElementById('list-2').style.width = '25rem';
     document.getElementById('searchBar').style.display = 'block';
@@ -33,6 +33,7 @@ let home = document.getElementById('homeSec');
 let about = document.getElementById('aboutSec');
 let footer = document.getElementById('footer');
 function openForm() {
+  scrollTo(0, -500);
   closeForm();
   document.getElementById("myForm").style.display = "block";
   nav.style.opacity = "0.1";

@@ -12,11 +12,21 @@ document.getElementById('allAnswer').onclick = () => {
   for (let i = 0; i < ans.length; i++) {
     ans[i].classList.toggle("showAns");
     if (ans[i].classList.contains('showAns')) {
+      document.getElementById('allAnswer').style.color='#5B6EFD';
       scrollTo(0, 500);
     }
+    else {
+      document.getElementById('allAnswer').style.color='';
+    }
   }
-
 }
+
+// let queslike=document.getElementById("queslike");
+// queslike.onclick=()=>{
+//   console.log('like click');
+//   queslike.classList.toggle('queslikeclicked')
+//   // queslike.style.color='red';
+// }
 
 let quesIconslike = document.getElementsByClassName('quesIconslike');
 
@@ -24,9 +34,9 @@ for (let i = 0; i < quesIconslike.length; i++) {
   quesIconslike[i].onclick = () => {
     saveDetailLike($(quesIconslike[i]).attr("id"));
     // console.log(get);
-    quesIconslike[i].classList.toggle("clickedIcon");
+    quesIconslike[i].classList.toggle("clickedLike");
     if (quesIconsdislike[i].classList[3]) {
-      quesIconsdislike[i].classList.toggle("clickedIcon");
+      quesIconsdislike[i].classList.toggle("clickedLike");
     }
   }
 }
@@ -35,10 +45,10 @@ let quesIconsdislike = document.getElementsByClassName('quesIconsdislike');
 
 for (let i = 0; i < quesIconsdislike.length; i++) {
   quesIconsdislike[i].onclick = () => {
-    quesIconsdislike[i].classList.toggle("clickedIcon");
+    quesIconsdislike[i].classList.toggle("clickedDislike");
     // console.log();
     if (quesIconslike[i].classList[3]) {
-      quesIconslike[i].classList.toggle("clickedIcon");
+      quesIconslike[i].classList.toggle("clickedDislike");
     }
     saveDetailDislike($(quesIconslike[i]).attr("id"));
   }
@@ -67,13 +77,7 @@ for (let i = 0; i < ansIconsdislike.length; i++) {
   }
 }
 
-let icon = document.getElementById('likeIcon');
-icon.onclick = () => {
-  console.log('like click');
-    icon.style.display = 'none';
-    document.getElementById('clickedLike').style.display = 'block';
-  // icon.classList.toggle('clickedLike');
-}
+
 
 function saveDetailLike(data) {
   var id = data;

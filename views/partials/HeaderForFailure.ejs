@@ -18,47 +18,67 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" href="../css/blog.css">
+  <!-- <link rel="stylesheet" href="../css/blog.css"> -->
   <link rel="stylesheet" href="../css/media.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Saira&display=swap" rel="stylesheet">
   <style>
-    .footerForFailure {
+    /* .footerForFailure {
       position: fixed;
       left: 0px;
       right: 0px;
       bottom: 0px;
+    } */
+    #warnSec {
+      height: 100%;
+      width: 100%;
     }
-    .container-fluid{
+    #info {
+      width: 30rem;
+      margin-left: 8rem;
+    }
+    .warnImgDiv {
+      width: 40rem;
+    }
+    #warnImg {
+      height: 32rem;
+      width: 38rem;
+    }
+    /* .container-fluid{
       display: flex;
       align-items: center;
       height:28rem;
     }
     #info{
       margin-left:6rem;
-    }
-    
-    .bgImg {
+      z-index:2;
+    } */
+
+    /* .bgImg {
       background-image: url('../images/warning.png');
       background-position:right;
       background-repeat: no-repeat;
-      background-size: 40rem;
-    }
-
-    /* .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      } */
-    /* .fucked{
-       margin-bottom: 0px;
-       padding-bottom: 0px;
-     } */
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
+      background-size: 36rem;
+      z-index:1;
+    } */
+    @media screen and (max-width: 650px) {
+      .warnDiv{
+        margin-top: 5rem;
+      }
+      #warnImg {
+        display: block;
+        /* margin: auto; */
+        margin-left: auto;
+        margin-right: auto;
+        opacity:0.7;
+        z-index:1;
+      }
+      #info {
+        position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        top: 25%;
+        text-align: center;
       }
     }
   </style>

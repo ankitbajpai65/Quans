@@ -1,80 +1,91 @@
 <%- include('partials/HeaderforquesAns') %>
-<section id="navSec">
-  <ul class="d-flex flex-row align-items-center justify-content-around">
-    <li>Quora</li>
-    <form  action="/Searching" method="post">
-      <input type="text" name = "search" placeholder="Search">
-    </form>
-    <form class="" action="/" method="get">
-     <button type="submit" name="button">sign in</button>
-    </form>
-  </ul>
-</section>
+  <section id="navSec">
+    <ul class="d-flex flex-row align-items-center justify-content-around">
+      <li>Quora</li>
+      <form action="/Searching" method="post">
+        <input type="text" name="search" placeholder="Search">
+      </form>
+      <form class="" action="/" method="get">
+        <button type="submit" name="button" class="fw-bolder">Sign in</button>
+      </form>
+    </ul>
+  </section>
 
   <section id="quesAnsSec">
-      <div id="quesAnsDiv">
-        <div id="questioner">
-          <div class="profile d-flex align-items-center">
-            <img src="/image/<%=user.userId%>" alt="" class="dp">
-            <a href="/profile/<%=user.userId%>" class="text-decoration-none text-dark">
-              <h3 class="fw-bolder fs-5">
-                <%=name%>
-              </h3>
-            </a>
-          </div>  <h6 class="gettime" name="<%=user.time%>">Date and time...</h6>
-          <h3 id="ques"><%=user.ques%></h3>
-          <div id="quesIcons">
-                <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like ">
-                <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconslike dislike ">
-                <img src="../images/comment.png" alt="like" id="allAnswer">
-                </div>
-        </div>
-        <h3 class="fw-bold mt-4">Log in to answer the question🙂</h3>
-    <%user.answer.forEach(function(test){%>
-      <hr />
-    <div  class="answerer">
+    <div id="quesAnsDiv">
+      <div id="questioner">
         <div class="profile d-flex align-items-center">
-          <img src="/image/<%=test.postedUser%>" alt="" class="dp">
-          <a href="/profile/<%=test.postedUser%>" class="text-decoration-none text-dark">
+          <img src="/image/<%=user.userId%>" alt="" class="dp">
+          <a href="/profile/<%=user.userId%>" class="text-decoration-none text-dark">
             <h3 class="fw-bolder fs-5">
-              <%=test.FullName%>
+              <%=name%>
             </h3>
           </a>
         </div>
-        <h6 class="gettime" name="<%=test.time%>">Date and time...</h6>
-        <p id="ans"><%=test.ans%></p>
-        <img src="../images/like.png"  id="<%=test._id%>" alt="<%=test._id%>"class=" ansIcons quesIconslike like">
-          <img src="../images/dislike.png"   id="<%=test._id%>" alt="<%=test._id%>" class="ansIcons quesIconslike dislike">
-          <hr />
+        <h6 class="gettime" name="<%=user.time%>">Date and time...</h6>
+        <h2 id="ques" class="fw-bolder">
+          <%=user.ques%>
+        </h2>
+        <div id="quesIcons">
+          <i class="fas fa-thumbs-up fa-lg quesIcons quesIconslike like" id="<%=iddd%>" alt="<%=iddd%>"></i>
+          <i class="fas fa-thumbs-down fa-lg quesIcons quesIconslike dislike" id="<%=iddd%>" alt="<%iddd%>"></i>
+          <i class="fas fa-comment-alt fa-lg" alt="like" id="allAnswer"></i>
+          <!-- <img src="../images/like.png" id="<%=iddd%>" alt="<%=iddd%>" class="quesIcons quesIconslike like ">
+          <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>" class="quesIcons quesIconslike dislike ">
+          <img src="../images/comment.png" alt="like" id="allAnswer"> -->
+        </div>
       </div>
-          <%});%>
+      <h3 class="fw-bold mt-5">Log in to answer the question🙂</h3>
+      <%user.answer.forEach(function(test){%>
+        <hr />
+        <div class="answerer">
+          <div class="profile d-flex align-items-center">
+            <img src="/image/<%=test.postedUser%>" alt="" class="dp">
+            <a href="/profile/<%=test.postedUser%>" class="text-decoration-none text-dark">
+              <h4 class="fw-bolder">
+                <%=test.FullName%>
+              </h4>
+            </a>
+          </div>
+          <h6 class="gettime" name="<%=test.time%>">Date and time...</h6>
+          <p id="ans">
+            <%=test.ans%>
+          </p>
+          <i class="fas fa-thumbs-up fa-lg ansIcons quesIconslike like" id="<%=test._id%>" alt="<%=test._id%>"></i>
+          <i class="fas fa-thumbs-down fa-lg quesIcons quesIconslike dislike" id="<%=test._id%>" alt="<%=test._id%>"></i>
+          <!-- <img src="../images/like.png" id="<%=test._id%>" alt="<%=test._id%>" class=" ansIcons quesIconslike like"> -->
+          <!-- <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>"
+            class="ansIcons quesIconslike dislike"> -->
+          <hr />
+        </div>
+        <%});%>
+    </div>
+  </section>
   </div>
-</section>
-</div>
   <script>
-  $('#allAnswer').on('click',function(){
-    $('.answerer').toggleClass('showAns')// console.log();
-  });
-  $('.quesIconslike').on('click',function(){
-    alert("you are not logged in");
+    $('#allAnswer').on('click', function () {
+      $('.answerer').toggleClass('showAns')// console.log();
+    });
+    $('.quesIconslike').on('click', function () {
+      alert("you are not logged in");
 
-  });
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
+    });
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
 
-  let time = document.getElementsByClassName('gettime');
-  var t = 0;
-  if (time) {
-    for (var i = 0; i < time.length; i++) {
-      var namexd = $(time[i]).attr('name');
-      $.post('/gettime', { data: namexd }, function (data) {
-        handledatatime(data);
-      });
+    let time = document.getElementsByClassName('gettime');
+    var t = 0;
+    if (time) {
+      for (var i = 0; i < time.length; i++) {
+        var namexd = $(time[i]).attr('name');
+        $.post('/gettime', { data: namexd }, function (data) {
+          handledatatime(data);
+        });
+      }
     }
-  }
-  function handledatatime(data) {
-    $(time[t]).html(data.ok.totaltime.date + "/" + monthNames[data.ok.totaltime.month] + "/" + data.ok.totaltime.year);
-    t++;
-  };
-</script>
+    function handledatatime(data) {
+      $(time[t]).html(data.ok.totaltime.date + "/" + monthNames[data.ok.totaltime.month] + "/" + data.ok.totaltime.year);
+      t++;
+    };
+  </script>

@@ -1,5 +1,5 @@
 <%- include('partials/HeaderForFailure')%>
-<div class="p-5 mb-4 rounded-3">
+  <!-- <div class="p-5 mb-4 rounded-3">
   <div class="container-fluid py-5 bgImg">
     <div id="info">
     <h1 class="display-5 fw-bold"><%=heading%></h1>
@@ -9,5 +9,23 @@
     </form>
   </div>
   </div>
-</div>
+</div> -->
 
+  <section id="warnSec">
+    <div class="warnDiv d-flex align-items-center justify-content-around">
+      <div id="info">
+        <h1 class="fw-bold">
+          <%=heading%>
+        </h1>
+        <p class="fs-4">
+          <%=message%>
+        </p>
+        <form action="/" method="get">
+          <button class="btn btn-primary btn-lg mt-4" type="submit">Go to home</button>
+        </form>
+      </div>
+      <div class="warnImgDiv">
+        <img src="../images/warning.png" alt="" id="warnImg">
+      </div>
+    </div>
+  </section>

@@ -2,7 +2,7 @@
     <!-- <span style="font-size:28px; cursor:pointer;" id="open" onclick="openNav()">&#9776;</span> -->
     <div class="sidebar h-100">
         <div id="info" class="h-8 pt-3 pb-2 mb-3">
-            <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic"></img></a>
+            <a href="/image/<%=user._id%>"><img src="/image/<%=user._id%>" alt="dp" class="pic bg-dark border border-white"></img></a>
             <label for="file">
                 <i class="fas fa-camera fa-xs text-decoration-none text-white" id="camera"></i>
                 <form id="profilephoto" style="text-align: center;" action="/upload" method="post"
@@ -21,17 +21,13 @@
                     <%}else{%>
                         <h5 style="text-align: center;">Description</h5>
                         <%}%> -->
-                            <!-- <h5 id="name">Followers : <%=user.followers.length%></h5>
+                <!-- <h5 id="name">Followers : <%=user.followers.length%></h5>
             <h5 id="name">Following : <%=user.following.length%></h5> -->
         </div>
         <div id="links" class="mt-5">
             <a class="active w-100 text-center p-3" href="/">Home</a>
             <a href="/#contactSec" class="w-100 text-center p-3">Contact</a>
             <a href="/logout" class="w-100 text-center p-3">Log out</a>
-            <!-- <form style="text-align: center;" action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="file">
-                <input type="submit" value="submit">
-            </form> -->
         </div>
     </div>
 
@@ -49,23 +45,7 @@
             </div>
         </div>
     </nav>
-    <!-- <nav class="mobileNav bg-dark p-3">
-        <span id="openSide" onclick="openNav()">&#9776;</span>
-        <h1 class="d-inline text-warning fs-3">Quora</h1>
-    </nav> -->
     <section id="myContent" onclick="closeNav()">
-        <!-- <div class="container col" id="mobContent">
-            <div id="mobDiv">
-                <label class="firstLabel justify-content-center">First name</label>
-                <input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput" readonly="readonly">
-                <br>
-                <label class="firstLabel">Last name</label>
-                <input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>" readonly="readonly">
-                <br>
-                <label class="firstLabel">Email</label>
-                <input type="email" id="mail" class="myInput" value="<%=user.username%>" readonly="readonly">
-            </div>
-        </div> -->
         <div class="content">
             <a href="#" class="text-reset"><span id="editSpan"><i class="fas fa-pen fa-2x fa-center"></i></span></a>
             <form>
@@ -87,111 +67,6 @@
                         </td>
                     </tr>
                 </table>
-                <!-- <button id="editBtn" type="button" onclick="saveedit()">Edit</button>
-            <button id="pinChange" type="button">Change Password</button>  -->
-                <!-- </form>
-            <div class="table-2">
-              <form  action="/changePassword" method="post">
-
-                <table>
-                    <tr>
-                        <td><label class="secLabel">Old Password</label></td>
-                        <td><input name="oldpassword" type="password"></td>
-                    </tr>
-                    <tr>
-                        <td><label class="secLabel">New Password</label></td>
-                        <td><input name="newpassword"type="password"></td>
-                    </tr>
-                </table>
-                <button id="saveBtn">Save</button>
-              </form>
-
-            </div>
-            <form>
-         <div id="moreInfo">
-                <h1>Add More Details</h1>
-                <table id="moreInfoTable">
-                    <tr>
-                        <td><label class="firstLabel">Description</label></td>
-                        <td><input name = "Description"type="text" id="Description" placeholder="Description"></td>
-                    </tr>
-                    <tr>
-                        <td><label class="firstLabel">Education</label></td>
-                        <td>
-                            <select name="edu" id="edu">
-                                <option value="" selected="selected" disabled="disabled">-- select one --</option>
-                                <option value="No formal education">No formal education</option>
-                                <option value="Primary education">Primary education</option>
-                                <option value="Secondary education">Secondary education or high school</option>
-                                <option value="Vocational qualification">Vocational qualification</option>
-                                <option value="Bachelor's degree">Bachelor's degree</option>
-                                <option value="Master's degree">Master's degree</option>
-                                <option value="Doctorate or higher">Doctorate or higher</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="firstLabel">State</label></td>
-                        <td>
-                            <select name="state" id="state" class="form-control">
-                                <option value="Andhra Pradesh" selected disabled>Select</option>
-                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                <option value="Assam">Assam</option>
-                                <option value="Bihar">Bihar</option>
-                                <option value="Chandigarh">Chandigarh</option>
-                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                <option value="Daman and Diu">Daman and Diu</option>
-                                <option value="Delhi">Delhi</option>
-                                <option value="Lakshadweep">Lakshadweep</option>
-                                <option value="Puducherry">Puducherry</option>
-                                <option value="Goa">Goa</option>
-                                <option value="Gujarat">Gujarat</option>
-                                <option value="Haryana">Haryana</option>
-                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                <option value="Jharkhand">Jharkhand</option>
-                                <option value="Karnataka">Karnataka</option>
-                                <option value="Kerala">Kerala</option>
-                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                <option value="Maharashtra">Maharashtra</option>
-                                <option value="Manipur">Manipur</option>
-                                <option value="Meghalaya">Meghalaya</option>
-                                <option value="Mizoram">Mizoram</option>
-                                <option value="Nagaland">Nagaland</option>
-                                <option value="Odisha">Odisha</option>
-                                <option value="Punjab">Punjab</option>
-                                <option value="Rajasthan">Rajasthan</option>
-                                <option value="Sikkim">Sikkim</option>
-                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                <option value="Telangana">Telangana</option>
-                                <option value="Tripura">Tripura</option>
-                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                <option value="Uttarakhand">Uttarakhand</option>
-                                <option value="West Bengal">West Bengal</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="firstLabel">City</label></td>
-                        <td>
-                            <select name="city" id="city">
-                                <option value="Delhi" selected disabled>Select</option>
-                                <option value="Delhi">Delhi</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Kolkata">Kolkata</option>
-                                <option value="Chennai">Chennai</option>
-                                <option value="Lucknow">Lucknow</option>
-                                <option value="Jaipur">Jaipur</option>
-                                <option value="Banglore">Banglore</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <button type="button" onclick="savedetail()">Save</button>
-            </div>  -->
             </form>
         </div>
         <div class="text-center" id="profileNav">

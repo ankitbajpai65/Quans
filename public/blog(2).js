@@ -102,14 +102,6 @@ function closeOthers() {
   document.getElementById("quesSec").style.display = "none";
 }
 
-// when user signed in
-let signin = document.getElementById('signinBtn');
-if (signin)
-  signin.addEventListener('submit', formLogin);
-function formLogin() {
-  console.log('form submitted');
-}
-
 // Asking question
 let ask = document.getElementById('askBtn');
 if (ask)
@@ -163,7 +155,7 @@ function closeHelpDiv() {
 
 // Profile image function
 //
-$(document).on('mouseover', function (e) {
+$(document).on('click', function (e) {
   let qt = e.target.id;
   if (qt == 'profileImg' || qt == 'profileImgs' || qt == 'total' || qt == 'infoList') {
     document.getElementById('infoSec').style.display = "block";
@@ -172,12 +164,12 @@ $(document).on('mouseover', function (e) {
   }
 });
 
-document.body.onclick = () => {
-  document.getElementById('infoSec').style.display = "";
-}
-document.body.onscroll = () => {
-  document.getElementById('infoSec').style.display = "";
-}
+// document.body.onclick = () => {
+//   document.getElementById('infoSec').style.display = "";
+// }
+// document.body.onscroll = () => {
+//   document.getElementById('infoSec').style.display = "";
+// }
 
 let i = 0;
 let textu = document.getElementById('fname');

@@ -106,8 +106,8 @@
         font-size: 2rem;
     }
     #footer{
-       height:6rem;
-       font-size: 1.8rem;
+        height: 4rem;
+        font-size: 1.5rem;
     }
     /* searchuser page */
    #searchNav li,#searchNav button{
@@ -242,8 +242,8 @@
         font-size: 2.7rem;
     }
     #footer{
-        height:6rem;
-        font-size: 1.6rem;
+        /* height:6rem; */
+        font-size: 1.4rem;
      }
 
     /* for query page */
@@ -289,6 +289,16 @@
     }
     #answerBox{
         height: 10rem;
+    }
+    /* for failure  page */
+    #info{
+        margin-left:1rem;
+    }
+    #info h1{
+        font-size: 2.3rem;
+    }
+    .bgImg{
+        opacity:0.7;
     }
 }
 @media only screen and (min-width: 700px) and (max-width: 770px) {
@@ -352,8 +362,8 @@
          height:48rem;
      }
      #footer{
-        height:6rem;
-        font-size: 1.6rem;
+        /* height:6rem; */
+        font-size: 1.5rem;
      }
      .quesDiv{
         font-size: 1.6rem;
@@ -433,8 +443,8 @@
         font-size: 1.2rem;
     } */
     #footer{
-        height: 5rem;
-        font-size: 1.5rem;
+        /* height: 5rem; */
+        font-size: 1.4rem;
      }
     .quesDiv{
         font-size: 1.6rem;
@@ -471,7 +481,7 @@
         width: 5rem;
     }
     #questioner h3,#writer,.answerer h3, .answerer p{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
     #questioner h6,.answerer h6,.answerDiv textarea,.postBtn{
         font-size: 1.5rem;
@@ -514,8 +524,8 @@
         font-size: 1.2rem;
     } */
     #footer{
-        height: 5rem;
-        font-size: 1.5rem;
+        /* height: 5rem; */
+        font-size: 1.3rem;
      }
      #list-2{
          margin-left:3rem;
@@ -597,10 +607,6 @@
         font-size: 1rem;
         line-height: 1.2rem;
     }
-    #footer{
-        height: 5rem;
-        font-size: 1.5rem;
-     }
     .quesDiv{
         font-size: 1.4rem;
         padding: 1.4rem 1rem;
@@ -609,7 +615,7 @@
     #searchNav li,#searchNav button{
         font-size: 1.3rem;
     }
-    #user{
+    #user,#footer{
         font-size: 1.2rem;
     }
     #user button{
@@ -671,8 +677,8 @@
         line-height: 1.3rem;
     }
     #footer{
-        height: 5rem;
-        font-size: 1.3rem;
+        /* height: 5rem; */
+        font-size: 1.1rem;
      }
      .quesDiv{
         font-size: 1.2rem;
@@ -714,6 +720,6 @@
         font-size: 1.5rem;
     }
     #questioner h3,#writer,.answerer h3, .answerer p{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 } 

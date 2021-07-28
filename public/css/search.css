@@ -35,6 +35,9 @@
     /* display: block;
     margin:auto; */
 }
+#userDiv h1{
+    margin-top:3rem;
+}
 #user{
     border-top:2px solid rgb(226, 226, 226);
     border-bottom:2px solid rgb(226, 226, 226);

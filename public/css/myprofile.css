@@ -380,6 +380,14 @@ html, body{
 .dpIcon{
   margin-right: 0.7rem;
 }
+.dp{
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right:0.6rem;
+    border-radius: 50%;
+    filter: brightness(100%);
+    background: rgb(44, 44, 44);
+}
 .followBtn{
   align-content: flex-end;
   position: absolute;
