@@ -46,8 +46,10 @@ document.getElementById('myContent').onclick=()=>{
 $(document).ready(function () {
   $(".list-tab button").on("click", function () {
     $(".list-hide").css("display", "none");
+    $(".lexy").css("color", "black");
     var tab = $(this).attr("id");
     $("." + tab).css("display", "block");
+    $("button#" + tab).css("color", "red");
     // $(".list-tab button").css("color", "red");
   });
 });
