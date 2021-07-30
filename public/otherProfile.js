@@ -122,12 +122,14 @@ function handledata(data){
 $('.followBtn').on('click',function(){
   let tt = $(this).html();
   let xt  = $(this).attr('name');
+  console.log(tt);
   if(tt=="UnFollow"){
     $.post("/follow",{data:xt});
     if($('#follow').hasClass(xt)){
       $('.following.'+$('#userId').attr('name')).remove();
-      let inou = $('#FollowersList').html();
-      inou  = parseInt(inou[0]);
+      let inou = $('#FollowersList').attr('name');
+      inou  = parseInt(inou);
+      console.log(inou);
       inou--;
       $('#FollowersList').html(inou+" Following");
     }
@@ -138,8 +140,8 @@ $('.followBtn').on('click',function(){
       $.post("/follow",{data: $('#userId').attr('name')}, function(data){
         handledata(data.ok);
       });
-      let inou = $('#FollowersList').html();
-      inou  = parseInt(inou[0]);
+      let inou = $('#FollowersList').attr('name');
+      inou  = parseInt(inou);
       inou++;
       $('#FollowersList').html(inou+" Following");
       $('button.followBtn.'+xt).html('UnFollow');

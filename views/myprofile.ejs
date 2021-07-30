@@ -72,7 +72,7 @@
         <div class="text-center" id="profileNav">
             <hr />
             <div class="row list-tab">
-                <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn">
+                <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn" name="<%=question.length%>">
                         <%=question.length%> Questions
                     </button></div>
                 <%var d=0%>
@@ -82,11 +82,11 @@
                                 <%});%>
                                     <%});%>
                                         <div class="col"><button id="AnswerList"
-                                                class="text-decoration-none shadow-none btn">
+                                                class="text-decoration-none shadow-none btn" name="<%=d%>">
                                                 <%=d%> Answers
                                             </button></div>
                                         <div class="col"><button id="FollowersList"
-                                                class="text-decoration-none shadow-none btn">
+                                                class="text-decoration-none shadow-none btn" name="<%=followers.length%>">
                                                 <%=followers.length%> Followers
                                             </button></div>
                                         <div class="col"><button id="FollowingList"
@@ -158,7 +158,7 @@
                                         <div class="following col d-flex align-items-center ttfollowed <%=se._id%>">
                                             <i class="dpIcon fas fa-user-circle fa-2x"></i>
                                             <h6 class="fw-bold">
-                                                <%=se.detail.FullName%>
+                                                <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
                                             </h6>
                                             <%if(x){%>
                                                 <button class="followBtn followed <%=se._id%>"
@@ -180,7 +180,7 @@
                 <div class="following col d-flex align-items-center ttfollow <%=se._id%>">
                     <i class="dpIcon fas fa-user-circle fa-2x"></i>
                     <h6 class="fw-bold">
-                        <%=se.detail.FullName%>
+                        <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
                     </h6>
                     <button class="followBtn befollowed <%=se._id%>" name="<%=se._id%>">UnFollow</button>
                 </div>

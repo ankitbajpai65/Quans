@@ -29,27 +29,22 @@ document.getElementById('allAnswer').onclick = () => {
 // }
 
 let quesIconslike = document.getElementsByClassName('quesIconslike');
+let quesIconsdislike = document.getElementsByClassName('quesIconsdislike');
 
 for (let i = 0; i < quesIconslike.length; i++) {
   quesIconslike[i].onclick = () => {
     saveDetailLike($(quesIconslike[i]).attr("id"));
     // console.log(get);
     quesIconslike[i].classList.toggle("clickedLike");
-    if (quesIconsdislike[i].classList[3]) {
-      quesIconsdislike[i].classList.toggle("clickedLike");
-    }
+      quesIconsdislike[i].classList.remove("clickedDislike");
   }
 }
 // console.log(quesIconslike);
-let quesIconsdislike = document.getElementsByClassName('quesIconsdislike');
 
 for (let i = 0; i < quesIconsdislike.length; i++) {
   quesIconsdislike[i].onclick = () => {
     quesIconsdislike[i].classList.toggle("clickedDislike");
-    // console.log();
-    if (quesIconslike[i].classList[3]) {
-      quesIconslike[i].classList.toggle("clickedDislike");
-    }
+      quesIconslike[i].classList.remove("clickedLike");
     saveDetailDislike($(quesIconslike[i]).attr("id"));
   }
 }
@@ -60,7 +55,7 @@ for (let i = 0; i < ansIconslike.length; i++) {
   ansIconslike[i].onclick = () => {
     ansIconslike[i].classList.toggle("clickedIcon");
     // console.log(ansIconsdislike[i]);
-    if (ansIconsdislike[i].classList[3]) {
+    if (ansIconsdislike[i].classList[6]){
       ansIconsdislike[i].classList.toggle("clickedIcon");
     }
     saveDetailLike($(ansIconslike[i]).attr("id"));
@@ -70,7 +65,7 @@ for (let i = 0; i < ansIconsdislike.length; i++) {
   ansIconsdislike[i].onclick = () => {
     ansIconsdislike[i].classList.toggle("clickedIcon");
     // console.log(ansIconslike[i]);
-    if (ansIconslike[i].classList[3]) {
+    if (ansIconslike[i].classList[6]) {
       ansIconslike[i].classList.toggle("clickedIcon");
     }
     saveDetailDislike($(ansIconsdislike[i]).attr("id"));

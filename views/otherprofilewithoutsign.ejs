@@ -46,10 +46,12 @@
       <span id="openSide" onclick="openNav()">&#9776;</span>
       <h3 class="navbar-brand mt-1 text-warning" id="title">Quora</h3>
       <div class="collapse navbar-collapse navItem">
-        <form class="d-flex">
-          <input class="form-control me-4 mt-1 searchBar" type="search" placeholder="Search" aria-label="Search">
-          <img src="/image/<%=user._id%>" id="profilePic" class="rounded-circle" alt="dp">
-        </form>
+          <form action="/searching" method="post">
+              <input name="search" class="form-control me-4 mt-1 searchBar" type="text" placeholder="Search"
+                  aria-label="Search">
+          </form>
+          <a href="/image/<%=user._id%>" style="padding-left: 30px;"><img src="/image/<%=user._id%>"
+                  id="profilePic" alt="dp"></a>
       </div>
     </div>
   </nav>
@@ -94,7 +96,7 @@
       <hr />
       <span class="slide"></span>
     </div>
-    
+
     <!-- QUESTIONS PART HERE -->
 
     <div class="QuestionList t-hide list-hide">
@@ -141,7 +143,7 @@
         <div class="following col d-flex align-items-center">
           <i class="dpIcon fas fa-user-circle fa-2x"></i>
           <h6 class="fw-bold mt-2">
-            <%=se.detail.FullName%>
+            <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
           </h6>
         </div>
         <hr />
@@ -156,7 +158,7 @@
         <div class="following col d-flex align-items-center">
           <i class="dpIcon fas fa-user-circle fa-2x"></i>
           <h6 class="fw-bold mt-2">
-            <%=se.detail.FullName%>
+            <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
           </h6>
         </div>
         <hr />

@@ -279,16 +279,18 @@ $(".FollowersList").on("click", '.followed', function () {
 function control(xt) {
   $('.following.ttfollow.' + xt).remove();
   $('hr.hr.' + xt).remove();
-  let inou = $('#FollowingList').html();
-  inou = parseInt(inou[0]);
+  let inou = $('#FollowingList').attr('name');
+  inou = parseInt(inou);
   inou--;
+  $('#FollowingList').attr('name',inou);
   $('#FollowingList').html(inou + " Following");
 }
 function control2(xt) {
   // $('.befollowed.'+xt).remove();
-  let inou = $('#FollowingList').html();
-  inou = parseInt(inou[0]);
+  let inou = $('#FollowingList').attr('name');
+  inou = parseInt(inou);
   inou++;
+  $('#FollowingList').attr('name',inou);
   $('#FollowingList').html(inou + " Following");
 }
 
