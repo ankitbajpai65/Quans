@@ -12,6 +12,16 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+// FOR CHANGING PIC
+document.querySelector('.pic').onmouseenter=()=>{
+  console.log('mouse enter')
+  document.getElementById('camera').style.display='block';
+}
+document.querySelector('.pic').onmouseout=()=>{
+  console.log('mouse enter')
+  document.getElementById('camera').style.display='';
+}
+
 // FOR MOBILE NAVIGATION MENU
 
 let openSide=document.getElementById('openSide');
@@ -126,48 +136,49 @@ btn.forEach((ele, index) => {
   ele.addEventListener("click", () => {
     slide.style.display = 'block';
     slide.style.left = 100 / btn.length * index + "%";
-
-    // for (let i = 0; i < btn.length; i++) {
-    //   btn[i].onclick = () => {
-    //     btn[i].style.color = 'red';
-    //   }
-    //   btn[i].onmouseout = () => {
-    //     btn[i].style.color = '';
-    //   }
-    // }
   });
 });
 
 // EDIT PART HERE
 
-document.getElementById('editSpan').onclick = () => {
-  console.log('edit click');
-  // document.getElementById('editSec').style.display='block';
-  // document.getElementById('myContent').style.display='none';
+// document.getElementById('editSpan').onclick = () => {
+//   console.log('edit click');
+//   // document.getElementById('editSec').style.display='block';
+//   // document.getElementById('myContent').style.display='none';
 
-  if (document.getElementById('myContent')) {
+//   if (document.getElementById('myContent')) {
 
-    if (document.getElementById('myContent').style.display == 'none') {
-      document.getElementById('myContent').style.display = 'block';
-      document.getElementById('editSec').style.display = 'none';
-    }
-    else {
-      document.getElementById('myContent').style.display = 'none';
-      document.getElementById('editSec').style.display = 'block';
-    }
-  }
+//     if (document.getElementById('myContent').style.display == 'none') {
+//       document.getElementById('myContent').style.display = 'block';
+//       // document.getElementById('editSec').style.display = 'none';
+//     }
+//     else {
+//       document.getElementById('myContent').style.display = 'none';
+//       // document.getElementById('editSec').style.display = 'block';
+//     }
+//   }
 
-  console.log('edit end');
-}
+  // console.log('edit end');
+// }
 
-function editInfo() {
-  let edit = document.getElementById("editBtn");
-  if (edit.innerHTML == "Edit") {
-    alert("Now, you can the Change the user info")
-    edit.innerHTML = "Save";
-  }
-  else edit.innerHTML = "Edit";
-}
+document.getElementById('editSpan').onclick = function() {
+  console.log('edit click')
+  alert('Now, you can your info...');
+  document.getElementById('FName').readOnly = false;
+  document.getElementById('LName').readOnly = false;
+};
+
+// let edit = document.getElementById('editSpan');
+// edit.addEventListener('click', editInfo);
+
+// function editInfo() {
+//   let edit = document.getElementById("editSpan");
+//   if (edit.innerHTML == "Edit") {
+//     alert("Now, you can the Change the user info")
+//     edit.innerHTML = "Save";
+//   }
+//   else edit.innerHTML = "Edit";
+// }
 var i = 0;
 function saveedit() {
   if (i % 2 == 0) {

@@ -63,12 +63,12 @@
       <span id="openSide" onclick="openNav()">&#9776;</span>
       <h3 class="navbar-brand mt-1 text-warning" id="title">Quora</h3>
       <div class="collapse navbar-collapse navItem">
-          <form action="/searching" method="post">
-              <input name="search" class="form-control me-4 mt-1 searchBar" type="text" placeholder="Search"
-                  aria-label="Search">
-          </form>
-          <a href="/image/<%=user._id%>" style="padding-left: 30px;"><img src="/image/<%=user._id%>"
-                  id="profilePic" alt="dp"></a>
+        <form action="/searching" method="post">
+          <input name="search" class="form-control me-4 mt-1 searchBar" type="text" placeholder="Search"
+            aria-label="Search">
+        </form>
+        <a href="/image/<%=user._id%>" style="padding-left: 30px;"><img src="/image/<%=user._id%>" id="profilePic"
+            alt="dp"></a>
       </div>
     </div>
   </nav>
@@ -97,16 +97,20 @@
     <div class="text-center" id="profileNav">
       <hr />
       <div class="row list-tab">
-        <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn" name="<%=question.length%>">
+        <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn lexy"
+            name="<%=question.length%>">
             <%=question.length%> Questions
           </button></div>
-        <div class="col"><button id="AnswerList" class="text-decoration-none shadow-none btn" name="<%=answer.length%>">
+        <div class="col"><button id="AnswerList" class="text-decoration-none shadow-none btn lexy"
+            name="<%=answer.length%>">
             <%=answer.length%> Answers
           </button></div>
-        <div class="col"><button id="FollowersList" class="text-decoration-none shadow-none btn" name="<%=followers.length%>">
+        <div class="col"><button id="FollowersList" class="text-decoration-none shadow-none btn lexy"
+            name="<%=followers.length%>">
             <%=followers.length%> Followers
           </button></div>
-        <div class="col"><button id="FollowingList" class="text-decoration-none shadow-none btn" name="<%=following.length%>">
+        <div class="col"><button id="FollowingList" class="text-decoration-none shadow-none btn lexy"
+            name="<%=following.length%>">
             <%=following.length%> Following
           </button></div>
         <!--  <div class="col"><button id="Shares" class="text-decoration-none btn">0 Shares</button></div>-->
@@ -132,8 +136,9 @@
           <button class="answerBtn"><i class="far fa-edit">Answer</i></button>
           <div class="answerDiv mt-4">
             <div class="col p-3 d-flex align-items-center" id="writerDiv">
-              <i class="fas fa-user-circle fa-2x"></i>
-              <span id="writer">Ankit Bajpai</span>
+              <!-- <i class="fas fa-user-circle fa-2x"></i> -->
+              <img src="/image/<%=myUser._id%>" id="profilePic" class="dp rounded-circle" alt="dp">
+              <span id="writer" class="getname" name="<%=myUser._id%>">undefine</span>
             </div>
             <div class="p-1" id="textDec">
               <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
@@ -156,10 +161,10 @@
       <%answer.forEach(function(se){%>
         <div class="answerer">
           <div class="profile">
-            <!-- <img src="/image/<%=se.userId%>" alt="profile photo" class="dp"> -->
-            <i class="dpIcon fas fa-user-circle fa-2x"></i>
-            <h6 class="fw-bold getname" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
-            <p class="gettime mt-2" name="<%=se.time%>">undefine</p>
+            <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
+            <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
+            <h6 class="fw-bold getname mt-2" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
+            <p class="gettime mt-3" name="<%=se.time%>">undefine</p>
           </div>
           <p id="ques">
             <%=se.ques%>
@@ -190,7 +195,9 @@
                       <img src="/image/<%=se._id%>" alt="profile photo" class="dp">
                       <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
                       <h6 class="fw-bold mt-2">
-                        <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
+                        <a href="/profile/<%=se._id%>" class="text-dark">
+                          <%=se.detail.FullName%>
+                        </a>
                       </h6>
                       <%if(x){%>
                         <button class="followBtn <%=se._id%>" name="<%=se._id%>">UnFollow</button>
@@ -217,7 +224,9 @@
                       <img src="/image/<%=se._id%>" alt="profile photo" class="dp">
                       <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
                       <h6 class="fw-bold mt-2">
-                        <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
+                        <a href="/profile/<%=se._id%>" class="text-dark">
+                          <%=se.detail.FullName%>
+                        </a>
                       </h6>
                       <%if(x){%>
                         <button class="followBtn <%=se._id%>" name="<%=se._id%>">UnFollow</button>

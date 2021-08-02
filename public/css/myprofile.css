@@ -21,11 +21,14 @@ html, body{
     transition: 0.3s;
   }
   #camera{
-    /* display: none; */
+    display: none;
+    background-color: black;
+    padding:0.7rem;
     position: absolute;
-    top: 9%;
-    left: 47%;
+    top: 7%;
+    left: 42%;
     z-index:3;
+    border-radius: 50%;
   }
   #close{
     display:none;
@@ -121,6 +124,7 @@ html, body{
     height: 2.5rem;
     width: 2.5rem;
     cursor: pointer;
+    border-radius: 50%;
     /* filter: invert(40%); */
   }
   #profilePic:hover{
@@ -174,7 +178,8 @@ html, body{
     max-width: 52rem;
     /* min-width: max-content; */
     padding: 0.5rem;
-    box-shadow: 2px 2px 9px -3px #888888;
+    background-color: #9e9d987a;
+    /* box-shadow: 2px 2px 9px -3px #888888; */
     /* transition: 0.5s; */
   }
   .content form{
@@ -205,6 +210,8 @@ html, body{
     width: 25rem;
     padding: 0.4rem 1rem;
     font-size: 1rem;
+    border: none;
+    outline: none;
   }
   .content button{
     height: 3rem;
@@ -219,27 +226,6 @@ html, body{
     cursor:pointer;
   }
 
-  .table-2 {
-    display: none;
-    border-collapse: collapse;
-}
-/* #pinChange{
-  display: block;
-} */
-.table-2 td {
-    padding-top: 1em;
-    padding-bottom: 1.3em;
-}
-.clickedPinChangeBtn{
-    display:block;
-}
-#moreInfo h1{
-    color:rgb(92, 39, 39);
-    margin-top:1rem;
-}
-#moreInfoTable{
-    height:20rem;
-}
 
 /* profileNav */
 #profileNav{
@@ -377,9 +363,6 @@ html, body{
   position: relative;
   z-index:1;
 }
-.dpIcon{
-  margin-right: 0.7rem;
-}
 .dp{
     height: 2.5rem;
     width: 2.5rem;
@@ -387,6 +370,12 @@ html, body{
     border-radius: 50%;
     filter: brightness(100%);
     background: rgb(44, 44, 44);
+}
+.following h6 a{
+  text-decoration: none;
+}
+.following h6 a:hover{
+  text-decoration: underline;
 }
 .followBtn{
   align-content: flex-end;

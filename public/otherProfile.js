@@ -1,9 +1,9 @@
 console.log('otherProfile.js included');
-window.addEventListener( "pageshow", function ( event ) {
+window.addEventListener("pageshow", function (event) {
   var historyTraversal = event.persisted ||
-                         ( typeof window.performance != "undefined" &&
-                              window.performance.navigation.type === 2 );
-  if ( historyTraversal ) {
+    (typeof window.performance != "undefined" &&
+      window.performance.navigation.type === 2);
+  if (historyTraversal) {
     // Handle page restore.
     window.location.reload();
   }
@@ -11,14 +11,14 @@ window.addEventListener( "pageshow", function ( event ) {
 
 // FOR MOBILE NAVIGATION MENU
 
-let openSide=document.getElementById('openSide');
-let sidebar=document.querySelector('.sidebar');
-openSide.onclick=()=>{
+let openSide = document.getElementById('openSide');
+let sidebar = document.querySelector('.sidebar');
+openSide.onclick = () => {
   // sidebar.classList.toggle('openSidebar');
-  sidebar.style.width='28%';
+  sidebar.style.width = '28%';
 }
-document.getElementById('myContent').onclick=()=>{
-  sidebar.style.width='';
+document.getElementById('myContent').onclick = () => {
+  sidebar.style.width = '';
 }
 
 // PROFILENAV
@@ -29,15 +29,6 @@ btn.forEach((ele, index) => {
   ele.addEventListener("click", () => {
     slide.style.display = 'block';
     slide.style.left = 100 / btn.length * index + "%";
-
-    // for (let i = 0; i < btn.length; i++) {
-    //   btn[i].onclick = () => {
-    //     btn[i].style.color = 'red';
-    //   }
-    //   btn[i].onmouseout = () => {
-    //     btn[i].style.color = '';
-    //   }
-    // }
   });
 });
 
@@ -52,20 +43,20 @@ for (let i = 0; i < answerBtn.length; i++) {
   }
 }
 
-$('.postBtn').on('click',function(){
-let data = {
-  question: $(this).attr('name'),
-  answer: $('textarea.'+$(this).attr('name')).val()
-};
-data  = JSON.stringify(data);
-// console.log(data);
-$.post('/answered',{data: data});
-let dtu = $('p.fs-6.'+$(this).attr('name')).html();
-$('p.fs-6.'+$(this).attr('name')).html(parseInt(dtu[0])+1+' Answers');
+$('.postBtn').on('click', function () {
+  let data = {
+    question: $(this).attr('name'),
+    answer: $('textarea.' + $(this).attr('name')).val()
+  };
+  data = JSON.stringify(data);
+  // console.log(data);
+  $.post('/answered', { data: data });
+  let dtu = $('p.fs-6.' + $(this).attr('name')).html();
+  $('p.fs-6.' + $(this).attr('name')).html(parseInt(dtu[0]) + 1 + ' Answers');
 });
 
 let bold = document.getElementById('bold');
-if(bold){
+if (bold) {
   bold.onclick = () => {
     console.log('bold click');
     bold.classList.toggle('boldActive');
@@ -82,7 +73,7 @@ if(bold){
 }
 
 let italic = document.getElementById('italic')
-if(italic){
+if (italic) {
   italic.onclick = () => {
     console.log('italic click');
     italic.classList.toggle('italicActive');
@@ -97,57 +88,61 @@ if(italic){
   }
 
 }
-$(document).ready(function(){
-  $(".list-tab button").on("click", function(){
+$(document).ready(function () {
+  $(".list-tab button").on("click", function () {
     $(".list-hide").css("display", "none");
-    tab = $(this).attr("id");
-    $("."+tab).css("display", "block");
+    $(".lexy").css("color", "black");
+    var tab = $(this).attr("id");
+    $("." + tab).css("display", "block");
+    $("button#" + tab).css("color", "red");
+    // $(".list-tab button").css("color", "red");
   });
 });
+
 let name = document.getElementsByClassName('getname');
-let q=0;
-if(name){
-  for( i=0; i<name.length; i++){
-      let namexd = $(name[i]).attr('name');
-      $.post('/getname', { data: namexd },function(data){
-        handledata(data);
-      });
+let q = 0;
+if (name) {
+  for (i = 0; i < name.length; i++) {
+    let namexd = $(name[i]).attr('name');
+    $.post('/getname', { data: namexd }, function (data) {
+      handleUser(data);
+    });
   }
 }
-function handledata(data){
+function handleUser(data) {
   $(name[q]).html(data.ok);
   q++;
 };
 
-$('.followBtn').on('click',function(){
+$('.followBtn').on('click', function () {
   let tt = $(this).html();
-  let xt  = $(this).attr('name');
+  let xt = $(this).attr('name');
   console.log(tt);
-  if(tt=="UnFollow"){
-    $.post("/follow",{data:xt});
-    if($('#follow').hasClass(xt)){
-      $('.following.'+$('#userId').attr('name')).remove();
+  if (tt == "UnFollow") {
+    $.post("/follow", { data: xt });
+    if ($('#follow').hasClass(xt)) {
+      $('.following.' + $('#userId').attr('name')).remove();
       let inou = $('#FollowersList').attr('name');
-      inou  = parseInt(inou);
+      inou = parseInt(inou);
       console.log(inou);
       inou--;
-      $('#FollowersList').html(inou+" Following");
+      $('#FollowersList').html(inou + " Following");
     }
-    $('button.followBtn.'+xt).html('Follow');
-  }else{
-    if($('#follow').hasClass(xt)){
-      $.post("/follow",{data:xt});
-      $.post("/follow",{data: $('#userId').attr('name')}, function(data){
+    $('button.followBtn.' + xt).html('Follow');
+  } else {
+    if ($('#follow').hasClass(xt)) {
+      $.post("/follow", { data: xt });
+      $.post("/follow", { data: $('#userId').attr('name') }, function (data) {
         handledata(data.ok);
       });
       let inou = $('#FollowersList').attr('name');
-      inou  = parseInt(inou);
+      inou = parseInt(inou);
       inou++;
-      $('#FollowersList').html(inou+" Following");
-      $('button.followBtn.'+xt).html('UnFollow');
-    }else{
-      $.post("/follow",{data:xt});
-      $('button.followBtn.'+xt).html('UnFollow');
+      $('#FollowersList').html(inou + " Following");
+      $('button.followBtn.' + xt).html('UnFollow');
+    } else {
+      $.post("/follow", { data: xt });
+      $('button.followBtn.' + xt).html('UnFollow');
     }
   }
 });
@@ -170,7 +165,7 @@ function handledatatime(data) {
   t++;
 };
 
-function handledata(data){
+function handledata(data) {
   console.log(data);
-  $('.FollowersList').append('<hr class=" '+data._id+' following"/><div class="following col d-flex align-items-center '+data._id+'"><img src="/image/'+data._id+'" alt="profile photo" class="dp" style="border-radius: 50%; height: 40px; width: 40px"><h6 class="fw-bold">'+data.detail.FullName+'</h6><button class="followBtn '+data._id+' name="'+data._id+'">UnFollow</button></div><hr class="'+data._id+' following"/>');
+  $('.FollowersList').append('<hr class=" ' + data._id + ' following"/><div class="following col d-flex align-items-center ' + data._id + '"><img src="/image/' + data._id + '" alt="profile photo" class="dp" style="border-radius: 50%; height: 40px; width: 40px"><h6 class="fw-bold">' + data.detail.FullName + '</h6><button class="followBtn ' + data._id + ' name="' + data._id + '">UnFollow</button></div><hr class="' + data._id + ' following"/>');
 }

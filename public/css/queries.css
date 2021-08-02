@@ -19,7 +19,8 @@
 .quesDiv{
     /* border:2px solid rgb(97, 42, 97); */
     background-color: rgb(231, 231, 231);
-    height: 2rem;
+    /* height: 2rem; */
+    height: auto;
     width: 50rem;
     padding: 1rem;
     /* margin-bottom: -1.6rem; */

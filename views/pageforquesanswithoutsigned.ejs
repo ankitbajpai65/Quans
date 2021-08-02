@@ -52,7 +52,8 @@
             <%=test.ans%>
           </p>
           <i class="fas fa-thumbs-up fa-lg ansIcons quesIconslike like" id="<%=test._id%>" alt="<%=test._id%>"></i>
-          <i class="fas fa-thumbs-down fa-lg quesIcons quesIconslike dislike" id="<%=test._id%>" alt="<%=test._id%>"></i>
+          <i class="fas fa-thumbs-down fa-lg quesIcons quesIconslike dislike" id="<%=test._id%>"
+            alt="<%=test._id%>"></i>
           <!-- <img src="../images/like.png" id="<%=test._id%>" alt="<%=test._id%>" class=" ansIcons quesIconslike like"> -->
           <!-- <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>"
             class="ansIcons quesIconslike dislike"> -->
@@ -63,13 +64,10 @@
   </section>
   </div>
   <script>
-    $('#allAnswer').on('click', function () {
-      $('.answerer').toggleClass('showAns')// console.log();
-    });
     $('.quesIconslike').on('click', function () {
       alert("you are not logged in");
-
     });
+
     const monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
@@ -88,4 +86,18 @@
       $(time[t]).html(data.ok.totaltime.date + "/" + monthNames[data.ok.totaltime.month] + "/" + data.ok.totaltime.year);
       t++;
     };
+
+    document.getElementById('allAnswer').onclick = () => {
+      let ans = document.getElementsByClassName('answerer');
+      for (let i = 0; i < ans.length; i++) {
+        ans[i].classList.toggle("showAns");
+        if (ans[i].classList.contains('showAns')) {
+          document.getElementById('allAnswer').style.color = '#5B6EFD';
+          scrollTo(0, 500);
+        }
+        else {
+          document.getElementById('allAnswer').style.color = '';
+        }
+      }
+    }
   </script>

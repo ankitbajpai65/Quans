@@ -4,7 +4,8 @@
     font-family: 'Saira', sans-serif;
 }
 #searchNav{
-    background-color: rgb(238, 238, 238);
+    /* background-color: rgb(238, 238, 238); */
+    background-color: rgb(185 250 190);
     display: block;
     margin: auto;
     /* height: 2rem; */
@@ -12,26 +13,44 @@
     /* width:9rem; */
     padding:0.6rem;
     margin-top:2rem;
-    margin-bottom:2rem;
     width: max-content;
 }
 #searchNav ul{
     display: flex;
+    /* justify-content: space-around; */
 }
 #searchNav ul li{
     list-style: none;
+    /* margin: 0rem 0.5rem; */
 }
-#userBtn,#quesBtn{
+#userBtn{
     background-color: transparent;
     border: none;
     font-size: 1rem;
-    color:blue;
+    cursor: pointer;
+    color:red;
+    text-decoration: underline;
 }
-
+#quesBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.profileIcon{
+    height:2.6rem;
+    width:2.6rem;
+    border-radius: 50%;
+    background-color:rgb(10, 10, 10);
+}
+.profileIcon:hover{
+    background-color:rgb(190, 187, 187);
+}
 #userDiv{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
     /* display: block;
     margin:auto; */
 }
@@ -42,7 +61,7 @@
     border-top:2px solid rgb(226, 226, 226);
     border-bottom:2px solid rgb(226, 226, 226);
     width:47rem;
-    padding: 0.7rem 1rem;
+    padding: 0.6rem 1rem;
     display: flex;
     position:relative;
     align-items: center;
@@ -50,8 +69,12 @@
 #user:hover{
     background-color: rgb(240, 240, 240);
  }
-#user h3{
+#user h4{
     margin-left: 0.7rem;
+    color: black;
+}
+#user a{
+    text-decoration: none;
 }
 #flwBtn{
     position:absolute;
@@ -67,6 +90,9 @@
 }
 #flwBtn:hover{
     background-color: #b1e0ff;
+}
+.quesBlock{
+    display: none;
 }
 
 /* MEDIA QUERY */

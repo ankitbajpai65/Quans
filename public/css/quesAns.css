@@ -47,7 +47,12 @@ body{
     /* padding: 0.4rem 1.6rem; */
     color:white;
 }
-
+#alertMes{
+    height: 3.5rem;
+    padding: 0rem 0rem 0.8rem 2rem;
+    margin-top: -1rem;
+    background-color: rgb(153, 247, 130);
+}
 /* #quesAnsSec{ */
     /* border:2px solid red; */
     /* min-height:100rem; */
@@ -168,6 +173,7 @@ body{
 .answerDiv{
     border: 1px solid rgb(194, 194, 194);
     width:60rem;
+    margin-bottom: 2rem;
     /* width:auto; */
     background-color: white;
   }

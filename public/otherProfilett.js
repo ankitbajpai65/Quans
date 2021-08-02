@@ -84,13 +84,16 @@ if(italic){
 
 }
 $(document).ready(function(){
-  $(".list-tab button").on("click", function(){
+  $(".list-tab button").on("click", function () {
     $(".list-hide").css("display", "none");
-    let tab = $(this).attr("id");
-    console.log(tab);
-    $("."+tab).css("display", "block");
+    $(".lexy").css("color", "black");
+    var tab = $(this).attr("id");
+    $("." + tab).css("display", "block");
+    $("button#" + tab).css("color", "red");
+    // $(".list-tab button").css("color", "red");
   });
 });
+
 let name = document.getElementsByClassName('getname');
 let q=0;
 if(name){

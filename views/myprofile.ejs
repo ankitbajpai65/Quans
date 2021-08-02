@@ -47,7 +47,7 @@
     </nav>
     <section id="myContent" onclick="closeNav()">
         <div class="content">
-            <a href="#" class="text-reset"><span id="editSpan"><i class="fas fa-pen fa-2x fa-center"></i></span></a>
+            <a href="#" class="text-reset" id="editBtn"><span id="editSpan"><i class="fas fa-pen fa-2x fa-center"></i></span></a>
             <form>
                 <table>
                     <tr>
@@ -72,7 +72,7 @@
         <div class="text-center" id="profileNav">
             <hr />
             <div class="row list-tab">
-                <div class="col"><button id="QuestionList" class="text-decoration-none lexy shadow-none btn" name="<%=question.length%>">
+                <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn lexy" name="<%=question.length%>">
                         <%=question.length%> Questions
                     </button></div>
                 <%var d=0%>
@@ -125,10 +125,10 @@
             <%answer.forEach(function(se){%>
                 <div class="answerer">
                     <div class="profile">
-                        <!-- <img src="/image/<%=se.userId%>" alt="profile photo" class="dp"> -->
-                        <i class="dpIcon fas fa-user-circle fa-2x"></i>
-                        <h6 class="fw-bold getname" name="<%=se.userId%>"></h6>&nbsp;&nbsp;
-                        <p class="gettime mt-2" name="<%=se.time%>"></p>
+                        <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
+                        <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
+                        <h6 class="fw-bold getname mt-2" name="<%=se.userId%>"></h6>&nbsp;&nbsp;
+                        <p class="gettime mt-3" name="<%=se.time%>"></p>
                     </div>
                     <h6 id="ques">
                         <%=se.ques%>
@@ -156,11 +156,11 @@
                                     <%});%>
 
                                         <div class="following col d-flex align-items-center ttfollowed <%=se._id%>">
-                                            <i class="dpIcon fas fa-user-circle fa-2x"></i>
-                                            <h6 class="fw-bold">
-                                                <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
-                                            </h6>
-                                            <%if(x){%>
+                                            <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
+                                            <img src="/image/<%=se._id%>" alt="profile photo" class="dp">
+                                            <h6 class="fw-bold mt-2">
+                                                <a href="/profile/<%=se._id%>" class="text-dark"><%=se.detail.FullName%></a>
+                                            </h6>                                            <%if(x){%>
                                                 <button class="followBtn followed <%=se._id%>"
                                                     name="<%=se._id%>">UnFollow</button>
                                                 <%}else{%>
@@ -178,9 +178,10 @@
             <%following.forEach(function(se){%>
                 <hr class="hr <%=se._id%>" />
                 <div class="following col d-flex align-items-center ttfollow <%=se._id%>">
-                    <i class="dpIcon fas fa-user-circle fa-2x"></i>
-                    <h6 class="fw-bold">
-                        <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
+                    <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
+                    <img src="/image/<%=se._id%>" alt="profile photo" class="dp">
+                    <h6 class="fw-bold mt-2">
+                        <a href="/profile/<%=se._id%>" class="text-dark"><%=se.detail.FullName%></a>
                     </h6>
                     <button class="followBtn befollowed <%=se._id%>" name="<%=se._id%>">UnFollow</button>
                 </div>

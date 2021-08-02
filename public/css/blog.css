@@ -201,17 +201,24 @@ body{
     z-index: 2;
     box-shadow: 2px 2px 9px -3px #888888;
 }
+#infoDiv{
+    border-top:4px solid #FFAC31;
+}
 #infoSec ul{
     list-style: none;
-    padding: 1rem;
+    padding-top: 1rem;
 }
 #infoSec ul li{
-    padding: 0.5rem 0rem;
+    padding: 0.6rem 1rem;
     display: flex;
+}
+#infoSec ul li:hover{
+    background-color: #dddada;
 }
 #infoSec ul li a{
     text-decoration: none;
     font-size: 1rem;
+    color: black;
 }
 #infoList img{
     height:1.2rem;
@@ -230,6 +237,9 @@ body{
 /* Login Section  */
 
   /* The popup form - hidden by default */
+  /* #loginSec{
+      margin: auto;
+  } */
   .form-popup {
     /* border: 3px solid #ff3131; */
     display: none;
@@ -237,6 +247,7 @@ body{
     position: fixed;
     top: 4rem;
     right: 30rem;
+    margin: auto;
     z-index: 2;
     opacity:1;
   }
@@ -289,6 +300,7 @@ body{
       display: inline-block;
       height: 0.6rem;
       width: 0.6rem;
+      padding:0.7rem;
       position: absolute;
       top: 1rem;
       right: 1.5rem;
@@ -299,9 +311,19 @@ body{
       background-repeat: no-repeat;
       cursor:pointer;
   }
-  /* .cancelPop:hover{
-    transform: rotate(270deg);
-  } */
+  .cancelPop:hover,#remove-othersPop:hover{
+    animation: rotate 1s ease-in;
+    background-color: #e9e9e9;
+    border-radius: 50%;
+  }
+  @keyframes rotate {
+      0%{
+          transform: rotate(0deg);
+      }
+      100%{
+          transform: rotate(180deg);
+      }
+  }
   #formText{
       /* border:2px solid red; */
       text-decoration: none;
@@ -388,21 +410,23 @@ body{
 /* Ques Section */
 #quesSec{
      /* border:2px solid red; */
-     height: 15rem;
+     height: 21rem;
      width: 35rem;
      display: none;
      position: fixed;
      background-color: white;
      box-shadow: 5px 5px 8px rgb(201, 199, 199), -5px -5px 8px rgb(201, 199, 199);
-     top: 14rem;
-     right: 30rem;
+     border-radius: 1rem;
+     top: 11rem;
+     left:29%;
+     /* right: 30rem; */
      z-index: 2;
      opacity:1;
 }
 #quesDiv{
     /* border:2px solid red; */
-    height:13rem;
-    margin: 1rem;
+    height:16rem;
+    margin: 3rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -423,7 +447,7 @@ body{
 }
 #quesDiv button{
     padding: 1rem;
-    margin: 1rem;
+    margin: 2rem 1rem;
     width: 32rem;
     background-color: rgb(34, 216, 34);
     border: none;

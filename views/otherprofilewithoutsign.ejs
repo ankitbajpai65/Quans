@@ -79,16 +79,16 @@
     <div class="text-center" id="profileNav">
       <hr />
       <div class="row list-tab">
-        <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn">
+        <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn lexy">
             <%=question.length%> Questions
           </button></div>
-        <div class="col"><button id="AnswerList" class="text-decoration-none shadow-none btn">
+        <div class="col"><button id="AnswerList" class="text-decoration-none shadow-none btn lexy">
             <%=answer.length%> Answers
           </button></div>
-        <div class="col"><button id="FollowersList" class="text-decoration-none shadow-none btn">
+        <div class="col"><button id="FollowersList" class="text-decoration-none shadow-none btn lexy">
             <%=followers.length%> Followers
           </button></div>
-        <div class="col"><button id="FollowingList" class="text-decoration-none shadow-none btn">
+        <div class="col"><button id="FollowingList" class="text-decoration-none shadow-none btn lexy">
             <%=following.length%> Following
           </button></div>
         <!--  <div class="col"><button id="Shares" class="text-decoration-none btn">0 Shares</button></div>-->
@@ -119,8 +119,8 @@
         <div class="answerer">
           <div class="profile">
             <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
-            <h6 class="fw-bold getname" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
-            <p class="gettime mt-2" name="<%=se.time%>">undefine</p>
+            <h6 class="fw-bold getname mt-2" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
+            <p class="gettime mt-3" name="<%=se.time%>">undefine</p>
           </div>
           <p id="ques">
             <%=se.ques%>
@@ -141,9 +141,10 @@
       <%followers.forEach(function(se){%>
         <hr />
         <div class="following col d-flex align-items-center">
-          <i class="dpIcon fas fa-user-circle fa-2x"></i>
+          <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
+          <img src="/image/<%=se._id%>" alt="profile photo" class="dp">
           <h6 class="fw-bold mt-2">
-            <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
+            <a href="/profile/<%=se._id%>" class="text-dark"><%=se.detail.FullName%></a>
           </h6>
         </div>
         <hr />
@@ -156,9 +157,10 @@
       <%following.forEach(function(se){%>
         <hr />
         <div class="following col d-flex align-items-center">
-          <i class="dpIcon fas fa-user-circle fa-2x"></i>
+          <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
+          <img src="/image/<%=se._id%>" alt="profile photo" class="dp">
           <h6 class="fw-bold mt-2">
-            <a href="/profile/<%=se._id%>"><%=se.detail.FullName%></a>
+            <a href="/profile/<%=se._id%>" class="text-dark"><%=se.detail.FullName%></a>
           </h6>
         </div>
         <hr />

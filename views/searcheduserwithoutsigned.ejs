@@ -7,7 +7,7 @@
     </ul>
   </nav>
 
-  <div class="userBtn xt" style="display: none">
+  <div class="userBtn xt">
     <%if(user.length===0){%>
       <section>
         <div id="userDiv">
@@ -23,11 +23,12 @@
             <% user.forEach(function(se){%>
               <div id="user">
                 <hr />
-                <i class="fas fa-user-circle fa-2x"></i>
+                <!-- <i class="fas fa-user-circle fa-2x"></i> -->
+                <img src="/image/<%=se._id%>" alt="profile photo" class="profileIcon">
                 <a href="/profile/<%=se._id%>">
-                  <h3>
+                  <h4>
                     <%=se.detail.FullName%>
-                  </h3>
+                  </h4>
                 </a>
                 <hr />
               </div>
@@ -39,7 +40,7 @@
   </div>
 
 
-  <div class="quesBtn xt" style="display: none">
+  <div class="quesBlock xt">
     <%if(questions.length===0){%>
       <section id="querySec">
         <div id="queryDiv">

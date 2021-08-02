@@ -21,6 +21,7 @@ document.getElementById('allAnswer').onclick = () => {
   }
 }
 
+
 // let queslike=document.getElementById("queslike");
 // queslike.onclick=()=>{
 //   console.log('like click');
@@ -71,8 +72,6 @@ for (let i = 0; i < ansIconsdislike.length; i++) {
     saveDetailDislike($(ansIconsdislike[i]).attr("id"));
   }
 }
-
-
 
 function saveDetailLike(data) {
   var id = data;
