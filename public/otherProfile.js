@@ -22,13 +22,13 @@ document.getElementById('myContent').onclick = () => {
 }
 
 // PROFILENAV
-
 let btn = document.querySelectorAll('.btn');
 let slide = document.querySelector('.slide');
+let x=25;
 btn.forEach((ele, index) => {
   ele.addEventListener("click", () => {
     slide.style.display = 'block';
-    slide.style.left = 100 / btn.length * index + "%";
+    slide.style.left = (25 * index)  + "%";
   });
 });
 

@@ -48,25 +48,26 @@
     <section id="myContent" onclick="closeNav()">
         <div class="content">
             <a href="#" class="text-reset" id="editBtn"><span id="editSpan"><i class="fas fa-pen fa-2x fa-center"></i></span></a>
-            <form>
+            <form action="/addmoredetails" method="post">
                 <table>
                     <tr>
-                        <td><label class="firstLabel">First name</label></td>
+                        <td><label class="firstLabel" >First name</label></td>
                         <td><input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput"
-                                readonly="readonly"></td>
+                                readonly="readonly" name="FName"></td>
                     </tr>
                     <tr>
-                        <td><label class="firstLabel">Last name</label></td>
+                        <td><label class="firstLabel" >Last name</label></td>
                         <td><input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>"
-                                readonly="readonly"></td>
+                            name="LName"    readonly="readonly"></td>
                     </tr>
                     <tr>
-                        <td><label class="firstLabel">Email</label></td>
-                        <td><input type="email" id="mail" class="myInput" value="<%=user.username%>"
+                        <td><label class="firstLabel" >Email</label></td>
+                        <td><input type="email" id="mail" name="username" class="myInput" value="<%=user.username%>"
                                 readonly="readonly">
                         </td>
                     </tr>
                 </table>
+                <button type="submit" id="editmake" style="display: none;">submit</b>
             </form>
         </div>
         <div class="text-center" id="profileNav">

@@ -166,6 +166,7 @@ document.getElementById('editSpan').onclick = function() {
   alert('Now, you can your info...');
   document.getElementById('FName').readOnly = false;
   document.getElementById('LName').readOnly = false;
+  $('#editmake').css('display','block');
 };
 
 // let edit = document.getElementById('editSpan');

@@ -387,10 +387,11 @@ app.post("/login", function(req, res) {
         res.render("forallfailures",{heading: "Something went wrong", message: "Try again"});
     } else{
       req.login(user, function(err){
-          const token =  jwt.sign({userId : user._id,
-             username:user.username}, secretkey,
-                {expiresIn: '24h'})
-                res.redirect("/");
+          // const token =  jwt.sign({userId : user._id,
+          //    username:user.username}, secretkey,
+          //       {expiresIn: '24h'})
+          //       res.redirect("/");
+          res.redirect('/');
       });
     }
       })(req, res);
@@ -533,38 +534,23 @@ app.post("/changePassword", function (req, res) {
 
 
 
-app.post("/addmoredetails", function (req, res) {
-  let data = JSON.parse(req.body.data);
-  User.findById(req.user._id, function (err, user) {
-    if (data.FName) {
-      user.detail.FName = data.FName;
-      user.detail.FullName = data.FName + " " + user.detail.LName;
+app.post("/addmoredetails", async function (req, res) {
+
+  await User.findById(req.user._id, async function (err, user) {
+    if (req.body.FName) {
+      user.detail.FName = req.body.FName;
+      user.detail.FullName = req.body.FName + " " + user.detail.LName;
     }
-    if (data.LName) {
-      user.detail.LName = data.LName;
-      user.detail.FullName = user.detail.FName + " " + data.LName;
+    if (req.body.LName) {
+      user.detail.LName = req.body.LName;
+      user.detail.FullName = user.detail.FName + " " + req.body.LName;
     }
-    if (data.LName && data.FName) {
-      user.detail.FullName = data.FName + " " + data.LName;
+    if (req.body.LName && req.body.FName) {
+      user.detail.FullName = req.body.FName + " " + req.body.LName;
     }
-    if (data.Description) {
-      user.detail.Description = data.Description;
-    }
-    if (data.Education) {
-      user.detail.Education = data.Education;
-    }
-    if (data.City) {
-      user.detail.City = data.City;
-    }
-    if (data.State) {
-      user.detail.State = data.State;
-    }
-    user.save(function (err) {
-      if (err) {
-        console.log(err);
-      }
+     user.save().then(function(){
+      res.redirect('/profile/'+req.user._id);
     });
-    res.json({ ok: 1 });
   });
 });
 
@@ -789,24 +775,24 @@ app.post("/gettime", (req, res) => {
 });
 
 
-app.get("/profile/:id", function (req, res) {
-  User.findById(req.params.id, (err, result) => {
+app.get("/profile/:id", async function (req, res) {
+await  User.findById(req.params.id, async (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      User_question.find({ '_id': { $in: result.questions } }, (err, results) => {
+    await  User_question.find({ '_id': { $in: result.questions } }, async (err, results) => {
         if (err) {
           console.log(err);
         } else {
-          User_question.find({ 'answer.postedUser': req.params.id }).populate('answer').exec((err, answer) => {
+        await  User_question.find({ 'answer.postedUser': req.params.id }).populate('answer').exec(async (err, answer) => {
             if (err) {
               console.log(err);
             } else {
-              User.find({ '_id': { $in: result.followers } }).select('detail.FullName  time').exec((err, followers) => {
+            await  User.find({ '_id': { $in: result.followers } }).select('detail.FullName  time').exec(async (err, followers) => {
                 if (err) {
                   console.log(err);
                 } else {
-                  User.find({ '_id': { $in: result.following } }).select('detail.FullName time').exec((err, following) => {
+                await  User.find({ '_id': { $in: result.following } }).select('detail.FullName time').exec(async (err, following) => {
                     if (err) {
                       console.log(err);
                     } else {
@@ -815,7 +801,7 @@ app.get("/profile/:id", function (req, res) {
                           res.render("myprofile", { user: result, question: results, answer: answer, followers: followers, following: following });
 
                         } else {
-                          User.findById(req.user._id, function (err, myUser) {
+                    await      User.findById(req.user._id, async function (err, myUser) {
                             if (err) {
                               console.log(err);
                             } else if (result) {
