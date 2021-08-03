@@ -21,7 +21,7 @@ html, body{
     transition: 0.3s;
   }
   #camera{
-    display: none;
+    /* display: none; */
     background-color: black;
     padding:0.7rem;
     position: absolute;
@@ -173,7 +173,7 @@ html, body{
     margin-top: 1.5rem;
     margin-bottom: 3rem;
     /* margin-right: 3rem; */
-    height: 16.5rem;
+    height: 19.5rem;
     /* height: auto; */
     max-width: 52rem;
     /* min-width: max-content; */
@@ -187,6 +187,7 @@ html, body{
     height: 22rem;
     /* height: auto; */
     width: 46rem;
+    margin-top:2rem;
     /* width: auto; */
   }
   .content table{
@@ -200,30 +201,23 @@ html, body{
       font-size: 1.2rem;
       font-weight: 700;
   }
-  .secLabel{
-      margin-right:10.5rem;
-      margin-bottom:3rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-  }
-  .content input,select{
+  .content input{
     width: 25rem;
     padding: 0.4rem 1rem;
     font-size: 1rem;
     border: none;
     outline: none;
   }
-  .content button{
-    height: 3rem;
-    width: 10rem;
-    margin: 1.2rem 0rem;
-    margin-right:4rem;
-    background-color: rgb(37, 178, 221);
-    border:none;
-    border-radius: 0.7rem;
+  #editmake{
+    width:7rem;
+    background-color: #2E69FF;
+    border-radius: 2rem;
     font-size: 1rem;
-    color: white;
-    cursor:pointer;
+    display: block;
+    padding:0.5rem 0rem;
+    margin: auto;
+    border: none;
+    display: none;
   }
 
 
@@ -234,7 +228,7 @@ html, body{
   /* position:sticky;
    top:0; */
    position: relative;
-  z-index:2;
+  z-index:1;
 }
 .slide{
   display: none;
@@ -320,7 +314,6 @@ html, body{
   width: 52rem;
   margin-top: 0rem;
   z-index:1;
-
 }
 .profile{
   /* border:2px solid rgb(182, 35, 35); */
@@ -352,6 +345,9 @@ html, body{
   margin:0rem 1rem 1rem 2rem;
   cursor: pointer;
 }
+#ques{
+  color: #343d7d;
+}
 
 /* FOLLOWING ANS FOLLOWER PART HERE */
 
@@ -371,10 +367,10 @@ html, body{
     filter: brightness(100%);
     background: rgb(44, 44, 44);
 }
-.following h6 a{
+.following h6 a,.answerer a{
   text-decoration: none;
 }
-.following h6 a:hover{
+.following h6 a:hover,.answerer a:hover{
   text-decoration: underline;
 }
 .followBtn{
@@ -468,13 +464,12 @@ html, body{
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
+  #camera{
+    top:4%;
+  }
   #editSpan{
     display: none;
   }
-  /* .content table{ */
-    /* height:auto; */
-    /* height:40rem; */
-  /* } */
   .content form{
     padding:1rem;
     /* height:auto; */
@@ -567,10 +562,9 @@ html, body{
      width: auto;
     /* margin: auto; */
   } 
-  /* #profileNav{
-    width: 35rem;
-    margin:auto;
-  } */
+  #camera{
+    top:5%;
+  }
    #editSpan{
     display: none;
   }
@@ -627,7 +621,6 @@ html, body{
   .firstLabel{
     margin-right: 0;
   }
-  
   .content form table tr td{
     padding: 0.5rem 0.2rem;
     font-size: 1rem;
@@ -648,6 +641,9 @@ html, body{
   .answerer h5,h6,p{
     font-size:1.4rem;
     text-align: justify;
+  }
+  #editmake{
+    display: none;
   }
 }  
 @media only screen and (min-width: 605px) and (max-width: 768px) {
@@ -677,6 +673,10 @@ html, body{
     /* padding:2rem; */
     /* width:63rem; */
     width: auto;
+  }
+  #camera{
+    top:5%;
+    left:44%;
   }
   div.content{
      /*width:25rem; */
@@ -739,6 +739,9 @@ html, body{
   #myContent{
     margin-left:19rem;
   }
+  #camera{
+    top:4.5%;
+  }
   .questionDiv {
     width:auto;
     font-size:1.5rem;
@@ -771,6 +774,9 @@ html, body{
   div.content{
     margin-top: 3rem;
   }
+  #camera{
+    top:5%;
+  }
   .content form{
     height: max-content;
   }
@@ -802,6 +808,9 @@ html, body{
   #myContent{
     margin-left:23rem;
   }
+  #camera{
+    top:5%;
+  }
   #profileNav button,#links a{
     font-size:1.3rem;
   }
@@ -830,6 +839,9 @@ html, body{
   #myContent{
     margin-left:19rem;
   }
+  #camera{
+    top:6%;
+  }
   .answerDiv{
     /* width:auto; */
     font-size:1.1rem;
@@ -844,6 +856,9 @@ html, body{
 @media only screen and (min-width: 1110px) and (max-width: 1210px) {
   html{
     font-size:90%;
+  }
+  #camera{
+    top:6%;
   }
   .answerDiv{
     width:80%;

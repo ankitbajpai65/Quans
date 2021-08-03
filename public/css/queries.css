@@ -28,6 +28,7 @@
     border-radius:0.5rem;
     display: flex;
     align-items: center;
+    text-align: justify;
     animation:question 0.4s ease-in;
 }
 .quesDiv p{
@@ -71,6 +72,7 @@
     width: 35rem;
     font-size: 1.8rem;
     padding: 2.3rem 1rem;
+    /* text-align: justify; */
    }
 }
 @media only screen and (min-width: 450px) and (max-width: 600px) {
@@ -78,5 +80,6 @@
     width: 40rem;
     font-size: 1.6rem;
     padding: 2rem 1rem;
+    /* text-align: justify; */
    }
 }

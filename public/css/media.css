@@ -41,9 +41,14 @@
          display: block;
          margin: auto;
      }
-     #homecontent p,#about p,.homeBtn{
+     #homecontent p{
          font-size: 2rem;
          line-height: 2.7rem;
+         margin-bottom: 3rem;
+     }
+     #about p,.homeBtn{
+        font-size: 1.8rem;
+        line-height: 2.5rem;
      }
      #homeImg{
        display: none;
@@ -93,7 +98,7 @@
         margin-bottom: 0;
     }
     .card-text{
-        font-size: 1.8rem;
+        font-size: 1.6rem;
        line-height: 2.5rem;
     }
     #contactSec{
@@ -205,7 +210,7 @@
     }
     #about p,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
         line-height: 2.2rem;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     #about h1{
         display: none;
@@ -248,7 +253,7 @@
 
     /* for query page */
     .quesDiv{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         padding: 2rem 1rem;
        }
 
@@ -309,7 +314,7 @@
          margin:0rem 2.1rem;
      }
      .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
-         font-size: 1.6rem;
+         font-size: 1.5rem;
      }
      #title {
         font-size: 1.9rem;
@@ -340,7 +345,7 @@
      }
      #about p{
         font-size: 1.5rem;
-        line-height: 2rem;
+        line-height: 2.2rem;
      }
      .card{
          margin-top:2rem;
@@ -366,8 +371,9 @@
         font-size: 1.5rem;
      }
      .quesDiv{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         padding: 2rem 1rem;
+        /* text-align: justify; */
        }
 
        /* searchuser page */
@@ -447,7 +453,7 @@
         font-size: 1.4rem;
      }
     .quesDiv{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         padding: 2rem 1rem;
        }
 
@@ -501,7 +507,7 @@
         margin:0rem 2.1rem;
     }
     .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     #title {
        font-size: 1.9rem;
@@ -517,7 +523,7 @@
        font-size: 3rem;
    }
     #about p{
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         line-height: 2rem;
     }
     /* .card-text {
@@ -534,7 +540,7 @@
          width:9rem;
      }
      .quesDiv{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         padding: 1.8rem 1rem;
        }
 
@@ -588,7 +594,7 @@
         margin:0rem 2.7rem;
     }
     .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
     #title {
        font-size: 1.9rem;
@@ -600,7 +606,7 @@
        font-size: 3rem;
    }
     #about p{
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         line-height: 2rem;
     }
     .card-text {
@@ -608,9 +614,12 @@
         line-height: 1.2rem;
     }
     .quesDiv{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         padding: 1.4rem 1rem;
        }
+    #ques{
+        font-size:1.5rem;
+    }
      /* searchuser page */
     #searchNav li,#searchNav button{
         font-size: 1.3rem;
@@ -657,7 +666,7 @@
          font-size:90%;
      }
      .item{
-        margin:0rem 2rem;
+        margin:0rem 3rem;
     }
     .item a,.homeBtn,#contactDiv form input,#contactDiv form textarea, #contactDiv form button{
         font-size: 1.2rem;
@@ -681,7 +690,7 @@
         font-size: 1.1rem;
      }
      .quesDiv{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 1.2rem 1rem;
        }
 
@@ -715,9 +724,6 @@
      .dp{
         height:3rem;
         width: 3rem;
-    }
-    #ques{
-        font-size: 1.5rem;
     }
     #questioner h3,#writer,.answerer h3, .answerer p{
         font-size: 1rem;

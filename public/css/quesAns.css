@@ -123,6 +123,7 @@ body{
     /* border:2px solid rgb(17, 11, 11); */
     margin: 1rem 0rem;
     border-radius: 50%;
+    font-size: 1.5rem;
 }
 .profile h3{
     /* border:2px solid green; */

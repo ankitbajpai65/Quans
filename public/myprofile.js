@@ -13,14 +13,14 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 
 // FOR CHANGING PIC
-document.querySelector('.pic').onmouseenter=()=>{
-  console.log('mouse enter')
-  document.getElementById('camera').style.display='block';
-}
-document.querySelector('.pic').onmouseout=()=>{
-  console.log('mouse enter')
-  document.getElementById('camera').style.display='';
-}
+// document.querySelector('.pic').onmouseenter=()=>{
+//   console.log('mouse enter')
+//   document.getElementById('camera').style.display='block';
+// }
+// document.querySelector('.pic').onmouseout=()=>{
+//   console.log('mouse enter')
+//   document.getElementById('camera').style.display='';
+// }
 
 // FOR MOBILE NAVIGATION MENU
 
@@ -135,7 +135,8 @@ let slide = document.querySelector('.slide');
 btn.forEach((ele, index) => {
   ele.addEventListener("click", () => {
     slide.style.display = 'block';
-    slide.style.left = 100 / btn.length * index + "%";
+    slide.style.left = (25 * index)  + "%";
+    // slide.style.left = 80 / btn.length * index + "%";
   });
 });
 
@@ -163,10 +164,10 @@ btn.forEach((ele, index) => {
 
 document.getElementById('editSpan').onclick = function() {
   console.log('edit click')
-  alert('Now, you can your info...');
   document.getElementById('FName').readOnly = false;
   document.getElementById('LName').readOnly = false;
   $('#editmake').css('display','block');
+  $('#infoForm').css('marginTop','0rem');
 };
 
 // let edit = document.getElementById('editSpan');

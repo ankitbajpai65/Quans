@@ -163,11 +163,13 @@
           <div class="profile">
             <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
             <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
-            <h6 class="fw-bold getname mt-2" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
+            <a href="/profile/<%=se.userId%>" class="text-dark">
+              <h6 class="fw-bold getname mt-2" name="<%=se.userId%>"></h6>
+          </a>&nbsp;&nbsp;
             <p class="gettime mt-3" name="<%=se.time%>">undefine</p>
           </div>
-          <p id="ques">
-            <%=se.ques%>
+          <p id="ques" class="fw-bolder">
+            Q. <%=se.ques%>
           </p>
           <%se.answer.forEach(function(tt){%>
             <p>

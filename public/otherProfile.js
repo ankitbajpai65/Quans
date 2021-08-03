@@ -24,7 +24,7 @@ document.getElementById('myContent').onclick = () => {
 // PROFILENAV
 let btn = document.querySelectorAll('.btn');
 let slide = document.querySelector('.slide');
-let x=25;
+// let x=25;
 btn.forEach((ele, index) => {
   ele.addEventListener("click", () => {
     slide.style.display = 'block';
