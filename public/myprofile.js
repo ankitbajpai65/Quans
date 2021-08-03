@@ -247,13 +247,14 @@ var q = 0;
 if (name) {
   for (i = 0; i < name.length; i++) {
     var namexd = $(name[i]).attr('name');
-    $.post('/getname', { data: namexd }, function (data) {
-      handledata(data);
+    $.post('/getname', { data: namexd }, function (xdata) {
+      handledata(xdata);
     });
   }
 }
 function handledata(data) {
-  $(name[q]).html(data.ok);
+  console.log(data);
+  $('.getname.'+data.ok.id).html(data.ok.name);
   q++;
 };
 let time = document.getElementsByClassName('gettime');

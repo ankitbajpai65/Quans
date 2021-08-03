@@ -506,7 +506,11 @@ app.post("/getname", (req, res) => {
       console.log(err);
     } else {
       if (result) {
-        res.json({ ok: result.detail.FullName });
+        const nt = {
+          name: result.detail.FullName,
+          id: result._id
+        };
+        res.json({ ok: nt });
       } else {
         res.json({ ok: false });
       }

@@ -95,17 +95,18 @@ $(document).ready(function(){
 });
 
 let name = document.getElementsByClassName('getname');
-let q=0;
-if(name){
-  for( i=0; i<name.length; i++){
-      let namexd = $(name[i]).attr('name');
-      $.post('/getname', { data: namexd },function(data){
-        handledata(data);
-      });
+var q = 0;
+if (name) {
+  for (i = 0; i < name.length; i++) {
+    var namexd = $(name[i]).attr('name');
+    $.post('/getname', { data: namexd }, function (xdata) {
+      handledata1(xdata);
+    });
   }
 }
-function handledata(data){
-  $(name[q]).html(data.ok);
+function handledata1(data) {
+  // console.log(data);
+  $('.getname.'+data.ok.id).html(data.ok.name);
   q++;
 };
 const monthNames = ["January", "February", "March", "April", "May", "June",

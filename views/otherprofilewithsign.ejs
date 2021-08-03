@@ -94,6 +94,14 @@
       </form>
     </div>
 
+    <%var d=0%>
+    <%answer.forEach(function(se){%>
+        <%se.answer.forEach(function(tt){%>
+             <%if(tt.postedUser.toString() == user._id.toString()){%>
+                 <%d++;%>
+               <%}%>
+                <%});%>
+                    <%});%>
     <div class="text-center" id="profileNav">
       <hr />
       <div class="row list-tab">
@@ -103,7 +111,7 @@
           </button></div>
         <div class="col"><button id="AnswerList" class="text-decoration-none shadow-none btn lexy"
             name="<%=answer.length%>">
-            <%=answer.length%> Answers
+            <%=d%> Answers
           </button></div>
         <div class="col"><button id="FollowersList" class="text-decoration-none shadow-none btn lexy"
             name="<%=followers.length%>">
@@ -138,7 +146,7 @@
             <div class="col p-3 d-flex align-items-center" id="writerDiv">
               <!-- <i class="fas fa-user-circle fa-2x"></i> -->
               <img src="/image/<%=myUser._id%>" id="profilePic" class="dp rounded-circle" alt="dp">
-              <span id="writer" class="getname" name="<%=myUser._id%>">undefine</span>
+              <span id="writer" class="getname <%=myUser._id%>" name="<%=myUser._id%>">undefine</span>
             </div>
             <div class="p-1" id="textDec">
               <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
@@ -164,18 +172,21 @@
             <!-- <i class="dpIcon fas fa-user-circle fa-2x"></i> -->
             <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
             <a href="/profile/<%=se.userId%>" class="text-dark">
-              <h6 class="fw-bold getname mt-2" name="<%=se.userId%>"></h6>
+              <h6 class="fw-bold getname mt-2 <%=se.userId%>" name="<%=se.userId%>"></h6>
           </a>&nbsp;&nbsp;
             <p class="gettime mt-3" name="<%=se.time%>">undefine</p>
           </div>
           <p id="ques" class="fw-bolder">
             Q. <%=se.ques%>
           </p>
+
           <%se.answer.forEach(function(tt){%>
-            <p>
-              <%=tt.ans%>
-            </p>
-            <%});%>
+              <%if(tt.postedUser.toString()==user._id.toString()){%>
+                  <p>
+                      <%=tt.ans%>
+                  </p>
+                  <%}%>
+                      <%});%>
               <hr />
         </div>
         <%});%>

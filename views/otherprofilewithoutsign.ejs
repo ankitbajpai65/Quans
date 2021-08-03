@@ -76,14 +76,23 @@
 
       </form>
     </div>
-    <div class="text-center" id="profileNav">
+
+    <%var d=0%>
+    <%answer.forEach(function(se){%>
+        <%se.answer.forEach(function(tt){%>
+             <%if(tt.postedUser.toString() == user._id.toString()){%>
+                 <%d++;%>
+               <%}%>
+                <%});%>
+                    <%});%>
+                        <div class="text-center" id="profileNav">
       <hr />
       <div class="row list-tab">
         <div class="col"><button id="QuestionList" class="text-decoration-none shadow-none btn lexy">
             <%=question.length%> Questions
           </button></div>
         <div class="col"><button id="AnswerList" class="text-decoration-none shadow-none btn lexy">
-            <%=answer.length%> Answers
+            <%=d%> Answers
           </button></div>
         <div class="col"><button id="FollowersList" class="text-decoration-none shadow-none btn lexy">
             <%=followers.length%> Followers
@@ -119,7 +128,7 @@
         <div class="answerer">
           <div class="profile">
             <img src="/image/<%=se.userId%>" alt="profile photo" class="dp">
-            <h6 class="fw-bold getname mt-2" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
+            <h6 class="fw-bold getname mt-2 <%=se.userId%>" name="<%=se.userId%>">undefine</h6>&nbsp;&nbsp;
             <!-- <a href="/profile/<%=se.userId%>" class="text-dark">
               <h6 class="fw-bold getname mt-2" name="<%=se.userId%>"></h6>
           </a>&nbsp;&nbsp; -->
@@ -128,11 +137,14 @@
           <p id="ques" class="fw-bolder">
             Q. <%=se.ques%>
           </p>
+
           <%se.answer.forEach(function(tt){%>
-            <p>
-              <%=tt.ans%>
-            </p>
-            <%});%>
+              <%if(tt.postedUser.toString()==user._id.toString()){%>
+                  <p>
+                      <%=tt.ans%>
+                  </p>
+                  <%}%>
+                      <%});%>
               <hr />
         </div>
         <%});%>
