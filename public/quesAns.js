@@ -21,6 +21,15 @@ document.getElementById('allAnswer').onclick = () => {
   }
 }
 
+  function submitForm() {
+
+        document.getElementById("customForm").submit()
+    }
+
+    document.getElementById('btntosubmit').onclick = function() {
+            document.getElementById('alertMes').style.display='block';
+        setTimeout(submitForm, 2000);
+    }
 
 // let queslike=document.getElementById("queslike");
 // queslike.onclick=()=>{

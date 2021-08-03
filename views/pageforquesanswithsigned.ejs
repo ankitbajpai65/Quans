@@ -92,16 +92,16 @@
           <button class="btn" id="bold"><i class="fas fa-bold"></i></button>
           <button class="btn" id="italic"><i class="fas fa-italic"></i></button>
         </div>
-        <form action="/answer" method="post">
+        <form id="customForm" action="/answer" method="post">
           <input type="hidden" name="question" value="<%=iddd%>">
           <div class="input-group p-2" id="answerBox">
             <textarea name="answer" class="form-control outline-none shadow-none" id="answerBlock"
               placeholder="Write here..."></textarea>
           </div>
-          <div class="p-3" id="postbtnDiv">
-            <button type="submit" class="postBtn btn btn-primary rounded-pill" onclick="closeOthers">Post</button>
-          </div>
         </form>
+        <div class="p-3" id="postbtnDiv">
+          <button id="btntosubmit" class="postBtn btn btn-primary rounded-pill" onclick="delayed()">Post</button>
+        </div>
       </div>
       <%user.answer.forEach(function(test){%>
         <%var like=false, dislike=false%>
