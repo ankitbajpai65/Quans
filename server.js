@@ -20,6 +20,10 @@ const findOrCreate = require('mongoose-findorcreate');
 const prompt = require('prompt-sync')({ sigint: true });
 
 const app = express();
+var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
+
+// Don't redirect if the hostname is `localhost:port` or the route is `/insecure`
+app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/], 301));
 // app.use('/', routes);
 
 app.set("view engine", "ejs");
@@ -37,7 +41,9 @@ app.use(bodyParser.urlencoded({
 app.use(session({
   secret: "Our little secret.",
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  savehttpOnly: true,  // Don't let browser javascript access cookies.
+    secure: true, // Only use cookies over https
 }));
 
 app.use(passport.initialize());
@@ -1017,6 +1023,6 @@ app.get("/", function (req, res) {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+  port = 3001;
 }
 app.listen(port);
