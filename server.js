@@ -20,10 +20,6 @@ const findOrCreate = require('mongoose-findorcreate');
 const prompt = require('prompt-sync')({ sigint: true });
 
 const app = express();
-var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
-
-// Don't redirect if the hostname is `localhost:port` or the route is `/insecure`
-app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/], 301));
 // app.use('/', routes);
 
 app.set("view engine", "ejs");
