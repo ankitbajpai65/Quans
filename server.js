@@ -1015,6 +1015,8 @@ app.get("/", function (req, res) {
 
 
 
-app.listen(3001, function (req, res) {
-  console.log("up and running");
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
