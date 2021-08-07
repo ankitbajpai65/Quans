@@ -230,16 +230,15 @@ passport.deserializeUser(function (id, done) {
 passport.use(new GoogleStrategy({
   clientID: "127381979551-elbiv23larqi9m5tns5mccg8u53iksqk.apps.googleusercontent.com",
   clientSecret: "vYul7iD6YQpKIJ_vFSdNyqsZ",
-  callbackURL: "http://localhost:3001/auth/google/quora",
+  callbackURL: "https://gentle-plateau-64931.herokuapp.com/auth/google/quora",
   userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
   function (accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ username: profile.emails[0].value, googleId: profile.id }, function (err, user) {
-      user.detail.FName = profile.name.givenName;
-      user.detail.LName = profile.name.familyName;
-      user.detail.FullName = profile.name.givenName.toString() + " " + profile.name.familyName.toString();
-      var d = new Date();
       if (!user.time) {
+        user.detail.FName = profile.name.givenName;
+        user.detail.LName = profile.name.familyName;
+        user.detail.FullName = profile.name.givenName.toString() + " " + profile.name.familyName.toString();
         var d = new Date();
         const time = new usertime({
           day: d.getDay(),
