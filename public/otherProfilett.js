@@ -1,9 +1,9 @@
 console.log('otherProfile.js included');
-window.addEventListener( "pageshow", function ( event ) {
+window.addEventListener("pageshow", function (event) {
   var historyTraversal = event.persisted ||
-                         ( typeof window.performance != "undefined" &&
-                              window.performance.navigation.type === 2 );
-  if ( historyTraversal ) {
+    (typeof window.performance != "undefined" &&
+      window.performance.navigation.type === 2);
+  if (historyTraversal) {
     // Handle page restore.
     window.location.reload();
   }
@@ -11,14 +11,14 @@ window.addEventListener( "pageshow", function ( event ) {
 
 // FOR MOBILE NAVIGATION MENU
 
-let openSide=document.getElementById('openSide');
-let sidebar=document.querySelector('.sidebar');
-openSide.onclick=()=>{
+let openSide = document.getElementById('openSide');
+let sidebar = document.querySelector('.sidebar');
+openSide.onclick = () => {
   // sidebar.classList.toggle('openSidebar');
-  sidebar.style.width='28%';
+  sidebar.style.width = '28%';
 }
-document.getElementById('myContent').onclick=()=>{
-  sidebar.style.width='';
+document.getElementById('myContent').onclick = () => {
+  sidebar.style.width = '';
 }
 
 // PROFILENAV
@@ -51,7 +51,7 @@ for (let i = 0; i < answerBtn.length; i++) {
   }
 }
 let bold = document.getElementById('bold');
-if(bold){
+if (bold) {
   bold.onclick = () => {
     console.log('bold click');
     bold.classList.toggle('boldActive');
@@ -68,7 +68,7 @@ if(bold){
 }
 
 let italic = document.getElementById('italic')
-if(italic){
+if (italic) {
   italic.onclick = () => {
     console.log('italic click');
     italic.classList.toggle('italicActive');
@@ -83,7 +83,7 @@ if(italic){
   }
 
 }
-$(document).ready(function(){
+$(document).ready(function () {
   $(".list-tab button").on("click", function () {
     $(".list-hide").css("display", "none");
     $(".lexy").css("color", "black");
@@ -106,7 +106,7 @@ if (name) {
 }
 function handledata1(data) {
   // console.log(data);
-  $('.getname.'+data.ok.id).html(data.ok.name);
+  $('.getname.' + data.ok.id).html(data.ok.name);
   q++;
 };
 const monthNames = ["January", "February", "March", "April", "May", "June",

@@ -372,6 +372,7 @@ html, body{
 }
 .following h6 a:hover,.answerer a:hover{
   text-decoration: underline;
+  color:black;
 }
 .followBtn{
   align-content: flex-end;

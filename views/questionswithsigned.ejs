@@ -1,34 +1,34 @@
 <%- include('partials/HeaderForsigned')%>
-  <%if(user.length===0){%>
-    <section id="querySec">
-      <div id="queryDiv">
-        <div class="quesDiv">
-          <h1>No Questions are currently available</h1>
-        </div>
-      </div>
-    </section>
-
-    <%}else{%>
-      <section id="querySec">
-        <% user.forEach(function(se){%>
-          <div class="quesDiv">
-            <!-- <i class="fas fa-question-circle" id="quesIcon"></i> -->
-            <i class="far fa-question-circle" id="quesIcon"></i>
-            <a href="/question/<%=se._id%>">
-              <p>
-                <%=se.ques%>
-              </p>
-            </a>
-          </div>
-          <br>
-          <%});%>
+    <%if(user.length===0){%>
+        <section id="querySec">
+            <div id="queryDiv">
+                <div class="quesDiv">
+                    <h1>No Questions are currently available</h1>
+                </div>
             </div>
-      </section>
-      </div>
-      </section>
-      <%}%>
+        </section>
+
+        <%}else{%>
+            <section id="querySec">
+                <% user.forEach(function(se){%>
+                    <div class="quesDiv">
+                        <!-- <i class="fas fa-question-circle" id="quesIcon"></i> -->
+                        <i class="far fa-question-circle" id="quesIcon"></i>
+                        <a href="/question/<%=se._id%>">
+                            <p>
+                                <%=se.ques%>
+                            </p>
+                        </a>
+                    </div>
+                    <br>
+                    <%});%>
+                        </div>
+            </section>
+            </div>
+            </section>
+            <%}%>
 
 
 
 
-        <%- include('partials/Footerforsigned') %>
+                <%- include('partials/Footerforsigned') %>

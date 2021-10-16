@@ -24,14 +24,14 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 // FOR MOBILE NAVIGATION MENU
 
-let openSide=document.getElementById('openSide');
-let sidebar=document.querySelector('.sidebar');
-openSide.onclick=()=>{
+let openSide = document.getElementById('openSide');
+let sidebar = document.querySelector('.sidebar');
+openSide.onclick = () => {
   // sidebar.classList.toggle('openSidebar');
-  sidebar.style.width='28%';
+  sidebar.style.width = '28%';
 }
-document.getElementById('myContent').onclick=()=>{
-  sidebar.style.width='';
+document.getElementById('myContent').onclick = () => {
+  sidebar.style.width = '';
 }
 
 
@@ -135,7 +135,7 @@ let slide = document.querySelector('.slide');
 btn.forEach((ele, index) => {
   ele.addEventListener("click", () => {
     slide.style.display = 'block';
-    slide.style.left = (25 * index)  + "%";
+    slide.style.left = (25 * index) + "%";
     // slide.style.left = 80 / btn.length * index + "%";
   });
 });
@@ -159,15 +159,15 @@ btn.forEach((ele, index) => {
 //     }
 //   }
 
-  // console.log('edit end');
+// console.log('edit end');
 // }
 
-document.getElementById('editSpan').onclick = function() {
+document.getElementById('editSpan').onclick = function () {
   console.log('edit click')
   document.getElementById('FName').readOnly = false;
   document.getElementById('LName').readOnly = false;
-  $('#editmake').css('display','block');
-  $('#infoForm').css('marginTop','0rem');
+  $('#editmake').css('display', 'block');
+  $('#infoForm').css('marginTop', '0rem');
 };
 
 // let edit = document.getElementById('editSpan');
@@ -254,7 +254,7 @@ if (name) {
 }
 function handledata(data) {
   console.log(data);
-  $('.getname.'+data.ok.id).html(data.ok.name);
+  $('.getname.' + data.ok.id).html(data.ok.name);
   q++;
 };
 let time = document.getElementsByClassName('gettime');
@@ -298,7 +298,7 @@ function control(xt) {
   let inou = $('#FollowingList').attr('name');
   inou = parseInt(inou);
   inou--;
-  $('#FollowingList').attr('name',inou);
+  $('#FollowingList').attr('name', inou);
   $('#FollowingList').html(inou + " Following");
 }
 function control2(xt) {
@@ -306,7 +306,7 @@ function control2(xt) {
   let inou = $('#FollowingList').attr('name');
   inou = parseInt(inou);
   inou++;
-  $('#FollowingList').attr('name',inou);
+  $('#FollowingList').attr('name', inou);
   $('#FollowingList').html(inou + " Following");
 }
 

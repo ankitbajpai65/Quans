@@ -28,7 +28,7 @@ let slide = document.querySelector('.slide');
 btn.forEach((ele, index) => {
   ele.addEventListener("click", () => {
     slide.style.display = 'block';
-    slide.style.left = (25 * index)  + "%";
+    slide.style.left = (25 * index) + "%";
   });
 });
 
@@ -111,7 +111,7 @@ if (name) {
 }
 function handledata1(data) {
   // console.log(data);
-  $('.getname.'+data.ok.id).html(data.ok.name);
+  $('.getname.' + data.ok.id).html(data.ok.name);
   q++;
 };
 

@@ -1,22 +1,25 @@
-*{
-    margin:0px;
-    padding:0px;
+* {
+    margin: 0px;
+    padding: 0px;
     font-family: 'Saira', sans-serif;
 }
-#querySec{
+
+#querySec {
     /* border:2px solid rgba(25, 92, 86, 0.726); */
-    height:auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top:2rem;
+    padding-top: 2rem;
     /* background-color: rgb(178, 214, 178); */
 }
-#queryDiv{
+
+#queryDiv {
     /* border:2px solid rgba(255, 50, 50, 0.726); */
-    margin-top: 1rem;  
+    margin-top: 1rem;
 }
-.quesDiv{
+
+.quesDiv {
     /* border:2px solid rgb(97, 42, 97); */
     background-color: rgb(231, 231, 231);
     /* height: 2rem; */
@@ -24,62 +27,71 @@
     width: 50rem;
     padding: 1rem;
     /* margin-bottom: -1.6rem; */
-    margin-bottom:-0.5rem;
-    border-radius:0.5rem;
+    margin-bottom: -0.5rem;
+    border-radius: 0.5rem;
     display: flex;
     align-items: center;
     text-align: justify;
-    animation:question 0.4s ease-in;
+    animation: question 0.4s ease-in;
 }
-.quesDiv p{
+
+.quesDiv p {
     display: inline-block;
 }
-#quesIcon{
+
+#quesIcon {
     font-size: 1.2rem;
     margin-right: 1rem;
 }
-#quesIcon:hover{
-    color:rgb(122, 122, 122)
+
+#quesIcon:hover {
+    color: rgb(122, 122, 122)
 }
-@keyframes question{
-    from{
-        margin-left:-139rem;
+
+@keyframes question {
+    from {
+        margin-left: -139rem;
     }
-    to{
-        margin-left:0rem;
+    to {
+        margin-left: 0rem;
     }
 }
-.quesDiv:hover{
+
+.quesDiv:hover {
     /* background-color: aliceblue; */
     background-color: rgb(206, 205, 205);
 }
-.quesDiv a{
-    color:#195FAA;
+
+.quesDiv a {
+    color: #195FAA;
     text-decoration: none;
 }
+
 
 /* MEDIA QUERY */
 
 @media only screen and (max-width: 320px) {
-   .quesDiv{
-      width: 30rem;
-      font-size: 1.8rem;
-    padding: 2.4rem 1rem;
-   }
+    .quesDiv {
+        width: 30rem;
+        font-size: 1.8rem;
+        padding: 2.4rem 1rem;
+    }
 }
+
 @media only screen and (min-width: 320px) and (max-width: 450px) {
-   .quesDiv{
-    width: 35rem;
-    font-size: 1.8rem;
-    padding: 2.3rem 1rem;
-    /* text-align: justify; */
-   }
+    .quesDiv {
+        width: 35rem;
+        font-size: 1.8rem;
+        padding: 2.3rem 1rem;
+        /* text-align: justify; */
+    }
 }
-@media only screen and (min-width: 450px) and (max-width: 600px) {
-   .quesDiv{
-    width: 40rem;
-    font-size: 1.6rem;
-    padding: 2rem 1rem;
-    /* text-align: justify; */
-   }
+
+@media only screen and (min-width: 450px) and (max-width: 700px) {
+    .quesDiv {
+        width: 40rem;
+        font-size: 1.6rem;
+        padding: 2rem 1rem;
+        /* text-align: justify; */
+    }
 }

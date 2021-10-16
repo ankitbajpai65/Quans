@@ -1,9 +1,10 @@
-*{
-    margin:0px;
-    padding:0px;
+* {
+    margin: 0px;
+    padding: 0px;
     font-family: 'Saira', sans-serif;
 }
-#searchNav{
+
+#searchNav {
     /* background-color: rgb(238, 238, 238); */
     background-color: rgb(185 250 190);
     display: block;
@@ -11,42 +12,50 @@
     /* height: 2rem; */
     height: max-content;
     /* width:9rem; */
-    padding:0.6rem;
-    margin-top:2rem;
+    padding: 0.6rem;
+    margin-top: 2rem;
     width: max-content;
 }
-#searchNav ul{
+
+#searchNav ul {
     display: flex;
     /* justify-content: space-around; */
 }
-#searchNav ul li{
+
+#searchNav ul li {
     list-style: none;
     /* margin: 0rem 0.5rem; */
 }
-#userBtn{
+
+#userBtn {
     background-color: transparent;
     border: none;
     font-size: 1rem;
     cursor: pointer;
-    color:red;
+    color: red;
+    font-weight: bold;
     text-decoration: underline;
 }
-#quesBtn{
+
+#quesBtn {
     background-color: transparent;
     border: none;
     font-size: 1rem;
     cursor: pointer;
 }
-.profileIcon{
-    height:2.6rem;
-    width:2.6rem;
+
+.profileIcon {
+    height: 2.6rem;
+    width: 2.6rem;
     border-radius: 50%;
-    background-color:rgb(10, 10, 10);
+    background-color: rgb(10, 10, 10);
 }
-.profileIcon:hover{
-    background-color:rgb(190, 187, 187);
+
+.profileIcon:hover {
+    background-color: rgb(190, 187, 187);
 }
-#userDiv{
+
+#userDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,63 +63,68 @@
     /* display: block;
     margin:auto; */
 }
-#userDiv h1{
-    margin-top:3rem;
+
+#userDiv h1 {
+    margin-top: 3rem;
 }
-#user{
-    border-top:2px solid rgb(226, 226, 226);
-    border-bottom:2px solid rgb(226, 226, 226);
-    width:47rem;
+
+#user {
+    border-top: 2px solid rgb(226, 226, 226);
+    border-bottom: 2px solid rgb(226, 226, 226);
+    width: 47rem;
     padding: 0.6rem 1rem;
     display: flex;
-    position:relative;
+    position: relative;
     align-items: center;
 }
-#user:hover{
+
+#user:hover {
     background-color: rgb(240, 240, 240);
- }
-#user h4{
+}
+
+#user h4 {
     margin-left: 0.7rem;
     color: black;
 }
-#user a{
+
+#user a {
     text-decoration: none;
 }
-#flwBtn{
-    position:absolute;
-    right:1rem;
-    color:#2E69FF;
+
+#flwBtn {
+    position: absolute;
+    right: 1rem;
+    color: #2E69FF;
     /* background-color: #6BBEF5; */
     background-color: #c7e8fd;
     border-radius: 2rem;
     border: none;
     padding: 0.5rem;
     width: 6rem;
-    cursor:pointer;
+    cursor: pointer;
 }
-#flwBtn:hover{
+
+#flwBtn:hover {
     background-color: #b1e0ff;
 }
-.quesBlock{
+
+.quesBlock {
     display: none;
 }
+
 
 /* MEDIA QUERY */
 
 @media only screen and (max-width: 400px) {
-    html{
+    html {
         font-size: 40%;
     }
-    /* #searchNav li,#searchNav button{
-        font-size: 1.6rem;
-    } */
-    #user{
-        /* font-size: 1.5rem; */
+    #user {
         padding: 1.5rem;
-        width:39rem;
+        width: 39rem;
     }
-    #user button{
+    #user button {
         font-size: 1.6rem;
         width: 8rem;
     }
- }
+}
