@@ -52,6 +52,7 @@
     from {
         margin-left: -139rem;
     }
+
     to {
         margin-left: 0rem;
     }
@@ -70,20 +71,21 @@
 
 /* MEDIA QUERY */
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 400px) {
     .quesDiv {
-        width: 30rem;
-        font-size: 1.8rem;
-        padding: 2.4rem 1rem;
+        width: 47rem;
+        font-size: 2.2rem;
+        padding: 2.1rem 1rem;
+        margin-bottom: 0.4rem;
     }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 450px) {
+@media only screen and (min-width: 400px) and (max-width: 450px) {
     .quesDiv {
-        width: 35rem;
+        margin-bottom: 0.2rem;
+        width: 43rem;
         font-size: 1.8rem;
-        padding: 2.3rem 1rem;
-        /* text-align: justify; */
+        padding: 2rem 1rem;
     }
 }
 
@@ -91,7 +93,7 @@
     .quesDiv {
         width: 40rem;
         font-size: 1.6rem;
-        padding: 2rem 1rem;
+        padding: 1.6rem 1rem;
         /* text-align: justify; */
     }
 }

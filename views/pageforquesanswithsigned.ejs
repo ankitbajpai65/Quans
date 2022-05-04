@@ -1,16 +1,16 @@
 <%- include('partials/HeaderforquesAns') %>
   <section id="navSec">
     <ul class="d-flex flex-row align-items-center justify-content-around">
-      <li>Quora</li>
+      <li>Quans</li>
       <form action="/Searching" method="post">
         <input type="text" name="search" placeholder="Search">
       </form>
       <a href="/profile/<%=properuser%>"><img src="/image/<%=properuser%>" id="profileImg" class="dp"></a>
     </ul>
   </section>
-  <section id="alertMes"  style="display: none;">
+  <section id="alertMes" style="display: none;">
     <div class="alert" role="alert">
-        Your answer has submitted!   🙎‍♂️
+      Your answer has submitted! 🙎‍♂️
     </div>
   </section>
   </section>
@@ -21,7 +21,7 @@
           <!-- <a href="/image/<%=user.userId%>"><img src="/image/<%=user.userId%>" alt="" class="dp"></a> -->
           <a href="/image/<%=user.userId%>"><img src="/image/<%=user.userId%>" alt="" class="dp"></a>
           <a href="/profile/<%=user.userId%>" class="text-decoration-none text-dark">
-            <h3 class="fw-bolder fs-5">
+            <h3 class="fw-bolder">
               <%=name%>
             </h3>
           </a>
@@ -43,20 +43,24 @@
                             <%});%>
                               <div id="quesIcons">
                                 <%if(like){%>
-                                  <i class="fas fa-thumbs-up fa-lg quesIconslike like clickedLike" id="<%=iddd%>" alt="<%=iddd%>"></i>
+                                  <i class="fas fa-thumbs-up fa-lg quesIconslike like clickedLike" id="<%=iddd%>"
+                                    alt="<%=iddd%>"></i>
                                   <!-- <img src="../images/like.svg" id="<%=iddd%>" alt="<%=iddd%>"
                                     class="quesIcons quesIconslike like clickedIcon"> -->
                                   <%if(dislike){%>
-                                    <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike clickedDislike" id="<%=iddd%>" alt="<%iddd%>"></i>
+                                    <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike clickedDislike"
+                                      id="<%=iddd%>" alt="<%iddd%>"></i>
                                     <!-- <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>"
                                       class="quesIcons quesIconsdislike dislike clickedIcon"> -->
                                     <%}else{%>
-                                      <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike" id="<%=iddd%>" alt="<%iddd%>"></i>
+                                      <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike" id="<%=iddd%>"
+                                        alt="<%iddd%>"></i>
                                       <!-- <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>"
                                         class="quesIcons quesIconsdislike dislike"> -->
                                       <%}%>
                                         <%}else{%>
-                                          <i class="fas fa-thumbs-up fa-lg quesIconslike like" id="<%=iddd%>" alt="<%=iddd%>"></i>
+                                          <i class="fas fa-thumbs-up fa-lg quesIconslike like" id="<%=iddd%>"
+                                            alt="<%=iddd%>"></i>
                                           <!-- <img src="../images/like.svg" id="<%=iddd%>" alt="<%=iddd%>"
                                             class="quesIcons quesIconslike like"> -->
                                           <!-- <div class="like">
@@ -68,16 +72,18 @@
                                             </svg>
                                           </div> -->
                                           <%if(dislike){%>
-                                            <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike clickedDislike" id="<%=iddd%>" alt="<%iddd%>"></i>
+                                            <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike clickedDislike"
+                                              id="<%=iddd%>" alt="<%iddd%>"></i>
                                             <!-- <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>"
                                               class="quesIcons quesIconsdislike dislike clickedIcon"> -->
                                             <%}else{%>
-                                              <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike" id="<%=iddd%>" alt="<%iddd%>"></i>
+                                              <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike"
+                                                id="<%=iddd%>" alt="<%iddd%>"></i>
                                               <!-- <img src="../images/dislike.png" id="<%=iddd%>" alt="<%iddd%>"
                                                 class="quesIcons quesIconsdislike dislike"> -->
                                               <%}%>
                                                 <%}%>
-                                                <i class="fas fa-comment-alt fa-lg" alt="like" id="allAnswer"></i>
+                                                  <i class="fas fa-comment-alt fa-lg" alt="like" id="allAnswer"></i>
                                                   <!-- <img src="../images/comment.png" alt="like" id="allAnswer"> -->
                               </div>
       </div>
@@ -130,15 +136,18 @@
                                   <p id="ans">
                                     <%=test.ans%>
                                   </p>
-                                  <i class="fas fa-thumbs-up fa-lg ansIcons ansIconslike like clickedIcon" id="<%=test._id%>" alt="<%=test._id%>"></i>
+                                  <i class="fas fa-thumbs-up fa-lg ansIcons ansIconslike like clickedIcon"
+                                    id="<%=test._id%>" alt="<%=test._id%>"></i>
                                   <!-- <img src="../images/like.png" id="<%=test._id%>" alt="<%=test._id%>"
                                     class=" ansIcons ansIconslike like clickedIcon"> -->
                                   <%if(dislike){%>
-                                    <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike clickedDislike" id="<%=test._id%>" alt="<%=test._id%>"></i>
+                                    <i class="fas fa-thumbs-down fa-lg quesIconsdislike dislike clickedDislike"
+                                      id="<%=test._id%>" alt="<%=test._id%>"></i>
                                     <!-- <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>"
                                       class="ansIcons ansIconsdislike dislike clickedIcon"> -->
                                     <%}else{%>
-                                      <i class="fas fa-thumbs-down fa-lg ansIcons ansIconsdislike dislike" id="<%=test._id%>" alt="<%=test._id%>"></i>
+                                      <i class="fas fa-thumbs-down fa-lg ansIcons ansIconsdislike dislike"
+                                        id="<%=test._id%>" alt="<%=test._id%>"></i>
                                       <!-- <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>"
                                         class="ansIcons ansIconsdislike dislike"> -->
                                       <%}%>
@@ -158,15 +167,18 @@
                                           <p id="ans">
                                             <%=test.ans%>
                                           </p>
-                                          <i class="fas fa-thumbs-up fa-lg ansIcons ansIconslike like" id="<%=test._id%>" alt="<%=test._id%>"></i>
+                                          <i class="fas fa-thumbs-up fa-lg ansIcons ansIconslike like"
+                                            id="<%=test._id%>" alt="<%=test._id%>"></i>
                                           <!-- <img src="../images/like.png" id="<%=test._id%>" alt="<%=test._id%>"
                                             class=" ansIcons ansIconslike like"> -->
                                           <%if(dislike){%>
-                                            <i class="fas fa-thumbs-down fa-lg ansIcons ansIconsdislike dislike clickedIcon" id="<%=test._id%>" alt="<%=test._id%>"></i>
+                                            <i class="fas fa-thumbs-down fa-lg ansIcons ansIconsdislike dislike clickedIcon"
+                                              id="<%=test._id%>" alt="<%=test._id%>"></i>
                                             <!-- <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>"
                                               class="ansIcons ansIconsdislike dislike clickedIcon"> -->
                                             <%}else{%>
-                                              <i class="fas fa-thumbs-down fa-lg ansIcons ansIconsdislike dislike" id="<%=test._id%>" alt="<%=test._id%>"></i>
+                                              <i class="fas fa-thumbs-down fa-lg ansIcons ansIconsdislike dislike"
+                                                id="<%=test._id%>" alt="<%=test._id%>"></i>
                                               <!-- <img src="../images/dislike.png" id="<%=test._id%>" alt="<%=test._id%>"
                                                 class="ansIcons ansIconsdislike dislike"> -->
                                               <%}%>

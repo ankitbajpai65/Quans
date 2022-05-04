@@ -35,7 +35,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <span id="openSide" onclick="openNav()">&#9776;</span>
-            <h3 class="navbar-brand mt-1 text-warning fs-4" id="title">Quora</h3>
+            <h3 class="navbar-brand mt-1 text-warning fs-4" id="title">Quans</h3>
             <div class="collapse navbar-collapse navItem">
                 <form action="/searching" method="post">
                     <input name="search" class="form-control me-4 mt-1 searchBar" type="text" placeholder="Search"
@@ -54,18 +54,18 @@
                 <table>
                     <tr>
                         <td><label class="firstLabel">First name</label></td>
-                        <td><input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput"
+                        <td class="input"><input type="text" id="FName" value="<%=user.detail.FName%>" class="myInput"
                                 readonly="readonly" name="FName"></td>
                     </tr>
                     <tr>
                         <td><label class="firstLabel">Last name</label></td>
-                        <td><input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>" name="LName"
-                                readonly="readonly"></td>
+                        <td class="input"><input type="text" id="LName" class="myInput" value="<%=user.detail.LName%>"
+                                name="LName" readonly="readonly"></td>
                     </tr>
                     <tr>
                         <td><label class="firstLabel">Email</label></td>
-                        <td><input type="email" id="mail" name="username" class="myInput" value="<%=user.username%>"
-                                readonly="readonly">
+                        <td class="input"><input type="email" id="mail" name="username" class="myInput"
+                                value="<%=user.username%>" readonly="readonly">
                         </td>
                     </tr>
                 </table>

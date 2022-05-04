@@ -4,209 +4,457 @@
     html {
         font-size: 50%;
     }
+
     #navSec {
-        height: 6rem;
+        height: 8rem;
+        display: flex;
+        justify-content: center;
     }
+
     #list-1 {
         display: none;
     }
+
     .navBtn {
         font-size: 1.4rem;
-        padding: 0.5rem 0rem;
+        padding: 1rem 0rem;
+        margin-bottom: 1.5rem;
         width: 12rem;
     }
+
     #searchImg {
-        height: 2rem;
+        height: 2.5rem;
     }
+
     #profileImg {
         height: 3.4rem;
         width: 3.4rem;
     }
+
+    .closebtn {
+        font-size: 6rem;
+    }
+
+    #mobile li {
+        margin: 8rem;
+    }
+
+    .mobLink a {
+        font-size: 3rem;
+    }
+
     /* pop up box */
+    .form-container {
+        max-width: 37rem;
+    }
+
+    .cancelPop,
+    #remove-othersPop {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    #firstInput,
+    #firInput {
+        margin-top: 4rem;
+    }
+
     .form-container input {
-        font-size: 1.7rem;
+        font-size: 2.3rem;
+        padding: 9px 9px;
+        width: 34rem;
+        margin: 5px 0 20px 0;
     }
+
     .formBtn {
-        font-size: 1.7rem;
-        padding: 11px 0px;
+        font-size: 2.3rem;
+        padding: 8px 0px;
     }
+
+    #signupForm {
+        width: 37rem;
+    }
+
+    #others {
+        height: 43rem;
+        width: 43rem;
+    }
+
+    #others div {
+        height: 40rem;
+    }
+
     .other-btn {
         border-radius: 4rem;
-        font-size: 1.8rem;
+        font-size: 2.6rem;
+        width: 37rem;
+        padding: 1.5rem 0rem;
+        margin: 3rem;
     }
+
     #openSpan {
         display: block;
-        font-size: 2rem;
+        font-size: 3rem;
         color: white;
         position: absolute;
         left: 1.5rem;
     }
+
     #title {
         display: block;
         margin: auto;
-        font-size: 2.7rem;
+        font-size: 3rem;
     }
+
     #list-2 {
-        margin-right: 4rem;
+        margin-right: 2rem;
     }
+
     #infoSec ul li a {
         font-size: 1.6rem;
     }
+
     #homeSec {
-        height: 74rem;
+        height: 93rem;
         /* background-color: #aadcff; */
         background: url("../images/mobile2.jpg");
-        background-size: 100%;
+        background-size: 133%;
         background-position: center;
         background-repeat: no-repeat;
     }
+
     #homeDiv {
         height: 57rem;
     }
+
     #homecontent {
         display: block;
         margin: auto;
     }
+
     #homecontent h1 {
         color: white;
+        font-size: 4.6rem;
     }
+
     #homecontent p {
-        margin-top: 2rem;
-        font-size: 2.3rem;
-        line-height: 3rem;
+        margin-top: 4rem;
+        font-size: 3rem;
+        line-height: 4rem;
         color: white;
     }
+
     #about p {
-        font-size: 2.3rem;
-        line-height: 3.2rem;
+        font-size: 2.6rem;
+        line-height: 3.9rem;
+        padding-bottom: 2rem;
     }
+
     .homeBtn {
         font-size: 2.5rem;
         line-height: 2.5rem;
-        margin: 4rem;
+        margin: 9rem;
         border-radius: 3rem;
-        padding: 2rem 3rem
+        padding: 2rem 3rem;
     }
+
     #homeImg {
         display: none;
     }
+
     #aboutSec {
         /* height:127rem; */
         height: auto;
         margin-bottom: 2rem;
     }
+
     .aboutDiv {
         display: block;
         padding: 0.5rem;
         margin: 0rem;
     }
+
     #aboutHead {
         display: block;
-        margin-top: 2rem;
+        font-size: 4rem;
+        margin-top: 5rem;
         color: #FE520E;
     }
+
     #feature {
         color: #FE520E;
+        font-size: 4rem;
+        margin-top: 4rem;
     }
+
     #about {
         text-align: justify;
         width: 90%;
     }
+
     #about h1 {
         display: none;
     }
+
     #aboutImg {
         float: left;
-        height: 23rem;
-        width: 30rem;
+        height: 31rem;
+        width: 38rem;
         margin-left: 0;
     }
+
     .aboutCard {
         /* height:93rem; */
         flex-direction: column;
         justify-content: center;
     }
+
     .card {
-        margin-top: 2rem;
-        width: 37rem;
-        height: 31rem;
+        width: 40rem;
+        height: 37rem;
         display: flex;
         flex-direction: column;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
     }
+
     .cardImg {
-        width: 37rem;
-        height: 21rem;
+        width: 40rem;
+        height: 25rem;
         margin-bottom: 0;
     }
+
     .card-text {
-        font-size: 2rem;
-        line-height: 2.8rem;
+        font-size: 2.3rem;
+        line-height: 3.3rem;
     }
+
     #contactSec {
-        height: 53rem;
+        height: 78rem;
     }
+
     #contactHeading {
-        font-size: 3rem;
+        font-size: 4rem;
+        margin: 3rem 0rem 4rem 0rem;
     }
+
     #contactDiv form input,
     #contactDiv form textarea,
     #contactDiv form button {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        width: 58%;
+        margin-bottom: 4rem;
     }
+
     #footer {
-        height: 4rem;
-        font-size: 1.5rem;
+        height: 8rem;
     }
+
+    #footer p {
+        line-height: 7.5rem;
+        text-align: center;
+        font-size: 2.3rem;
+    }
+
     #quesDiv input,
     #quesDiv button {
         font-size: 1.8rem;
         border-radius: 3rem;
     }
+
     /* searchuser page */
     #searchNav li,
     #searchNav button {
         font-size: 1.8rem;
     }
+
     #user {
         font-size: 1.8rem;
         /* padding: ; */
     }
+
     #user button {
         font-size: 1.5rem;
         width: 10rem;
     }
+
     /* quesAns page */
+    .navList form {
+        display: none;
+    }
+
     #navSec ul li {
-        font-size: 2rem;
+        font-size: 3rem;
+        margin-top: 1rem;
     }
+
     #navSec ul input {
-        font-size: 1.5rem;
-        width: 18rem;
-        border-radius: 2rem;
+        font-size: 1.8rem;
+        top: 7.8rem;
+        left: -8rem;
+        padding: 1rem 0rem;
     }
+
+    .profile h4 {
+        font-size: 1.5rem;
+    }
+
+    #questioner .dp,
+    .answerer .dp {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+
     #questioner,
     .answerDiv,
     .answerer {
         max-width: 40rem;
     }
+
     .dp {
         height: 5rem;
         width: 5rem;
     }
+
     #questioner h3,
     #writer,
     .answerer h3,
     .answerer p {
         font-size: 1.6rem;
     }
-    #questioner h6,
+
+    #questioner h6 {
+        font-size: 1.4rem;
+    }
+
     .answerer h6,
     .answerDiv textarea,
     .postBtn {
         font-size: 1.5rem;
     }
+
     #answerBox {
         height: 12rem;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+    #mobile li {
+        margin: 6rem;
+    }
+
+    .mobLink a {
+        font-size: 2.5rem;
+    }
+
+    #homeSec {
+        height: 73rem;
+    }
+
+    #homecontent h1 {
+        font-size: 4.3rem;
+    }
+
+    #homecontent p {
+        margin-top: 2rem;
+        font-size: 2.4rem;
+        line-height: 3.4rem;
+    }
+
+    .homeBtn {
+        margin: 4rem;
+        font-size: 2.3rem;
+    }
+
+    #aboutImg {
+        height: 29rem;
+        width: 36rem;
+    }
+
+    #about p {
+        font-size: 2.2rem;
+        line-height: 3.4rem;
+    }
+
+    .card {
+        width: 39rem;
+        height: 35rem;
+        margin-top: 1rem;
+    }
+
+    .cardImg {
+        width: 39rem;
+        height: 24rem;
+    }
+
+    .card-text {
+        font-size: 2rem;
+        line-height: 3.2rem;
+    }
+
+    #contactSec {
+        height: 68rem;
+    }
+
+    #contactHeading {
+        margin: 3rem 0rem 3rem 0rem;
+    }
+
+    #contactDiv {
+        margin-top: 2rem;
+    }
+
+    #contactDiv form input,
+    #contactDiv form textarea,
+    #contactDiv form button {
+        font-size: 2.1rem;
+        margin-bottom: 3rem;
+    }
+
+    #footer {
+        height: 7rem;
+    }
+
+    #footer p {
+        line-height: 7rem;
+        font-size: 2rem;
+    }
+
+    .form-container input {
+        font-size: 2.0rem;
+        padding: 9px 9px;
+        width: 32rem;
+    }
+
+    .formBtn {
+        font-size: 1.9rem;
+        padding: 9px 0px;
+    }
+
+    #signupForm {
+        width: 34.5rem;
+    }
+
+    #others {
+        height: 36rem;
+        width: 37rem;
+    }
+
+    #others div {
+        height: 34rem;
+    }
+
+    .other-btn {
+        border-radius: 4rem;
+        font-size: 2.1rem;
+        padding: 1.4rem 0rem;
+        width: 31rem;
+        margin: 2.5rem;
+    }
+
+    .profile h3,
+    .profile h4 {
+        font-size: 1.6rem;
     }
 }
 
@@ -214,50 +462,104 @@
     html {
         font-size: 60%;
     }
+
     #list-1 {
         display: none;
     }
+
+    #navSec {
+        height: 6rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navList input {
+        margin: 1rem;
+    }
+
     #openSpan {
         display: block;
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: white;
         position: absolute;
         left: 1.5rem;
     }
+
     #title {
         display: block;
         margin: auto;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
+
     #list-2 {
         margin-right: 4rem;
     }
-    /* #list-2 input,
-    #searchImg {
-        display: none;
-    } */
+
+
     #searchImg {
         height: 2rem;
     }
+
+    .navBtn {
+        width: 12rem;
+        padding: 0.8rem 1rem;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        margin-left: 2rem;
+    }
+
     #profileImg {
         height: 3.4rem;
         width: 3.4rem;
     }
+
     /* pop up box */
+    .form-container {
+        max-width: 30rem;
+    }
+
+    .cancelPop,
+    #remove-othersPop {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    #firstInput,
+    #firInput {
+        margin-top: 3rem;
+    }
+
     .form-container input {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        width: 28rem;
     }
+
     .formBtn {
-        font-size: 1.5rem;
-        padding: 13px 0px;
+        font-size: 1.6rem;
+        padding: 9px 0px;
     }
+
+    #others {
+        height: 29rem;
+        width: 32rem;
+    }
+
+    #others div {
+        height: 27rem;
+    }
+
     .other-btn {
         border-radius: 4rem;
         font-size: 1.7rem;
+        width: 26rem;
+        padding: 1.3rem 0rem;
+        margin: 2rem;
     }
+
     #infoSec ul li a {
         font-size: 1.4rem;
     }
+
     #homeSec {
         height: 61rem;
         /* background-color: #aadcff; */
@@ -266,6 +568,7 @@
         background-position: center;
         background-repeat: no-repeat;
     }
+
     #homeDiv {
         height: 48rem;
         background-image: url("images/mobile.jpg");
@@ -274,155 +577,220 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+
     #homecontent {
         display: block;
         margin: auto;
     }
+
     #homecontent h1 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
         color: white;
     }
+
     #homecontent p {
         font-size: 2rem;
-        line-height: 2.7rem;
+        line-height: 2.9rem;
         color: white;
     }
+
     .homeBtn {
         font-size: 2rem;
         line-height: 2.7rem;
     }
+
     .homeBtn {
         margin: 4rem;
+        padding: 1.5rem 3rem;
     }
+
     #homeImg {
         display: none;
     }
+
     #aboutSec {
         /* height:127rem; */
         margin-bottom: 3rem;
     }
+
     .aboutDiv {
         display: block;
         padding: 0.5rem;
         margin: 0rem;
+        padding-bottom: 2rem;
     }
+
     #aboutHead {
         display: block;
-        margin-top: 2rem;
+        margin-top: 4rem;
         color: #FE520E;
     }
+
     #feature {
         color: #FE520E;
+        font-size: 3rem;
     }
+
     #about {
         text-align: justify;
         width: 90%;
     }
+
+    #contactDiv {
+        margin-top: -1rem;
+    }
+
     #about p,
     #contactDiv form input,
     #contactDiv form textarea,
     #contactDiv form button {
-        line-height: 2.5rem;
+        line-height: 2.8rem;
         font-size: 1.8rem;
+        margin-bottom: 2.5rem;
     }
+
     #about h1 {
         display: none;
     }
+
     #aboutImg {
         float: left;
-        height: 23rem;
-        width: 30rem;
+        height: 27rem;
+        width: 34rem;
         margin-left: 0;
     }
+
     .aboutCard {
         /* height:90rem; */
         flex-direction: column;
         justify-content: center;
     }
+
     .card {
-        margin-top: 2rem;
+        margin-bottom: 4rem;
         width: 40rem;
         height: 26rem;
         display: flex;
         flex-direction: column;
     }
+
     .cardImg {
         width: 40rem;
         height: 20rem;
         margin-bottom: 0;
     }
+
     .card-text {
         font-size: 1.6rem;
         line-height: 2.3rem;
     }
+
     #contactSec {
-        height: 48rem;
+        height: 56rem;
     }
+
     #contactHeading {
         font-size: 2.7rem;
     }
+
     #footer {
-        /* height:6rem; */
-        font-size: 1.4rem;
+        height: 6rem;
     }
+
+    #footer p {
+        line-height: 6rem;
+        font-size: 1.8rem;
+    }
+
     /* for query page */
     #quesDiv input,
     #quesDiv button {
         font-size: 1.7rem;
         border-radius: 3rem;
     }
+
     /* searchuser page */
     #searchNav li,
     #searchNav button {
         font-size: 1.5rem;
     }
+
     #user {
         font-size: 1.4rem;
         padding: 1.3rem 0rem;
     }
+
     #user button {
         font-size: 1.3rem;
         width: 9rem;
     }
+
     /* quesAns page */
+    .navList form {
+        display: none;
+    }
+
     #navSec ul li {
-        font-size: 2rem;
+        margin-top: 1rem;
+        font-size: 2.5rem;
     }
+
     #navSec ul input {
+        left: -6rem;
         font-size: 1.3rem;
-        width: 15rem;
-        border-radius: 2rem;
+        top: 6.3rem;
+        padding: 0.8rem 1rem;
     }
+
     #questioner,
     .answerDiv,
     .answerer {
         width: 44rem;
     }
+
+    #questioner .dp,
+    .answerer .dp {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+
     .dp {
         height: 4rem;
         width: 4rem;
     }
+
     #questioner h3,
     #writer,
     .answerer h3,
     .answerer p {
         font-size: 1.4rem;
     }
+
     #questioner h6,
     .answerer h6,
     .answerDiv textarea,
     .postBtn {
         font-size: 1.3rem;
     }
+
+    .profile h4 {
+        font-size: 1.5rem;
+    }
+
     #answerBox {
         height: 10rem;
     }
+
     /* for failure  page */
     #info {
         margin-left: 1rem;
     }
+
     #info h1 {
         font-size: 2.3rem;
     }
+
     .bgImg {
         opacity: 0.7;
     }
@@ -432,150 +800,283 @@
     html {
         font-size: 60%;
     }
+
     .item {
         margin: 0rem 2.1rem;
     }
+
     .item a,
     .homeBtn {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
+
     #title {
-        font-size: 1.9rem;
+        font-size: 2.4rem;
     }
+
     #list-2 {
         margin-right: 4rem;
     }
+
     #searchImg {
         height: 1.6rem;
     }
+
     #profileImg {
         height: 3.5rem;
         width: 3.5rem;
     }
+
     /* pop up box */
+    .form-container {
+        max-width: 30rem;
+    }
+
+    .cancelPop,
+    #remove-othersPop {
+        height: 1.4rem;
+        width: 1.4rem;
+    }
+
+    #firstInput,
+    #firInput {
+        margin-top: 3rem;
+    }
+
     .form-container input {
         font-size: 1.5rem;
+        width: 28rem;
     }
+
     .formBtn {
-        font-size: 1.5rem;
-        padding: 13px 0px;
+        font-size: 1.6rem;
+        padding: 10px 0px;
     }
+
+    #others {
+        height: 29rem;
+        width: 34rem;
+    }
+
+    #others div {
+        height: 27rem;
+    }
+
     .other-btn {
         border-radius: 4rem;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+        padding: 1.2rem 1.5rem;
+        width: 27rem;
+        margin: 2rem;
     }
+
     #infoSec ul li a {
         font-size: 1.4rem;
     }
+
     #homeSec {
         height: 62rem;
     }
+
     #homeDiv {
         height: 54rem;
     }
+
+    #homecontent {
+        margin-bottom: 3rem;
+    }
+
     #homecontent h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
-    #aboutSec {
-        /* height:130rem; */
-        height: auto;
-        margin-bottom: 2rem;
+
+    #homecontent p {
+        width: 32rem;
+        font-size: 1.8rem;
+        line-height: 2.7rem;
     }
+
+    .homeBtn {
+        font-size: 1.8rem;
+    }
+
+
     .aboutDiv {
-        height: auto;
+        display: block;
+        padding: 0.5rem;
+        margin: 0rem;
     }
+
+    #aboutHead {
+        display: block;
+        margin-top: 3rem;
+    }
+
+    #about {
+        padding: 2rem 0rem;
+        text-align: justify;
+        width: 90%;
+    }
+
+    #aboutImg {
+        height: 34rem;
+        width: 45rem;
+        float: left;
+        margin-left: 0;
+    }
+
+    #about h1 {
+        display: none;
+    }
+
+    #about p {
+        margin-right: -2rem;
+        font-size: 1.7rem;
+        line-height: 2.8rem;
+    }
+
     .aboutCard {
         /* height:102rem; */
         height: auto;
         flex-direction: column;
         justify-content: center;
     }
+
     #about p {
-        font-size: 1.8rem;
-        line-height: 2.5rem;
+        font-size: 1.9rem;
+        line-height: 3rem;
     }
+
     .card {
-        margin-top: 2rem;
+        margin-bottom: 4rem;
         width: 40rem;
         height: 30rem;
         display: flex;
         flex-direction: column;
     }
+
     .cardImg {
         width: 40rem;
         height: 23rem;
         margin-bottom: 0;
     }
+
     .card-text {
         font-size: 1.7rem;
     }
+
     #contactDiv form input,
     #contactDiv form textarea,
     #contactDiv form button {
         font-size: 1.8rem;
+        margin-bottom: 3rem;
     }
+
     #contactSec {
-        height: 51rem;
+        height: 58rem;
     }
+
+    #contactDiv {
+        margin-top: 2rem;
+    }
+
     #footer {
-        /* height:6rem; */
-        font-size: 1.5rem;
+        height: 6rem;
     }
+
+    #footer p {
+        line-height: 6rem;
+        font-size: 1.8rem;
+    }
+
     .quesDiv {
         font-size: 1.6rem;
-        padding: 2rem;
+        padding: 1.5rem;
+        margin-bottom: 0.2rem;
     }
+
     #quesDiv input,
     #quesDiv button {
         font-size: 1.7rem;
         border-radius: 3rem;
     }
+
     /* searchuser page */
     #searchNav li,
     #searchNav button {
         font-size: 1.5rem;
     }
+
     #user {
         font-size: 1.4rem;
         padding: 1rem 0rem;
     }
+
     #user button {
         font-size: 1.3rem;
         width: 9rem;
     }
+
     /* quesAns page */
     #navSec ul li {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
+
     #navSec ul input {
+        left: -7rem;
         font-size: 1.3rem;
-        width: 24rem;
-        border-radius: 2rem;
+        top: 4.7rem;
+        padding: 0.8rem 1rem;
     }
+
+    #navSec ul button {
+        font-size: 1.3rem;
+        width: 13rem;
+    }
+
     #questioner,
     .answerDiv,
     .answerer {
         max-width: 56rem;
     }
+
+    #questioner .dp,
+    .answerer .dp {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+
     .dp {
         height: 5rem;
         width: 5rem;
     }
+
     #questioner h3,
     #writer,
     .answerer h3,
     .answerer p {
         font-size: 1.6rem;
     }
+
+    .profile h4 {
+        font-size: 1.6rem;
+    }
+
     #questioner h6,
-    .answerer h6,
+    .answerer h6 {
+        font-size: 1.3rem;
+    }
+
+
     .answerDiv textarea,
     .postBtn {
         font-size: 1.5rem;
     }
+
     #answerBox {
         height: 12rem;
     }
+
     .postBtn {
         width: 8rem;
     }
@@ -585,119 +1086,258 @@
     html {
         font-size: 65%;
     }
+
     .item {
         margin: 0rem 2.1rem;
     }
+
     .item a,
-    .homeBtn,
     #contactDiv form input,
     #contactDiv form textarea,
     #contactDiv form button {
         font-size: 1.4rem;
+        margin-bottom: 2rem;
     }
+
     #title {
         font-size: 1.9rem;
     }
+
     #list-2 {
         margin-right: 4rem;
     }
+
     #searchImg {
         height: 1.6rem;
     }
+
     #profileImg {
         height: 3.5rem;
         width: 3.5rem;
     }
+
     /* pop up box */
+    .cancelPop,
+    #remove-othersPop {
+        height: 1.2rem;
+        width: 1.2rem;
+    }
+
+    #firstInput,
+    #firInput {
+        margin-top: 2.5rem;
+    }
+
     .form-container input {
         font-size: 1.5rem;
     }
+
     .formBtn {
         font-size: 1.5rem;
-        padding: 13px 0px;
+        padding: 11px 0px;
     }
+
+    #others {
+        height: 29rem;
+        width: 32rem;
+    }
+
+    #others div {
+        height: 27rem;
+    }
+
     .other-btn {
         border-radius: 4rem;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        margin: 2rem;
     }
+
     #infoSec ul li a {
         font-size: 1.4rem;
     }
+
     #homeSec {
         height: 56rem;
     }
+
     #homeDiv {
         height: 50rem;
     }
+
+    #homecontent {
+        margin-bottom: 3rem;
+    }
+
     #homecontent h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
+
+    #homecontent p {
+        width: 32rem;
+        font-size: 1.8rem;
+        line-height: 2.7rem;
+    }
+
+    .homeBtn {
+        font-size: 1.8rem;
+    }
+
+    .aboutDiv {
+        display: block;
+        padding: 0.5rem;
+        margin: 0rem;
+    }
+
+    #aboutHead {
+        display: block;
+        margin-top: 3rem;
+    }
+
+    #about {
+        padding: 2rem 0rem;
+        text-align: justify;
+        width: 90%;
+    }
+
+    #aboutImg {
+        height: 34rem;
+        width: 45rem;
+        float: left;
+        margin-left: 0;
+    }
+
+    #about h1 {
+        display: none;
+    }
+
     #about p {
-        font-size: 1.4rem;
-        line-height: 2rem;
+        margin-right: -2rem;
+        font-size: 1.7rem;
+        line-height: 2.8rem;
     }
-    /* .card-text {
-        font-size: 1.2rem;
-    } */
+
+    .aboutCard {
+
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .card {
+        margin-bottom: 4rem;
+        width: 39rem;
+        height: 28rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardImg {
+        width: 39rem;
+        height: 22rem;
+        margin-bottom: 0;
+    }
+
+    .card-text {
+        font-size: 1.4rem;
+        line-height: 2.3rem;
+    }
+
+    #contactSec {
+        height: 50rem;
+    }
+
+    #contactDiv {
+        margin-top: 1rem;
+    }
+
     #footer {
-        /* height: 5rem; */
-        font-size: 1.4rem;
+        height: 5rem;
     }
+
+    #footer p {
+        line-height: 5rem;
+        font-size: 1.5rem;
+    }
+
     .quesDiv {
         font-size: 1.5rem;
         padding: 1.5rem;
     }
+
     #quesDiv input,
     #quesDiv button {
         font-size: 1.6rem;
         border-radius: 3rem;
     }
+
     /* searchuser page */
     #searchNav li,
     #searchNav button {
         font-size: 1.5rem;
     }
+
     #user {
         font-size: 1.4rem;
         padding: 1rem 0rem;
     }
+
     #user button {
         font-size: 1.1rem;
         width: 8rem;
     }
+
     /* quesAns page */
     #navSec ul li {
         font-size: 2rem;
     }
+
     #navSec ul input {
+        left: -7rem;
         font-size: 1.3rem;
-        width: 24rem;
-        border-radius: 2rem;
+        top: 4.1rem;
+        padding: 0.8rem 1rem;
     }
+
+    #navSec ul button {
+        font-size: 1.3rem;
+        width: 12rem;
+    }
+
     #questioner,
     .answerDiv,
     .answerer {
         max-width: 56rem;
     }
+
     .dp {
         height: 5rem;
         width: 5rem;
     }
+
+    .profile h4 {
+        font-size: 1.3rem;
+    }
+
     #questioner h3,
     #writer,
     .answerer h3,
     .answerer p {
         font-size: 1.4rem;
     }
+
     #questioner h6,
-    .answerer h6,
+    .answerer h6 {
+        font-size: 1.2rem;
+    }
+
     .answerDiv textarea,
     .postBtn {
         font-size: 1.5rem;
     }
+
     #answerBox {
         height: 12rem;
     }
+
     .postBtn {
         width: 8rem;
     }
@@ -707,138 +1347,281 @@
     html {
         font-size: 70%;
     }
+
     .item {
         margin: 0rem 2.1rem;
     }
+
     .item a,
-    .homeBtn,
     #contactDiv form input,
     #contactDiv form textarea,
     #contactDiv form button {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
     }
+
     #title {
         font-size: 1.9rem;
     }
+
     #list-2 {
         margin-right: 4rem;
     }
+
     #searchImg {
         height: 1.6rem;
     }
+
     #profileImg {
         height: 3.6rem;
         width: 3.6rem;
     }
+
     /* pop up box */
+    .cancelPop,
+    #remove-othersPop {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    #firstInput,
+    #firInput {
+        margin-top: 2rem;
+    }
+
     .form-container input {
         padding: 1rem 1.2rem;
         font-size: 1.5rem;
     }
+
     .formBtn {
         font-size: 1.5rem;
-        padding: 13px 0px;
+        padding: 10px 0px;
     }
+
+    #others {
+        height: 29rem;
+        width: 32rem;
+    }
+
+    #others div {
+        height: 27rem;
+    }
+
     .other-btn {
         border-radius: 4rem;
         font-size: 1.5rem;
+        margin: 2rem;
     }
+
     #infoSec ul li a {
         font-size: 1.4rem;
     }
+
     #homeSec {
-        height: 52rem;
+        height: 51rem;
     }
+
     #homeDiv {
         height: 46rem;
     }
+
+    #homecontent {
+        margin-bottom: 3rem;
+    }
+
     #homecontent h1 {
         font-size: 3rem;
     }
+
+    #homecontent p {
+        min-width: 32rem;
+        font-size: 1.7rem;
+        line-height: 2.5rem;
+    }
+
+    .homeBtn {
+        font-size: 1.8rem;
+    }
+
+    .aboutDiv {
+        display: block;
+        padding: 0.5rem;
+        margin: 0rem;
+    }
+
+    #aboutHead {
+        display: block;
+        margin-top: 3rem;
+    }
+
+    #about {
+        padding: 2rem 0rem;
+        text-align: justify;
+        width: 90%;
+    }
+
+    #aboutImg {
+        height: 35rem;
+        width: 42rem;
+        float: left;
+        margin-left: 0;
+    }
+
+    #about h1 {
+        display: none;
+    }
+
     #about p {
-        font-size: 1.3rem;
-        line-height: 2rem;
+        margin-right: -2rem;
+        font-size: 1.6rem;
+        line-height: 2.7rem;
     }
-    /* .card-text {
-        font-size: 1.2rem;
-    } */
+
+    .aboutCard {
+
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #feature {
+        font-size: 2.8rem;
+    }
+
+    .card {
+        margin-bottom: 4rem;
+        width: 39rem;
+        height: 28rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardImg {
+        width: 39rem;
+        height: 22rem;
+        margin-bottom: 0;
+    }
+
+    .card-text {
+        font-size: 1.4rem;
+        line-height: 2.3rem;
+    }
+
+    #contactSec {
+        height: 48rem;
+    }
+
+    #contactDiv {
+        margin-top: 1rem;
+    }
+
     #footer {
-        /* height: 5rem; */
-        font-size: 1.3rem;
+        height: 5rem;
     }
+
+    #footer p {
+        line-height: 5rem;
+        font-size: 1.4rem;
+    }
+
     /* #list-2 {
         margin-left: 3rem;
     } */
     #searchBar {
         width: 9rem;
     }
+
     .quesDiv {
         font-size: 1.4rem;
         padding: 1.5rem;
     }
+
     #quesDiv input,
     #quesDiv button {
         font-size: 1.5rem;
         border-radius: 3rem;
     }
+
     /* searchuser page */
     #searchNav li,
     #searchNav button {
         font-size: 1.5rem;
     }
+
     #user {
         font-size: 1.4rem;
         padding: 1rem 0rem;
     }
+
     #user button {
         font-size: 1.2rem;
         width: 8rem;
     }
+
     /* quesAns page */
     #navSec ul li {
         font-size: 2rem;
     }
+
     #navSec ul input {
+        left: -5rem;
         font-size: 1.3rem;
-        width: 24rem;
-        border-radius: 2rem;
+        top: 4rem;
+        padding: 0.8rem 3rem;
     }
+
+    #navSec ul button {
+        font-size: 1.2rem;
+        width: 11rem;
+    }
+
+    .profile h4 {
+        font-size: 1.4rem;
+    }
+
     #questioner,
     .answerDiv,
     .answerer {
         max-width: 56rem;
     }
+
     .dp {
         height: 5rem;
         width: 5rem;
     }
+
     #questioner h3,
     #writer,
     .answerer h3,
     .answerer p {
         font-size: 1.4rem;
     }
+
     #questioner h6,
     .answerer h6,
     .answerDiv textarea,
     .postBtn {
         font-size: 1.3rem;
     }
+
     #answerBox {
         height: 12rem;
     }
+
     .postBtn {
         width: 8rem;
     }
 }
 
-@media only screen and (min-width: 970px) and (max-width: 1149px) {
+@media only screen and (min-width: 970px) and (max-width: 1150px) {
     html {
         font-size: 80%;
     }
+
     .item {
         margin: 0rem 2.7rem;
     }
+
     .item a,
     .homeBtn,
     #contactDiv form input,
@@ -846,97 +1629,165 @@
     #contactDiv form button {
         font-size: 1.2rem;
     }
+
     #title {
         font-size: 1.9rem;
     }
+
     #list-2 {
         margin-right: 4rem;
     }
+
     #searchImg {
         height: 1.6rem;
     }
+
     /* pop up box */
+    .cancelPop,
+    #remove-othersPop {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    #firstInput,
+    #firInput {
+        margin-top: 2rem;
+    }
+
     .form-container input {
         font-size: 1.3rem;
     }
+
     .formBtn {
         font-size: 1.3rem;
-        padding: 14px 0px;
+        padding: 11px 0px;
     }
+
     .other-btn {
         border-radius: 4rem;
         font-size: 1.4rem;
     }
+
     #homeSec {
         height: 45rem;
     }
+
     #homeDiv {
         height: 41rem;
     }
+
     #homecontent h1 {
         font-size: 3rem;
     }
+
+    #homecontent p {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+    }
+
+    .homeBtn {
+        margin-top: 2rem;
+        font-size: 1.4rem;
+    }
+
+    #about {
+        margin: 0rem 1rem;
+        padding: 2rem 0rem;
+    }
+
     #about p {
-        font-size: 1.3rem;
-        line-height: 2rem;
+        font-size: 1.4rem;
+        line-height: 2.3rem;
     }
+
+    .card {
+        height: 20rem;
+    }
+
     .card-text {
-        font-size: 1rem;
-        line-height: 1.2rem;
+        font-size: 1.2rem;
+        line-height: 1.7rem;
     }
+
+    #contactDiv {
+        margin-top: 5rem;
+    }
+
+    #footer {
+        height: 5rem;
+    }
+
+    #footer p {
+        line-height: 5rem;
+        font-size: 1.3rem;
+    }
+
     .quesDiv {
         font-size: 1.2rem;
         padding: 1.3rem;
     }
+
     #quesDiv input,
     #quesDiv button {
         font-size: 1.4rem;
         border-radius: 3rem;
     }
+
     #ques {
         font-size: 1.5rem;
     }
+
     /* searchuser page */
     #searchNav li,
     #searchNav button {
         font-size: 1.3rem;
     }
-    #user,
-    #footer {
+
+    #user {
         font-size: 1.2rem;
     }
+
     #user button {
         font-size: 1.1rem;
         width: 7rem;
     }
+
     /* quesAns page */
     #navSec ul li {
         font-size: 1.7rem;
     }
+
     #navSec ul input {
+        left: -3rem;
         font-size: 1.1rem;
-        width: 24rem;
-        border-radius: 2rem;
+        top: 3.7rem;
+        padding: 0.8rem 1rem;
     }
+
     #questioner,
     .answerDiv,
     .answerer {
         max-width: 56rem;
     }
+
     .dp {
         height: 3.5rem;
         width: 3.5rem;
     }
+
     .answerer p {
         font-size: 1.3rem;
     }
+
     .answerDiv textarea,
     .postBtn {
         font-size: 1.2rem;
     }
+
     #answerBox {
         height: 10rem;
     }
+
     .postBtn {
         width: 8rem;
     }
@@ -946,9 +1797,11 @@
     html {
         font-size: 90%;
     }
+
     .item {
         margin: 0rem 3rem;
     }
+
     .item a,
     .homeBtn,
     #contactDiv form input,
@@ -956,63 +1809,124 @@
     #contactDiv form button {
         font-size: 1.2rem;
     }
+
     #title {
         font-size: 1.5rem;
     }
+
     #searchImg {
         height: 1.6rem;
     }
+
+    #navSec ul input {
+        left: -3rem;
+        font-size: 1.1rem;
+        top: 3.3rem;
+        padding: 0.8rem 1rem;
+    }
+
     /* pop up box */
+    .cancelPop,
+    #remove-othersPop {
+        height: 0.8rem;
+        width: 0.8rem;
+    }
+
+    #firstInput,
+    #firInput {
+        margin-top: 1rem;
+    }
+
     .form-container input {
         padding: 0.7rem 1rem;
         font-size: 1.2rem;
     }
+
     .formBtn {
         font-size: 1.2rem;
         padding: 13px 0px;
     }
+
     #homeSec {
         height: 40rem;
     }
+
     #homeDiv {
         height: 37rem;
     }
+
+    #homecontent h1 {
+        font-size: 3.3rem;
+    }
+
+    #homecontent p {
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+    }
+
+    .homeBtn {
+        margin-top: 2rem;
+        font-size: 1.4rem;
+    }
+
+    #about {
+        margin: 0rem 1rem;
+        padding: 1rem 0rem;
+    }
+
     #about p {
-        font-size: 1.2rem;
-        line-height: 1.9rem;
+        font-size: 1.3rem;
+        line-height: 2rem;
     }
+
     .card-text {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-    #footer {
-        /* height: 5rem; */
         font-size: 1.1rem;
+        line-height: 1.6rem;
     }
+
+    #contactDiv {
+        margin-top: 5rem;
+    }
+
+    #footer {
+        height: 4rem;
+    }
+
+    #footer p {
+        line-height: 4rem;
+        font-size: 1.2rem;
+    }
+
     .quesDiv {
         font-size: 1.1rem;
         padding: 1.2rem 1rem;
     }
+
     /* quesAns page */
     #ques {
         font-size: 1.5rem;
     }
+
     .dp {
         height: 3rem;
         width: 3rem;
     }
+
     .answerer p,
     #questioner h3,
     .answerer h3 {
         font-size: 1.1rem;
     }
+
     .answerDiv textarea,
     .postBtn {
         font-size: 1.1rem;
     }
+
     #answerBox {
         height: 10rem;
     }
+
     .postBtn {
         width: 7rem;
     }
@@ -1022,11 +1936,29 @@
     html {
         font-size: 100%;
     }
+
+    #homeSec {
+        height: 46rem
+    }
+
+    #homeDiv {
+        height: 40rem;
+    }
+
+    #homecontent {
+        width: 54rem;
+    }
+
+    #homeImg {
+        height: 38rem;
+    }
+
     /* quesAns page */
     .dp {
         height: 3rem;
         width: 3rem;
     }
+
     #questioner h3,
     #writer,
     .answerer h3,

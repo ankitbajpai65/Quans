@@ -119,12 +119,101 @@
     html {
         font-size: 40%;
     }
-    #user {
-        padding: 1.5rem;
-        width: 39rem;
+
+    .profileIcon {
+        height: 7rem;
+        width: 7rem;
     }
+
+    #user h4 {
+        font-size: 2.2rem;
+        margin-left: 1.4rem;
+    }
+
     #user button {
         font-size: 1.6rem;
         width: 8rem;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+    .profileIcon {
+        height: 6rem;
+        width: 6rem;
+    }
+
+    #user h4 {
+        font-size: 2rem;
+        margin-left: 1.4rem;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 700px) {
+    #user {
+        min-width: 42rem;
+        max-width: 42rem;
+    }
+
+    .profileIcon {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    #user h4 {
+        font-size: 1.6rem;
+        margin-left: 1.4rem;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 770px) {
+    .profileIcon {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    #user h4 {
+        font-size: 1.6rem;
+        margin-left: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 830px) {
+    .profileIcon {
+        height: 4.5rem;
+        width: 4.5rem;
+        margin-right: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 830px) and (max-width: 970px) {
+    .profileIcon {
+        height: 4rem;
+        width: 4rem;
+        margin-right: 0.5rem;
+    }
+}
+
+
+@media only screen and (min-width: 970px) and (max-width: 1150px) {
+    .profileIcon {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+
+    #user h4 {
+        font-size: 1.3rem;
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (min-width: 1150px) and (max-width: 1280px) {
+    .profileIcon {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    #user h4 {
+        font-size: 1.2rem;
+        margin-left: 1rem;
     }
 }

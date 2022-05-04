@@ -84,18 +84,18 @@ const client = mongoose.connect("mongodb+srv://tushar-gupta:Tusha_78165@cluster0
   useFindAndModify: false,
   useCreateIndex: true
 }).then(x => {
-            console.log(
-                `Connected to Mongo! Database name: "${x.connections[0].name}"`,
-            );
-        })
-        .catch(err => {
-            console.error('Error connecting to mongo', err);
-        });
+  console.log(
+    `Connected to Mongo! Database name: "${x.connections[0].name}"`,
+  );
+})
+  .catch(err => {
+    console.error('Error connecting to mongo', err);
+  });
 
 const conn = mongoose.connection;
 let gfs;
 
-conn.once('open',() => {
+conn.once('open', () => {
   gfs = Grid(conn.db, mongoose.mongo);
   gfs.collection('uploads');
 });
@@ -377,24 +377,24 @@ app.get('/image/:filename', (req, res) => {
 //     }
 //   });
 // });
-app.post("/login", function(req, res) {
+app.post("/login", function (req, res) {
   const newUser = new User({
     username: req.body.username,
     password: req.body.password
   });
   passport.authenticate('local', function (err, user, info) {
-    if (! user) {
-        res.render("forallfailures",{heading: "Something went wrong", message: "Try again"});
-    } else{
-      req.login(user, function(err){
-          // const token =  jwt.sign({userId : user._id,
-          //    username:user.username}, secretkey,
-          //       {expiresIn: '24h'})
-          //       res.redirect("/");
-          res.redirect('/');
+    if (!user) {
+      res.render("forallfailures", { heading: "Something went wrong", message: "Try again" });
+    } else {
+      req.login(user, function (err) {
+        // const token =  jwt.sign({userId : user._id,
+        //    username:user.username}, secretkey,
+        //       {expiresIn: '24h'})
+        //       res.redirect("/");
+        res.redirect('/');
       });
     }
-      })(req, res);
+  })(req, res);
 });
 
 app.post("/askquestion", function (req, res) {
@@ -552,8 +552,8 @@ app.post("/addmoredetails", async function (req, res) {
     if (req.body.LName && req.body.FName) {
       user.detail.FullName = req.body.FName + " " + req.body.LName;
     }
-     user.save().then(function(){
-      res.redirect('/profile/'+req.user._id);
+    user.save().then(function () {
+      res.redirect('/profile/' + req.user._id);
     });
   });
 });
@@ -780,23 +780,23 @@ app.post("/gettime", (req, res) => {
 
 
 app.get("/profile/:id", async function (req, res) {
-await  User.findById(req.params.id, async (err, result) => {
+  await User.findById(req.params.id, async (err, result) => {
     if (err) {
       console.log(err);
     } else {
-    await  User_question.find({ '_id': { $in: result.questions } }, async (err, results) => {
+      await User_question.find({ '_id': { $in: result.questions } }, async (err, results) => {
         if (err) {
           console.log(err);
         } else {
-        await  User_question.find({ 'answer.postedUser': req.params.id }).populate('answer').exec(async (err, answer) => {
+          await User_question.find({ 'answer.postedUser': req.params.id }).populate('answer').exec(async (err, answer) => {
             if (err) {
               console.log(err);
             } else {
-            await  User.find({ '_id': { $in: result.followers } }).select('detail.FullName  time').exec(async (err, followers) => {
+              await User.find({ '_id': { $in: result.followers } }).select('detail.FullName  time').exec(async (err, followers) => {
                 if (err) {
                   console.log(err);
                 } else {
-                await  User.find({ '_id': { $in: result.following } }).select('detail.FullName time').exec(async (err, following) => {
+                  await User.find({ '_id': { $in: result.following } }).select('detail.FullName time').exec(async (err, following) => {
                     if (err) {
                       console.log(err);
                     } else {
@@ -805,7 +805,7 @@ await  User.findById(req.params.id, async (err, result) => {
                           res.render("myprofile", { user: result, question: results, answer: answer, followers: followers, following: following });
 
                         } else {
-                    await      User.findById(req.user._id, async function (err, myUser) {
+                          await User.findById(req.user._id, async function (err, myUser) {
                             if (err) {
                               console.log(err);
                             } else if (result) {
@@ -1015,6 +1015,6 @@ app.get("/", function (req, res) {
 
 
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 3000, function () {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });

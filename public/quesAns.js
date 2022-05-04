@@ -7,6 +7,7 @@ window.addEventListener("pageshow", function (event) {
     window.location.reload();
   }
 });
+
 document.getElementById('allAnswer').onclick = () => {
   let ans = document.getElementsByClassName('answerer');
   for (let i = 0; i < ans.length; i++) {

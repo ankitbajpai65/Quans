@@ -1,5 +1,5 @@
 // console.log("js file included");
-window.addEventListener("pageshow", function(event) {
+window.addEventListener("pageshow", function (event) {
     var historyTraversal = event.persisted ||
         (typeof window.performance != "undefined" &&
             window.performance.navigation.type === 2);
@@ -16,12 +16,12 @@ var exr = 0;
 
 function populateSearch() {
     if (exr % 2 == 0) {
-        document.getElementById('list-2').style.width = '';
+        // document.getElementById('list-2').style.width = '';
         // document.getElementById('list-2').style.marginRight = '';
         document.getElementById('searchBar').style.display = '';
     } else {
         // if (screen.width >= '1200px')
-        document.getElementById('list-2').style.width = '27rem';
+        // document.getElementById('list-2').style.width = '27rem';
         // document.getElementById('list-2').style.marginRight = '4rem';
         // else if (screen.width >= '992px' && screen.width <= '1200px')
         //   document.getElementById('list-2').style.width = '25rem';
@@ -50,7 +50,7 @@ function openForm() {
         footer.style.opacity = '0.1';
     document.body.style.overflowY = 'hidden';
 }
-
+document.body.style.overflow = "scroll";
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
     document.getElementById("signupForm").style.display = "none";
@@ -79,6 +79,8 @@ function populateSignup() {
     home.style.opacity = '0.1';
     about.style.opacity = '0.1';
     footer.style.opacity = '0.1';
+    // document.body.style.overflowY = 'hidden';
+    document.body.style.overflow = "hidden";
 }
 
 let homeBtn = document.querySelector('.homeBtn');
@@ -149,12 +151,12 @@ function dothis() {
         message: message
     }
     data = JSON.stringify(data);
-    $.post('/mailing', { data: data }).done(function(data) {
+    $.post('/mailing', { data: data }).done(function (data) {
         console.log(data);
         if (!data.ok) {
-            alert("you are not logged in");
+            alert("Kindly login into your account!");
         } else {
-            alert("successfully submitted");
+            alert("Successfully submitted");
         }
     });
 }

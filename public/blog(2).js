@@ -1,5 +1,5 @@
 // console.log("js file included");
-window.addEventListener("pageshow", function(event) {
+window.addEventListener("pageshow", function (event) {
     var historyTraversal = event.persisted ||
         (typeof window.performance != "undefined" &&
             window.performance.navigation.type === 2);
@@ -139,19 +139,19 @@ function dothis() {
         message: message
     }
     data = JSON.stringify(data);
-    $.post('/mailing', { data: data }).done(function(data) {
+    $.post('/mailing', { data: data }).done(function (data) {
         console.log(data);
         if (!data.ok) {
-            alert("you are not logged in");
+            alert("Kindly login into your account!");
         } else {
-            alert("successfully submitted");
+            alert("Successfully submitted");
         }
     });
 }
 
 
 
-$('#submitQues').on('click', function() {
+$('#submitQues').on('click', function () {
     const data = $('#askq').val();
     $.post('/askquestion', { question: data });
     $('#quesSec').css('display', 'none');
@@ -166,7 +166,7 @@ function closeHelpDiv() {
 
 // Profile image function
 //
-$(document).on('click', function(e) {
+$(document).on('click', function (e) {
     let qt = e.target.id;
     if (qt == 'profileImg' || qt == 'profileImgs' || qt == 'total' || qt == 'infoList') {
         document.getElementById('infoSec').style.display = "block";
@@ -221,7 +221,7 @@ if (userBtn) {
     }
 }
 
-$('button#flwBtn').on('click', function() {
+$('button#flwBtn').on('click', function () {
     let nam = $(this).html();
     let xd = $(this).attr('name');
     $.post('/follow', { data: xd });
