@@ -1012,18 +1012,11 @@ app.get("/", function (req, res) {
   }
 });
 
-
-
-
-
-<<<<<<< HEAD:app.js
 app.listen(process.env.PORT || 3000, function () {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-=======
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3001;
 }
 app.listen(port);
->>>>>>> f3fb8869a75da143fb90a8f0a25fda65c00a7bb3:server.js
