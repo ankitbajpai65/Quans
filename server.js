@@ -32,12 +32,14 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-
+app.set('trust proxy', 1);
 
 app.use(session({
   secret: "Our little secret.",
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  savehttpOnly: true,  // Don't let browser javascript access cookies.
+    secure: true, // Only use cookies over https
 }));
 
 app.use(passport.initialize());
@@ -229,11 +231,10 @@ passport.use(new GoogleStrategy({
 },
   function (accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ username: profile.emails[0].value, googleId: profile.id }, function (err, user) {
-      user.detail.FName = profile.name.givenName;
-      user.detail.LName = profile.name.familyName;
-      user.detail.FullName = profile.name.givenName.toString() + " " + profile.name.familyName.toString();
-      var d = new Date();
       if (!user.time) {
+        user.detail.FName = profile.name.givenName;
+        user.detail.LName = profile.name.familyName;
+        user.detail.FullName = profile.name.givenName.toString() + " " + profile.name.familyName.toString();
         var d = new Date();
         const time = new usertime({
           day: d.getDay(),
@@ -1015,6 +1016,14 @@ app.get("/", function (req, res) {
 
 
 
+<<<<<<< HEAD:app.js
 app.listen(process.env.PORT || 3000, function () {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
+=======
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3001;
+}
+app.listen(port);
+>>>>>>> f3fb8869a75da143fb90a8f0a25fda65c00a7bb3:server.js

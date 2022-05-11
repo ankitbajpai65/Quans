@@ -1,10 +1,36 @@
 <%- include('partials/Headerforsigned')%>
+<<<<<<< HEAD
     <%if(user.length===0){%>
         <section id="querySec">
             <div id="queryDiv">
                 <div class="quesDiv">
                     <h1>No Questions are currently available</h1>
                 </div>
+=======
+  <%if(user.length===0){%>
+    <section id="querySec">
+      <div id="queryDiv">
+        <div class="quesDiv">
+          <h1>No Questions are currently available</h1>
+        </div>
+      </div>
+    </section>
+
+    <%}else{%>
+      <section id="querySec">
+        <% user.forEach(function(se){%>
+          <div class="quesDiv">
+            <!-- <i class="fas fa-question-circle" id="quesIcon"></i> -->
+            <i class="far fa-question-circle" id="quesIcon"></i>
+            <a href="/question/<%=se._id%>">
+              <p>
+                <%=se.ques%>
+              </p>
+            </a>
+          </div>
+          <br>
+          <%});%>
+>>>>>>> f3fb8869a75da143fb90a8f0a25fda65c00a7bb3
             </div>
         </section>
 
@@ -31,4 +57,8 @@
 
 
 
+<<<<<<< HEAD
                 <%- include('partials/Footerforsigned') %>
+=======
+        <%- include('partials/Footerforsigned') %>
+>>>>>>> f3fb8869a75da143fb90a8f0a25fda65c00a7bb3
